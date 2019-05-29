@@ -10,3 +10,4 @@ build.xml.old
 *.jar
 .idea/
 .minecraft.iml
+out/
