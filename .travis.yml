@@ -15,4 +15,5 @@ notifications:
       - bvicente@fi.uba.ar
       - morgan_pirata2003@yahoo.com.ar
       - joaquin_andresen@icloud.com
+      - fernando.fabbiano@gmail.com
     on_failure: always
