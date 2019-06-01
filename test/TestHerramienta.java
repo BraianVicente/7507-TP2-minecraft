@@ -52,4 +52,29 @@ public class TestHerramienta {
         Assert.assertEquals(fuerza, 12);
 
     }
+
+    @Test
+    public void CreoPicoDePiedraConDurabilidadYFuerza(){
+        PicoDePiedra pico = new PicoDePiedra();
+
+        int durabilidad = pico.obtenerDurabilidad();
+        int fuerza = pico.obtenerFuerza();
+
+        Assert.assertEquals(durabilidad, 200);
+        Assert.assertEquals(fuerza, 4);
+
+    }
+
+    @Test
+    public void CreoHachaDePiedraConDurabilidadYFuerza(){
+        HachaDePiedra pico = new HachaDePiedra();
+
+        int durabilidad = pico.obtenerDurabilidad();
+        int fuerza = pico.obtenerFuerza();
+
+        Assert.assertEquals(durabilidad, 200);
+        Assert.assertEquals(fuerza, 5);
+
+    }
+
 }
