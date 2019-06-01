@@ -2,6 +2,8 @@ import fiuba.algo3.Herramientas.HachaDeMadera;
 import fiuba.algo3.Herramientas.PicoDeMadera;
 import fiuba.algo3.Herramientas.HachaDeMetal;
 import fiuba.algo3.Herramientas.PicoDeMetal;
+import fiuba.algo3.Herramientas.HachaDePiedra;
+import fiuba.algo3.Herramientas.PicoDePiedra;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -76,5 +78,5 @@ public class TestHerramienta {
         Assert.assertEquals(fuerza, 5);
 
     }
-    
+
 }
