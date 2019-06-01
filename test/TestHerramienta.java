@@ -2,8 +2,8 @@ import fiuba.algo3.Herramientas.HachaDeMadera;
 import fiuba.algo3.Herramientas.PicoDeMadera;
 import fiuba.algo3.Herramientas.HachaDeMetal;
 import fiuba.algo3.Herramientas.PicoDeMetal;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import junit.framework.Assert;
+import org.junit.Test;
 
 public class TestHerramienta {
 
@@ -14,8 +14,8 @@ public class TestHerramienta {
         int durabilidad = hacha.obtenerDurabilidad();
         int fuerza = hacha.obtenerFuerza();
 
-        assertEquals(durabilidad, 100);
-        assertEquals(fuerza, 2);
+        Assert.assertEquals(durabilidad, 100);
+        Assert.assertEquals(fuerza, 2);
     }
 
     @Test
@@ -25,8 +25,8 @@ public class TestHerramienta {
         int durabilidad = pico.obtenerDurabilidad();
         int fuerza = pico.obtenerFuerza();
 
-        assertEquals(durabilidad, 100);
-        assertEquals(fuerza, 2);
+        Assert.assertEquals(durabilidad, 100);
+        Assert.assertEquals(fuerza, 2);
     }
 
     @Test
@@ -36,8 +36,8 @@ public class TestHerramienta {
         int durabilidad = hacha.obtenerDurabilidad();
         int fuerza = hacha.obtenerFuerza();
 
-        assertEquals(durabilidad, 400);
-        assertEquals(fuerza, 10);
+        Assert.assertEquals(durabilidad, 400);
+        Assert.assertEquals(fuerza, 10);
 
     }
 
@@ -48,8 +48,8 @@ public class TestHerramienta {
         int durabilidad = pico.obtenerDurabilidad();
         int fuerza = pico.obtenerFuerza();
 
-        assertEquals(durabilidad, 400);
-        assertEquals(fuerza, 12);
+        Assert.assertEquals(durabilidad, 400);
+        Assert.assertEquals(fuerza, 12);
 
     }
 }
