@@ -19,7 +19,7 @@ public class Foo {
 
 	public int doLoop() {
 				int x = 1;
-		for (int i=1; i< 3; i++) {
+		for (int i=1; i< 4; i++) {
 			x++;
 		}
 		return x;
