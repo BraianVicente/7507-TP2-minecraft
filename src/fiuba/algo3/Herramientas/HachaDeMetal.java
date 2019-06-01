@@ -16,4 +16,5 @@ public class HachaDeMetal extends Herramienta {
     public int obtenerFuerza(){
         return this.fuerza;
     }
+
 }

@@ -67,14 +67,14 @@ public class TestHerramienta {
 
     @Test
     public void CreoHachaDePiedraConDurabilidadYFuerza(){
-        HachaDePiedra pico = new HachaDePiedra();
+        HachaDePiedra hacha = new HachaDePiedra();
 
-        int durabilidad = pico.obtenerDurabilidad();
-        int fuerza = pico.obtenerFuerza();
+        int durabilidad = hacha.obtenerDurabilidad();
+        int fuerza = hacha.obtenerFuerza();
 
         Assert.assertEquals(durabilidad, 200);
         Assert.assertEquals(fuerza, 5);
 
     }
-
+    
 }

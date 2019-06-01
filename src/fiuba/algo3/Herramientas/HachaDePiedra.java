@@ -4,7 +4,7 @@ public class HachaDePiedra extends Herramienta {
     private int durabilidad;
     private int fuerza;
 
-    public PicoDePiedra(){
+    public HachaDePiedra(){
         this.durabilidad = 200;
         this.fuerza = 5;
     }
