@@ -11,22 +11,45 @@ public class TestHerramienta {
     public void CreoHachaDeMaderaConDurabilidadYFuerza(){
         HachaDeMadera hacha = new HachaDeMadera();
 
+        int durabilidad = hacha.obtenerDurabilidad();
+        int fuerza = hacha.obtenerFuerza();
+
+        assertEquals(durabilidad, 100);
+        assertEquals(fuerza, 2);
     }
 
     @Test
     public void CreoPicoDeMaderaConDurabilidadYFuerza(){
         PicoDeMadera pico = new PicoDeMadera();
+
+        int durabilidad = pico.obtenerDurabilidad();
+        int fuerza = pico.obtenerFuerza();
+
+        assertEquals(durabilidad, 100);
+        assertEquals(fuerza, 2);
     }
 
     @Test
     public void CreoHachaDeMetalConDurabilidadYFuerza(){
         HachaDeMetal hacha = new HachaDeMetal();
-        
+
+        int durabilidad = hacha.obtenerDurabilidad();
+        int fuerza = hacha.obtenerFuerza();
+
+        assertEquals(durabilidad, 400);
+        assertEquals(fuerza, 10);
+
     }
 
     @Test
     public void CreoPicoDeMetalConDurabilidadYFuerza(){
         PicoDeMetal pico = new PicoDeMetal();
+
+        int durabilidad = pico.obtenerDurabilidad();
+        int fuerza = pico.obtenerFuerza();
+
+        assertEquals(durabilidad, 400);
+        assertEquals(fuerza, 12);
 
     }
 }
