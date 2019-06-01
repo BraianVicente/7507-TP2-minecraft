@@ -1,4 +1,4 @@
-package minecraft;
+package fiuba.algo3.minecraft.material;
 
 import fiuba.algo3.Herramientas.HachaDeMadera;
 import fiuba.algo3.Herramientas.HachaDeMetal;
