@@ -19,7 +19,23 @@ public class HachaDeMetalTest {
 
 /***********************************************/
 
+    @Test
+    public void test02CreamosHachaDeMetalConDurabilidadPredeterminada () {
+
+        HachaDeMetal unHachaDeMetal = new HachaDeMetal();
+        Assert.assertEquals(400,unHachaDeMetal.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
+
+    @Test
+    public void test03CreamosHachaDeMetalConFuerzaPredeterminada () {
+
+        HachaDeMetal unHachaDeMetal = new HachaDeMetal();
+        Assert.assertEquals(10,unHachaDeMetal.obtenerFuerza());
+
+    }
 
 /***********************************************/
 
