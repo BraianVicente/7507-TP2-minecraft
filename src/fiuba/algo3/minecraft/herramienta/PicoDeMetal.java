@@ -1,12 +1,13 @@
-package fiuba.algo3.Herramientas;
+package fiuba.algo3.minecraft.herramienta;
 
-public class HachaDeMetal extends Herramienta {
+
+public class PicoDeMetal extends Herramienta {
     private int durabilidad;
     private int fuerza;
 
-    public HachaDeMetal(){
+    public PicoDeMetal(){
         this.durabilidad = 400;
-        this.fuerza = 10;
+        this.fuerza = 12;
     }
 
     public int obtenerDurabilidad() {

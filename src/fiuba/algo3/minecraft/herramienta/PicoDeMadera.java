@@ -1,4 +1,4 @@
-package fiuba.algo3.Herramientas;
+package fiuba.algo3.minecraft.herramienta;
 
 public class PicoDeMadera extends Herramienta {
     private int durabilidad;

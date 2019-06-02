@@ -1,4 +1,4 @@
-package fiuba.algo3.material;
+package fiuba.algo3.minecraft.material;
 
 
 public class Metal extends Material {
