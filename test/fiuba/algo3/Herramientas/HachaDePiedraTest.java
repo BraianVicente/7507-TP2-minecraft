@@ -17,4 +17,18 @@ public class HachaDePiedraTest {
 
     }
 
+/***********************************************/
+
+    @Test
+    public void test02CreamosHachaDePiedraConDurabilidadPredeterminada () {
+
+        HachaDePiedra unHachaDePiedra = new HachaDePiedra();
+        Assert.assertEquals(200,unHachaDePiedra.obtenerDurabilidad());
+
+    }
+
+/***********************************************/
+
+/***********************************************/
+
 }
