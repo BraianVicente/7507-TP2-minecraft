@@ -11,6 +11,6 @@ public class DesgastePicoFino extends Desgaste{
         if (durabilidad <= 0 ){
             throw new NoSePuedeUsarException() ;
         }
-        durabilidad = (int) (durabilidad * 0.1);
+        durabilidad = durabilidad -  (int) (durabilidad * 0.1);
     }
 }
