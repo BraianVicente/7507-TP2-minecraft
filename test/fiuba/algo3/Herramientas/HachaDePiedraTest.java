@@ -29,6 +29,14 @@ public class HachaDePiedraTest {
 
 /***********************************************/
 
+    @Test
+    public void test03CreamosHachaDePiedraConFuerzaPredeterminada () {
+
+        HachaDePiedra unHachaDePiedra = new HachaDePiedra();
+        Assert.assertEquals(5,unHachaDePiedra.obtenerFuerza());
+
+    }
+
 /***********************************************/
 
 }
