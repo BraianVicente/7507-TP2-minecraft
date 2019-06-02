@@ -1,6 +1,6 @@
 package fiuba.algo3.Herramientas;
 
-public class Herramienta {
+public abstract class Herramienta {
     private int durabilidad;
     private int fuerza;
 }
