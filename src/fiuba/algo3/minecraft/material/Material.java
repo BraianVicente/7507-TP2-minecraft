@@ -11,6 +11,4 @@ public abstract class Material {
         durabilidad = durabilidad - fuerzaHerramienta ;
     }
 
-
-
 }
