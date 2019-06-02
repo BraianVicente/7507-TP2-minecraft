@@ -58,7 +58,7 @@ public class DesgasteEstandarTest {
 
     }
 
-    @Test(expected = NoSePuedeDesgastarException.class)
+    @Test(expected = HerramientaRotaException.class)
     public void lanzarExcepcionAlQuererDesgastarDurabilidadEnCero(){
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 2 ;

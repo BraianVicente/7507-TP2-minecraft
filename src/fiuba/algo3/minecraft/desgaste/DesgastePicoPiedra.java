@@ -8,7 +8,7 @@ public class DesgastePicoPiedra extends Desgaste{
     @Override
     public void desgastar() {
         if (durabilidad <= 0 ){
-            throw new NoSePuedeDesgastarException() ;
+            throw new HerramientaRotaException() ;
         }
         durabilidad = durabilidad - (int)(fuerza / 1.5);
     }

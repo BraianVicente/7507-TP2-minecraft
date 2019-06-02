@@ -9,7 +9,7 @@ public class DesgasteHachaMetal extends Desgaste {
     @Override
     public void desgastar() {
         if (durabilidad <= 0 ){
-            throw new NoSePuedeDesgastarException() ;
+            throw new HerramientaRotaException() ;
         }
         durabilidad -= (fuerza/2) ;
 
