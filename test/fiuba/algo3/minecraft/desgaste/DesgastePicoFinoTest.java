@@ -36,7 +36,8 @@ public class DesgastePicoFinoTest {
         DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
-        int reduccionDurabilidad = (int) (durabilidadInicial * 0.1);
+        int reduccionDurabilidad = (int)(durabilidadInicial -  (durabilidadInicial * 0.1));
+
         Assert.assertEquals(reduccionDurabilidad, desgaste.obtenerDurabilidad());
 
     }
