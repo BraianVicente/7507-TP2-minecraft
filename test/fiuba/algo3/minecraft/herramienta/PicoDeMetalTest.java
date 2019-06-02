@@ -13,8 +13,6 @@ public class PicoDeMetalTest {
 
     }
 
-    /***********************************************/
-
     @Test
     public void test02CreamosPicoDeMetalConDurabilidadPredeterminada () {
 
@@ -22,8 +20,6 @@ public class PicoDeMetalTest {
         Assert.assertEquals(400,unPicoDeMetal.obtenerDurabilidad());
 
     }
-
-    /***********************************************/
 
     @Test
     public void test03CreamosPicoDeMetalConFuerzaPredeterminada () {
@@ -33,5 +29,4 @@ public class PicoDeMetalTest {
 
     }
 
-/***********************************************/
 }

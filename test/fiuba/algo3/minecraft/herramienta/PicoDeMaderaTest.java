@@ -13,8 +13,6 @@ public class PicoDeMaderaTest {
 
     }
 
-    /***********************************************/
-
     @Test
     public void test02CreamosPicoDeMaderaConDurabilidadPredeterminada () {
 
@@ -22,8 +20,6 @@ public class PicoDeMaderaTest {
         Assert.assertEquals(100,unPicoDeMadera.obtenerDurabilidad());
 
     }
-
-    /***********************************************/
 
     @Test
     public void test03CreamosPicoDeMaderaConFuerzaPredeterminada () {
@@ -33,5 +29,4 @@ public class PicoDeMaderaTest {
 
     }
 
-/***********************************************/
 }

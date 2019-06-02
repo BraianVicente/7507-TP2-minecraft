@@ -13,8 +13,6 @@ public class PicoFinoTest {
 
     }
 
-    /***********************************************/
-
     @Test
     public void test02CreamosPicoFinoConDurabilidadPredeterminada () {
 
@@ -22,8 +20,6 @@ public class PicoFinoTest {
         Assert.assertEquals(1000,unPicoFino.obtenerDurabilidad());
 
     }
-
-    /***********************************************/
 
     @Test
     public void test03CreamosPicoFinoConFuerzaPredeterminada () {

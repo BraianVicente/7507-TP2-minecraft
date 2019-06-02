@@ -13,8 +13,6 @@ public class PicoDePiedraTest {
 
     }
 
-    /***********************************************/
-
     @Test
     public void test02CreamosPicoDePiedraConDurabilidadPredeterminada () {
 
@@ -22,8 +20,6 @@ public class PicoDePiedraTest {
         Assert.assertEquals(200,unPicoDePiedra.obtenerDurabilidad());
 
     }
-
-    /***********************************************/
 
     @Test
     public void test03CreamosPicoDePiedraConFuerzaPredeterminada () {
@@ -33,5 +29,4 @@ public class PicoDePiedraTest {
 
     }
 
-/***********************************************/
 }
