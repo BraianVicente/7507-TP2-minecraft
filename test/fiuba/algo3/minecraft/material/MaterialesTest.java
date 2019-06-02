@@ -1,13 +1,9 @@
 package fiuba.algo3.minecraft.material;
 
-import fiuba.algo3.Herramientas.HachaDeMadera;
-import fiuba.algo3.Herramientas.HachaDeMetal;
-import fiuba.algo3.Herramientas.PicoDeMadera;
-import fiuba.algo3.Herramientas.PicoDeMetal;
-import fiuba.algo3.material.Diamante;
-import fiuba.algo3.material.Madera;
-import fiuba.algo3.material.Metal;
-import fiuba.algo3.material.Piedra;
+import fiuba.algo3.minecraft.herramienta.HachaDeMadera;
+import fiuba.algo3.minecraft.herramienta.HachaDeMetal;
+import fiuba.algo3.minecraft.herramienta.PicoDeMadera;
+import fiuba.algo3.minecraft.herramienta.PicoDeMetal;
 import org.junit.Assert;
 import org.junit.Test;
 
