@@ -1,4 +1,4 @@
-package fiuba.algo3.Herramientas;
+package fiuba.algo3.minecraft.herramienta;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,8 +6,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class HachaDeMaderaTest {
-
-/***********************************************/
 
     @Test
     public void test01CreamonsInstanciaDeHachaDeMadera () {
@@ -17,8 +15,6 @@ public class HachaDeMaderaTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test02CreamosHachaDeMaderaConDurabilidadPredeterminada () {
 
@@ -27,8 +23,6 @@ public class HachaDeMaderaTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test03CreamosHachaDeMaderaConFuerzaPredeterminada () {
 
@@ -36,7 +30,5 @@ public class HachaDeMaderaTest {
         Assert.assertEquals(2,unHachaDeMadera.obtenerFuerza());
 
     }
-
-/***********************************************/
 
 }

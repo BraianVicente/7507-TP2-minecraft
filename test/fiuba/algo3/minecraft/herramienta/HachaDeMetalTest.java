@@ -1,13 +1,12 @@
-package fiuba.algo3.Herramientas;
+package fiuba.algo3.minecraft.herramienta;
 
+import fiuba.algo3.minecraft.herramienta.HachaDeMetal;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class HachaDeMetalTest {
-
-/***********************************************/
 
     @Test
     public void test01CreamosInstanciaDeHachaDeMetal () {
@@ -17,8 +16,6 @@ public class HachaDeMetalTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test02CreamosHachaDeMetalConDurabilidadPredeterminada () {
 
@@ -27,8 +24,6 @@ public class HachaDeMetalTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test03CreamosHachaDeMetalConFuerzaPredeterminada () {
 
@@ -36,7 +31,5 @@ public class HachaDeMetalTest {
         Assert.assertEquals(10,unHachaDeMetal.obtenerFuerza());
 
     }
-
-/***********************************************/
 
 }

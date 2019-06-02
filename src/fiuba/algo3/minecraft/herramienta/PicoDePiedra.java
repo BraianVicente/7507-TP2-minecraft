@@ -1,6 +1,4 @@
-package fiuba.algo3.Herramientas;
-
-import fiuba.algo3.minecraft.herramienta.Herramienta;
+package fiuba.algo3.minecraft.herramienta;
 
 public class PicoDePiedra extends Herramienta {
 
