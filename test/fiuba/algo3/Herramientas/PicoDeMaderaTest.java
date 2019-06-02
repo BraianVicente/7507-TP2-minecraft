@@ -16,4 +16,26 @@ public class PicoDeMaderaTest {
         Assert.assertNotNull(unPicoDeMadera);
 
     }
+
+    /***********************************************/
+
+    @Test
+    public void test02CreamosPicoDeMaderaConDurabilidadPredeterminada () {
+
+        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Assert.assertEquals(100,unPicoDeMadera.obtenerDurabilidad());
+
+    }
+
+    /***********************************************/
+
+    @Test
+    public void test03CreamosPicoDeMaderaConFuerzaPredeterminada () {
+
+        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Assert.assertEquals(2,unPicoDeMadera.obtenerFuerza());
+
+    }
+
+/***********************************************/
 }
