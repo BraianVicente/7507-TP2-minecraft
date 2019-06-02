@@ -56,18 +56,6 @@ public class MaterialesTest {
     }
 
     @Test
-    public void desgastarMaderaConHachaPiedra(){
-        HachaDePiedra herramienta = new HachaDePiedra() ;
-        Madera material = new Madera();
-
-        material.desgastar(herramienta);
-        int durabilidad = material.obtenerDurabilidad();
-
-        Assert.assertEquals(5,durabilidad);
-
-    }
-
-    @Test
     public void desgastarMaderaConHachaMetal(){
         HachaDeMetal herramienta = new HachaDeMetal() ;
         Madera material = new Madera();
