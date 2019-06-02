@@ -7,10 +7,9 @@ import org.junit.Test;
 public class JugadorTest {
 
     @Test
-    public void test01CreamosInstanciaDeJugadorConHachaDeMadera(){
+    public void test01CreamosInstanciaDeJugador(){
 
         Jugador unJugador = new Jugador();
-        HachaDeMadera hacha = new HachaDeMadera();
 
         Assert.assertNotNull(unJugador);
 
