@@ -57,7 +57,7 @@ public class DesgastePicoPiedraTest {
 
     }
 
-    @Test(expected = HerramientaRotaException.class)
+    @Test(expected = NoSePuedeUsarException.class)
     public void lanzarExcepcionAlQuererDesgastarDurabilidadEnCero(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
