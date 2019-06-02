@@ -3,7 +3,7 @@ package fiuba.algo3.minecraft.herramienta ;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestHerramienta {
+public class HerramientaTest {
 
     @Test
     public void creoHachaDeMaderaConDurabilidadYFuerza(){
@@ -52,7 +52,7 @@ public class TestHerramienta {
     }
 
     @Test
-    public void CreoPicoDePiedraConDurabilidadYFuerza(){
+    public void creoPicoDePiedraConDurabilidadYFuerza(){
         PicoDePiedra pico = new PicoDePiedra();
 
         int durabilidad = pico.obtenerDurabilidad();
@@ -64,7 +64,7 @@ public class TestHerramienta {
     }
 
     @Test
-    public void CreoHachaDePiedraConDurabilidadYFuerza(){
+    public void creoHachaDePiedraConDurabilidadYFuerza(){
         HachaDePiedra hacha = new HachaDePiedra();
 
         int durabilidad = hacha.obtenerDurabilidad();
