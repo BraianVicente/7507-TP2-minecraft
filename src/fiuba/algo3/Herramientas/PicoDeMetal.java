@@ -7,6 +7,4 @@ public class PicoDeMetal extends Herramienta {
         this.durabilidad = 400;
         this.fuerza = 12;
     }
-
-
 }

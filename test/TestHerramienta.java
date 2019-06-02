@@ -2,6 +2,8 @@ import fiuba.algo3.Herramientas.HachaDeMadera;
 import fiuba.algo3.Herramientas.PicoDeMadera;
 import fiuba.algo3.Herramientas.HachaDeMetal;
 import fiuba.algo3.Herramientas.PicoDeMetal;
+import fiuba.algo3.Herramientas.HachaDePiedra;
+import fiuba.algo3.Herramientas.PicoDePiedra;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -52,4 +54,29 @@ public class TestHerramienta {
         Assert.assertEquals(fuerza, 12);
 
     }
+
+    @Test
+    public void CreoPicoDePiedraConDurabilidadYFuerza(){
+        PicoDePiedra pico = new PicoDePiedra();
+
+        int durabilidad = pico.obtenerDurabilidad();
+        int fuerza = pico.obtenerFuerza();
+
+        Assert.assertEquals(durabilidad, 200);
+        Assert.assertEquals(fuerza, 4);
+
+    }
+
+    @Test
+    public void CreoHachaDePiedraConDurabilidadYFuerza(){
+        HachaDePiedra hacha = new HachaDePiedra();
+
+        int durabilidad = hacha.obtenerDurabilidad();
+        int fuerza = hacha.obtenerFuerza();
+
+        Assert.assertEquals(durabilidad, 200);
+        Assert.assertEquals(fuerza, 5);
+
+    }
+
 }

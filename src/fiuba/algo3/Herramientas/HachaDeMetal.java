@@ -7,6 +7,4 @@ public class HachaDeMetal extends Herramienta {
         this.durabilidad = 400;
         this.fuerza = 10;
     }
-
-
 }
