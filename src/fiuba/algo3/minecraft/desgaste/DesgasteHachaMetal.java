@@ -1,9 +1,9 @@
 package fiuba.algo3.minecraft.desgaste;
 
-public class DesgasteEstandar extends Desgaste{
+public class DesgasteHachaMetal extends Desgaste {
 
-    public DesgasteEstandar(int durabilidad, int fuerza) {
-        super(durabilidad,fuerza);
+    public DesgasteHachaMetal(int durabilidad, int fuerza) {
+        super(durabilidad, fuerza);
     }
 
     @Override
@@ -11,7 +11,7 @@ public class DesgasteEstandar extends Desgaste{
         if (durabilidad <= 0 ){
             throw new NoSePuedeDesgastarException() ;
         }
-        durabilidad -= fuerza ;
+        durabilidad -= (fuerza/2) ;
 
     }
 }

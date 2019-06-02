@@ -3,7 +3,7 @@ package fiuba.algo3.minecraft.desgaste;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DesgasteTest {
+public class DesgasteEstandarTest {
 
     @Test
     public void crearDurabilidadEstandar(){
