@@ -43,7 +43,7 @@ public class DesgastePicoMetalTest {
 
     }
 
-    @Test(expected = HerramientaRotaException.class)
+    @Test(expected = NoSePuedeUsarException.class)
     public void lanzarExcepcionAlQuererDesgastarDurabilidadEnCero(){
         int durabilidadInicial = 400 ;
         int fuerzaInicial = 12 ;

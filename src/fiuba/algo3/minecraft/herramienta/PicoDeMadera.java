@@ -1,10 +1,11 @@
 package fiuba.algo3.minecraft.herramienta;
 
+import fiuba.algo3.minecraft.desgaste.DesgasteEstandar;
+
 public class PicoDeMadera extends Herramienta {
 
     public PicoDeMadera(){
-        this.durabilidad = 100;
-        this.fuerza = 2;
+        super(new DesgasteEstandar(100,2));
     }
 
 }

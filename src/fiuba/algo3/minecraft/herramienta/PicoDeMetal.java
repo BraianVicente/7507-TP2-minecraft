@@ -1,9 +1,10 @@
 package fiuba.algo3.minecraft.herramienta;
 
+import fiuba.algo3.minecraft.desgaste.DesgastePicoMetal;
+
 public class PicoDeMetal extends Herramienta {
 
     public PicoDeMetal(){
-        this.durabilidad = 400;
-        this.fuerza = 12;
+        super(new DesgastePicoMetal(400,12));
     }
 }

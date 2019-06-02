@@ -1,5 +1,9 @@
 package fiuba.algo3.minecraft.herramienta ;
 
+import fiuba.algo3.minecraft.material.Diamante;
+import fiuba.algo3.minecraft.material.Madera;
+import fiuba.algo3.minecraft.material.Metal;
+import fiuba.algo3.minecraft.material.Piedra;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,6 +31,38 @@ public class PicoFinoTest {
         PicoFino unPicoFino = new PicoFino();
         Assert.assertEquals(20,unPicoFino.obtenerFuerza());
 
+    }
+
+    @Test
+    public void usarPicoConMaterialesDiamanteYReduceDurabilidad(){
+
+        PicoFino pico = new PicoFino();
+        Diamante material = new Diamante();
+
+        int desgasteEsperado = 100 ;
+        int durabilidadInicialPico = pico.obtenerDurabilidad();
+
+        pico.desgastar(material);
+        int durabilidadFinalPico = pico.obtenerDurabilidad();
+
+        Assert.assertEquals(desgasteEsperado,(durabilidadInicialPico-durabilidadFinalPico));
+
+    }
+
+    @Test
+    public void usarPicoFinoContraElRestoDeMaterialesSinReducirDurabilidad(){
+
+        PicoFino pico = new PicoFino();
+        Madera madera = new Madera();
+        Piedra piedra = new Piedra();
+        Metal metal = new Metal();
+
+        int durabilidadInicial = pico.obtenerDurabilidad();
+        pico.desgastar(madera);
+        pico.desgastar(piedra);
+        pico.desgastar(metal);
+
+        Assert.assertEquals(durabilidadInicial, pico.obtenerDurabilidad());
     }
 
 }

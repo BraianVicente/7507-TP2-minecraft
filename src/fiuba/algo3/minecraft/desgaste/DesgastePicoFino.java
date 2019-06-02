@@ -9,8 +9,8 @@ public class DesgastePicoFino extends Desgaste{
     @Override
     public void desgastar() {
         if (durabilidad <= 0 ){
-            throw new HerramientaRotaException() ;
+            throw new NoSePuedeUsarException() ;
         }
-        durabilidad = (int) (durabilidad * 0.1);
+        durabilidad = (int) (durabilidad -  (durabilidad * 0.1)) ;
     }
 }

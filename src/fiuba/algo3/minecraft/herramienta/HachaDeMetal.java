@@ -1,9 +1,10 @@
 package fiuba.algo3.minecraft.herramienta;
 
+import fiuba.algo3.minecraft.desgaste.DesgasteHachaMetal;
+
 public class HachaDeMetal extends Herramienta {
 
     public HachaDeMetal(){
-        this.durabilidad = 400;
-        this.fuerza = 10;
+        super(new DesgasteHachaMetal(400,10));
     }
 }
