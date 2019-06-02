@@ -57,7 +57,7 @@ public class DesgasteHachaMetalTest {
 
     }
 
-    @Test(expected = NoSePuedeDesgastarException.class)
+    @Test(expected = HerramientaRotaException.class)
     public void lanzarExcepcionAlQuererDesgastarDurabilidadEnCero(){
         int durabilidadInicia = 400 ;
         int fuerzaInicial = 10 ;
