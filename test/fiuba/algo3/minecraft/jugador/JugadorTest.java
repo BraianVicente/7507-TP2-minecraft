@@ -1,14 +1,16 @@
 package fiuba.algo3.minecraft.jugador;
 
+import fiuba.algo3.minecraft.herramienta.HachaDeMadera;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
 
     @Test
-    public void test01CreamosInstanciaDeJugador(){
+    public void test01CreamosInstanciaDeJugadorConHachaDeMadera(){
 
         Jugador unJugador = new Jugador();
+        HachaDeMadera hacha = new HachaDeMadera();
 
         Assert.assertNotNull(unJugador);
 
@@ -35,5 +37,6 @@ public class JugadorTest {
         Assert.assertEquals("Steve", nombre);
 
     }
+
 
 }
