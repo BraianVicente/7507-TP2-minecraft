@@ -12,4 +12,26 @@ public class PicoDePiedraTest {
         Assert.assertNotNull(unPicoDePiedra);
 
     }
+
+    /***********************************************/
+
+    @Test
+    public void test02CreamosPicoDePiedraConDurabilidadPredeterminada () {
+
+        PicoDePiedra unPicoDePiedra = new PicoDePiedra();
+        Assert.assertEquals(200,unPicoDePiedra.obtenerDurabilidad());
+
+    }
+
+    /***********************************************/
+
+    @Test
+    public void test03CreamosPicoDePiedraConFuerzaPredeterminada () {
+
+        PicoDePiedra unPicoDePiedra = new PicoDePiedra();
+        Assert.assertEquals(4,unPicoDePiedra.obtenerFuerza());
+
+    }
+
+/***********************************************/
 }

@@ -12,4 +12,26 @@ public class PicoDeMetalTest {
         Assert.assertNotNull(unPicoDeMetal);
 
     }
+
+    /***********************************************/
+
+    @Test
+    public void test02CreamosPicoDeMetalConDurabilidadPredeterminada () {
+
+        PicoDeMetal unPicoDeMetal = new PicoDeMetal();
+        Assert.assertEquals(400,unPicoDeMetal.obtenerDurabilidad());
+
+    }
+
+    /***********************************************/
+
+    @Test
+    public void test03CreamosPicoDeMetalConFuerzaPredeterminada () {
+
+        PicoDeMetal unPicoDeMetal = new PicoDeMetal();
+        Assert.assertEquals(12,unPicoDeMetal.obtenerFuerza());
+
+    }
+
+/***********************************************/
 }
