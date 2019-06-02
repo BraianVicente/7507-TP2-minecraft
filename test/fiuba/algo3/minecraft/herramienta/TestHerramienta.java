@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestHerramienta {
 
     @Test
-    public void CreoHachaDeMaderaConDurabilidadYFuerza(){
+    public void creoHachaDeMaderaConDurabilidadYFuerza(){
         HachaDeMadera hacha = new HachaDeMadera();
 
         int durabilidad = hacha.obtenerDurabilidad();
@@ -17,7 +17,7 @@ public class TestHerramienta {
     }
 
     @Test
-    public void CreoPicoDeMaderaConDurabilidadYFuerza(){
+    public void creoPicoDeMaderaConDurabilidadYFuerza(){
         PicoDeMadera pico = new PicoDeMadera();
 
         int durabilidad = pico.obtenerDurabilidad();
@@ -28,7 +28,7 @@ public class TestHerramienta {
     }
 
     @Test
-    public void CreoHachaDeMetalConDurabilidadYFuerza(){
+    public void creoHachaDeMetalConDurabilidadYFuerza(){
         HachaDeMetal hacha = new HachaDeMetal();
 
         int durabilidad = hacha.obtenerDurabilidad();
@@ -40,7 +40,7 @@ public class TestHerramienta {
     }
 
     @Test
-    public void CreoPicoDeMetalConDurabilidadYFuerza(){
+    public void creoPicoDeMetalConDurabilidadYFuerza(){
         PicoDeMetal pico = new PicoDeMetal();
 
         int durabilidad = pico.obtenerDurabilidad();
