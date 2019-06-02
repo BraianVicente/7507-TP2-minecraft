@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.material;
 
-
 public class Metal extends Material {
 
     private Metal(int durabilidad){

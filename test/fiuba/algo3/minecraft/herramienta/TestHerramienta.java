@@ -1,8 +1,6 @@
 package fiuba.algo3.minecraft.herramienta ;
 
 import org.junit.Assert;
-import fiuba.algo3.Herramientas.HachaDePiedra;
-import fiuba.algo3.Herramientas.PicoDePiedra;
 import org.junit.Test;
 
 public class TestHerramienta {
