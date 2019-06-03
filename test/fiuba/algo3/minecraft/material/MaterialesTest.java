@@ -56,6 +56,18 @@ public class MaterialesTest {
     }
 
     @Test
+    public void desgastarMaderaConHachaPiedra(){
+        HachaDePiedra herramienta = new HachaDePiedra() ;
+        Madera material = new Madera();
+
+        material.desgastar(herramienta);
+        int durabilidad = material.obtenerDurabilidad();
+
+        Assert.assertEquals(5,durabilidad);
+
+    }
+
+    @Test
     public void desgastarMaderaConHachaMetal(){
         HachaDeMetal herramienta = new HachaDeMetal() ;
         Madera material = new Madera();
@@ -68,18 +80,6 @@ public class MaterialesTest {
     }
 
     @Test
-    public void desgastarMaderaConPicoMetal(){
-        PicoDeMetal herramienta = new PicoDeMetal() ;
-        Madera material = new Madera();
-
-        material.desgastar(herramienta);
-        int durabilidad = material.obtenerDurabilidad();
-
-        Assert.assertEquals(-2,durabilidad);
-
-    }
-
-    @Test
     public void desgastarMaderaConPicoMadera(){
         PicoDeMadera herramienta = new PicoDeMadera() ;
         Madera material = new Madera();
@@ -87,7 +87,31 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(8,durabilidad);
+        Assert.assertEquals(10,durabilidad);
+
+    }
+
+    @Test
+    public void desgastarMaderaConPicoPiedra(){
+        PicoDePiedra herramienta = new PicoDePiedra() ;
+        Madera material = new Madera();
+
+        material.desgastar(herramienta);
+        int durabilidad = material.obtenerDurabilidad();
+
+        Assert.assertEquals(10,durabilidad);
+
+    }
+
+    @Test
+    public void desgastarMaderaConPicoMetal(){
+        PicoDeMetal herramienta = new PicoDeMetal() ;
+        Madera material = new Madera();
+
+        material.desgastar(herramienta);
+        int durabilidad = material.obtenerDurabilidad();
+
+        Assert.assertEquals(10,durabilidad);
 
     }
 
@@ -99,7 +123,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(48,durabilidad);
+        Assert.assertEquals(50,durabilidad);
 
     }
 
@@ -111,7 +135,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(40,durabilidad);
+        Assert.assertEquals(50,durabilidad);
 
     }
 
@@ -135,7 +159,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(48,durabilidad);
+        Assert.assertEquals(50,durabilidad);
 
     }
 
@@ -147,7 +171,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(28,durabilidad);
+        Assert.assertEquals(30,durabilidad);
 
     }
 
@@ -159,7 +183,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(20,durabilidad);
+        Assert.assertEquals(30,durabilidad);
 
     }
 
@@ -195,7 +219,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(98,durabilidad);
+        Assert.assertEquals(100,durabilidad);
 
     }
 
@@ -207,7 +231,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(90,durabilidad);
+        Assert.assertEquals(100,durabilidad);
 
     }
 
@@ -219,7 +243,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(88,durabilidad);
+        Assert.assertEquals(100,durabilidad);
 
     }
 
@@ -231,7 +255,18 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(98,durabilidad);
+        Assert.assertEquals(100,durabilidad);
 
+    }
+
+    @Test
+    public void desgastarDiamanteConPicoFino(){
+        PicoFino herramienta = new PicoFino();
+        Diamante material = new Diamante();
+
+        material.desgastar(herramienta);
+        int durabilidad = material.obtenerDurabilidad();
+
+        Assert.assertEquals(80,durabilidad);
     }
 }
