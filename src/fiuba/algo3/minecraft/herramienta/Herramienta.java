@@ -20,7 +20,6 @@ public abstract class Herramienta {
     }
 
     public void desgastar(Material material){
-        this.desgaste.desgastar();
         material.desgastar(this);
     }
 
