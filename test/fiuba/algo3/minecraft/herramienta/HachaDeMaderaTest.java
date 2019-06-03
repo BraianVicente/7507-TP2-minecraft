@@ -6,7 +6,7 @@ import org.junit.Test;
 public class HachaDeMaderaTest {
 
     @Test
-    public void test01CreamonsInstanciaDeHachaDeMadera () {
+    public void test01CreamosInstanciaDeHachaDeMadera () {
 
         HachaDeMadera unHachaDeMadera = new HachaDeMadera();
         Assert.assertNotNull(unHachaDeMadera);
