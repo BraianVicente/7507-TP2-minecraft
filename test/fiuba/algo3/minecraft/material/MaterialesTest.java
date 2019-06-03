@@ -183,7 +183,7 @@ public class MaterialesTest {
         material.desgastar(herramienta);
         int durabilidad = material.obtenerDurabilidad();
 
-        Assert.assertEquals(20,durabilidad);
+        Assert.assertEquals(30,durabilidad);
 
     }
 
