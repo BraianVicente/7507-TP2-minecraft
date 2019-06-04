@@ -11,3 +11,5 @@ build.xml.old
 .idea/
 .minecraft.iml
 out/
+src/sample/*
+minecraft.iml
