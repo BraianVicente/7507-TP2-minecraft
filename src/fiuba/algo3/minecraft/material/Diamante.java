@@ -16,9 +16,7 @@ public class Diamante implements Material {
 
 
     @Override
-    public void desgastar(Herramienta herramienta) {
-        this.desgastar(herramienta);
-    }
+    public void desgastar(Herramienta herramienta) { this.desgastar(herramienta); }
 
     @Override
     public void desgastar(HachaDeMadera hacha) {

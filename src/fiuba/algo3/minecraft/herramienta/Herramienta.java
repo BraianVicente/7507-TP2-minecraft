@@ -1,7 +1,7 @@
 package fiuba.algo3.minecraft.herramienta;
 
 import fiuba.algo3.minecraft.desgaste.Desgaste;
-import fiuba.algo3.minecraft.material.Material;
+import fiuba.algo3.minecraft.material.*;
 
 public abstract class Herramienta {
 
@@ -20,6 +20,7 @@ public abstract class Herramienta {
     }
 
     public void desgastar(Material material){
+        this.desgaste.desgastar();
         material.desgastar(this);
     }
 
