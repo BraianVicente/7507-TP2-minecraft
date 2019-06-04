@@ -2,6 +2,11 @@ package fiuba.algo3.minecraft.herramienta;
 
 import org.junit.Assert;
 import org.junit.Test;
+import fiuba.algo3.minecraft.herramienta.HachaDeMaderaTest;
+import fiuba.algo3.minecraft.material.Diamante;
+import fiuba.algo3.minecraft.material.Madera;
+import fiuba.algo3.minecraft.material.Metal;
+import fiuba.algo3.minecraft.material.Piedra;
 
 public class HachaDeMaderaTest {
 
@@ -29,4 +34,35 @@ public class HachaDeMaderaTest {
 
     }
 
+    @Test
+    public void test04usarHachaDeMaderacontraMaderaYSeReduceSuDurabilidad(){
+
+        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Madera material = new Madera();
+
+        int desgasteEsperado = 2;
+        int durabilidadInicialHacha = unHachaDeMadera.obtenerDurabilidad();
+
+        unHachaDeMadera.desgastar(material);
+        int durabilidadFinalHacha = unHachaDeMadera.obtenerDurabilidad();
+
+        Assert.assertEquals(desgasteEsperado,(durabilidadInicialHacha-durabilidadFinalHacha));
+
+
+    }
+    @Test
+    public void test05usarHachaDeMaderaContraElRestoDeMaterialesSinReducirDurabilidad(){
+
+        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Diamante diamante = new Diamante();
+        Piedra piedra = new Piedra();
+        Metal metal = new Metal();
+
+        int durabilidadInicial = unHachaDeMadera.obtenerDurabilidad();
+        unHachaDeMadera.desgastar(diamante);
+        unHachaDeMadera.desgastar(piedra);
+        unHachaDeMadera.desgastar(metal);
+
+        Assert.assertEquals(durabilidadInicial, unHachaDeMadera.obtenerDurabilidad());
+    }
 }
