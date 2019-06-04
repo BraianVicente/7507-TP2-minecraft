@@ -12,19 +12,23 @@ public class PicoFino extends Herramienta {
         super(new DesgastePicoFino(1000,20));
     }
 
+    @Override
     public void desgastar(Metal material){
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Piedra material){
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Diamante material){
         this.desgaste.desgastar();
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Madera material){
         material.desgastar(this);
     }

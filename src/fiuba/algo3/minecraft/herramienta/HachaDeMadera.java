@@ -12,16 +12,20 @@ public class HachaDeMadera extends Herramienta {
         super(new DesgasteEstandar(100,2));
     }
 
+    @Override
     public void desgastar(Metal material){
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Piedra material){
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Diamante material){ material.desgastar(this); }
 
+    @Override
     public void desgastar(Madera material){
 
         this.desgaste.desgastar();

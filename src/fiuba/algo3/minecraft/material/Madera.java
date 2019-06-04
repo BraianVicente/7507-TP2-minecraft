@@ -34,6 +34,7 @@ public class Madera implements Material {
     @Override
     public void desgastar(HachaDeMetal hacha) {
         int fuerzaHerramienta = hacha.obtenerFuerza();
+        hacha.desgaste.desgastar();
         durabilidad = durabilidad - fuerzaHerramienta;
     }
 
