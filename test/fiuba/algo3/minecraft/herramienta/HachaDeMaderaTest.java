@@ -33,7 +33,6 @@ public class HachaDeMaderaTest {
 
     }
 
-
     @Test
     public void test04usarHachaDeMaderacontraMaderaYSeReduceSuDurabilidad(){
 

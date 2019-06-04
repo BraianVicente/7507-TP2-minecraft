@@ -28,5 +28,4 @@ public class PicoDeMetalTest {
         Assert.assertEquals(12,unPicoDeMetal.obtenerFuerza());
 
     }
-
 }
