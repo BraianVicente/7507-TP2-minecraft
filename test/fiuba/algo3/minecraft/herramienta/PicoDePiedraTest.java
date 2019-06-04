@@ -49,6 +49,7 @@ public class PicoDePiedraTest {
 
     }
 
+    @Test
     public void test05usarPicoDePiedracontraPiedraYSeReduceSuDurabilidad(){
 
         PicoDePiedra pico = new PicoDePiedra();
@@ -64,6 +65,7 @@ public class PicoDePiedraTest {
 
     }
 
+    @Test
     public void test06usarPicoDePiedracontraElRestoDeMaterialesYNoSeReduceSuDurabilidad(){
 
         PicoDePiedra pico = new PicoDePiedra();

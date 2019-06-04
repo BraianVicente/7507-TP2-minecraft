@@ -19,16 +19,16 @@ public class PicoDePiedra extends Herramienta {
 
     }
 
-    public void desgastar(Piedra material){ material.desgastar(this); }
-
-    public void desgastar(Diamante material){ material.desgastar(this); }
-
-    public void desgastar(Madera material){
+    public void desgastar(Piedra material){
 
         this.desgaste.desgastar();
         material.desgastar(this);
 
     }
+
+    public void desgastar(Diamante material){ material.desgastar(this); }
+
+    public void desgastar(Madera material){  material.desgastar(this); }
 
 }
 
