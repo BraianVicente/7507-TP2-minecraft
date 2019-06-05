@@ -80,6 +80,16 @@ public class MaderaTest {
 
 /***********************************************/
 
+    @Test
+    public void test07DesgastarMaderaConPicoDePiedra () {
+
+        Madera madera = new Madera();
+        PicoDePiedra picoDePiedra = new PicoDePiedra();
+        madera.desgastar(picoDePiedra);
+        Assert.assertEquals(10,madera.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 /***********************************************/
