@@ -12,10 +12,12 @@ public class PicoDeMadera extends Herramienta {
         super(new DesgasteEstandar(100,2));
     }
 
+    @Override
     public void desgastar(Metal material){
         material.desgastar(this);
     }
 
+    @Override
     public void desgastar(Piedra material){
 
         this.desgaste.desgastar();
@@ -23,8 +25,10 @@ public class PicoDeMadera extends Herramienta {
 
     }
 
+    @Override
     public void desgastar(Diamante material){ material.desgastar(this);}
 
+    @Override
     public void desgastar(Madera material){
         material.desgastar(this);
     }
