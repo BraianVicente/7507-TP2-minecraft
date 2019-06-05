@@ -78,6 +78,16 @@ public class DiamanteTest {
 
 /***********************************************/
 
+    @Test
+    public void test07DesgastarDiamanteConPicoDePiedra () {
+
+        Diamante unDiamante = new Diamante();
+        PicoDePiedra unPicoDePiedra = new PicoDePiedra();
+        unDiamante.desgastar(unPicoDePiedra);
+        Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 /***********************************************/
