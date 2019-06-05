@@ -90,6 +90,16 @@ public class DiamanteTest {
 
 /***********************************************/
 
+    @Test
+    public void tet08DesgastarDiamanteConPicoFino () {
+
+        Diamante unDiamante = new Diamante();
+        PicoFino unPicoFino = new PicoFino();
+        unDiamante.desgastar(unPicoFino);
+        Assert.assertEquals(80,unDiamante.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 /***********************************************/
