@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.herramienta;
 
-import fiuba.algo3.minecraft.desgaste.Desgaste;
 import fiuba.algo3.minecraft.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.material.Diamante;
 import fiuba.algo3.minecraft.material.Madera;
