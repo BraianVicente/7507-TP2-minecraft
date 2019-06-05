@@ -46,6 +46,16 @@ public class MaderaTest {
 
 /***********************************************/
 
+    @Test
+    public void test04DesgastarMaderaConHachaPiedra () {
+
+        Madera madera = new Madera();
+        HachaDePiedra hachaDePiedra = new HachaDePiedra();
+        madera.desgastar(hachaDePiedra);
+        Assert.assertEquals(5,madera.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 /***********************************************/
