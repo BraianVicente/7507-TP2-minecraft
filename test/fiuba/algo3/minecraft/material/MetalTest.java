@@ -93,6 +93,15 @@ public class MetalTest {
 
 /***********************************************/
 
+    @Test
+    public void test08DesgastarMetalConPicoFino () {
+
+        Metal metal = new Metal();
+        PicoFino picoFino = new PicoFino();
+        metal.desgastar(picoFino);
+        Assert.assertEquals(30,metal.obtenerDurabilidad());
+
+    }
 
 /***********************************************/
 
