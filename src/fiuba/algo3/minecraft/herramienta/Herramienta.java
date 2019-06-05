@@ -5,7 +5,7 @@ import fiuba.algo3.minecraft.material.*;
 
 public abstract class Herramienta {
 
-    protected Desgaste desgaste ;
+    public Desgaste desgaste ;
 
     protected Herramienta(Desgaste desgaste){
         this.desgaste = desgaste ;
@@ -19,9 +19,9 @@ public abstract class Herramienta {
         return desgaste.obtenerFuerza() ;
     }
 
-    public void desgastar(Material material){
-        this.desgaste.desgastar();
-        material.desgastar(this);
-    }
+    public abstract void desgastar(Metal material);
+    public abstract void desgastar(Madera material);
+    public abstract void desgastar(Diamante material);
+    public abstract void desgastar(Piedra material);
 
 }
