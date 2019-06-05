@@ -69,7 +69,27 @@ public class PiedraTest {
 
 /***********************************************/
 
+    @Test
+    public void test06DesgastarPiedraConPicoDeMetal () {
+
+        Piedra piedra = new Piedra();
+        PicoDeMetal picoDeMetal = new PicoDeMetal();
+        piedra.desgastar(picoDeMetal);
+        Assert.assertEquals(18,piedra.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
+
+    @Test
+    public void test07DesgastarPiedraConPicoDePiedra () {
+
+        Piedra piedra = new Piedra();
+        PicoDePiedra picoDePiedra = new PicoDePiedra();
+        piedra.desgastar(picoDePiedra);
+        Assert.assertEquals(26,piedra.obtenerDurabilidad());
+
+    }
 
 /***********************************************/
 
