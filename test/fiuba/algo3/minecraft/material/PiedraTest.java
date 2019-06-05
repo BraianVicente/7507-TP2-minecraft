@@ -93,6 +93,15 @@ public class PiedraTest {
 
 /***********************************************/
 
+    @Test
+    public void test08DesgastarPiedraConPicoFino () {
+
+        Piedra piedra = new Piedra();
+        PicoFino picoFino = new PicoFino();
+        piedra.desgastar(picoFino);
+        Assert.assertEquals(10,piedra.obtenerDurabilidad());
+
+    }
 
 /***********************************************/
 
