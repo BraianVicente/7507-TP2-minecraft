@@ -36,6 +36,16 @@ public class PiedraTest {
 
 /***********************************************/
 
+    @Test
+    public void test02DesgastarPiedraConHachaMetal () {
+
+        Piedra piedra = new Piedra();
+        HachaDeMetal hachaDeMetal = new HachaDeMetal();
+        piedra.desgastar(hachaDeMetal);
+        Assert.assertEquals(30,piedra.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 
