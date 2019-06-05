@@ -3,13 +3,13 @@ package fiuba.algo3.minecraft.desgaste;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DesgastePicoMetalTest {
+public class DesgasteEstaticoTest {
 
     @Test
     public void crearDesgastePicoMetal(){
         int durabilidadInicial = 400 ;
         int fuerzaInicial = 12 ;
-        DesgastePicoMetal desgaste = new DesgastePicoMetal(durabilidadInicial,fuerzaInicial) ;
+        DesgasteEstatico desgaste = new DesgasteEstatico(durabilidadInicial,fuerzaInicial) ;
 
         Assert.assertEquals(durabilidadInicial, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
@@ -20,7 +20,7 @@ public class DesgastePicoMetalTest {
         int durabilidadInicial = 400 ;
         int fuerzaInicial = 12 ;
 
-        DesgastePicoMetal desgaste = new DesgastePicoMetal(durabilidadInicial,fuerzaInicial) ;
+        DesgasteEstatico desgaste = new DesgasteEstatico(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
 
@@ -33,7 +33,7 @@ public class DesgastePicoMetalTest {
         int durabilidadInicial = 400 ;
         int fuerzaInicial = 12 ;
 
-        DesgastePicoMetal desgaste = new DesgastePicoMetal(durabilidadInicial,fuerzaInicial) ;
+        DesgasteEstatico desgaste = new DesgasteEstatico(durabilidadInicial,fuerzaInicial) ;
 
         for(int i = 0 ;i < 10 ; i++){
             desgaste.desgastar();
@@ -48,7 +48,7 @@ public class DesgastePicoMetalTest {
         int durabilidadInicial = 400 ;
         int fuerzaInicial = 12 ;
 
-        DesgastePicoMetal desgaste = new DesgastePicoMetal(durabilidadInicial,fuerzaInicial) ;
+        DesgasteEstatico desgaste = new DesgasteEstatico(durabilidadInicial,fuerzaInicial) ;
 
         for(int i = 0 ;i < 10 ; i++){
             desgaste.desgastar();

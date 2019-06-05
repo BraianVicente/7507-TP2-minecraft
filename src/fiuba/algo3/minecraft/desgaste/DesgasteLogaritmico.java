@@ -1,8 +1,8 @@
 package fiuba.algo3.minecraft.desgaste;
 
-public class DesgastePicoFino extends Desgaste{
+public class DesgasteLogaritmico extends Desgaste{
 
-    public DesgastePicoFino(int durabilidad, int fuerza) {
+    public DesgasteLogaritmico(int durabilidad, int fuerza) {
         super(durabilidad, fuerza);
     }
 

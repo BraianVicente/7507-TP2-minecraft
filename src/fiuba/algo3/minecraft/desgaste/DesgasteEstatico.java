@@ -1,8 +1,8 @@
 package fiuba.algo3.minecraft.desgaste;
 
-public class DesgastePicoMetal extends Desgaste{
+public class DesgasteEstatico extends Desgaste{
     private int durabilidadInicial ;
-    public DesgastePicoMetal(int durabilidad, int fuerza) {
+    public DesgasteEstatico(int durabilidad, int fuerza) {
         super(durabilidad,fuerza);
         durabilidadInicial = durabilidad ;
     }
