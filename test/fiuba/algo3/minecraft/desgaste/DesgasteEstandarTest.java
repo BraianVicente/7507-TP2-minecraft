@@ -9,7 +9,7 @@ public class DesgasteEstandarTest {
     public void crearDurabilidadEstandar(){
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 5 ;
-        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,1) ;
 
         Assert.assertEquals(durabilidadInicia, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
@@ -20,7 +20,7 @@ public class DesgasteEstandarTest {
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 2 ;
 
-        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,1) ;
 
         desgaste.desgastar();
 
@@ -33,7 +33,7 @@ public class DesgasteEstandarTest {
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 2 ;
 
-        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,1) ;
 
         desgaste.desgastar();
 
@@ -46,7 +46,7 @@ public class DesgasteEstandarTest {
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 2 ;
 
-        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,1) ;
 
         desgaste.desgastar();
         desgaste.desgastar();
@@ -63,7 +63,7 @@ public class DesgasteEstandarTest {
         int durabilidadInicia = 10 ;
         int fuerzaInicial = 2 ;
 
-        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,1) ;
 
         desgaste.desgastar();
         desgaste.desgastar();

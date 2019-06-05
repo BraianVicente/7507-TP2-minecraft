@@ -9,7 +9,7 @@ import fiuba.algo3.minecraft.material.Piedra;
 public class HachaDePiedra extends Herramienta {
 
     public HachaDePiedra () {
-        super(new DesgasteEstandar(200,5));
+        super(new DesgasteEstandar(200,5, 1 ));
     }
 
     @Override

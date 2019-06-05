@@ -6,38 +6,26 @@ import org.junit.Test;
 public class DesgasteHachaMetalTest {
 
     @Test
-    public void crearDesgasteHachaMetal(){
+    public void crearDesgasteEstandar(){
         int durabilidadInicia = 400 ;
         int fuerzaInicial = 10 ;
-        DesgasteHachaMetal desgaste = new DesgasteHachaMetal(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,0.5F) ;
 
         Assert.assertEquals(durabilidadInicia, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
     }
 
+
     @Test
-    public void reducirDesgasteHachaMetalAlDesgastarse(){
+    public void reducirDesgasteEstandarEnMitadUnidadesDeFuerza(){
         int durabilidadInicia = 400 ;
         int fuerzaInicial = 10 ;
 
-        DesgasteHachaMetal desgaste = new DesgasteHachaMetal(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,0.5F) ;
 
         desgaste.desgastar();
 
-        Assert.assertTrue("Se redujo durabilidad: ",durabilidadInicia > desgaste.obtenerDurabilidad());
-
-    }
-
-    @Test
-    public void reducirDesgasteHachaMetalEnMitadUnidadesDeFuerza(){
-        int durabilidadInicia = 400 ;
-        int fuerzaInicial = 10 ;
-
-        DesgasteHachaMetal desgaste = new DesgasteHachaMetal(durabilidadInicia,fuerzaInicial) ;
-
-        desgaste.desgastar();
-
-        int reduccionDurabilidad = fuerzaInicial/2 ;
+        int reduccionDurabilidad = (int) (fuerzaInicial * 0.5F) ;
         Assert.assertEquals((durabilidadInicia - reduccionDurabilidad), desgaste.obtenerDurabilidad());
 
     }
@@ -47,7 +35,7 @@ public class DesgasteHachaMetalTest {
         int durabilidadInicia = 400 ;
         int fuerzaInicial = 10 ;
 
-        DesgasteHachaMetal desgaste = new DesgasteHachaMetal(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,0.5F) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();
@@ -62,7 +50,7 @@ public class DesgasteHachaMetalTest {
         int durabilidadInicia = 400 ;
         int fuerzaInicial = 10 ;
 
-        DesgasteHachaMetal desgaste = new DesgasteHachaMetal(durabilidadInicia,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicia,fuerzaInicial,0.5F) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();

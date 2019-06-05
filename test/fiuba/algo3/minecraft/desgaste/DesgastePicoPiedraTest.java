@@ -6,21 +6,25 @@ import org.junit.Test;
 public class DesgastePicoPiedraTest {
 
     @Test
-    public void crearDesgastePicoPiedra(){
+    public void crearDesgasteEstandar(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
-        DesgastePicoPiedra desgaste = new DesgastePicoPiedra(durabilidadInicial,fuerzaInicial) ;
+        
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicial,fuerzaInicial,0.66F) ;
+
 
         Assert.assertEquals(durabilidadInicial, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
     }
 
     @Test
-    public void reducirDesgastePicoPiedraAlDesgastarse(){
+    public void reducirDesgasteEstandarAlDesgastarse(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
+        
 
-        DesgastePicoPiedra desgaste = new DesgastePicoPiedra(durabilidadInicial,fuerzaInicial) ;
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicial,fuerzaInicial,0.66F) ;
+
 
         desgaste.desgastar();
 
@@ -29,11 +33,11 @@ public class DesgastePicoPiedraTest {
     }
 
     @Test
-    public void reducirDesgastePicoPiedraEnMitadUnidadesDeFuerza(){
+    public void reducirDesgasteEstandarEnMitadUnidadesDeFuerza(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
-
-        DesgastePicoPiedra desgaste = new DesgastePicoPiedra(durabilidadInicial,fuerzaInicial) ;
+        
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicial,fuerzaInicial,0.66F) ;
 
         desgaste.desgastar();
 
@@ -46,8 +50,9 @@ public class DesgastePicoPiedraTest {
     public void desgastarHastaLlegarQueDurabilidadSeaCero(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
+        
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicial,fuerzaInicial,0.66F) ;
 
-        DesgastePicoPiedra desgaste = new DesgastePicoPiedra(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();
@@ -61,8 +66,9 @@ public class DesgastePicoPiedraTest {
     public void lanzarExcepcionAlQuererDesgastarDurabilidadEnCero(){
         int durabilidadInicial = 200 ;
         int fuerzaInicial = 4 ;
+        
+        DesgasteEstandar desgaste = new DesgasteEstandar(durabilidadInicial,fuerzaInicial,0.66F) ;
 
-        DesgastePicoPiedra desgaste = new DesgastePicoPiedra(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();

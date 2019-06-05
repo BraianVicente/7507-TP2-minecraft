@@ -3,13 +3,13 @@ package fiuba.algo3.minecraft.desgaste;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DesgastePicoFinoTest {
+public class DesgasteLogaritmicoTest {
 
     @Test
     public void crearDesgastePicoFino(){
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
-        DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
+        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
 
         Assert.assertEquals(durabilidadInicial, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
@@ -20,7 +20,7 @@ public class DesgastePicoFinoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
+        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
 
@@ -33,7 +33,7 @@ public class DesgastePicoFinoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
+        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
         int reduccionDurabilidad = (int)(durabilidadInicial -  (durabilidadInicial * 0.1));
@@ -47,7 +47,7 @@ public class DesgastePicoFinoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
+        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();
@@ -62,7 +62,7 @@ public class DesgastePicoFinoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgastePicoFino desgaste = new DesgastePicoFino(durabilidadInicial,fuerzaInicial) ;
+        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();

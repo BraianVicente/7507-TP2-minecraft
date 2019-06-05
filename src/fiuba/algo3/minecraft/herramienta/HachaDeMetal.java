@@ -1,6 +1,6 @@
 package fiuba.algo3.minecraft.herramienta;
 
-import fiuba.algo3.minecraft.desgaste.DesgasteHachaMetal;
+import fiuba.algo3.minecraft.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.material.Diamante;
 import fiuba.algo3.minecraft.material.Madera;
 import fiuba.algo3.minecraft.material.Metal;
@@ -9,7 +9,7 @@ import fiuba.algo3.minecraft.material.Piedra;
 public class HachaDeMetal extends Herramienta {
 
     public HachaDeMetal(){
-        super(new DesgasteHachaMetal(400,10));
+        super( new DesgasteEstandar(400,10, 0.5F));
     }
 
     @Override

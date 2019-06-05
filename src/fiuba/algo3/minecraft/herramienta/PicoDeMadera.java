@@ -9,7 +9,7 @@ import fiuba.algo3.minecraft.material.Piedra;
 public class PicoDeMadera extends Herramienta {
 
     public PicoDeMadera(){
-        super(new DesgasteEstandar(100,2));
+        super(new DesgasteEstandar(100,2,1));
     }
 
     @Override

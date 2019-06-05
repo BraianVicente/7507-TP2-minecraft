@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.desgaste;
 
 public abstract class Desgaste {
+
 	protected final int fuerza ;
 	protected int durabilidad ;
 	
