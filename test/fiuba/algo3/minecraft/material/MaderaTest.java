@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.material;
 import fiuba.algo3.minecraft.herramienta.HachaDeMadera;
 import fiuba.algo3.minecraft.herramienta.HachaDeMetal;
 import fiuba.algo3.minecraft.herramienta.HachaDePiedra;
+import fiuba.algo3.minecraft.herramienta.PicoDeMadera;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -57,6 +58,16 @@ public class MaderaTest {
     }
 
 /***********************************************/
+
+    @Test
+    public void test05DesgastarMaderaConPicoDeMadera () {
+
+        Madera madera = new Madera();
+        PicoDeMadera picoDeMadera = new PicoDeMadera();
+        madera.desgastar(picoDeMadera);
+        Assert.assertEquals(10,madera.obtenerDurabilidad());
+
+    }
 
 /***********************************************/
 
