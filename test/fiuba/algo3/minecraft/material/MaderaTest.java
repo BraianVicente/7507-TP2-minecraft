@@ -92,6 +92,16 @@ public class MaderaTest {
 
 /***********************************************/
 
+    @Test
+    public void test08DesgastarMaderaConPicoFino () {
+
+        Madera madera = new Madera();
+        PicoFino picoFino = new PicoFino();
+        madera.desgastar(picoFino);
+        Assert.assertEquals(10,madera.obtenerDurabilidad());
+
+    }
+
 /***********************************************/
 
 /***********************************************/
