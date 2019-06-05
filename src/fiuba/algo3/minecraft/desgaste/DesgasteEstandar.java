@@ -2,7 +2,7 @@ package fiuba.algo3.minecraft.desgaste;
 
 public class DesgasteEstandar extends Desgaste{
 
-    private static float multiplicador ;
+    private final float multiplicador ;
 
     public DesgasteEstandar(int durabilidad, int fuerza, float multiplicador) {
         super(durabilidad,fuerza);
