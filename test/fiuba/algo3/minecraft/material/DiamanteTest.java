@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.material;
 
 import fiuba.algo3.minecraft.herramienta.HachaDeMadera;
 import fiuba.algo3.minecraft.herramienta.HachaDeMetal;
+import fiuba.algo3.minecraft.herramienta.HachaDePiedra;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,6 +43,16 @@ public class DiamanteTest {
     }
 
 /***********************************************/
+
+    @Test
+    public void test04DesgastarDiamanteConHachaPiedra () {
+
+        Diamante unDiamante = new Diamante();
+        HachaDePiedra unHachaDePiedra = new HachaDePiedra();
+        unDiamante.desgastar(unHachaDePiedra);
+        Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
+
+    }
 
 /***********************************************/
 
