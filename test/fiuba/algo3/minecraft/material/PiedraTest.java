@@ -37,7 +37,7 @@ public class PiedraTest {
 /***********************************************/
 
     @Test
-    public void test02DesgastarPiedraConHachaMetal () {
+    public void test03DesgastarPiedraConHachaMetal () {
 
         Piedra piedra = new Piedra();
         HachaDeMetal hachaDeMetal = new HachaDeMetal();
@@ -47,6 +47,16 @@ public class PiedraTest {
     }
 
 /***********************************************/
+
+    @Test
+    public void test04DesgastarPiedraConHachaPiedra () {
+
+        Piedra piedra = new Piedra();
+        HachaDePiedra hachaDePiedra = new HachaDePiedra();
+        piedra.desgastar(hachaDePiedra);
+        Assert.assertEquals(30,piedra.obtenerDurabilidad());
+
+    }
 
 
 /***********************************************/
