@@ -9,18 +9,43 @@ import java.util.List;
 
 public class Inventario {
 
-    List <Herramienta> herramientas = new ArrayList<Herramienta>();
+        List <Elemento> elementos = new ArrayList<Elemento>();
 
-    public Inventario(){
-        herramientas.add(new HachaDeMadera());
-    }
+   public
 
-    public void agregarAlInventario(Herramienta herramienta){
-        herramientas.add(herramienta);
-    }
+/***********************************************/
 
-    public Herramienta obtenerHerramienta(Herramienta herramienta) {
-        int indexHerramienta = herramientas.indexOf(herramienta);
-        return herramientas.get(indexHerramienta);
-    }
+    Inventario()
+        {
+
+        }
+
+/***********************************************/
+
+    void agregarAlInventario(Elemento unElemento)
+        {
+            elementos.add(unElemento);
+        }
+
+/***********************************************/
+
+    int cantidadElementos ()
+        {
+            return elementos.size();
+        }
+
+/***********************************************/
+
+    Elemento obtenerHerramienta (Elemento unElemento)
+        {
+            int indexHerramienta = elementos.indexOf(unElemento);
+            return elementos.get(indexHerramienta);
+        }
+
+/***********************************************/
+
+/***********************************************/
+
+/***********************************************/
+
 }

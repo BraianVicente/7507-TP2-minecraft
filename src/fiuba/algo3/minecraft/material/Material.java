@@ -1,8 +1,9 @@
 package fiuba.algo3.minecraft.material;
 
 import fiuba.algo3.minecraft.herramienta.*;
+import fiuba.algo3.minecraft.jugador.Elemento;
 
-public abstract class Material {
+public abstract class Material extends Elemento {
 
     public void desgastar(Herramienta herramienta) { this.desgastar(herramienta); }
 
