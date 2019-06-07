@@ -21,7 +21,7 @@ public class Jugador {
         return this.nombre;
     }
 
-    public Herramienta obtenerHerramientaDeInventarioPorIndex(int index){
-        return this.inventario.obtenerHerramientaEnIndex(index);
+    public Herramienta obtenerHerramientaDeInventario(Herramienta herramienta){
+        return this.inventario.obtenerHerramienta(herramienta);
     }
 }

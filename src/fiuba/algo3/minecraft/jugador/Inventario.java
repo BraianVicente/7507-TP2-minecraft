@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.jugador;
 
 import fiuba.algo3.minecraft.herramienta.HachaDeMadera;
+import fiuba.algo3.minecraft.herramienta.HachaDeMetal;
 import fiuba.algo3.minecraft.herramienta.Herramienta;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class Inventario {
         herramientas.add(herramienta);
     }
 
-    public Herramienta obtenerHerramientaEnIndex(int index){
-        return this.herramientas.get(index);
+    public Herramienta obtenerHerramienta(Herramienta herramienta) {
+        int indexHerramienta = herramientas.indexOf(herramienta);
+        return herramientas.get(indexHerramienta);
     }
 }
