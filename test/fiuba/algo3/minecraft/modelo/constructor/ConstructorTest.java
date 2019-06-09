@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.modelo.constructor;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
 import fiuba.algo3.minecraft.modelo.material.Madera;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 import org.junit.Assert;
@@ -114,4 +115,27 @@ public class ConstructorTest {
 
         Assert.assertNotNull(pico);
     }
+
+    @Test
+    public void test09AgregarMaterialEnMesaDeTrabajo(){
+        Constructor constructor = new Constructor();
+        Madera madera = new Madera();
+
+        constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
+        Material material = constructor.mesaDeTrabajo[1][1];
+
+        Assert.assertEquals(madera, material);
+    }
+
+    @Test
+    public void test10ObtengoMaterialEnPosicionDeLaMesaDeTrabajo(){
+        Constructor constructor = new Constructor();
+        Madera madera = new Madera();
+
+        constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
+        Material material = constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(1, 1);
+
+        Assert.assertEquals(madera, material);
+    }
+
 }

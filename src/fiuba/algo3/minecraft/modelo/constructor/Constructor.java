@@ -1,12 +1,23 @@
 package fiuba.algo3.minecraft.modelo.constructor;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.material.Madera;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 
 public class Constructor {
 
+    public Material [][] mesaDeTrabajo = new Material[3][3];
+
+    public void colocarMaterialEnMesaDeTrabajo(Material material, int posicionEjeX, int posicionEjeY){
+        mesaDeTrabajo [posicionEjeX][posicionEjeY] = material;
+    }
+
+    public Material obtenerMaterialEnPosicionDeLaMesaDeTrabajo(int posicionEjeX, int posicionEjeY){
+        return mesaDeTrabajo[posicionEjeX][posicionEjeY];
+    }
 
     public HachaDeMadera construirHacha(Madera madera1, Madera madera2, Madera madera3, Madera madera4, Madera madera5) {
         HachaDeMadera hacha = new HachaDeMadera();
