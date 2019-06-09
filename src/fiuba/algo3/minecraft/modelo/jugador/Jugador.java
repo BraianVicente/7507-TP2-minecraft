@@ -24,4 +24,5 @@ public class Jugador {
     public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
         return this.inventario.obtenerHerramienta(herramienta);
     }
+
 }
