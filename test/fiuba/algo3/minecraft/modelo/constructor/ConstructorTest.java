@@ -25,9 +25,9 @@ public class ConstructorTest {
         Madera madera = new Madera();
 
         constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
-        Material material = constructor.mesaDeTrabajo[1][1];
+        String material = constructor.mesaDeTrabajo[1][1];
 
-        Assert.assertEquals(madera, material);
+        Assert.assertEquals(madera.obtenerAbreviatura(), material);
     }
 
     @Test
@@ -36,10 +36,9 @@ public class ConstructorTest {
         Madera madera = new Madera();
 
         constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
-        Material material = constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(1,
-                1, constructor.mesaDeTrabajo);
+        String material = constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(1, 1);
 
-        Assert.assertEquals(madera, material);
+        Assert.assertEquals(madera.obtenerAbreviatura(), material);
     }
 
     @Test
@@ -58,8 +57,8 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
 
-        Material [][] mesaDeTrabajo = constructor.mesaDeTrabajo;
-        Material [][] distribucionPicoDeMadera = constructor.DistribucionPicoDeMadera();
+        String[][] mesaDeTrabajo = constructor.mesaDeTrabajo;
+        String[][] distribucionPicoDeMadera = constructor.matrizPicoDeMadera;
 
         boolean igualdad = Arrays.deepEquals(mesaDeTrabajo, distribucionPicoDeMadera);
 
@@ -81,12 +80,10 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
 
-        Material[][] mesaDeTrabajo = constructor.mesaDeTrabajo;
-
         PicoDeMadera pico1 = new PicoDeMadera();
-        Herramienta picoDeMadera = constructor.construirPicoDeMadera(mesaDeTrabajo);
+        Herramienta picoDeMadera = constructor.construirPicoDeMadera();
 
-        Assert.assertEquals(pico1, picoDeMadera);
+        Assert.assertEquals(pico1.getClass(), picoDeMadera.getClass());
 
     }
 
