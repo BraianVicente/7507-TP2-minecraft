@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.modelo.mapa;
 
-import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,10 +8,16 @@ public class MapaTest {
     @Test
     public void testCrearMapaConTamanioCorrecto(){
 
-    Mapa mapa = new Mapa(5,5) ;
+        Mapa mapa = new Mapa(2,2) ;
 
-    Assert.assertEquals(mapa.obtenerBordeInferiorIzquierdo(),new Posicion(5,5));
+        Assert.assertTrue(mapa.posicionExiste(1,1));
 
     }
 
+    @Test(expected = FueraDeRangoMapaException.class)
+    public void testNoSePuedeObtenerPosicionableRangoFueraDeMapa(){
+        Mapa mapa = new Mapa(2,2) ;
+
+        mapa.obtenerPosicion(2,2) ;
+    }
 }
