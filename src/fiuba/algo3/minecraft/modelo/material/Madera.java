@@ -45,4 +45,15 @@ public class Madera extends Material {
         durabilidad = durabilidad;
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof Madera) )
+            return false;
+        return true;
+    }
+
 }
