@@ -22,7 +22,7 @@ public class FabricaHerramientasTest {
 /***********************************************/
 
     @Test
-    public void test02CreamosYçagregamosUnMaterialAlaFabricaDeHerramientas () {
+    public void test02CreamosYagregamosUnMaterialAlaFabricaDeHerramientas () {
 
         FabricaHerramientas fabricaHerramientas = new FabricaHerramientas();
         Madera madera = new Madera();

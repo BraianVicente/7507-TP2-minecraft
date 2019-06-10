@@ -124,8 +124,8 @@ public class Constructor {
     }
 
     public boolean mesaDeTrabajoVacia(){
-        for (int i = 0; i<=2; i++){
-            for (int j = 0; j<=2; j++){
+        for (int i = 0; i <= 2; i++){
+            for (int j = 0; j <= 2; j++){
                 if (mesaDeTrabajo[i][j] != ""){
                     return false;
                 }
@@ -140,7 +140,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return hacha;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El hacha de madera no fue debidamente diseñada en la mesa de trabajo.");
         }
     }
 
@@ -150,7 +150,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return hacha;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El hacha de metal no fue debidamente diseñado en la mesa de trabajo.");
         }
     }
 
@@ -160,7 +160,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return hacha;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El hacha de piedra no fue debidamente diseñado en la mesa de trabajo.");
         }
     }
 
@@ -170,7 +170,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return pico;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El pico de madera no fue debidamente diseñaod en la mesa de trabajo.");
         }
     }
 
@@ -180,7 +180,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return pico;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El pico de metal no fue debidamente diseñado en la mesa de trabajo");
         }
     }
 
@@ -190,7 +190,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return pico;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El pico de piedra no fue debidamente diseñado en la mesa de trabajo");
         }
     }
 
@@ -200,7 +200,7 @@ public class Constructor {
             reestablecerMesaDeTrabajo();
             return pico;
         } else {
-            throw new RuntimeException("Se rompio todo");
+            throw new RuntimeException("El pico fino no fue debidamente diseñado en la mesa de trabajo");
         }
     }
 
