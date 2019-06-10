@@ -1,8 +1,9 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
-public class Jugador {
+public class Jugador implements Posicionable {
 
     public String nombre;
     private Inventario inventario;
