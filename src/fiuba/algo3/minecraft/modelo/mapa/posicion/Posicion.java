@@ -6,7 +6,7 @@ public class Posicion {
     private final int x;
     private final int y;
 
-    Posicion(int x, int y) {
+    public Posicion(int x, int y) {
         if (x >= 0) {
             this.x = x;
         } else {
