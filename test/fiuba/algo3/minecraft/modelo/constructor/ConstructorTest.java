@@ -25,48 +25,13 @@ public class ConstructorTest {
         Madera madera = new Madera();
 
         constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
-        String material = constructor.mesaDeTrabajo[1][1];
 
-        Assert.assertEquals(madera.obtenerAbreviatura(), material);
+        Assert.assertEquals(madera.obtenerAbreviatura(), constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo
+                (1,1));
     }
 
     @Test
-    public void test03ObtengoMaterialEnPosicionDeLaMesaDeTrabajo(){
-        Constructor constructor = new Constructor();
-        Madera madera = new Madera();
-
-        constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
-        String material = constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(1, 1);
-
-        Assert.assertEquals(madera.obtenerAbreviatura(), material);
-    }
-
-    @Test
-    public void test04ColocamosMaterialesParaConstruiPicoDeMaderaYCoincidenConDistribucionPicoDeMadera(){
-        Constructor constructor = new Constructor();
-
-        Madera madera1 = new Madera();
-        Madera madera2 = new Madera();
-        Madera madera3 = new Madera();
-        Madera madera4 = new Madera();
-        Madera madera5 = new Madera();
-
-        constructor.colocarMaterialEnMesaDeTrabajo(madera1, 0, 0);
-        constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 0);
-        constructor.colocarMaterialEnMesaDeTrabajo(madera3, 2, 0);
-        constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
-        constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
-
-        String[][] mesaDeTrabajo = constructor.mesaDeTrabajo;
-        String[][] distribucionPicoDeMadera = constructor.matrizPicoDeMadera;
-
-        boolean igualdad = Arrays.deepEquals(mesaDeTrabajo, distribucionPicoDeMadera);
-
-        Assert.assertEquals(true, igualdad);
-    }
-
-    @Test
-    public void test05ConstruimosPicoDeMadera() {
+    public void test03ConstruimosPicoDeMadera() {
         Constructor constructor = new Constructor();
         Madera madera1 = new Madera();
         Madera madera2 = new Madera();

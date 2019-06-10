@@ -8,16 +8,16 @@ import java.util.Arrays;
 
 public class Constructor {
 
-    public String [][] mesaDeTrabajo = new String[3][3];
+    private String [][] mesaDeTrabajo = new String[3][3];
 
-    public String [][] matrizHachaDeMadera = new String[3][3];
-    public String [][] matrizHachaDeMetal = new String[3][3];
-    public String [][] matrizHachaDePiedra = new String[3][3];
+    private String [][] matrizHachaDeMadera = new String[3][3];
+    private String [][] matrizHachaDeMetal = new String[3][3];
+    private String [][] matrizHachaDePiedra = new String[3][3];
 
-    public String [][] matrizPicoDeMadera = new String[3][3];
-    public String [][] matrizPicoDeMetal = new String[3][3];
-    public String [][] matrizPicoDePiedra = new String[3][3];
-    public String [][] matrizPicoFino = new String[3][3];
+    private String [][] matrizPicoDeMadera = new String[3][3];
+    private String [][] matrizPicoDeMetal = new String[3][3];
+    private String [][] matrizPicoDePiedra = new String[3][3];
+    private String [][] matrizPicoFino = new String[3][3];
 
     public Constructor(){
 
