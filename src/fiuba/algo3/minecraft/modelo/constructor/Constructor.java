@@ -123,6 +123,17 @@ public class Constructor {
         mesaDeTrabajo [2][2] = "";
     }
 
+    public boolean mesaDeTrabajoVacia(){
+        for (int i = 0; i<=2; i++){
+            for (int j = 0; j<=2; j++){
+                if (mesaDeTrabajo[i][j] != ""){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public Herramienta construirHachaDeMadera() { ;
         if (Arrays.deepEquals(mesaDeTrabajo, matrizHachaDeMadera) == true) {
             HachaDeMadera hacha = new HachaDeMadera();
