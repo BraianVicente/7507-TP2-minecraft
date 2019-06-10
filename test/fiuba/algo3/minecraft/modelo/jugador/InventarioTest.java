@@ -143,7 +143,47 @@ public class InventarioTest {
 
 /***********************************************/
 
+    @Test
+    public void test09AgregamosCuatroMaterialesBuscamosUno () {
+
+        Inventario inventario = new Inventario();
+        Madera madera = new Madera();
+        Piedra piedra = new Piedra();
+        Metal  metal = new Metal();
+        Diamante diamante = new Diamante();
+        inventario.agregarAlInventario(madera);
+        inventario.agregarAlInventario(piedra);
+        inventario.agregarAlInventario(metal);
+        inventario.agregarAlInventario(diamante);
+        Metal nuevoMetal = (Metal) inventario.obtenerElemento(metal);
+        Assert.assertEquals(nuevoMetal,metal);
+
+    }
+
 /***********************************************/
+
+    @Test
+    public void test10AgregamosSieteHerramientasBuscamosUno () {
+
+        Inventario inventario = new Inventario();
+        HachaDeMadera hachaDeMadera = new HachaDeMadera();
+        HachaDePiedra hachaDePiedra = new HachaDePiedra();
+        HachaDeMetal hachaDeMetal = new HachaDeMetal();
+        PicoDeMadera picoDeMadera = new PicoDeMadera();
+        PicoDePiedra picoDePiedra = new PicoDePiedra();
+        PicoDeMetal picoDeMetal = new PicoDeMetal();
+        PicoFino picoFino = new PicoFino();
+        inventario.agregarAlInventario(hachaDeMadera);
+        inventario.agregarAlInventario(hachaDePiedra);
+        inventario.agregarAlInventario(hachaDeMetal);
+        inventario.agregarAlInventario(picoDeMadera);
+        inventario.agregarAlInventario(picoDePiedra);
+        inventario.agregarAlInventario(picoDeMetal);
+        inventario.agregarAlInventario(picoFino);
+        Herramienta herramientaABuscar = (Herramienta) inventario.obtenerElemento(picoFino);
+        Assert.assertEquals(herramientaABuscar,picoFino);
+
+    }
 
 /***********************************************/
 
