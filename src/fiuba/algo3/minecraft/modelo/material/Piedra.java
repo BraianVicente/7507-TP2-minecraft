@@ -51,4 +51,16 @@ public class Piedra extends Material {
         int fuerzaHerramienta = pico.obtenerFuerza();
         durabilidad = durabilidad - fuerzaHerramienta;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof Piedra) )
+            return false;
+        return true;
+    }
+
 }

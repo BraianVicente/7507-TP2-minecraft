@@ -36,15 +36,17 @@ public class Mapa {
         throw new FueraDeRangoMapaException() ;
     }
 
-    public void agregarElemento(int x, int y, Posicionable posicionable) {
+    public boolean agregarElemento(int x, int y, Posicionable posicionable) {
         if ( ! this.posicionExiste(x,y)){
             throw new FueraDeRangoMapaException() ;
         }
 
         if (this.obtenerElementoEnPosicion(x,y).equals(new Vacio()) ){
             mapa.put(new Posicion(x,y),posicionable) ;
+            return true ;
         }
 
+        return false ;
     }
 
 

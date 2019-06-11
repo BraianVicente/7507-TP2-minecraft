@@ -51,48 +51,65 @@ public class Tablero {
     }
 
     private void inicializarMetal(int cantidadMateriales) {
-        for ( int i = 0 ; i >= cantidadMateriales ; i++ ){
-            Random aleatorio = new Random(System.currentTimeMillis());
 
-            int randomLargo = aleatorio.nextInt(largoTablero);
-            int randomAlto = aleatorio.nextInt(altoTablero);
+        int randomLargo ;
+        int randomAlto ;
+        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
+            do {
+                Random aleatorio = new Random(System.currentTimeMillis());
 
-            mapa.agregarElemento(randomAlto,randomLargo,new Metal());
+                randomLargo = aleatorio.nextInt(largoTablero - 1);
+                randomAlto = aleatorio.nextInt(altoTablero - 1);
+
+            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Metal())) ;
+
         }
     }
 
     private void inicializarPiedra(int cantidadMateriales) {
 
-        for ( int i = 0 ; i >= cantidadMateriales ; i++ ){
-            Random aleatorio = new Random(System.currentTimeMillis());
+        int randomLargo ;
+        int randomAlto ;
+        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
+            do {
+                Random aleatorio = new Random(System.currentTimeMillis());
 
-            int randomLargo = aleatorio.nextInt(largoTablero);
-            int randomAlto = aleatorio.nextInt(altoTablero);
+                randomLargo = aleatorio.nextInt(largoTablero - 1);
+                randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            mapa.agregarElemento(randomAlto,randomLargo,new Piedra());
+            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Piedra())) ;
+
         }
     }
 
     private void inicializarDiamante(int cantidadMateriales) {
 
-        for ( int i = 0 ; i >= cantidadMateriales ; i++ ){
-            Random aleatorio = new Random(System.currentTimeMillis());
+        int randomLargo ;
+        int randomAlto ;
+        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
+            do {
+                Random aleatorio = new Random(System.currentTimeMillis());
 
-            int randomLargo = aleatorio.nextInt(largoTablero);
-            int randomAlto = aleatorio.nextInt(altoTablero);
+                randomLargo = aleatorio.nextInt(largoTablero - 1);
+                randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            mapa.agregarElemento(randomAlto,randomLargo,new Diamante());
+            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Diamante())) ;
+
         }
     }
 
     private void inicializarMadera(int cantidadMateriales) {
-        for ( int i = 0 ; i >= cantidadMateriales ; i++ ){
-            Random aleatorio = new Random(System.currentTimeMillis());
+        int randomLargo ;
+        int randomAlto ;
+        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
+            do {
+                Random aleatorio = new Random(System.currentTimeMillis());
 
-            int randomLargo = aleatorio.nextInt(largoTablero);
-            int randomAlto = aleatorio.nextInt(altoTablero);
+                randomLargo = aleatorio.nextInt(largoTablero - 1);
+                randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            mapa.agregarElemento(randomAlto,randomLargo,new Madera());
+            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Madera())) ;
+
         }
     }
 
