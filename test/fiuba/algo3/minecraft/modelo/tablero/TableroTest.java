@@ -60,4 +60,39 @@ public class TableroTest {
 
     }
 
+    @Test
+    public void muevoJugadorAUnaPosicionContigua(){
+        Tablero tablero = new Tablero();
+
+        Posicion posicionJugador = tablero.buscarPosicionDelJugador(new Jugador());
+        int posicionEnXDelJugador = posicionJugador.obtenerX();
+        int posicionEnYDelJugador = posicionJugador.obtenerY();
+
+        Posicion posicionNuevaDelJugador = new Posicion(posicionEnXDelJugador + 1, posicionEnYDelJugador + 1);
+
+        tablero.moverJugador(posicionNuevaDelJugador, new Jugador());
+
+        Posicion posicionDespuesDeMoverJugador = tablero.buscarPosicionDelJugador(new Jugador());
+        int posicionEnXDespuesDeMoVerJugador = posicionDespuesDeMoverJugador.obtenerX();
+        int posicionEnYDespuesDeMoverJugador = posicionDespuesDeMoverJugador.obtenerY();
+
+        Assert.assertEquals(posicionEnXDelJugador + 1, posicionEnXDespuesDeMoVerJugador);
+        Assert.assertEquals(posicionEnYDelJugador + 1, posicionEnYDespuesDeMoverJugador);
+    }
+
+    @Test (expected = MovimientoFueraDeRangoException.class)
+    public void muevoJugadorAUnaPosicionNoContigua(){
+        Tablero tablero = new Tablero();
+
+        Posicion posicionJugador = tablero.buscarPosicionDelJugador(new Jugador());
+        int posicionEnXDelJugador = posicionJugador.obtenerX();
+        int posicionEnYDelJugador = posicionJugador.obtenerY();
+
+        Posicion posicionNuevaDelJugador = new Posicion(posicionEnXDelJugador + 2, posicionEnYDelJugador + 1);
+
+        tablero.moverJugador(posicionNuevaDelJugador, new Jugador());
+
+    }
+
+
 }

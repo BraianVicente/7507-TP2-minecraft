@@ -127,6 +127,21 @@ public class Tablero {
         }
         throw new RuntimeException("No se encontro el jugador") ;
     }
-    
+
+    public void moverJugador (Posicion posicionNuevaDelJugador, Posicionable jugador){
+        Posicion posicionActualDeLJugador = buscarPosicionDelJugador(jugador);
+        int posicionActualDelJugadorEnEjeX = posicionActualDeLJugador.obtenerX();
+        int posicionActualDelJugadorEnY = posicionActualDeLJugador.obtenerY();
+        int posicionNuevaDelJugadorEnX = posicionNuevaDelJugador.obtenerX();
+        int posicionNuevaDelJugadorEnY= posicionNuevaDelJugador.obtenerY();
+        if(posicionNuevaDelJugador.esContigua(posicionActualDeLJugador)){
+            mapa.eliminarElemento(posicionActualDelJugadorEnEjeX, posicionActualDelJugadorEnY);
+            mapa.agregarElemento(posicionNuevaDelJugadorEnX, posicionNuevaDelJugadorEnY, jugador);
+        }
+        else{
+            throw new MovimientoFueraDeRangoException();
+        }
+    }
+
 }
 
