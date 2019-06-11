@@ -10,28 +10,32 @@ import java.util.Arrays;
 
 public class Constructor {
 
-    private Posicionable[][] mesaDeTrabajo = new Posicionable[3][3];
+    protected Posicionable[][] mesaDeTrabajo;
 
-    private Posicionable [][] matrizHachaDeMadera = new Posicionable[3][3];
-    private Posicionable [][] matrizHachaDeMetal = new Posicionable[3][3];
-    private Posicionable [][] matrizHachaDePiedra = new Posicionable[3][3];
+    private Posicionable [][] matrizHachaDeMadera ;
+    private Posicionable [][] matrizHachaDeMetal ;
+    private Posicionable [][] matrizHachaDePiedra ;
 
-    private Posicionable [][] matrizPicoDeMadera = new Posicionable[3][3];
-    private Posicionable [][] matrizPicoDeMetal = new Posicionable[3][3];
-    private Posicionable [][] matrizPicoDePiedra = new Posicionable[3][3];
-    private Posicionable [][] matrizPicoFino = new Posicionable[3][3];
+    private Posicionable [][] matrizPicoDeMadera ;
+    private Posicionable [][] matrizPicoDeMetal ;
+    private Posicionable [][] matrizPicoDePiedra ;
+    private Posicionable [][] matrizPicoFino ;
 
-    public Constructor(){
 
-        mesaDeTrabajo [0][0] = new Vacio();
-        mesaDeTrabajo [0][1] = new Vacio();
-        mesaDeTrabajo [0][2] = new Vacio();
-        mesaDeTrabajo [1][0] = new Vacio();
-        mesaDeTrabajo [1][1] = new Vacio();
-        mesaDeTrabajo [1][2] = new Vacio();
-        mesaDeTrabajo [2][0] = new Vacio();
-        mesaDeTrabajo [2][1] = new Vacio();
-        mesaDeTrabajo [2][2] = new Vacio();
+	public Constructor() {
+        mesaDeTrabajo = new Posicionable[3][3];
+        this.reestablecerMesaDeTrabajo();
+        this.construirMatrizHachaDeMadera();
+        this.construirMatrizHachaDeMetal();
+        this.construirMatrizHachaDePiedra();
+        this.construirMatrizPicoDeMadera();
+        this.construirMatrizPicoDeMetal();
+        this.construirMatrizPicoDePiedra();
+        this.construirMatrizPicoFino();
+    }
+
+    private void construirMatrizHachaDeMadera(){
+        matrizHachaDeMadera = new Posicionable[3][3];
 
         matrizHachaDeMadera [0][0] = new Madera();
         matrizHachaDeMadera [0][1] = new Madera();
@@ -42,6 +46,10 @@ public class Constructor {
         matrizHachaDeMadera [2][0] = new Vacio();
         matrizHachaDeMadera [2][1] = new Vacio();
         matrizHachaDeMadera [2][2] = new Vacio();
+    }
+
+    private void construirMatrizHachaDeMetal(){
+        matrizHachaDeMetal = new Posicionable[3][3];
 
         matrizHachaDeMetal [0][0] = new Metal();
         matrizHachaDeMetal [0][1] = new Metal();
@@ -52,6 +60,10 @@ public class Constructor {
         matrizHachaDeMetal [2][0] = new Vacio();
         matrizHachaDeMetal [2][1] = new Vacio();
         matrizHachaDeMetal [2][2] = new Vacio();
+    }
+
+    private void construirMatrizHachaDePiedra(){
+        matrizHachaDePiedra = new Posicionable[3][3];
 
         matrizHachaDePiedra [0][0] = new Piedra();
         matrizHachaDePiedra [0][1] = new Piedra();
@@ -62,6 +74,10 @@ public class Constructor {
         matrizHachaDePiedra [2][0] = new Vacio();
         matrizHachaDePiedra [2][1] = new Vacio();
         matrizHachaDePiedra [2][2] = new Vacio();
+    }
+
+    private void construirMatrizPicoDeMadera(){
+        matrizPicoDeMadera = new Posicionable[3][3];
 
         matrizPicoDeMadera [0][0] = new Madera();
         matrizPicoDeMadera [0][1] = new Vacio();
@@ -72,6 +88,10 @@ public class Constructor {
         matrizPicoDeMadera [2][0] = new Madera();
         matrizPicoDeMadera [2][1] = new Vacio();
         matrizPicoDeMadera [2][2] = new Vacio();
+    }
+
+    private void construirMatrizPicoDeMetal(){
+        matrizPicoDeMetal = new Posicionable[3][3];
 
         matrizPicoDeMetal [0][0] = new Metal();
         matrizPicoDeMetal [0][1] = new Vacio();
@@ -82,6 +102,10 @@ public class Constructor {
         matrizPicoDeMetal [2][0] = new Metal();
         matrizPicoDeMetal [2][1] = new Vacio();
         matrizPicoDeMetal [2][2] = new Vacio();
+    }
+
+    private void construirMatrizPicoDePiedra(){
+        matrizPicoDePiedra = new Posicionable[3][3];
 
         matrizPicoDePiedra [0][0] = new Piedra();
         matrizPicoDePiedra [0][1] = new Vacio();
@@ -92,6 +116,10 @@ public class Constructor {
         matrizPicoDePiedra [2][0] = new Piedra();
         matrizPicoDePiedra [2][1] = new Vacio();
         matrizPicoDePiedra [2][2] = new Vacio();
+    }
+
+    private void construirMatrizPicoFino(){
+        matrizPicoFino = new Posicionable[3][3];
 
         matrizPicoFino [0][0] = new Metal();
         matrizPicoFino [0][1] = new Piedra();
@@ -102,7 +130,6 @@ public class Constructor {
         matrizPicoFino [2][0] = new Metal();
         matrizPicoFino [2][1] = new Vacio();
         matrizPicoFino [2][2] = new Vacio();
-
     }
 
     public void colocarMaterialEnMesaDeTrabajo(Material material, int posicionEjeX, int posicionEjeY){

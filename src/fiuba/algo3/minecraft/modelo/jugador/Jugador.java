@@ -1,21 +1,17 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
-import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Jugador implements Posicionable {
 
     public String nombre;
-    private Inventario inventario;
 
     public Jugador(String nombre){
         this.nombre = nombre;
-        this.inventario = new Inventario();
     }
 
     public Jugador(){
         this.nombre = "Steve";
-        this.inventario = new Inventario();
     }
 
     public String obtenerNombre(){

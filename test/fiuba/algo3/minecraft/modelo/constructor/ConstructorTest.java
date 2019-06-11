@@ -49,10 +49,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
 
-        HachaDeMadera hacha1 = new HachaDeMadera();
         Herramienta hachaDeMadera = constructor.construirHachaDeMadera();
 
-        Assert.assertEquals(hacha1.getClass(), hachaDeMadera.getClass());
+        Assert.assertEquals(new HachaDeMadera(), hachaDeMadera);
 
     }
 
@@ -71,10 +70,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera1, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
-        HachaDeMetal hacha1 = new HachaDeMetal();
         Herramienta hachaDeMetal = constructor.construirHachaDeMetal();
 
-        Assert.assertEquals(hacha1.getClass(), hachaDeMetal.getClass());
+        Assert.assertEquals(new HachaDeMetal(), hachaDeMetal);
 
     }
 
@@ -93,10 +91,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera1, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
-        HachaDePiedra hacha1 = new HachaDePiedra();
         Herramienta hachaDePiedra = constructor.construirHachaDePiedra();
 
-        Assert.assertEquals(hacha1.getClass(), hachaDePiedra.getClass());
+        Assert.assertEquals(new HachaDePiedra(), hachaDePiedra);
 
     }
 
@@ -115,10 +112,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
 
-        PicoDeMadera pico1 = new PicoDeMadera();
         Herramienta picoDeMadera = constructor.construirPicoDeMadera();
 
-        Assert.assertEquals(pico1.getClass(), picoDeMadera.getClass());
+        Assert.assertEquals(new PicoDeMadera(), picoDeMadera);
 
     }
 
@@ -138,10 +134,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera1, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
-        PicoDeMetal pico1 = new PicoDeMetal();
         Herramienta picoDeMetal = constructor.construirPicoDeMetal();
 
-        Assert.assertEquals(pico1.getClass(), picoDeMetal.getClass());
+        Assert.assertEquals(new PicoDeMetal(), picoDeMetal);
 
     }
 
@@ -161,10 +156,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera1, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
-        PicoDePiedra pico1 = new PicoDePiedra();
         Herramienta picoDePiedra = constructor.construirPicoDePiedra();
 
-        Assert.assertEquals(pico1.getClass(), picoDePiedra.getClass());
+        Assert.assertEquals(new PicoDePiedra(), picoDePiedra);
 
     }
 
@@ -186,10 +180,9 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera1, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
-        PicoFino pico1 = new PicoFino();
         Herramienta picoFino = constructor.construirPicoFino();
 
-        Assert.assertEquals(pico1.getClass(), picoFino.getClass());
+        Assert.assertEquals(new PicoFino(), picoFino);
 
     }
 
@@ -207,8 +200,8 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera3, 0, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera4, 1, 1);
         constructor.colocarMaterialEnMesaDeTrabajo(madera5, 1, 2);
-
-        Herramienta hachaDeMadera = constructor.construirHachaDeMadera();
+        
+        constructor.construirHachaDeMadera();
 
         Assert.assertTrue(constructor.mesaDeTrabajoVacia());
 
@@ -355,6 +348,7 @@ public class ConstructorTest {
         constructor.colocarMaterialEnMesaDeTrabajo(madera2, 1, 2);
 
         Herramienta picoFino = constructor.construirPicoFino();
+
 
     }
 
