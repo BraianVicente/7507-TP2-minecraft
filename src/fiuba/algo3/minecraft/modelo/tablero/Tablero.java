@@ -22,15 +22,17 @@ public class Tablero {
         largoTablero = 20 ;
         altoTablero = 50 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
-        this.inicializarMadera(altoTablero);
-        this.inicializarDiamante(largoTablero/4);
-        this.inicializarPiedra(altoTablero/2);
-        this.inicializarMetal(largoTablero/2);
         jugador = new Jugador();
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
         int posicionYInicialJugador = (altoTablero / 2 )- 1 ;
         this.mapa.agregarElemento(posicionXInicialJugador, posicionYInicialJugador,jugador);
+
+        this.inicializarMadera(altoTablero);
+        this.inicializarDiamante(largoTablero/4);
+        this.inicializarPiedra(altoTablero/2);
+        this.inicializarMetal(largoTablero/2);
+
 
     }
 
