@@ -10,8 +10,6 @@ import org.junit.Test;
 
 public class InventarioTest {
 
-/***********************************************/
-
     @Test
     public void test01CreamosInstaciaDeInventario(){
 
@@ -19,22 +17,18 @@ public class InventarioTest {
         Assert.assertNotNull(inventario);
     }
 
-/***********************************************/
-
     /*
         el inventario se crea SIN herramientas.. cuando se crea usuario y se instancian
         sus cosas, en su inventario se le agrega el hacha de madera, aca no
      */
 
     @Test
-    public void test02InventarioSeCreaSinElementos  () {
+    public void test02InventarioSeCreaConDosElementos() {
 
         Inventario inventario = new Inventario();
-        Assert.assertEquals(0,inventario.cantidadElementos());
+        Assert.assertEquals(2,inventario.cantidadElementos());
 
     }
-
-/***********************************************/
 
     @Test
     public void test03AgregamosUnHerramientaAlInventario () {
@@ -42,11 +36,9 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         HachaDeMadera hachaDeMadera = new HachaDeMadera();
         inventario.agregarAlInventario(hachaDeMadera);
-        Assert.assertEquals(1,inventario.cantidadElementos());
+        Assert.assertEquals(3,inventario.cantidadElementos());
 
     }
-
-/***********************************************/
 
     @Test
     public void test04AgregamosSieteHerramientasDistintasAlInventario () {
@@ -66,10 +58,8 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDePiedra);
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(7,inventario.cantidadElementos());
+        Assert.assertEquals(9,inventario.cantidadElementos());
     }
-
-/***********************************************/
 
     @Test
     public void test05AgregamosCuatroHerramientasDelMismoTipoAlInventario () {
@@ -83,11 +73,9 @@ public class InventarioTest {
         inventario.agregarAlInventario(hm2);
         inventario.agregarAlInventario(hm3);
         inventario.agregarAlInventario(hm4);
-        Assert.assertEquals(4,inventario.cantidadElementos());
+        Assert.assertEquals(6,inventario.cantidadElementos());
 
     }
-
-/***********************************************/
 
     @Test
     public void test06AgregamosUnMaterialAlInventario () {
@@ -95,10 +83,9 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Madera madera = new Madera();
         inventario.agregarAlInventario(madera);
-        Assert.assertEquals(1,inventario.cantidadElementos());
+        Assert.assertEquals(3,inventario.cantidadElementos());
 
     }
-/***********************************************/
 
     @Test
     public void test07AgregamosCuatroMaterialesDistintosAlInventario () {
@@ -112,10 +99,9 @@ public class InventarioTest {
         inventario.agregarAlInventario(piedra);
         inventario.agregarAlInventario(metal);
         inventario.agregarAlInventario(diamante);
-        Assert.assertEquals(4,inventario.cantidadElementos());
+        Assert.assertEquals(6,inventario.cantidadElementos());
 
     }
-/***********************************************/
 
     @Test
     public void test08AgregamosCuatroMaterialesCuatroHerramientas () {
@@ -137,11 +123,9 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(diamante);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(8,inventario.cantidadElementos());
+        Assert.assertEquals(10,inventario.cantidadElementos());
 
     }
-
-/***********************************************/
 
     @Test
     public void test09AgregamosCuatroMaterialesBuscamosUno () {
@@ -159,8 +143,6 @@ public class InventarioTest {
         Assert.assertEquals(nuevoMetal,metal);
 
     }
-
-/***********************************************/
 
     @Test
     public void test10AgregamosSieteHerramientasBuscamosUno () {
@@ -184,18 +166,5 @@ public class InventarioTest {
         Assert.assertEquals(herramientaABuscar,picoFino);
 
     }
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
 
 }

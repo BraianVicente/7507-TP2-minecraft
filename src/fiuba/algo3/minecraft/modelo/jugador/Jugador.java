@@ -14,8 +14,7 @@ public class Jugador implements Posicionable {
     }
 
     public Jugador(){
-        this.nombre = "Steve";
-        this.inventario = new Inventario();
+        this("Steve");
     }
 
     public String obtenerNombre(){
