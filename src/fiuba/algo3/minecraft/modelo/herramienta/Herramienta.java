@@ -1,9 +1,10 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.desgaste.Desgaste;
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.material.*;
 
-public abstract class Herramienta {
+public abstract class Herramienta extends Elemento {
 
     public Desgaste desgaste ;
 
