@@ -32,7 +32,7 @@ public class Inventario {
 
 /***********************************************/
 
-    Elemento obtenerHerramienta (Elemento unElemento)
+    Elemento obtenerElemento (Elemento unElemento)
         {
             int indexHerramienta = elementos.indexOf(unElemento);
             return elementos.get(indexHerramienta);
