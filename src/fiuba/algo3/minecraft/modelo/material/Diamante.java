@@ -5,19 +5,13 @@ import fiuba.algo3.minecraft.modelo.herramienta.*;
 public class Diamante extends Material {
 
     private int durabilidad;
-    private String abreviatura;
 
     public Diamante(){
         this.durabilidad = 100;
-        this.abreviatura = "D";
     }
 
     public int obtenerDurabilidad() {
         return durabilidad ;
-    }
-
-    public String obtenerAbreviatura(){
-        return this.abreviatura;
     }
 
     public void desgastar(HachaDeMadera hacha) {

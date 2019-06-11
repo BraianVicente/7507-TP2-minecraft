@@ -16,6 +16,4 @@ public abstract class Material extends Elemento implements Posicionable {
     public abstract void desgastar(PicoDeMetal pico);
     public abstract void desgastar(PicoFino pico);
 
-    public abstract String obtenerAbreviatura();
-
 }

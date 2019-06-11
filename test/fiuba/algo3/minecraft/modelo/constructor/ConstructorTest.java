@@ -30,7 +30,7 @@ public class ConstructorTest {
 
         constructor.colocarMaterialEnMesaDeTrabajo(madera, 1, 1);
 
-        Assert.assertEquals(madera.obtenerAbreviatura(), constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo
+        Assert.assertEquals(new Madera(), constructor.obtenerMaterialEnPosicionDeLaMesaDeTrabajo
                 (1,1));
     }
 
