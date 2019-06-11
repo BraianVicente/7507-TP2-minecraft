@@ -20,14 +20,14 @@ public class PosicionTest {
     @Test(expected=PosicionInvalidaException.class)
     public void testPosicionEnXNoPuedeSerNegativa(){
 
-        Posicion pos = new Posicion(-1,0);
+        new Posicion(-1,0);
 
     }
 
     @Test(expected=PosicionInvalidaException.class)
     public void testPosicionEnYNoPuedeSerNegativa(){
 
-        Posicion pos = new Posicion(0,-1);
+        new Posicion(0,-1);
 
     }
 

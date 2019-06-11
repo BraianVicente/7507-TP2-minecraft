@@ -7,48 +7,30 @@ import java.util.HashMap;
 
 public class FabricaHerramientas {
 
-    private
-
-        HashMap <Integer, Material> tablero = new HashMap<>();
+    private HashMap <Integer, Material> tablero = new HashMap<>();
 
 
-    public
-/***********************************************/
+    public FabricaHerramientas (){
+        HashMap <Integer, Material> tablero = new HashMap<Integer, Material>();
 
-    /*
-        Constructor
-     */
-
-    FabricaHerramientas ()
-        {
-            HashMap <Integer, Material> tablero = new HashMap<Integer, Material>();
-
-        }
-
-/***********************************************/
+    }
 
     /*
         Agrega Material a la fabrica
      */
-
-    void agregar (int posicion, Material material)
-        {
-            tablero.put(posicion,material);
-        }
-
-/***********************************************/
+    public void agregar (int posicion, Material material){
+        tablero.put(posicion,material);
+    }
 
     /*
         cantidadElementos ()
         devuelve la cantidad de elementos la fabrica
      */
 
-    int cantidadElementos ()
+    public int cantidadElementos ()
         {
             return tablero.size();
         }
-
-/***********************************************/
 
     /*
         remover()
@@ -59,13 +41,5 @@ public class FabricaHerramientas {
         {
             tablero.remove(1,material);
         }
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
 
 }

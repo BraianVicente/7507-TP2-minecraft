@@ -57,11 +57,9 @@ public class Posicion {
     public boolean esContigua(Posicion otraPosicion) {
         if (this.equals(otraPosicion)) return false ;
 
-        if  (abs(x - otraPosicion.obtenerX() ) <= 1  ){
-            if (abs(y - otraPosicion.obtenerY() ) <= 1  ){
+        if ( (abs(x - otraPosicion.obtenerX() ) <= 1)   &&
+            (abs(y - otraPosicion.obtenerY() ) <= 1  ) ){
                 return true ;
-            }
-
         }
         return false ;
     }

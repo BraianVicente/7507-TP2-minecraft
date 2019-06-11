@@ -26,4 +26,19 @@ public class Jugador implements Posicionable {
         return this.inventario.obtenerElemento(herramienta);
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof Jugador) )
+            return false;
+        Jugador otro = (Jugador) obj;
+        if ( ! this.nombre.equals(otro.obtenerNombre())){
+            return  false ;
+        }
+        return true;
+    }
+
 }
