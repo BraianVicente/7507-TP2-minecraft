@@ -29,7 +29,7 @@ public class Mapa {
         return mapa.containsKey(new Posicion(x,y));
     }
 
-    public Posicionable obtenerPosicion(int x, int y) {
+    public Posicionable obtenerElementoEnPosicion(int x, int y) {
         if (this.posicionExiste(x,y)){
             return mapa.get(new Posicion(x,y)) ;
         }
@@ -41,10 +41,9 @@ public class Mapa {
             throw new FueraDeRangoMapaException() ;
         }
 
-        if (this.obtenerPosicion(x,y).equals(new Vacio()) ){
+        if (this.obtenerElementoEnPosicion(x,y).equals(new Vacio()) ){
             mapa.put(new Posicion(x,y),posicionable) ;
         }
-
 
     }
 
