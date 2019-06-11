@@ -15,8 +15,8 @@ import java.util.Random;
 public class Tablero {
     private Mapa mapa ;
     private Jugador jugador ;
-    private int largoTablero;
-    private int altoTablero;
+    protected int largoTablero;
+    protected int altoTablero;
 
     public Tablero(){
         largoTablero = 20 ;
@@ -115,4 +115,18 @@ public class Tablero {
         }
     }
 
+    public Posicion buscarPosicionDelJugador(Posicionable jugador){
+        for (int i = 0; i < largoTablero; i++){
+            for (int j = 0; j < altoTablero; j++){
+                Posicionable posicionable = mapa.obtenerElementoEnPosicion(i,j) ;
+                if (jugador.equals(posicionable)){
+                    Posicion posicionJugador = new Posicion(i, j) ;
+                    return posicionJugador;
+                }
+            }
+        }
+        throw new RuntimeException("No se encontro el jugador") ;
+    }
+    
 }
+
