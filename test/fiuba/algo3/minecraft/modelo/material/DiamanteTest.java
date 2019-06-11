@@ -6,16 +6,12 @@ import org.junit.Test;
 
 public class DiamanteTest {
 
-/***********************************************/
-
     @Test
     public void test01CreamosInstanciaDeDiamante () {
 
         Diamante unDiamante = new Diamante();
         Assert.assertNotNull(unDiamante);
     }
-
-/***********************************************/
 
     @Test
     public void test02desgastarDiamanteConHachaMadera () {
@@ -27,8 +23,6 @@ public class DiamanteTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test03DesgastarDiamanteConHachaMetal() {
 
@@ -37,8 +31,6 @@ public class DiamanteTest {
         unDiamante.desgastar(unHachaDeMetal);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
     }
-
-/***********************************************/
 
     @Test
     public void test04DesgastarDiamanteConHachaPiedra () {
@@ -50,8 +42,6 @@ public class DiamanteTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test05DesgastarDiamanteConPicoDeMadera () {
 
@@ -61,8 +51,6 @@ public class DiamanteTest {
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
     }
-
-/***********************************************/
 
     @Test
     public void test06DesgastarDiamanteConPicoDeMetal () {
@@ -74,8 +62,6 @@ public class DiamanteTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void test07DesgastarDiamanteConPicoDePiedra () {
 
@@ -86,8 +72,6 @@ public class DiamanteTest {
 
     }
 
-/***********************************************/
-
     @Test
     public void tet08DesgastarDiamanteConPicoFino () {
 
@@ -97,13 +81,5 @@ public class DiamanteTest {
         Assert.assertEquals(80,unDiamante.obtenerDurabilidad());
 
     }
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
-
-/***********************************************/
 
 }
