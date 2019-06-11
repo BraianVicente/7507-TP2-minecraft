@@ -23,6 +23,7 @@ public class Jugador implements Posicionable {
     }
 
     public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
-        return this.inventario.obtenerHerramienta(herramienta);
+        return this.inventario.obtenerElemento(herramienta);
     }
+
 }

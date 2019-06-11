@@ -5,13 +5,19 @@ import fiuba.algo3.minecraft.modelo.herramienta.*;
 public class Madera extends Material {
 
     private int durabilidad;
+    private String abreviatura;
 
     public Madera(){
         this.durabilidad = 10;
+        this.abreviatura = "Ma";
     }
 
     public int obtenerDurabilidad() {
         return durabilidad ;
+    }
+
+    public String obtenerAbreviatura(){
+        return this.abreviatura;
     }
 
     public void desgastar(HachaDeMadera hacha) {
