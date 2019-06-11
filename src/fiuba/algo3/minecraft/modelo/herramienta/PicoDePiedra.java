@@ -35,5 +35,15 @@ public class PicoDePiedra extends Herramienta {
     @Override
     public void desgastar(Madera material){  material.desgastar(this); }
 
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof PicoDePiedra) )
+            return false;
+        return true;
+    }
 }
 

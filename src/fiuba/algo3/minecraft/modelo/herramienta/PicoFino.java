@@ -33,4 +33,14 @@ public class PicoFino extends Herramienta {
         material.desgastar(this);
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof PicoFino) )
+            return false;
+        return true;
+    }
 }
