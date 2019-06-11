@@ -29,23 +29,24 @@ public class Mapa {
         return mapa.containsKey(new Posicion(x,y));
     }
 
-    public Posicionable obtenerPosicion(int x, int y) {
+    public Posicionable obtenerElementoEnPosicion(int x, int y) {
         if (this.posicionExiste(x,y)){
             return mapa.get(new Posicion(x,y)) ;
         }
         throw new FueraDeRangoMapaException() ;
     }
 
-    public void agregarElemento(int x, int y, Posicionable posicionable) {
+    public boolean agregarElemento(int x, int y, Posicionable posicionable) {
         if ( ! this.posicionExiste(x,y)){
             throw new FueraDeRangoMapaException() ;
         }
 
-        if (this.obtenerPosicion(x,y).equals(new Vacio()) ){
+        if (this.obtenerElementoEnPosicion(x,y).equals(new Vacio()) ){
             mapa.put(new Posicion(x,y),posicionable) ;
+            return true ;
         }
 
-
+        return false ;
     }
 
 

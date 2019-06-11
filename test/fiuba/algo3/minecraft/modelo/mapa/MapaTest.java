@@ -21,14 +21,14 @@ public class MapaTest {
     public void testNoSePuedeObtenerPosicionableRangoFueraDeMapa(){
         Mapa mapa = new Mapa(2,2) ;
 
-        mapa.obtenerPosicion(2,2) ;
+        mapa.obtenerElementoEnPosicion(2,2) ;
     }
 
     @Test
     public void testPosicionSeInicializaVacia(){
         Mapa mapa = new Mapa(2,2);
 
-        Assert.assertEquals(new Vacio(),mapa.obtenerPosicion(1,1));
+        Assert.assertEquals(new Vacio(),mapa.obtenerElementoEnPosicion(1,1));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class MapaTest {
         Madera material = new Madera() ;
 
         mapa.agregarElemento(1,1,material);
-        Assert.assertEquals(material,mapa.obtenerPosicion(1,1));
+        Assert.assertEquals(material,mapa.obtenerElementoEnPosicion(1,1));
 
     }
 
@@ -49,11 +49,11 @@ public class MapaTest {
 
         mapa.agregarElemento(1,1,material);
 
-        Assert.assertEquals(material,mapa.obtenerPosicion(1,1));
+        Assert.assertEquals(material,mapa.obtenerElementoEnPosicion(1,1));
 
         Jugador jugador  = new Jugador() ;
         mapa.agregarElemento(1,1,jugador);
-        Assert.assertNotEquals(jugador,mapa.obtenerPosicion(1,1));
+        Assert.assertNotEquals(jugador,mapa.obtenerElementoEnPosicion(1,1));
 
     }
 
@@ -65,10 +65,10 @@ public class MapaTest {
         Madera material = new Madera() ;
 
         mapa.agregarElemento(1,1,material);
-        Assert.assertEquals(material,mapa.obtenerPosicion(1,1));
+        Assert.assertEquals(material,mapa.obtenerElementoEnPosicion(1,1));
 
         mapa.eliminarElemento(1,1);
-        Assert.assertEquals(new Vacio(),mapa.obtenerPosicion(1,1));
+        Assert.assertEquals(new Vacio(),mapa.obtenerElementoEnPosicion(1,1));
 
     }
 
