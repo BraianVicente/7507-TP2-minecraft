@@ -15,8 +15,8 @@ import java.util.Random;
 public class Tablero {
     private Mapa mapa ;
     private Jugador jugador ;
-    protected int largoTablero;
-    protected int altoTablero;
+    private int largoTablero;
+    private int  altoTablero;
 
     public Tablero(){
         largoTablero = 20 ;

@@ -48,19 +48,6 @@ public class TableroTest {
     }
 
     @Test
-    public void creoTableroYObtengoLaPosicionDelJugador(){
-        Tablero tablero = new Tablero();
-
-        Posicion posicionJugador = tablero.buscarPosicionDelJugador(new Jugador());
-        int posicionEnXDelJugador = posicionJugador.obtenerX();
-        int posicionEnYDelJugador = posicionJugador.obtenerY();
-
-        Assert.assertEquals(posicionEnXDelJugador, (tablero.largoTablero/2)-1);
-        Assert.assertEquals(posicionEnYDelJugador, (tablero.altoTablero/2)-1);
-
-    }
-
-    @Test
     public void muevoJugadorAUnaPosicionContigua(){
         Tablero tablero = new Tablero();
 
