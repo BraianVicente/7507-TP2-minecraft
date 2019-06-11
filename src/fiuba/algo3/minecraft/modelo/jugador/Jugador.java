@@ -22,10 +22,6 @@ public class Jugador implements Posicionable {
         return this.nombre;
     }
 
-    public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
-        return this.inventario.obtenerElemento(herramienta);
-    }
-
     @Override
     public boolean equals(Object obj){
         if (obj == null)
