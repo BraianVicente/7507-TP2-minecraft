@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class PatronesDeHerramientas {
 
-    private ArrayList <FabricaHerramientas> patrones = new ArrayList<>();
+    private ArrayList <FabricaHerramientas> patrones ;
 
     /*
         Constructor
