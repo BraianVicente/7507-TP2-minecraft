@@ -26,7 +26,7 @@ public class Tablero {
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
         int posicionYInicialJugador = (altoTablero / 2 )- 1 ;
-        this.mapa.agregarElemento(posicionXInicialJugador, posicionYInicialJugador,jugador);
+        this.mapa.agregarElemento(new Posicion (posicionXInicialJugador,posicionYInicialJugador),jugador);
 
         this.inicializarMadera(altoTablero);
         this.inicializarDiamante(largoTablero/4);
@@ -41,15 +41,7 @@ public class Tablero {
     }
 
     public boolean tableroContieneElementoPosicionable(Posicionable elemento){
-        for (int i = 0; i < largoTablero; i++){
-            for (int j = 0; j < altoTablero; j++){
-                Posicionable posicionable = mapa.obtenerElementoEnPosicion(i,j) ;
-                if (elemento.equals(posicionable)){
-                    return true ;
-                }
-            }
-        }
-        return false ;
+        return mapa.contieneElementoPosicionable(elemento);
     }
 
     private void inicializarMetal(int cantidadMateriales) {
@@ -63,7 +55,7 @@ public class Tablero {
                 randomLargo = aleatorio.nextInt(largoTablero - 1);
                 randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Metal())) ;
+            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Metal())) ;
 
         }
     }
@@ -79,7 +71,7 @@ public class Tablero {
                 randomLargo = aleatorio.nextInt(largoTablero - 1);
                 randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Piedra())) ;
+            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Piedra())) ;
 
         }
     }
@@ -95,7 +87,7 @@ public class Tablero {
                 randomLargo = aleatorio.nextInt(largoTablero - 1);
                 randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Diamante())) ;
+            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Diamante())) ;
 
         }
     }
@@ -110,37 +102,13 @@ public class Tablero {
                 randomLargo = aleatorio.nextInt(largoTablero - 1);
                 randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            } while (! mapa.agregarElemento(randomLargo,randomAlto,new Madera())) ;
+            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Madera())) ;
 
         }
     }
 
-    public Posicion buscarPosicionDelJugador(Posicionable jugador){
-        for (int i = 0; i < largoTablero; i++){
-            for (int j = 0; j < altoTablero; j++){
-                Posicionable posicionable = mapa.obtenerElementoEnPosicion(i,j) ;
-                if (jugador.equals(posicionable)){
-                    Posicion posicionJugador = new Posicion(i, j) ;
-                    return posicionJugador;
-                }
-            }
-        }
-        throw new RuntimeException("No se encontro el jugador") ;
-    }
-
-    public void moverJugador (Posicion posicionNuevaDelJugador, Posicionable jugador){
-        Posicion posicionActualDeLJugador = buscarPosicionDelJugador(jugador);
-        int posicionActualDelJugadorEnEjeX = posicionActualDeLJugador.obtenerX();
-        int posicionActualDelJugadorEnY = posicionActualDeLJugador.obtenerY();
-        int posicionNuevaDelJugadorEnX = posicionNuevaDelJugador.obtenerX();
-        int posicionNuevaDelJugadorEnY= posicionNuevaDelJugador.obtenerY();
-        if(posicionNuevaDelJugador.esContigua(posicionActualDeLJugador)){
-            mapa.eliminarElemento(posicionActualDelJugadorEnEjeX, posicionActualDelJugadorEnY);
-            mapa.agregarElemento(posicionNuevaDelJugadorEnX, posicionNuevaDelJugadorEnY, jugador);
-        }
-        else{
-            throw new MovimientoFueraDeRangoException();
-        }
+    public boolean mover(Posicion posicionNuevaDelJugador, Jugador jugador) {
+        return mapa.moverElemento(posicionNuevaDelJugador, jugador);
     }
 
 }

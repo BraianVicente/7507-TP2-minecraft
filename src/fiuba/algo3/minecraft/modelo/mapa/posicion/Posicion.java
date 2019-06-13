@@ -63,4 +63,8 @@ public class Posicion {
         }
         return false ;
     }
+
+    public int distancia(Posicion posicionNuevaDelJugador) {
+        return (int) Math.sqrt(Math.pow(this.x - posicionNuevaDelJugador.obtenerX(),2) + Math.pow(this.y - posicionNuevaDelJugador.obtenerY(),2));
+    }
 }
