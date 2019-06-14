@@ -67,7 +67,7 @@ public class PosicionTest {
     public void testPosicionArribaIzquierdaEsContiguaAPosicionActual(){
         Posicion posicionActual = new Posicion(1,1) ;
         Posicion arribaIzquierda = new Posicion(0,0) ;
-		
+
 		Assert.assertTrue(posicionActual.esContigua(arribaIzquierda));
     }
 
@@ -133,5 +133,62 @@ public class PosicionTest {
         Posicion posicionActual = new Posicion(1,1) ;
 
         Assert.assertFalse(posicionActual.esContigua(posicionActual));
+    }
+
+    @Test
+    public void testPosicionADistanciaUno(){
+        Posicion posicionActual = new Posicion(1,1) ;
+        Posicion posicionADistancia1= new Posicion(1,2) ;
+
+        Assert.assertEquals(1,posicionActual.distancia(posicionADistancia1));
+
+    }
+
+    @Test
+    public void testPosicionADistanciaDos(){
+        Posicion posicionActual = new Posicion(1,1) ;
+        Posicion posicionADistancia1= new Posicion(3,3) ;
+
+        Assert.assertEquals(2,posicionActual.distancia(posicionADistancia1));
+
+    }
+
+    @Test
+    public void testPosicionADistanciaCero(){
+        Posicion posicionActual = new Posicion(1,1) ;
+        Posicion posicionADistancia1= new Posicion(1,1) ;
+
+        Assert.assertEquals(0,posicionActual.distancia(posicionADistancia1));
+
+    }
+
+    @Test
+    public void testPosicionesContiguasSeEncuentranADistanciaUno(){
+        Posicion posicionActual = new Posicion(1,1) ;
+        Posicion centroDerecho = new Posicion(1,2) ;
+
+        Assert.assertEquals(1,posicionActual.distancia(centroDerecho));
+
+        Posicion centroIzquierdo = new Posicion(1,0) ;
+        Assert.assertEquals(1,posicionActual.distancia(centroIzquierdo));
+
+        Posicion abajoCentro = new Posicion(2,1) ;
+        Assert.assertEquals(1,posicionActual.distancia(abajoCentro));
+
+        Posicion abajoDerecha = new Posicion(2,2) ;
+        Assert.assertEquals(1,posicionActual.distancia(abajoDerecha));
+
+        Posicion abajoIzquierda = new Posicion(2,0) ;
+        Assert.assertEquals(1,posicionActual.distancia(abajoIzquierda));
+
+        Posicion arribaCentro = new Posicion(0,1) ;
+        Assert.assertEquals(1,posicionActual.distancia(arribaCentro));
+
+        Posicion arribaDerecha = new Posicion(0,2) ;
+        Assert.assertEquals(1,posicionActual.distancia(arribaDerecha));
+
+        Posicion arribaIzquierda = new Posicion(0,0) ;
+        Assert.assertEquals(1,posicionActual.distancia(arribaIzquierda));
+
     }
 }
