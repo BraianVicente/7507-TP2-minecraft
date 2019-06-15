@@ -23,7 +23,9 @@ public class HachaDeMadera extends Herramienta {
     }
 
     @Override
-    public void desgastar(Diamante material){ material.desgastar(this); }
+    public void desgastar(Diamante material){
+        material.desgastar(this);
+    }
 
     @Override
     public void desgastar(Madera material){

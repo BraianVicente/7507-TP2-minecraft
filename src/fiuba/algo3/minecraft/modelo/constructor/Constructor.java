@@ -5,7 +5,6 @@ import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Constructor {
