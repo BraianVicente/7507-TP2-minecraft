@@ -1,8 +1,8 @@
 package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
-import fiuba.algo3.minecraft.modelo.manejadores.BottonComenzarEventHandler;
-import fiuba.algo3.minecraft.modelo.manejadores.TextoEventHandler;
+import fiuba.algo3.minecraft.vista.manejadores.BottonComenzarEventHandler;
+import fiuba.algo3.minecraft.vista.manejadores.TextoEventHandler;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

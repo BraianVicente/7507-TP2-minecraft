@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.modelo.manejadores;
+package fiuba.algo3.minecraft.vista.manejadores;
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import javafx.event.ActionEvent;
