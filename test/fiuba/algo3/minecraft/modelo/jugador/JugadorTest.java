@@ -56,13 +56,23 @@ public class JugadorTest {
 
     @Test
     public void test05JugadorInsertaMaderaEnMesaDeTrabajoYDespuesLaElimina(){
-        Jugador unJugador = new Jugador("Fernando");
+        Jugador unJugador = new Jugador("Player 1");
         Material madera = new Madera();
         unJugador.insertarMaterialEnMesaDeTrabajo(0,0, madera);
         unJugador.eliminarMaterialEnMesaDeTrabajo(0, 0);
         Posicionable material = unJugador.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(0, 0);
 
         Assert.assertEquals(new Vacio(), material);
+    }
+
+    @Test
+    public void test06JugadorInsertaMeterialEnSuInventario(){
+        Jugador unJugador = new Jugador("Player 1");
+        Material madera = new Madera();
+        unJugador.agregarMaterialAlInventario(madera);
+        Elemento elementoAgregado = unJugador.obtenerElementoDeInventario(madera);
+
+        Assert.assertEquals(elementoAgregado, madera);
     }
 
 

@@ -29,8 +29,12 @@ public class Jugador implements Posicionable {
         return this.nombre;
     }
 
-    public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
-        return this.inventario.obtenerElemento(herramienta);
+    public Elemento obtenerElementoDeInventario(Elemento elemento){
+        return this.inventario.obtenerElemento(elemento);
+    }
+
+    public void agregarMaterialAlInventario(Elemento material){
+        this.inventario.agregarAlInventario(material);
     }
 
     public void insertarMaterialEnMesaDeTrabajo(int x, int y, Posicionable material){
@@ -44,6 +48,9 @@ public class Jugador implements Posicionable {
     public Posicionable obtenerMaterialEnPosicionDeLaMesaDeTrabajo(int x, int y){
         return this.mesaDeTrabajo.obtenerMaterialEnPosicion(x, y);
     }
+
+    
+
 
     @Override
     public boolean equals(Object obj){
