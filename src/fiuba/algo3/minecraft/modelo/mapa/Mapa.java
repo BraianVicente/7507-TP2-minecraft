@@ -75,12 +75,12 @@ public class Mapa {
         return null ;
     }
 
-    public boolean moverElemento(Posicion posicionNuevaDelJugador,Jugador jugador) {
-        if (contieneElementoPosicionable(jugador)) {
-            Posicion posicionActualDelJugador = obtenerPosicion(jugador);
-            if (!((posicionActualDelJugador.distancia(posicionNuevaDelJugador)) > 1)) {
-                eliminarElemento(posicionActualDelJugador);
-                agregarElemento(posicionNuevaDelJugador, jugador);
+    public boolean moverElemento(Posicion posicionNueva,Posicionable posicionable) {
+        if (contieneElementoPosicionable(posicionable)) {
+            Posicion posicionActualDelPosicionable = obtenerPosicion(posicionable);
+            if (!((posicionActualDelPosicionable.distancia(posicionNueva)) > 1)) {
+                eliminarElemento(posicionActualDelPosicionable);
+                agregarElemento(posicionNueva, posicionable);
                 return true;
             }
         }
