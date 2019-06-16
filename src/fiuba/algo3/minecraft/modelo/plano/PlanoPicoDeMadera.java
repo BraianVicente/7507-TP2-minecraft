@@ -17,4 +17,8 @@ public class PlanoPicoDeMadera{
         plano.agregarElemento(new Posicion(1,2), new Madera());
     }
 
+    public Mapa obtenerPlano(){
+        return plano;
+    }
+
 }

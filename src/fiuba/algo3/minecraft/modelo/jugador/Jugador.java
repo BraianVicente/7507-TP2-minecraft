@@ -1,16 +1,19 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
+import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Jugador implements Posicionable {
 
-    public String nombre;
+    private String nombre;
     private Inventario inventario;
+    private MesaDeTrabajo mesaDeTrabajo;
 
     public Jugador(String nombre){
         this.nombre = nombre;
         this.inventario = new Inventario();
+        this.mesaDeTrabajo = new MesaDeTrabajo();
     }
 
     public Jugador(){
@@ -24,6 +27,7 @@ public class Jugador implements Posicionable {
     public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
         return this.inventario.obtenerElemento(herramienta);
     }
+    
 
     @Override
     public boolean equals(Object obj){

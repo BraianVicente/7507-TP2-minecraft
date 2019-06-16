@@ -20,4 +20,8 @@ public class PlanoPicoFino{
         plano.agregarElemento(new Posicion(0,1), new Piedra());
     }
 
+    public Mapa obtenerPlano(){
+        return plano;
+    }
+
 }
