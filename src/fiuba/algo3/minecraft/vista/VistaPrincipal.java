@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.modelo.vista;
+package fiuba.algo3.minecraft.vista;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

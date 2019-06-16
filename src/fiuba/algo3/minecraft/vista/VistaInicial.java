@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.modelo.vista;
+package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.manejadores.BottonComenzarEventHandler;
@@ -28,8 +28,8 @@ public class VistaInicial extends Application {
 
         stage.setTitle("AlgoCraft");
 
-        Image titulo = new Image("imagenes/titulo.jpg");
-        Image background = new Image("imagenes/background.jpg");
+        Image titulo = new Image("fiuba/algo3/minecraft/vista/images/titulo.jpg");
+        Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
 
         ImageView titulo1 = new ImageView(titulo);
         titulo1.setFitWidth(300);
