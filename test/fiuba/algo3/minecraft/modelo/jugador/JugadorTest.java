@@ -2,6 +2,8 @@ package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMaderaTest;
+import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
@@ -73,6 +75,31 @@ public class JugadorTest {
         Elemento elementoAgregado = unJugador.obtenerElementoDeInventario(madera);
 
         Assert.assertEquals(elementoAgregado, madera);
+    }
+
+    @Test
+    public void test07JugadorContruyeHachaDeMaderaYSeAgregaAlInventarioDelJugador(){
+        Jugador unJugador = new Jugador("Player 1");
+        Material madera1 = new Madera();
+        Material madera2 = new Madera();
+        Material madera3 = new Madera();
+        Material madera4 = new Madera();
+        Material madera5 = new Madera();
+        DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
+        Hacha hachaDeMadera = new Hacha(desgaste);
+
+        unJugador.insertarMaterialEnMesaDeTrabajo(0,0, madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(0,1, madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(1,0, madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(1,1, madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(1,2, madera1);
+
+        unJugador.construirHerramienta();
+
+        Elemento herramienta = unJugador.obtenerElementoDeInventario(hachaDeMadera);
+
+        Assert.assertEquals(herramienta, hachaDeMadera);
+
     }
 
 

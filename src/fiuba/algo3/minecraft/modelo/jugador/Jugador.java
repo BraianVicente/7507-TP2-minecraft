@@ -49,8 +49,10 @@ public class Jugador implements Posicionable {
         return this.mesaDeTrabajo.obtenerMaterialEnPosicion(x, y);
     }
 
-    
-
+    public void construirHerramienta(){
+        Herramienta herramienta = this.mesaDeTrabajo.construir();
+        agregarMaterialAlInventario(herramienta);
+    }
 
     @Override
     public boolean equals(Object obj){
