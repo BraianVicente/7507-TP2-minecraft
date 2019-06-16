@@ -36,5 +36,19 @@ public class JugadorTest {
 
     }
 
+    @Test
+    public void test04CreamosInstanciaDeJugadorSinNombreYLoCambiamos(){
+
+        Jugador unJugador = new Jugador();
+        unJugador.establecerNombre("Pedro");
+
+        String nombre = unJugador.obtenerNombre();
+
+
+
+        Assert.assertEquals("Pedro", nombre);
+
+    }
+
 
 }
