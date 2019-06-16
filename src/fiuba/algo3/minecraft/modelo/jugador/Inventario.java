@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
-import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMadera;
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Inventario {
     public Inventario(){
         elementos = new ArrayList<Elemento>();
         elementos.add(new Madera());
-        elementos.add(new HachaDeMadera());
+        elementos.add(new Hacha(new DesgasteEstandar(100,2,1)));
     }
     void agregarAlInventario(Elemento unElemento)
         {

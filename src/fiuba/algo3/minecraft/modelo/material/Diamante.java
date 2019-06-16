@@ -14,33 +14,18 @@ public class Diamante extends Material {
         return durabilidad ;
     }
 
-    public void desgastar(HachaDeMadera hacha) {
+    public void desgastar(Hacha hacha) {
         durabilidad = durabilidad;
     }
 
-    public void desgastar(HachaDePiedra hacha) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(HachaDeMetal hacha) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(PicoDeMadera pico) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(PicoDePiedra pico) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(PicoDeMetal pico) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(PicoFino pico) {
+    public void desgastar(Pico pico) {
         int fuerzaHerramienta = pico.obtenerFuerza();
-        durabilidad = durabilidad - fuerzaHerramienta;
+        if (fuerzaHerramienta >= 20){
+            durabilidad = durabilidad - fuerzaHerramienta;
+        }
+        else {
+            durabilidad = durabilidad;
+        }
     }
 
     @Override

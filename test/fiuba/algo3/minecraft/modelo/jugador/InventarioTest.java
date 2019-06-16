@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.*;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
@@ -9,6 +10,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class InventarioTest {
+
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
+
 
     @Test
     public void test01CreamosInstaciaDeInventario(){
@@ -34,7 +38,7 @@ public class InventarioTest {
     public void test03AgregamosUnHerramientaAlInventario () {
 
         Inventario inventario = new Inventario();
-        HachaDeMadera hachaDeMadera = new HachaDeMadera();
+        Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         inventario.agregarAlInventario(hachaDeMadera);
         Assert.assertEquals(3,inventario.cantidadElementos());
 
@@ -44,13 +48,13 @@ public class InventarioTest {
     public void test04AgregamosSieteHerramientasDistintasAlInventario () {
 
         Inventario inventario = new Inventario();
-        HachaDeMadera hachaDeMadera = new HachaDeMadera();
-        HachaDePiedra hachaDePiedra = new HachaDePiedra();
-        HachaDeMetal hachaDeMetal = new HachaDeMetal();
-        PicoDeMadera picoDeMadera = new PicoDeMadera();
-        PicoDePiedra picoDePiedra = new PicoDePiedra();
-        PicoDeMetal picoDeMetal = new PicoDeMetal();
-        PicoFino picoFino = new PicoFino();
+        Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
+        Hacha hachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Hacha hachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Pico picoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Pico picoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Pico picoDePiedra = fabricaDeHerramientas.construirPicoDePiedra();
+        Pico picoFino = fabricaDeHerramientas.construirPicoFino();
         inventario.agregarAlInventario(hachaDeMadera);
         inventario.agregarAlInventario(hachaDePiedra);
         inventario.agregarAlInventario(hachaDeMetal);
@@ -65,10 +69,10 @@ public class InventarioTest {
     public void test05AgregamosCuatroHerramientasDelMismoTipoAlInventario () {
 
         Inventario inventario = new Inventario();
-        HachaDeMetal hm1 = new HachaDeMetal();
-        HachaDeMetal hm2 = new HachaDeMetal();
-        HachaDeMetal hm3 = new HachaDeMetal();
-        HachaDeMetal hm4 = new HachaDeMetal();
+        Hacha hm1 = fabricaDeHerramientas.construirHachaDeMetal();
+        Hacha hm2 = fabricaDeHerramientas.construirHachaDeMetal();
+        Hacha hm3 = fabricaDeHerramientas.construirHachaDeMetal();
+        Hacha hm4 = fabricaDeHerramientas.construirHachaDeMetal();
         inventario.agregarAlInventario(hm1);
         inventario.agregarAlInventario(hm2);
         inventario.agregarAlInventario(hm3);
@@ -108,13 +112,13 @@ public class InventarioTest {
 
         Inventario inventario = new Inventario();
         Madera madera = new Madera();
-        PicoDeMadera picoDeMadera = new PicoDeMadera();
+        Pico picoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Piedra piedra = new Piedra();
-        PicoDePiedra picoDePiedra = new PicoDePiedra();
+        Pico picoDePiedra = fabricaDeHerramientas.construirPicoDePiedra();
         Metal  metal = new Metal();
-        PicoDeMetal picoDeMetal = new PicoDeMetal();
+        Pico picoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
         Diamante diamante = new Diamante();
-        PicoFino picoFino = new PicoFino();
+        Pico picoFino = fabricaDeHerramientas.construirPicoFino();
         inventario.agregarAlInventario(madera);
         inventario.agregarAlInventario(picoDeMadera);
         inventario.agregarAlInventario(piedra);
@@ -148,13 +152,13 @@ public class InventarioTest {
     public void test10AgregamosSieteHerramientasBuscamosUno () {
 
         Inventario inventario = new Inventario();
-        HachaDeMadera hachaDeMadera = new HachaDeMadera();
-        HachaDePiedra hachaDePiedra = new HachaDePiedra();
-        HachaDeMetal hachaDeMetal = new HachaDeMetal();
-        PicoDeMadera picoDeMadera = new PicoDeMadera();
-        PicoDePiedra picoDePiedra = new PicoDePiedra();
-        PicoDeMetal picoDeMetal = new PicoDeMetal();
-        PicoFino picoFino = new PicoFino();
+        Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
+        Hacha hachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Hacha hachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Pico picoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Pico picoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Pico picoDePiedra = fabricaDeHerramientas.construirPicoDePiedra();
+        Pico picoFino = fabricaDeHerramientas.construirPicoFino();
         inventario.agregarAlInventario(hachaDeMadera);
         inventario.agregarAlInventario(hachaDePiedra);
         inventario.agregarAlInventario(hachaDeMetal);

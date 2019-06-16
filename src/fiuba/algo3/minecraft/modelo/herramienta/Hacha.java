@@ -6,19 +6,32 @@ import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 
-public class PicoDeMadera extends Herramienta {
+public class Hacha extends Herramienta {
 
-    public PicoDeMadera(){
-        super(new DesgasteEstandar(100,2,1));
+    public Hacha(DesgasteEstandar desgasteEstandar) {
+        super(desgasteEstandar);
     }
 
     @Override
-    public void desgastar(Metal material){
+    public void desgastar(Metal material) {
+        this.desgaste.desgastar();
         material.desgastar(this);
     }
 
     @Override
-    public void desgastar(Piedra material){
+    public void desgastar(Piedra material) {
+        this.desgaste.desgastar();
+        material.desgastar(this);
+    }
+
+    @Override
+    public void desgastar(Diamante material) {
+        this.desgaste.desgastar();
+        material.desgastar(this);
+    }
+
+    @Override
+    public void desgastar(Madera material) {
 
         this.desgaste.desgastar();
         material.desgastar(this);
@@ -26,21 +39,15 @@ public class PicoDeMadera extends Herramienta {
     }
 
     @Override
-    public void desgastar(Diamante material){ material.desgastar(this);}
-
-    @Override
-    public void desgastar(Madera material){
-        material.desgastar(this);
-    }
-
-    @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (obj == null)
             return false;
         if (this == obj)
             return true;
-        if (! (obj instanceof PicoDeMadera) )
+        if (!(obj instanceof Hacha))
             return false;
         return true;
     }
+
 }
+
