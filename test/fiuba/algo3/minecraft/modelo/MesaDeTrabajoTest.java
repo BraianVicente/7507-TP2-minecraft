@@ -133,5 +133,5 @@ public class MesaDeTrabajoTest {
         Assert.assertEquals(1000, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
-    
+
 }

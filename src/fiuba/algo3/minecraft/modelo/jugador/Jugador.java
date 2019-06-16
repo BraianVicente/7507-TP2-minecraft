@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
@@ -30,6 +31,18 @@ public class Jugador implements Posicionable {
 
     public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
         return this.inventario.obtenerElemento(herramienta);
+    }
+
+    public void insertarMaterialEnMesaDeTrabajo(int x, int y, Posicionable material){
+        this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(x,y, material);
+    }
+
+    public void eliminarMaterialEnMesaDeTrabajo(int x, int y){
+        this.mesaDeTrabajo.eliminarMaterialEnMesaEnPosicion(x, y);
+    }
+
+    public Posicionable obtenerMaterialEnPosicionDeLaMesaDeTrabajo(int x, int y){
+        return this.mesaDeTrabajo.obtenerMaterialEnPosicion(x, y);
     }
 
     @Override
