@@ -13,20 +13,19 @@ public class Inventario {
 
     public Inventario(){
         elementos = new ArrayList<Elemento>();
-        elementos.add(new Madera());
-        elementos.add(new Hacha(new DesgasteEstandar(100,2,1)));
     }
-    void agregarAlInventario(Elemento unElemento)
+
+    public void agregarAlInventario(Elemento unElemento)
         {
             elementos.add(unElemento);
         }
 
-    int cantidadElementos ()
+    public int cantidadElementos ()
         {
             return elementos.size();
         }
 
-    Elemento obtenerElemento (Elemento unElemento){
+    public Elemento obtenerElemento (Elemento unElemento){
         int indexHerramienta = elementos.indexOf(unElemento);
         return elementos.get(indexHerramienta);
     }

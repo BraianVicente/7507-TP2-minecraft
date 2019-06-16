@@ -21,16 +21,11 @@ public class InventarioTest {
         Assert.assertNotNull(inventario);
     }
 
-    /*
-        el inventario se crea SIN herramientas.. cuando se crea usuario y se instancian
-        sus cosas, en su inventario se le agrega el hacha de madera, aca no
-     */
-
     @Test
-    public void test02InventarioSeCreaConDosElementos() {
+    public void test02InventarioSeCreaSinElementos() {
 
         Inventario inventario = new Inventario();
-        Assert.assertEquals(2,inventario.cantidadElementos());
+        Assert.assertEquals(0,inventario.cantidadElementos());
 
     }
 

@@ -1,5 +1,7 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
@@ -14,6 +16,8 @@ public class Jugador implements Posicionable {
         this.nombre = nombre;
         this.inventario = new Inventario();
         this.mesaDeTrabajo = new MesaDeTrabajo();
+
+        this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
     }
 
     public Jugador(){
@@ -27,7 +31,6 @@ public class Jugador implements Posicionable {
     public Elemento obtenerHerramientaDeInventario(Herramienta herramienta){
         return this.inventario.obtenerElemento(herramienta);
     }
-    
 
     @Override
     public boolean equals(Object obj){

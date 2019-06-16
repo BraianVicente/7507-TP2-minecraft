@@ -1,5 +1,7 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import org.junit.Assert;
 import org.junit.Test;
 
