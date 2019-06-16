@@ -14,34 +14,11 @@ public class Piedra extends Material {
         return durabilidad ;
     }
 
-    public void desgastar(HachaDeMadera hacha) {
+    public void desgastar(Hacha hacha) {
         durabilidad = durabilidad;
     }
 
-    public void desgastar(HachaDePiedra hacha) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(HachaDeMetal hacha) {
-        durabilidad = durabilidad;
-    }
-
-    public void desgastar(PicoDeMadera pico) {
-        int fuerzaHerramienta = pico.obtenerFuerza();
-        durabilidad = durabilidad - fuerzaHerramienta;
-    }
-
-    public void desgastar(PicoDePiedra pico) {
-        int fuerzaHerramienta = pico.obtenerFuerza();
-        durabilidad = durabilidad - fuerzaHerramienta;
-    }
-
-    public void desgastar(PicoDeMetal pico) {
-        int fuerzaHerramienta = pico.obtenerFuerza();
-        durabilidad = durabilidad - fuerzaHerramienta;
-    }
-
-    public void desgastar(PicoFino pico) {
+    public void desgastar(Pico pico) {
         int fuerzaHerramienta = pico.obtenerFuerza();
         durabilidad = durabilidad - fuerzaHerramienta;
     }

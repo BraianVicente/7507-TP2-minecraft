@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
@@ -9,10 +10,12 @@ import org.junit.Test;
 
 public class HachaDeMaderaTest {
 
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
+
     @Test
     public void test01CreamosInstanciaDeHachaDeMadera () {
 
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Hacha unHachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         Assert.assertNotNull(unHachaDeMadera);
 
     }
@@ -20,7 +23,7 @@ public class HachaDeMaderaTest {
     @Test
     public void test02CreamosHachaDeMaderaConDurabilidadPredeterminada () {
 
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Hacha unHachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         Assert.assertEquals(100,unHachaDeMadera.obtenerDurabilidad());
 
     }
@@ -28,7 +31,7 @@ public class HachaDeMaderaTest {
     @Test
     public void test03CreamosHachaDeMaderaConFuerzaPredeterminada () {
 
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Hacha unHachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         Assert.assertEquals(2,unHachaDeMadera.obtenerFuerza());
 
     }
@@ -36,7 +39,7 @@ public class HachaDeMaderaTest {
     @Test
     public void test04usarHachaDeMaderacontraMaderaYSeReduceSuDurabilidad(){
 
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Hacha unHachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         Madera material = new Madera();
 
         int desgasteEsperado = 2;
@@ -49,19 +52,5 @@ public class HachaDeMaderaTest {
 
 
     }
-    @Test
-    public void test05usarHachaDeMaderaContraElRestoDeMaterialesSinReducirDurabilidad(){
 
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
-        Diamante diamante = new Diamante();
-        Piedra piedra = new Piedra();
-        Metal metal = new Metal();
-
-        int durabilidadInicial = unHachaDeMadera.obtenerDurabilidad();
-        unHachaDeMadera.desgastar(diamante);
-        unHachaDeMadera.desgastar(piedra);
-        unHachaDeMadera.desgastar(metal);
-
-        Assert.assertEquals(durabilidadInicial, unHachaDeMadera.obtenerDurabilidad());
-    }
 }
