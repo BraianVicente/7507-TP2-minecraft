@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.modelo.mesadetrabajo;
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.plano.*;
@@ -55,6 +56,10 @@ public class MesaDeTrabajo {
 
     public void eliminarMaterialEnMesaEnPosicion(int x, int y){
         this.mesa.eliminarElemento(new Posicion(x, y));
+    }
+
+    public Posicionable obtenerMaterialEnPosicion(int x, int y){
+        return this.mesa.obtenerElementoEnPosicion(new Posicion(x, y));
     }
 
     public Herramienta construir(){
