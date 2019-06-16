@@ -35,7 +35,7 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         inventario.agregarAlInventario(hachaDeMadera);
-        Assert.assertEquals(3,inventario.cantidadElementos());
+        Assert.assertEquals(1,inventario.cantidadElementos());
 
     }
 
@@ -57,7 +57,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDePiedra);
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(9,inventario.cantidadElementos());
+        Assert.assertEquals(7,inventario.cantidadElementos());
     }
 
     @Test
@@ -72,7 +72,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(hm2);
         inventario.agregarAlInventario(hm3);
         inventario.agregarAlInventario(hm4);
-        Assert.assertEquals(6,inventario.cantidadElementos());
+        Assert.assertEquals(4,inventario.cantidadElementos());
 
     }
 
@@ -82,7 +82,7 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Madera madera = new Madera();
         inventario.agregarAlInventario(madera);
-        Assert.assertEquals(3,inventario.cantidadElementos());
+        Assert.assertEquals(1,inventario.cantidadElementos());
 
     }
 
@@ -98,7 +98,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(piedra);
         inventario.agregarAlInventario(metal);
         inventario.agregarAlInventario(diamante);
-        Assert.assertEquals(6,inventario.cantidadElementos());
+        Assert.assertEquals(4,inventario.cantidadElementos());
 
     }
 
@@ -122,7 +122,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(diamante);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(10,inventario.cantidadElementos());
+        Assert.assertEquals(8,inventario.cantidadElementos());
 
     }
 
