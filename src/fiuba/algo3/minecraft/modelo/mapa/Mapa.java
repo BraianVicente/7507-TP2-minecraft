@@ -12,7 +12,7 @@ public class Mapa {
     private final int limiteX ;
     private final int limiteY ;
     private final HashMap<Posicion,Posicionable> mapa ;
-    private static int distanciaPermitida= 1 ;
+    private static int distanciaPermitida = 1 ;
 
     public Mapa(Integer x,Integer y) {
         HashMap<Posicion,Posicionable> mapa = new HashMap<Posicion,Posicionable>()   ;
