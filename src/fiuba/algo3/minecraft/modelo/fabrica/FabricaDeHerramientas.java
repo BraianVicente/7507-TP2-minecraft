@@ -1,8 +1,7 @@
 package fiuba.algo3.minecraft.modelo.fabrica;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
-import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstatico;
-import fiuba.algo3.minecraft.modelo.desgaste.DesgasteLogaritmico;
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteNoConvencional;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 
@@ -44,14 +43,14 @@ public class FabricaDeHerramientas{
     }
 
     public Pico construirPicoDeMetal(){
-        DesgasteEstatico desgaste = new DesgasteEstatico(400,12);
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(400,12);
         Pico pico = new Pico(desgaste);
 
         return pico;
     }
 
     public Pico construirPicoFino(){
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(1000,20);
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(1000,20);
         Pico pico = new Pico(desgaste);
 
         return pico;

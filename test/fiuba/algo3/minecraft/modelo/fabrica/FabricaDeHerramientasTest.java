@@ -1,8 +1,7 @@
 package fiuba.algo3.minecraft.modelo.fabrica;
 
-import fiuba.algo3.minecraft.modelo.desgaste.Desgaste;
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
-import fiuba.algo3.minecraft.modelo.desgaste.DesgasteLogaritmico;
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteNoConvencional;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import org.junit.Assert;
@@ -88,7 +87,7 @@ public class FabricaDeHerramientasTest {
         int fuerzaInicial = 12 ;
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
-        DesgasteLogaritmico desgasteLogaritmico = new DesgasteLogaritmico(durabilidadInicia, fuerzaInicial);
+        DesgasteNoConvencional desgasteLogaritmico = new DesgasteNoConvencional(durabilidadInicia, fuerzaInicial);
         Pico picoDeMetal = new Pico(desgasteLogaritmico);
         Pico pico = fabricaDeHerramientas.construirPicoDeMetal();
 
@@ -101,7 +100,7 @@ public class FabricaDeHerramientasTest {
         int fuerzaInicial = 20 ;
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
-        DesgasteLogaritmico desgasteLogaritmico = new DesgasteLogaritmico(durabilidadInicia, fuerzaInicial);
+        DesgasteNoConvencional desgasteLogaritmico = new DesgasteNoConvencional(durabilidadInicia, fuerzaInicial);
         Pico picoFino = new Pico(desgasteLogaritmico);
         Pico pico = fabricaDeHerramientas.construirPicoFino();
 
