@@ -53,13 +53,8 @@ public class MesaDeTrabajo {
         this.mesa.agregarElemento(new Posicion(x,y), material);
     }
 
-    public Hacha construirHachaDeMadera(){
-        if (comparar(mesa, planoHachaDeMadera.obtenerPlano())){
-            return fabrica.construirHachaDeMadera();
-        }
-        else {
-            throw new NoSePuedeConstruirException();
-        }
+    public void eliminarMaterialEnMesaEnPosicion(int x, int y){
+        this.mesa.eliminarElemento(new Posicion(x, y));
     }
 
     public Herramienta construir(){

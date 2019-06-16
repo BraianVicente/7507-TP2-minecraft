@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo;
 
+import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
@@ -115,4 +116,22 @@ public class MesaDeTrabajoTest {
 
     }
 
+    @Test
+    public void test09EliminamosMaterialEquivocadoEnMesaDeTrabajoYLuegoInsertamosMaterialCorrectoEnSuLugarYConstruimosPicoFino(){
+        MesaDeTrabajo mesaDeTrabajo = new MesaDeTrabajo();
+
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(0, 0, new Madera());
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 0, new Metal());
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(2, 0, new Metal());
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(0, 1, new Piedra());
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 1, new Madera());
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 2, new Madera());
+
+        mesaDeTrabajo.eliminarMaterialEnMesaEnPosicion(0,0);
+        mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(0,0, new Metal());
+
+        Assert.assertEquals(1000, mesaDeTrabajo.construir().obtenerDurabilidad());
+
+    }
+    
 }
