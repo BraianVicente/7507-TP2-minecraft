@@ -29,6 +29,10 @@ public class Jugador implements Posicionable {
         return this.nombre;
     }
 
+    public void establecerNombre(String nombre){
+        this.nombre = nombre;
+    }
+
     public Elemento obtenerElementoDeInventario(Elemento elemento){
         return this.inventario.obtenerElemento(elemento);
     }
