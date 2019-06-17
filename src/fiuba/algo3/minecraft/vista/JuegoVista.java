@@ -15,8 +15,6 @@ public class JuegoVista {
     private AlgoCraft aplicacion;
     private Controles controles;
     private MapaVista matrizDeBotones;
-    public static double ancho;
-    public static double alto;
 
 
     public JuegoVista(AlgoCraft aplicacion, Stage escenario){
@@ -29,9 +27,6 @@ public class JuegoVista {
 
     public void iniciar(String nombreJugador){
 
-        ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
-        alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
-
         Juego juego = new Juego(nombreJugador);
 
         VBox mapa = matrizDeBotones.obtenerMapa();
@@ -40,7 +35,7 @@ public class JuegoVista {
 
         HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
 
-        Scene escenaJuego = new Scene(contenedorHorizontal, ancho, alto);
+        Scene escenaJuego = new Scene(contenedorHorizontal);
 
         this.escenario.setScene(escenaJuego);
     }
