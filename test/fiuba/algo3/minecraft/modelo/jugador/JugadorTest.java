@@ -18,7 +18,7 @@ public class JugadorTest {
     @Test
     public void test01CreamosInstanciaDeJugador(){
 
-        Jugador unJugador = new Jugador();
+        Jugador unJugador = new Jugador("Pepe");
 
         Assert.assertNotNull(unJugador);
 
@@ -32,17 +32,6 @@ public class JugadorTest {
         String nombre = unJugador.obtenerNombre();
 
         Assert.assertEquals("Pablo", nombre);
-
-    }
-
-    @Test
-    public void test03CreamosInstanciaDeJugadorSinNombre(){
-
-        Jugador unJugador = new Jugador();
-
-        String nombre = unJugador.obtenerNombre();
-
-        Assert.assertEquals("Steve", nombre);
 
     }
 

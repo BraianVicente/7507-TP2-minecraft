@@ -21,16 +21,13 @@ public class Jugador implements Posicionable {
         this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
     }
 
-    public Jugador(){
-        this("Steve");
-    }
-
     public String obtenerNombre(){
         return this.nombre;
     }
 
-    public void establecerNombre(String nombre){
-        this.nombre = nombre;
+    @Override
+    public String obtenerSigla(){
+        return "Ju";
     }
 
     public Elemento obtenerElementoDeInventario(Elemento elemento){
@@ -67,7 +64,7 @@ public class Jugador implements Posicionable {
         if (! (obj instanceof Jugador) )
             return false;
         Jugador otro = (Jugador) obj;
-        if ( ! this.nombre.equals(otro.obtenerNombre())){
+        if ( ! this.nombre.equals(otro.obtenerSigla())){
             return  false ;
         }
         return true;

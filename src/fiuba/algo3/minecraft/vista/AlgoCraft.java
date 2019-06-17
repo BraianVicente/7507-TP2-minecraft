@@ -12,21 +12,26 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class VistaInicial extends Application {
+public class AlgoCraft extends Application {
 
+    private Stage escenario;
+    private static final String tituloDeVentana = "AlgoCraft";
+    public static double ancho;
+    public static double alto;
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    @Override
     public void start(Stage stage) throws Exception {
 
-        Jugador jugador = new Jugador();
-
-        stage.setTitle("AlgoCraft");
+        ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
+        alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
+        this.escenario = stage;
+        escenario.setTitle(tituloDeVentana);
 
         Image titulo = new Image("fiuba/algo3/minecraft/vista/images/titulo.jpg");
         Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
@@ -48,27 +53,30 @@ public class VistaInicial extends Application {
         VBox layoutPrincipal = new VBox(titulo1, texto, boton, etiqueta);
         layoutPrincipal.setSpacing(15);
         layoutPrincipal.setAlignment(Pos.CENTER);
-        layoutPrincipal.setBackground(new Background(new BackgroundImage(background,
-                BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT)));
-
-        BottonComenzarEventHandler botonComenzarEventHandler = new BottonComenzarEventHandler(texto, etiqueta, jugador);
-        boton.setOnAction(botonComenzarEventHandler);
+        setBackground(layoutPrincipal, background);
 
         TextoEventHandler textoEventHandler = new TextoEventHandler(boton);
         texto.setOnKeyPressed(textoEventHandler);
 
-        Scene scene1 = new Scene(layoutPrincipal, 500, 300);
-        stage.setScene(scene1);
-        stage.setResizable(false);
+        BottonComenzarEventHandler botonComenzarEventHandler = new BottonComenzarEventHandler(texto,
+                etiqueta, this, escenario);
+        boton.setOnAction(botonComenzarEventHandler);
+
+        Scene scene1 = new Scene(layoutPrincipal, ancho, alto);
+        escenario.setScene(scene1);
+        escenario.setResizable(false);
 
         /***********************************************/
 
 
+        escenario.show();
+    }
 
-
-        stage.show();
+    private void setBackground(VBox layout, Image background){
+        layout.setBackground(new Background(new BackgroundImage(background,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT)));
     }
 }

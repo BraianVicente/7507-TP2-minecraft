@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.modelo;
+package fiuba.algo3.minecraft.modelo.mesadetrabajo;
 
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
