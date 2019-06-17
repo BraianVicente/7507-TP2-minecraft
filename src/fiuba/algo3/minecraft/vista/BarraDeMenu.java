@@ -28,6 +28,8 @@ public class BarraDeMenu {
         help.getItems().addAll(acercaDe);
         menuBar.getMenus().addAll(archivo, help);
         salir.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCodeCombination.SHORTCUT_DOWN));
+        acercaDe.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCodeCombination.SHORTCUT_DOWN));
+        guardar.setAccelerator(new KeyCodeCombination(KeyCode.G, KeyCodeCombination.SHORTCUT_DOWN));
 
         return menuBar;
 
