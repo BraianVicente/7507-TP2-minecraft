@@ -17,13 +17,13 @@ public class MapaVista {
 
     private VBox contenedorPrincipal;
 
-    public MapaVista(int columnas, int filas, Juego juego){
+    public MapaVista(Juego juego){
 
         this.contenedorPrincipal = new VBox();
 
-        for (int i = 0; i < filas; i++){
+        for (int i = 0; i < 20; i++){
             HBox fila = new HBox();
-            for (int j = 0; j < columnas; j++){
+            for (int j = 0; j < 20; j++){
                 Rectangle rectangulo= new Rectangle(30,30);
                 rectangulo = establecerColor(rectangulo, juego.verQueHayEnPosicionDelTablero(i, j));
                 fila.getChildren().add(rectangulo);
@@ -48,13 +48,13 @@ public class MapaVista {
             rectangulo.setFill(Color.LIGHTBLUE);
         }
         if (sigla == "Ma"){
-            rectangulo.setFill(Color.BROWN);
+            rectangulo.setFill(Color.SADDLEBROWN);
         }
         if (sigla == "Me"){
-            rectangulo.setFill(Color.GRAY);
+            rectangulo.setFill(Color.LIGHTGRAY);
         }
         if (sigla == "Pi"){
-            rectangulo.setFill(Color.LIGHTGRAY);
+            rectangulo.setFill(Color.GRAY);
         }
 
         return rectangulo;

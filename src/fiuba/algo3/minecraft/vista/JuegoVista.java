@@ -11,6 +11,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.awt.Label;
 
 public class JuegoVista {
 
@@ -36,13 +37,13 @@ public class JuegoVista {
 
         this.juego = new Juego(nombreJugador);
 
-        this.matrizDeBotones = new MapaVista(20,20, juego);
+        this.matrizDeBotones = new MapaVista(juego);
 
         BorderPane borderPane = new BorderPane();
 
         VBox mapa = matrizDeBotones.obtenerMapa();
 
-        VBox contenedorDeControles = controles.obtenerControles();
+        VBox contenedorDeControles = controles.obtenerControles(juego);
 
         setBackground(contenedorDeControles, background);
 

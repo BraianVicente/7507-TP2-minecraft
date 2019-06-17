@@ -23,4 +23,8 @@ public class Juego {
 
         return elemento.obtenerSigla();
     }
+
+    public String obtenerNombre(){
+        return this.tablero.obtenerNombreDelJugador();
+    }
 }
