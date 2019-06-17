@@ -3,11 +3,10 @@ package fiuba.algo3.minecraft.vista;
 import fiuba.algo3.minecraft.modelo.juego.Juego;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -33,6 +32,8 @@ public class JuegoVista {
 
     public void iniciar(String nombreJugador){
 
+        Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
+
         this.juego = new Juego(nombreJugador);
 
         this.matrizDeBotones = new MapaVista(20,20, juego);
@@ -42,6 +43,8 @@ public class JuegoVista {
         VBox mapa = matrizDeBotones.obtenerMapa();
 
         VBox contenedorDeControles = controles.obtenerControles();
+
+        setBackground(contenedorDeControles, background);
 
         HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
 
@@ -53,4 +56,15 @@ public class JuegoVista {
 
         this.escenario.setScene(escenaJuego);
     }
+
+
+    private void setBackground(VBox layout, Image background){
+        layout.setBackground(new Background(new BackgroundImage(background,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT)));
+    }
+
+
 }
