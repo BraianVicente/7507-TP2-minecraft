@@ -1,22 +1,28 @@
 package fiuba.algo3.minecraft.controller;
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
+import fiuba.algo3.minecraft.vista.JuegoVista;
+import fiuba.algo3.minecraft.vista.AlgoCraft;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class BottonComenzarEventHandler implements EventHandler<ActionEvent> {
 
+    private final AlgoCraft aplicacion;
+    private final Stage escenario;
     private TextField textField;
     private Label label;
-    private Jugador jugador;
 
-    public BottonComenzarEventHandler(TextField textField, Label label, Jugador jugador) {
+    public BottonComenzarEventHandler(TextField textField, Label label,
+                                      AlgoCraft aplicacion, Stage escenario) {
+        this.aplicacion = aplicacion;
+        this.escenario = escenario;
         this.textField = textField;
         this.label = label;
-        this.jugador = jugador;
     }
 
     @Override
@@ -29,9 +35,12 @@ public class BottonComenzarEventHandler implements EventHandler<ActionEvent> {
 
         } else {
 
-            this.jugador.establecerNombre(this.textField.getText());
             this.label.setText("Comenzando...");
             this.label.setTextFill(Color.web("#66FF00"));
+            JuegoVista juegoVista = new JuegoVista(this.aplicacion, this.escenario);
+            juegoVista.iniciar(this.textField.getText());
+
+
         }
     }
 }

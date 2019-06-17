@@ -15,7 +15,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class VistaInicial extends Application {
+public class AlgoCraft extends Application {
 
     private Stage escenario;
     private static final String tituloDeVentana = "AlgoCraft";
@@ -32,9 +32,6 @@ public class VistaInicial extends Application {
         alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
         this.escenario = stage;
         escenario.setTitle(tituloDeVentana);
-
-        Jugador jugador = new Jugador();
-
 
         Image titulo = new Image("fiuba/algo3/minecraft/vista/images/titulo.jpg");
         Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
@@ -58,19 +55,18 @@ public class VistaInicial extends Application {
         layoutPrincipal.setAlignment(Pos.CENTER);
         setBackground(layoutPrincipal, background);
 
-        BottonComenzarEventHandler botonComenzarEventHandler = new BottonComenzarEventHandler(texto, etiqueta, jugador);
-        boton.setOnAction(botonComenzarEventHandler);
-
         TextoEventHandler textoEventHandler = new TextoEventHandler(boton);
         texto.setOnKeyPressed(textoEventHandler);
+
+        BottonComenzarEventHandler botonComenzarEventHandler = new BottonComenzarEventHandler(texto,
+                etiqueta, this, escenario);
+        boton.setOnAction(botonComenzarEventHandler);
 
         Scene scene1 = new Scene(layoutPrincipal, ancho, alto);
         escenario.setScene(scene1);
         escenario.setResizable(false);
 
         /***********************************************/
-
-
 
 
         escenario.show();

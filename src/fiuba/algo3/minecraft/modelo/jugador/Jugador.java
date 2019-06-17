@@ -21,16 +21,8 @@ public class Jugador implements Posicionable {
         this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
     }
 
-    public Jugador(){
-        this("Steve");
-    }
-
     public String obtenerNombre(){
         return this.nombre;
-    }
-
-    public void establecerNombre(String nombre){
-        this.nombre = nombre;
     }
 
     public Elemento obtenerElementoDeInventario(Elemento elemento){

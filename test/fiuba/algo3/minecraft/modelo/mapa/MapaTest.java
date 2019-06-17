@@ -52,7 +52,7 @@ public class MapaTest {
 
         Assert.assertEquals(material,mapa.obtenerElementoEnPosicion(new Posicion(1,1)));
 
-        Jugador jugador  = new Jugador() ;
+        Jugador jugador  = new Jugador("Pepe") ;
         mapa.agregarElemento(new Posicion(1,1),jugador);
         Assert.assertNotEquals(jugador,mapa.obtenerElementoEnPosicion(new Posicion(1,1)));
 

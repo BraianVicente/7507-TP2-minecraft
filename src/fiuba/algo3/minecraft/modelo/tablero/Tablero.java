@@ -18,11 +18,11 @@ public class Tablero {
     private int largoTablero;
     private int  altoTablero;
 
-    public Tablero(){
+    public Tablero(Jugador jugador){
         largoTablero = 20 ;
         altoTablero = 50 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
-        jugador = new Jugador();
+        this.jugador = jugador;
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
         int posicionYInicialJugador = (altoTablero / 2 )- 1 ;
@@ -107,7 +107,7 @@ public class Tablero {
         }
     }
 
-    public boolean mover(Posicion posicionNuevaDelJugador, Jugador jugador) {
+    public boolean mover(Posicion posicionNuevaDelJugador) {
         return mapa.moverElemento(posicionNuevaDelJugador, jugador);
     }
 
