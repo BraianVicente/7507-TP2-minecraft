@@ -38,7 +38,7 @@ public class JuegoVista {
         this.matrizDeBotones = new MapaVista(20,20, juego);
 
         BorderPane borderPane = new BorderPane();
-        
+
         VBox mapa = matrizDeBotones.obtenerMapa();
 
         VBox contenedorDeControles = controles.obtenerControles();
