@@ -56,9 +56,7 @@ public class TableroTest {
     @Test
     public void muevoJugadorAUnaPosicionNoContigua(){
         Tablero tablero = new Tablero(new Jugador("Pepe"));
-
         Assert.assertFalse(tablero.mover(new Posicion(9,26)));
-
     }
 
 

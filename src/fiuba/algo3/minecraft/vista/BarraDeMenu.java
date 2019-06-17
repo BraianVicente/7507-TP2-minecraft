@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.juego.Juego;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
@@ -22,14 +23,17 @@ public class BarraDeMenu {
         Menu archivo = new Menu("Archivo");
         MenuItem guardar = new MenuItem("Guardar");
         MenuItem salir = new MenuItem("Salir");
-        Menu help = new Menu("Ayuda");
-        MenuItem acercaDe = new MenuItem("Acerca de..");
         archivo.getItems().addAll(guardar, new SeparatorMenuItem(), salir);
-        help.getItems().addAll(acercaDe);
-        menuBar.getMenus().addAll(archivo, help);
         salir.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCodeCombination.SHORTCUT_DOWN));
-        acercaDe.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCodeCombination.SHORTCUT_DOWN));
         guardar.setAccelerator(new KeyCodeCombination(KeyCode.G, KeyCodeCombination.SHORTCUT_DOWN));
+        salir.setOnAction(actionEvent -> Platform.exit());
+
+        Menu help = new Menu("Help");
+        MenuItem acercaDe = new MenuItem("Acerca de..");
+        help.getItems().addAll(acercaDe);
+        acercaDe.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCodeCombination.SHORTCUT_DOWN));
+
+        menuBar.getMenus().addAll(archivo, help);
 
         return menuBar;
 
