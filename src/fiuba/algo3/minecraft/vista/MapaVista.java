@@ -1,21 +1,31 @@
 package fiuba.algo3.minecraft.vista;
 
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MapaVista {
-    JButton[]arrBtn = new JButton[100];//arreglo de botones
 
-    private JPanel matrizDeBotones () {//constructor de la clase
+    private VBox contenedorPrincipal;
 
-        JPanel jp1 = new JPanel(new GridLayout(10, 10, 0, 0));
+    public MapaVista(int columnas, int filas){
 
-        for (int i = arrBtn.length - 1; i >= 0; i--) {//ciclo para crear, añadir, establecer propiedades a los botones
-            arrBtn[i] = new JButton("");
-            jp1.add(arrBtn[i]);
-            arrBtn[i].setMargin(new Insets(1, 1, 1, 1));
-        }//fin ciclo
+        this.contenedorPrincipal = new VBox();
 
-        return jp1;
+        for (int i = 0; i < filas; i++){
+            HBox fila = new HBox();
+            for (int j = 0; j < columnas; j++){
+                fila.getChildren().add(new Button());
+            }
+            this.contenedorPrincipal.getChildren().add(fila);
+        }
+
+    }
+
+    public VBox obtenerMapa(){
+        return this.contenedorPrincipal;
     }
 }

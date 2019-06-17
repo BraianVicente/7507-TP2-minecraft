@@ -64,7 +64,6 @@ public class AlgoCraft extends Application {
 
         Scene scene1 = new Scene(layoutPrincipal, ancho, alto);
         escenario.setScene(scene1);
-        escenario.setResizable(false);
 
         /***********************************************/
 

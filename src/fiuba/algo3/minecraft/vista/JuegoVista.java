@@ -7,11 +7,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class JuegoVista {
 
     private final Stage escenario;
     private AlgoCraft aplicacion;
     private Controles controles;
+    private MapaVista matrizDeBotones;
     public static double ancho;
     public static double alto;
 
@@ -21,6 +24,7 @@ public class JuegoVista {
         this.escenario = escenario;
         this.aplicacion = aplicacion;
         this.controles = new Controles();
+        this.matrizDeBotones = new MapaVista(10, 10);
     }
 
     public void iniciar(String nombreJugador){
@@ -30,11 +34,11 @@ public class JuegoVista {
 
         Juego juego = new Juego(nombreJugador);
 
-
+        VBox mapa = matrizDeBotones.obtenerMapa();
 
         VBox contenedorDeControles = controles.obtenerControles();
 
-        HBox contenedorHorizontal = new HBox(contenedorDeControles);
+        HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
 
         Scene escenaJuego = new Scene(contenedorHorizontal, ancho, alto);
 
