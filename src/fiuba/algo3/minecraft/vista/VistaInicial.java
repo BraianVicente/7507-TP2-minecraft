@@ -16,17 +16,20 @@ import javafx.stage.Stage;
 
 public class VistaInicial extends Application {
 
+    private Stage escenario;
+    private static final String tituloDeVentana = "AlgoCraft";
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    @Override
     public void start(Stage stage) throws Exception {
+
+        this.escenario = stage;
 
         Jugador jugador = new Jugador();
 
-        stage.setTitle("AlgoCraft");
+        escenario.setTitle(tituloDeVentana);
 
         Image titulo = new Image("fiuba/algo3/minecraft/vista/images/titulo.jpg");
         Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
@@ -61,14 +64,14 @@ public class VistaInicial extends Application {
         texto.setOnKeyPressed(textoEventHandler);
 
         Scene scene1 = new Scene(layoutPrincipal, 500, 300);
-        stage.setScene(scene1);
-        stage.setResizable(false);
+        escenario.setScene(scene1);
+        escenario.setResizable(false);
 
         /***********************************************/
 
 
 
 
-        stage.show();
+        escenario.show();
     }
 }
