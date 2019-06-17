@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.modelo.juego.Juego;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -10,37 +11,44 @@ import java.awt.*;
 
 public class Controles {
 
-    public VBox obtenerControles(){
+    public VBox obtenerControles(Juego juego){
 
-        VBox contenedor = obtenerControlesDeMovimento();
+        MesaDeTrabajoVista mesaDeTrabajoVista = new MesaDeTrabajoVista(juego);
 
+        VBox contenedorDeMesaDeTrabajo = mesaDeTrabajoVista.obtenerMesa();
 
+        HBox contenedorDeControlesDeMovimiento = obtenerControlesDeMovimento();
+
+        VBox contenedor = new VBox(contenedorDeMesaDeTrabajo, contenedorDeControlesDeMovimiento);
+        contenedor.setAlignment(Pos.CENTER);
+        contenedor.setSpacing(450);
 
 
         return contenedor;
     }
 
-    public VBox obtenerControlesDeMovimento(){
+    public HBox obtenerControlesDeMovimento(){
         Button flechaArriba = new Button();
-        flechaArriba.setText("Arriba");
+        flechaArriba.setText("Up");
 
         Button flechaAbajo = new Button();
-        flechaAbajo.setText("Abajo");
+        flechaAbajo.setText("Down");
 
         Button flechaIzquierda = new Button();
-        flechaIzquierda.setText("Izquierda");
+        flechaIzquierda.setText("<-");
 
         Button flechaDerecha = new Button();
-        flechaDerecha.setText("Derecha");
+        flechaDerecha.setText("->");
 
         HBox contenedorHorizontal = new HBox(flechaIzquierda, flechaAbajo, flechaDerecha);
         contenedorHorizontal.setSpacing(5);
-        contenedorHorizontal.setAlignment(Pos.CENTER);
 
         VBox contenedorVertical = new VBox(flechaArriba, contenedorHorizontal);
         contenedorVertical.setSpacing(5);
         contenedorVertical.setAlignment(Pos.BOTTOM_CENTER);
 
-        return contenedorVertical;
+        HBox contenedorDeControlesDeMovimiento = new HBox(contenedorVertical);
+
+        return contenedorDeControlesDeMovimiento;
     }
 }
