@@ -118,5 +118,9 @@ public class Tablero {
         return mapa.moverElemento(posicionNuevaDelJugador, jugador);
     }
 
+    public String obtenerNombreDelJugador(){
+        return this.jugador.obtenerNombre();
+    }
+
 }
 
