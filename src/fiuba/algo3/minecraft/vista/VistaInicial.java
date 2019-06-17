@@ -12,12 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class VistaInicial extends Application {
 
     private Stage escenario;
     private static final String tituloDeVentana = "AlgoCraft";
+    public static double ancho;
+    public static double alto;
 
     public static void main(String[] args) {
         launch(args);
@@ -25,6 +28,8 @@ public class VistaInicial extends Application {
 
     public void start(Stage stage) throws Exception {
 
+        ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
+        alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
         this.escenario = stage;
 
         Jugador jugador = new Jugador();
@@ -63,7 +68,7 @@ public class VistaInicial extends Application {
         TextoEventHandler textoEventHandler = new TextoEventHandler(boton);
         texto.setOnKeyPressed(textoEventHandler);
 
-        Scene scene1 = new Scene(layoutPrincipal, 500, 300);
+        Scene scene1 = new Scene(layoutPrincipal, ancho, alto);
         escenario.setScene(scene1);
         escenario.setResizable(false);
 
