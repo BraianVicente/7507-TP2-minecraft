@@ -50,7 +50,7 @@ public class TableroTest {
     @Test
     public void muevoJugadorAUnaPosicionContigua(){
         Tablero tablero = new Tablero(new Jugador("Pepe"));
-        Assert.assertTrue(tablero.mover(new Posicion(9,25)));
+        Assert.assertTrue(tablero.mover(new Posicion(10,10)));
     }
 
     @Test
