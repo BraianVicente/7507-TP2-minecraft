@@ -31,10 +31,10 @@ public class VistaInicial extends Application {
         ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
         alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
         this.escenario = stage;
+        escenario.setTitle(tituloDeVentana);
 
         Jugador jugador = new Jugador();
 
-        escenario.setTitle(tituloDeVentana);
 
         Image titulo = new Image("fiuba/algo3/minecraft/vista/images/titulo.jpg");
         Image background = new Image("fiuba/algo3/minecraft/vista/images/background.jpg");
@@ -56,11 +56,7 @@ public class VistaInicial extends Application {
         VBox layoutPrincipal = new VBox(titulo1, texto, boton, etiqueta);
         layoutPrincipal.setSpacing(15);
         layoutPrincipal.setAlignment(Pos.CENTER);
-        layoutPrincipal.setBackground(new Background(new BackgroundImage(background,
-                BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT)));
+        setBackground(layoutPrincipal, background);
 
         BottonComenzarEventHandler botonComenzarEventHandler = new BottonComenzarEventHandler(texto, etiqueta, jugador);
         boton.setOnAction(botonComenzarEventHandler);
@@ -78,5 +74,13 @@ public class VistaInicial extends Application {
 
 
         escenario.show();
+    }
+
+    private void setBackground(VBox layout, Image background){
+        layout.setBackground(new Background(new BackgroundImage(background,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT)));
     }
 }
