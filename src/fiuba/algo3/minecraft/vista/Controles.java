@@ -12,6 +12,15 @@ public class Controles {
 
     public VBox obtenerControles(){
 
+        VBox contenedor = obtenerControlesDeMovimento();
+
+
+
+
+        return contenedor;
+    }
+
+    public VBox obtenerControlesDeMovimento(){
         Button flechaArriba = new Button();
         flechaArriba.setText("Arriba");
 
@@ -31,8 +40,6 @@ public class Controles {
         VBox contenedorVertical = new VBox(flechaArriba, contenedorHorizontal);
         contenedorVertical.setSpacing(5);
         contenedorVertical.setAlignment(Pos.BOTTOM_CENTER);
-
-
 
         return contenedorVertical;
     }
