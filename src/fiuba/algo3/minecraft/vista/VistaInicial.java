@@ -1,8 +1,8 @@
 package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
-import fiuba.algo3.minecraft.vista.manejadores.BottonComenzarEventHandler;
-import fiuba.algo3.minecraft.vista.manejadores.TextoEventHandler;
+import fiuba.algo3.minecraft.controller.BottonComenzarEventHandler;
+import fiuba.algo3.minecraft.controller.TextoEventHandler;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -60,9 +60,13 @@ public class VistaInicial extends Application {
         TextoEventHandler textoEventHandler = new TextoEventHandler(boton);
         texto.setOnKeyPressed(textoEventHandler);
 
-        Scene scene = new Scene(layoutPrincipal, 500, 300);
-        stage.setScene(scene);
+        Scene scene1 = new Scene(layoutPrincipal, 500, 300);
+        stage.setScene(scene1);
         stage.setResizable(false);
+
+        /***********************************************/
+
+
 
 
         stage.show();

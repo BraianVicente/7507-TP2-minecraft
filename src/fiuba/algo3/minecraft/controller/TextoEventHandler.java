@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.vista.manejadores;
+package fiuba.algo3.minecraft.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
