@@ -1,8 +1,10 @@
 package fiuba.algo3.minecraft.vista;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 
 import java.awt.*;
 
@@ -24,9 +26,13 @@ public class Controles {
 
         HBox contenedorHorizontal = new HBox(flechaIzquierda, flechaAbajo, flechaDerecha);
         contenedorHorizontal.setSpacing(5);
+        contenedorHorizontal.setAlignment(Pos.CENTER);
 
         VBox contenedorVertical = new VBox(flechaArriba, contenedorHorizontal);
         contenedorVertical.setSpacing(5);
+        contenedorVertical.setAlignment(Pos.BOTTOM_CENTER);
+
+
 
         return contenedorVertical;
     }
