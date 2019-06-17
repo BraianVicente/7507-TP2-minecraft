@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.modelo.juego.Juego;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -11,20 +12,17 @@ import java.awt.*;
 public class MapaVista {
 
     private VBox contenedorPrincipal;
-    public static double ancho;
-    public static double alto;
 
-    public MapaVista(int columnas, int filas){
-
-        ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
-        alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
+    public MapaVista(int columnas, int filas, Juego juego){
 
         this.contenedorPrincipal = new VBox();
 
         for (int i = 0; i < filas; i++){
             HBox fila = new HBox();
             for (int j = 0; j < columnas; j++){
-                fila.getChildren().add(new Button());
+                Button boton = new Button();
+                boton.setText(juego.verQueHayEnPosicionDelTablero(i, j));
+                fila.getChildren().add(boton);
             }
             this.contenedorPrincipal.getChildren().add(fila);
         }

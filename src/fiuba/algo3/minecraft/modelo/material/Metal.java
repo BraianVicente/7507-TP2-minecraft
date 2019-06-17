@@ -5,9 +5,11 @@ import fiuba.algo3.minecraft.modelo.herramienta.*;
 public class Metal extends Material {
 
     private int durabilidad;
+    private String sigla;
 
     public Metal(){
         this.durabilidad = 50;
+        this.sigla = "Me";
     }
 
     public int obtenerDurabilidad() {
@@ -26,6 +28,11 @@ public class Metal extends Material {
         else {
             durabilidad = durabilidad;
         }
+    }
+
+    @Override
+    public String obtenerSigla(){
+        return this.sigla;
     }
 
     @Override

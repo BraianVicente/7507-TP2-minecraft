@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.tablero;
 
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
@@ -20,7 +21,7 @@ public class Tablero {
 
     public Tablero(Jugador jugador){
         largoTablero = 20 ;
-        altoTablero = 50 ;
+        altoTablero = 20 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
         this.jugador = jugador;
 
@@ -42,6 +43,12 @@ public class Tablero {
 
     public boolean tableroContieneElementoPosicionable(Posicionable elemento){
         return mapa.contieneElementoPosicionable(elemento);
+    }
+
+    public Posicionable obtenerElementoEnPosicion(Posicion posicion){
+        Posicionable elemento = mapa.obtenerElementoEnPosicion(posicion);
+
+        return elemento;
     }
 
     private void inicializarMetal(int cantidadMateriales) {
