@@ -17,6 +17,7 @@ public class JuegoVista {
     private AlgoCraft aplicacion;
     private Controles controles;
     private MapaVista matrizDeBotones;
+    private Juego juego;
 
 
     public JuegoVista(AlgoCraft aplicacion, Stage escenario){
@@ -24,12 +25,13 @@ public class JuegoVista {
         this.escenario = escenario;
         this.aplicacion = aplicacion;
         this.controles = new Controles();
-        this.matrizDeBotones = new MapaVista(10, 10);
     }
 
     public void iniciar(String nombreJugador){
 
-        Juego juego = new Juego(nombreJugador);
+        this.juego = new Juego(nombreJugador);
+
+        this.matrizDeBotones = new MapaVista(20,20, juego);
 
         BorderPane borderPane = new BorderPane();
 

@@ -38,6 +38,8 @@ public class Mapa {
         throw new FueraDeRangoMapaException() ;
     }
 
+
+
     public boolean contieneElementoPosicionable(Posicionable elemento){
         return mapa.containsValue(elemento) ;
     }

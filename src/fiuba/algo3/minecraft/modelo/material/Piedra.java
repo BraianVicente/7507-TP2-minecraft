@@ -5,9 +5,11 @@ import fiuba.algo3.minecraft.modelo.herramienta.*;
 public class Piedra extends Material {
 
     private int durabilidad;
+    private String sigla;
 
     public Piedra(){
         this.durabilidad = 30;
+        this.sigla = "Pi";
     }
 
     public int obtenerDurabilidad() {
@@ -21,6 +23,11 @@ public class Piedra extends Material {
     public void desgastar(Pico pico) {
         int fuerzaHerramienta = pico.obtenerFuerza();
         durabilidad = durabilidad - fuerzaHerramienta;
+    }
+
+    @Override
+    public String obtenerSigla(){
+        return this.sigla;
     }
 
     @Override

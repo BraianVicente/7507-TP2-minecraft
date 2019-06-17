@@ -25,6 +25,11 @@ public class Jugador implements Posicionable {
         return this.nombre;
     }
 
+    @Override
+    public String obtenerSigla(){
+        return "Ju";
+    }
+
     public Elemento obtenerElementoDeInventario(Elemento elemento){
         return this.inventario.obtenerElemento(elemento);
     }
@@ -59,7 +64,7 @@ public class Jugador implements Posicionable {
         if (! (obj instanceof Jugador) )
             return false;
         Jugador otro = (Jugador) obj;
-        if ( ! this.nombre.equals(otro.obtenerNombre())){
+        if ( ! this.nombre.equals(otro.obtenerSigla())){
             return  false ;
         }
         return true;
