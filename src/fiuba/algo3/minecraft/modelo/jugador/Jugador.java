@@ -1,12 +1,14 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Jugador implements Posicionable {
 
     public String nombre;
     private Inventario inventario;
+    private Posicion posicion;
 
     public Jugador(String nombre){
         this.nombre = nombre;
@@ -40,4 +42,13 @@ public class Jugador implements Posicionable {
         return true;
     }
 
+    @Override
+    public void establecerPosicion(Posicion posicion) {
+        this.posicion = posicion ;
+    }
+
+    @Override
+    public Posicion obtenerPosicionActual() {
+        return posicion;
+    }
 }

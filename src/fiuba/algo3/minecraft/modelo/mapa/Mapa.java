@@ -12,7 +12,7 @@ public class Mapa {
     private final int limiteX ;
     private final int limiteY ;
     private final HashMap<Posicion,Posicionable> mapa ;
-    private static int distanciaPermitida= 1 ;
+    private static Integer DISTANCIA_PERMITIDA= 1 ;
 
     public Mapa(Integer x,Integer y) {
         HashMap<Posicion,Posicionable> mapa = new HashMap<Posicion,Posicionable>()   ;
@@ -49,12 +49,12 @@ public class Mapa {
 
         if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio()) ){
             mapa.put(posicion,posicionable) ;
+            posicionable.establecerPosicion(posicion);
             return true ;
         }
 
         return false ;
     }
-
 
     public void eliminarElemento(Posicion posicion) {
         if ( ! this.posicionDentroDeRangoMapa(posicion)){
@@ -78,7 +78,7 @@ public class Mapa {
     public boolean moverElemento(Posicion posicionNuevaDelJugador,Jugador jugador) {
         if (contieneElementoPosicionable(jugador)) {
             Posicion posicionActualDelJugador = obtenerPosicion(jugador);
-            if (!((posicionActualDelJugador.distancia(posicionNuevaDelJugador)) > 1)) {
+            if (!((posicionActualDelJugador.distancia(posicionNuevaDelJugador)) > DISTANCIA_PERMITIDA )) {
                 eliminarElemento(posicionActualDelJugador);
                 agregarElemento(posicionNuevaDelJugador, jugador);
                 return true;

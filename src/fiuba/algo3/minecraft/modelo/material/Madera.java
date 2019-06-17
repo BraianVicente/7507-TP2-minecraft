@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.material;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
+import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 
 public class Madera extends Material {
 
@@ -33,5 +34,6 @@ public class Madera extends Material {
             return false;
         return true;
     }
+
 
 }
