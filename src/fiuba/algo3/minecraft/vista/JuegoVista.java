@@ -41,7 +41,7 @@ public class JuegoVista {
         MenuItem salir = new MenuItem("Salir");
         Menu help = new Menu("Ayuda");
         MenuItem acercaDe = new MenuItem("Acerca de..");
-        archivo.getItems().addAll(guardar, new SeparatorMenuItem(), salir);
+        archivo.getItems().addAll(guardar, salir);
         help.getItems().addAll(acercaDe);
         menuBar.getMenus().addAll(archivo, help);
 
