@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
@@ -9,10 +10,13 @@ import org.junit.Test;
 
 public class PicoDeMaderaTest {
 
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
+
+
     @Test
     public void test01CreamonsInstanciaDePicoDeMadera () {
 
-        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertNotNull(unPicoDeMadera);
 
     }
@@ -20,7 +24,7 @@ public class PicoDeMaderaTest {
     @Test
     public void test02CreamosPicoDeMaderaConDurabilidadPredeterminada () {
 
-        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertEquals(100,unPicoDeMadera.obtenerDurabilidad());
 
     }
@@ -28,7 +32,7 @@ public class PicoDeMaderaTest {
     @Test
     public void test03CreamosPicoDeMaderaConFuerzaPredeterminada () {
 
-        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertEquals(2,unPicoDeMadera.obtenerFuerza());
 
     }
@@ -36,33 +40,17 @@ public class PicoDeMaderaTest {
     @Test
     public void test04usarPicoDeMaderaContraPiedraYReduceDurabilidad(){
 
-        PicoDeMadera pico = new PicoDeMadera();
+        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Piedra material = new Piedra();
 
         int desgasteEsperado = 2 ;
-        int durabilidadInicialPico = pico.obtenerDurabilidad();
+        int durabilidadInicialPico = unPicoDeMadera.obtenerDurabilidad();
 
-        pico.desgastar(material);
-        int durabilidadFinalPico = pico.obtenerDurabilidad();
+        unPicoDeMadera.desgastar(material);
+        int durabilidadFinalPico = unPicoDeMadera.obtenerDurabilidad();
 
         Assert.assertEquals(desgasteEsperado,(durabilidadInicialPico-durabilidadFinalPico));
 
-    }
-
-    @Test
-    public void test05usarPicoDeMaderaContraElRestoDeMaterialesSinReducirDurabilidad(){
-
-        PicoDeMadera pico = new PicoDeMadera();
-        Madera madera = new Madera();
-        Diamante diamante = new Diamante();
-        Metal metal = new Metal();
-
-        int durabilidadInicial = pico.obtenerDurabilidad();
-        pico.desgastar(madera);
-        pico.desgastar(diamante);
-        pico.desgastar(metal);
-
-        Assert.assertEquals(durabilidadInicial, pico.obtenerDurabilidad());
     }
 
 }

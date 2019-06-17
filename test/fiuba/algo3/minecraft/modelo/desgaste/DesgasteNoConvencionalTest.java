@@ -3,13 +3,13 @@ package fiuba.algo3.minecraft.modelo.desgaste;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DesgasteLogaritmicoTest {
+public class DesgasteNoConvencionalTest {
 
     @Test
     public void crearDesgastePicoFino(){
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(durabilidadInicial,fuerzaInicial) ;
 
         Assert.assertEquals(durabilidadInicial, desgaste.obtenerDurabilidad());
         Assert.assertEquals(fuerzaInicial, desgaste.obtenerFuerza());
@@ -20,7 +20,7 @@ public class DesgasteLogaritmicoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
 
@@ -33,7 +33,7 @@ public class DesgasteLogaritmicoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(durabilidadInicial,fuerzaInicial) ;
 
         desgaste.desgastar();
         int reduccionDurabilidad = (int)(durabilidadInicial -  (durabilidadInicial * 0.1));
@@ -47,7 +47,7 @@ public class DesgasteLogaritmicoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();
@@ -62,7 +62,7 @@ public class DesgasteLogaritmicoTest {
         int durabilidadInicial = 1000 ;
         int fuerzaInicial = 20 ;
 
-        DesgasteLogaritmico desgaste = new DesgasteLogaritmico(durabilidadInicial,fuerzaInicial) ;
+        DesgasteNoConvencional desgaste = new DesgasteNoConvencional(durabilidadInicial,fuerzaInicial) ;
 
         while (desgaste.obtenerDurabilidad() > 0 ){
             desgaste.desgastar();

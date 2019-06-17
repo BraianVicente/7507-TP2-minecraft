@@ -17,16 +17,15 @@ public class Mapa {
     public Mapa(Integer x,Integer y) {
         HashMap<Posicion,Posicionable> mapa = new HashMap<Posicion,Posicionable>()   ;
         limiteX = x;
-        limiteY = y ;
+        limiteY = y;
 
         for ( int i = 0 ; i < x ; i++ ){
             for(int j = 0 ; j < y ; j++ ){
                 mapa.put(new Posicion(i,j),new Vacio()) ;
             }
         }
-        this.mapa = mapa ;
+        this.mapa = mapa;
     }
-
 
     public boolean posicionDentroDeRangoMapa(Posicion posicion) {
         return mapa.containsKey(posicion);

@@ -1,10 +1,13 @@
 package fiuba.algo3.minecraft.modelo.material;
 
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class DiamanteTest {
+
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
 
     @Test
     public void test01CreamosInstanciaDeDiamante () {
@@ -17,7 +20,7 @@ public class DiamanteTest {
     public void test02desgastarDiamanteConHachaMadera () {
 
         Diamante unDiamante = new Diamante();
-        HachaDeMadera unHachaDeMadera = new HachaDeMadera();
+        Hacha unHachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         unDiamante.desgastar(unHachaDeMadera);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
@@ -27,7 +30,7 @@ public class DiamanteTest {
     public void test03DesgastarDiamanteConHachaMetal() {
 
         Diamante unDiamante = new Diamante();
-        HachaDeMetal unHachaDeMetal = new HachaDeMetal();
+        Hacha unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
         unDiamante.desgastar(unHachaDeMetal);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
     }
@@ -36,7 +39,7 @@ public class DiamanteTest {
     public void test04DesgastarDiamanteConHachaPiedra () {
 
         Diamante unDiamante = new Diamante();
-        HachaDePiedra unHachaDePiedra = new HachaDePiedra();
+        Hacha unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
         unDiamante.desgastar(unHachaDePiedra);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
@@ -46,7 +49,7 @@ public class DiamanteTest {
     public void test05DesgastarDiamanteConPicoDeMadera () {
 
         Diamante unDiamante = new Diamante();
-        PicoDeMadera unPicoDeMadera = new PicoDeMadera();
+        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         unDiamante.desgastar(unPicoDeMadera);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
@@ -56,7 +59,7 @@ public class DiamanteTest {
     public void test06DesgastarDiamanteConPicoDeMetal () {
 
         Diamante unDiamante = new Diamante();
-        PicoDeMetal unPicoDeMetal = new PicoDeMetal();
+        Pico unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
         unDiamante.desgastar(unPicoDeMetal);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
@@ -66,7 +69,7 @@ public class DiamanteTest {
     public void test07DesgastarDiamanteConPicoDePiedra () {
 
         Diamante unDiamante = new Diamante();
-        PicoDePiedra unPicoDePiedra = new PicoDePiedra();
+        Pico unPicoDePiedra = fabricaDeHerramientas.construirPicoDePiedra();
         unDiamante.desgastar(unPicoDePiedra);
         Assert.assertEquals(100,unDiamante.obtenerDurabilidad());
 
@@ -76,7 +79,7 @@ public class DiamanteTest {
     public void tet08DesgastarDiamanteConPicoFino () {
 
         Diamante unDiamante = new Diamante();
-        PicoFino unPicoFino = new PicoFino();
+        Pico unPicoFino = fabricaDeHerramientas.construirPicoFino();
         unDiamante.desgastar(unPicoFino);
         Assert.assertEquals(80,unDiamante.obtenerDurabilidad());
 
