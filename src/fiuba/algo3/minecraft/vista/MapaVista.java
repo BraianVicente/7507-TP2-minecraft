@@ -48,13 +48,13 @@ public class MapaVista {
             rectangulo.setFill(Color.LIGHTBLUE);
         }
         if (sigla == "Ma"){
-            rectangulo.setFill(Color.BROWN);
+            rectangulo.setFill(Color.SADDLEBROWN);
         }
         if (sigla == "Me"){
-            rectangulo.setFill(Color.GRAY);
+            rectangulo.setFill(Color.LIGHTGRAY);
         }
         if (sigla == "Pi"){
-            rectangulo.setFill(Color.LIGHTGRAY);
+            rectangulo.setFill(Color.GRAY);
         }
 
         return rectangulo;
