@@ -4,7 +4,11 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 
 public interface Posicionable {
 
+    String obtenerSigla();
+
     void establecerPosicion(Posicion posicion);
 
     Posicion obtenerPosicionActual();
+
+
 }

@@ -7,6 +7,17 @@ public class Vacio implements Posicionable {
 
     private Posicion posicion;
 
+    private String sigla;
+
+    public Vacio(){
+        this.sigla = "  ";
+    }
+
+    @Override
+    public String obtenerSigla(){
+        return this.sigla;
+    }
+
     @Override
     public boolean equals(Object obj){
         if (obj == null)

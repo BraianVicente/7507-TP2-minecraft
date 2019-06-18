@@ -6,9 +6,11 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 public class Madera extends Material {
 
     private int durabilidad;
+    private String sigla;
 
     public Madera(){
         this.durabilidad = 10;
+        this.sigla = "Ma";
     }
 
     public int obtenerDurabilidad() {
@@ -22,6 +24,11 @@ public class Madera extends Material {
 
     public void desgastar(Pico pico){
         durabilidad = durabilidad;
+    }
+
+    @Override
+    public String obtenerSigla(){
+        return this.sigla;
     }
 
     @Override

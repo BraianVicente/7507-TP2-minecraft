@@ -15,7 +15,7 @@ public class MovimientoTest {
     public void testMoverHaciaArribaDesdePosicionActualCambiaPosicionPosicionable(){
         Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador() ;
+        Posicionable jugador  = new Jugador("Steve") ;
         Posicion destinoJugador = new Posicion(0,0);
 
         mapa.agregarElemento(new Posicion(1,1),jugador);
@@ -31,7 +31,7 @@ public class MovimientoTest {
     public void testMoverHaciaArribaDesdePosicionActualEsPosicionEsperada(){
         Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador() ;
+        Posicionable jugador  = new Jugador("Steve") ;
         Posicion destinoJugador = new Posicion(2,2);
 
         mapa.agregarElemento(new Posicion(1,1),jugador);
@@ -46,7 +46,7 @@ public class MovimientoTest {
     public void testNoSePuedeMoverAPosicionInvalida(){
         Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador() ;
+        Posicionable jugador  = new Jugador("Steve") ;
         Posicion destinoJugador = new Posicion(2,3);
 
         mapa.agregarElemento(new Posicion(2,2),jugador);

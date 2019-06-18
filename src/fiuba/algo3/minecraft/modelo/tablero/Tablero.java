@@ -19,12 +19,12 @@ public class Tablero {
     private int  altoTablero;
     private Movimiento movimiento;
 
-    public Tablero(){
+    public Tablero(Jugador jugador){
         largoTablero = 20 ;
-        altoTablero = 50 ;
+        altoTablero = 20 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
         movimiento = new Movimiento(mapa) ;
-        jugador = new Jugador();
+        this.jugador = jugador;
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
         int posicionYInicialJugador = (altoTablero / 2 )- 1 ;
@@ -44,6 +44,12 @@ public class Tablero {
 
     public boolean tableroContieneElementoPosicionable(Posicionable elemento){
         return mapa.contieneElementoPosicionable(elemento);
+    }
+
+    public Posicionable obtenerElementoEnPosicion(Posicion posicion){
+        Posicionable elemento = mapa.obtenerElementoEnPosicion(posicion);
+
+        return elemento;
     }
 
     private void inicializarMetal(int cantidadMateriales) {
@@ -117,6 +123,10 @@ public class Tablero {
 
         }
         return false;
+    }
+
+    public String obtenerNombreDelJugador(){
+        return this.jugador.obtenerNombre();
     }
 
 }
