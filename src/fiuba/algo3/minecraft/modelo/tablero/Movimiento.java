@@ -6,55 +6,23 @@ import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Movimiento {
 
+    private static final Integer DISTANCIA_PERMITIDA = 1 ;
     private Mapa mapa;
 
     public Movimiento(Mapa mapa) {
         this.mapa = mapa ;
     }
 
-    public Posicion obtenerPosicionArriba(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() - 1, posicion.obtenerY() ) ;
-    }
+    public boolean mover(Posicion origen, Posicion destino) {
+        Posicionable posicionable = mapa.obtenerElementoEnPosicion(origen);
 
-    public Posicion obtenerPosicionAbajo(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() + 1, posicion.obtenerY() ) ;
+        if (!((origen.distancia(destino)) > DISTANCIA_PERMITIDA )) {
+            mapa.eliminarElemento(origen);
 
-    }
-    public Posicion obtenerPosicionIzquierda(Posicion posicion) {
-        return new Posicion(posicion.obtenerX(), posicion.obtenerY() - 1  ) ;
-    }
+            mapa.agregarElemento(destino, posicionable);
+            return true;
+        }
 
-    public Posicion obtenerPosicionDerecha(Posicion posicion) {
-        return new Posicion(posicion.obtenerX(), posicion.obtenerY() + 1  ) ;
-    }
-
-    public Posicion obtenerPosicionArribaIzquierda(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() - 1, posicion.obtenerY() - 1 ) ;
-    }
-
-    public Posicion obtenerPosicionArribaDerecha(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() - 1 , posicion.obtenerY() + 1  ) ;
-    }
-
-    public Posicion obtenerPosicionAbajoDerecha(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() + 1 , posicion.obtenerY() + 1  ) ;
-    }
-
-    public Posicion obtenerPosicionAbajoIzquierda(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() + 1, posicion.obtenerY() - 1  ) ;
-    }
-
-    public void moverHaciaArribaDesde(Posicion posicion) {
-        Posicionable posicionable = mapa.obtenerElementoEnPosicion(posicion);
-
-        mapa.agregarElemento(this.obtenerPosicionArriba(posicion),posicionable);
-
-        mapa.eliminarElemento(posicion);
-    }
-
-    public void moverHaciaAbajoDesde(Posicion posicion) {
-        Posicionable posicionable = mapa.obtenerElementoEnPosicion(posicion);
-        mapa.agregarElemento(this.obtenerPosicionAbajo(posicion),posicionable);
-        mapa.eliminarElemento(posicion);
+        return false ;
     }
 }

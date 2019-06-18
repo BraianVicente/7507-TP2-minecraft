@@ -12,128 +12,49 @@ import org.junit.Test;
 public class MovimientoTest {
 
     @Test
-    public void testObtenerPosicionArriba(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion arriba = movimiento.obtenerPosicionArriba(new Posicion(2,2));
-
-        Assert.assertEquals(new Posicion(1,2),arriba );
-    }
-
-    @Test
-    public void testObtenerPosicionAbajo(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion abajo = movimiento.obtenerPosicionAbajo(new Posicion(0,0));
-
-        Assert.assertEquals(new Posicion(1,0),abajo);
-    }
-
-
-    @Test
-    public void testObtenerPosicionIzquierda(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion izquierda = movimiento.obtenerPosicionIzquierda(new Posicion(1,1));
-
-        Assert.assertEquals(new Posicion(1,0),izquierda );
-    }
-    
-    @Test
-    public void testObtenerPosicionDerecha(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion derecha = movimiento.obtenerPosicionDerecha(new Posicion(0,0));
-
-        Assert.assertEquals(new Posicion(0,1),derecha);
-    }
-    
-     @Test
-    public void testObtenerPosicionArribaIzquierda() {
-         Mapa mapa = new Mapa(2, 2);
-         Movimiento movimiento = new Movimiento(mapa);
-
-         Posicion arribaIzquierda = movimiento.obtenerPosicionArribaIzquierda(new Posicion(2, 2));
-
-         Assert.assertEquals(new Posicion(1, 1), arribaIzquierda);
-     }
-
-    @Test
-    public void testObtenerPosicionArribaDerecha(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion arribaDerecha = movimiento.obtenerPosicionArribaDerecha(new Posicion(1,1));
-
-        Assert.assertEquals(new Posicion(0,2),arribaDerecha);
-    }
-
-    @Test
-    public void testObtenerPosicionAbajoDerecha(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion abajoDerecha = movimiento.obtenerPosicionAbajoDerecha(new Posicion(1,1));
-
-        Assert.assertEquals(new Posicion(2,2),abajoDerecha );
-    }
-
-    @Test
-    public void testObtenerPosicionAbajoIzquierda(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-
-        Posicion abajoIzquierda = movimiento.obtenerPosicionAbajoIzquierda(new Posicion(1,1));
-
-        Assert.assertEquals(new Posicion(2,0),abajoIzquierda);
-    }
-
-    @Test
     public void testMoverHaciaArribaDesdePosicionActualCambiaPosicionPosicionable(){
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-
         Posicionable jugador  = new Jugador() ;
+        Posicion destinoJugador = new Posicion(0,0);
+
         mapa.agregarElemento(new Posicion(1,1),jugador);
         Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.moverHaciaArribaDesde(posicionInicialJugador);
-
+        movimiento.mover(posicionInicialJugador,destinoJugador);
         Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-        Assert.assertNotEquals(posicionActualJugador,posicionInicialJugador );
+
+        Assert.assertEquals(destinoJugador,posicionActualJugador);
 
     }
 
     @Test
     public void testMoverHaciaArribaDesdePosicionActualEsPosicionEsperada(){
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-
         Posicionable jugador  = new Jugador() ;
+        Posicion destinoJugador = new Posicion(2,2);
+
         mapa.agregarElemento(new Posicion(1,1),jugador);
         Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.moverHaciaArribaDesde(posicionInicialJugador);
-
+        movimiento.mover(posicionInicialJugador,destinoJugador);
         Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-        Assert.assertEquals(new Posicion(0,1),posicionActualJugador);
 
+        Assert.assertEquals(destinoJugador,posicionActualJugador);
     }
 
     @Test(expected = FueraDeRangoMapaException.class)
     public void testNoSePuedeMoverAPosicionInvalida(){
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
-
         Posicionable jugador  = new Jugador() ;
-        mapa.agregarElemento(new Posicion(1,1),jugador);
-        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.moverHaciaAbajoDesde(posicionInicialJugador);
+        Posicion destinoJugador = new Posicion(2,3);
 
+        mapa.agregarElemento(new Posicion(2,2),jugador);
+        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
+        movimiento.mover(posicionInicialJugador,destinoJugador);
         Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-        Assert.assertEquals(new Posicion(1,1),posicionActualJugador);
+
+        Assert.assertEquals(posicionInicialJugador,posicionActualJugador);
 
     }
 

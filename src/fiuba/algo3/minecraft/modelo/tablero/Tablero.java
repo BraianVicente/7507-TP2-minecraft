@@ -17,11 +17,13 @@ public class Tablero {
     private Jugador jugador ;
     private int largoTablero;
     private int  altoTablero;
+    private Movimiento movimiento;
 
     public Tablero(){
         largoTablero = 20 ;
         altoTablero = 50 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
+        movimiento = new Movimiento(mapa) ;
         jugador = new Jugador();
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
@@ -107,8 +109,14 @@ public class Tablero {
         }
     }
 
-    public boolean mover(Posicion posicionNuevaDelJugador, Jugador jugador) {
-        return mapa.moverElemento(posicionNuevaDelJugador, jugador);
+    public boolean mover(Posicion posicionNuevaDelJugador) {
+        if (mapa.contieneElementoPosicionable(jugador)) {
+            Posicion posicionActualDelJugador = jugador.obtenerPosicionActual();
+
+            return movimiento.mover(posicionActualDelJugador, posicionNuevaDelJugador);
+
+        }
+        return false;
     }
 
 }

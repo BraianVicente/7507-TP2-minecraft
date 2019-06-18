@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.modelo.tablero;
 
-import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
@@ -50,14 +49,15 @@ public class TableroTest {
     @Test
     public void muevoJugadorAUnaPosicionContigua(){
         Tablero tablero = new Tablero();
-        Assert.assertTrue(tablero.mover(new Posicion(9,25), new Jugador()));
+
+        Assert.assertTrue(tablero.mover(new Posicion(9,25)));
     }
 
     @Test
     public void muevoJugadorAUnaPosicionNoContigua(){
         Tablero tablero = new Tablero();
 
-        Assert.assertFalse(tablero.mover(new Posicion(9,26), new Jugador()));
+        Assert.assertFalse(tablero.mover(new Posicion(9,26)));
 
     }
 
