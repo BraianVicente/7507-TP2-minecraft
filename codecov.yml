@@ -1,0 +1,3 @@
+ignore:
+  - "src/fiuba/algo3/minecraft/vista/"  # ignore folders and all its contents
+  - "src/fiuba/algo3/minecraft/controller/"
