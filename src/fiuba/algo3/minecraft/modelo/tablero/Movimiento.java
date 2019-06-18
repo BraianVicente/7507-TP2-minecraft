@@ -16,8 +16,32 @@ public class Movimiento {
         return new Posicion(posicion.obtenerX() - 1, posicion.obtenerY() ) ;
     }
 
+    public Posicion obtenerPosicionAbajo(Posicion posicion) {
+        return new Posicion(posicion.obtenerX() + 1, posicion.obtenerY() ) ;
+
+    }
+    public Posicion obtenerPosicionIzquierda(Posicion posicion) {
+        return new Posicion(posicion.obtenerX(), posicion.obtenerY() - 1  ) ;
+    }
+
+    public Posicion obtenerPosicionDerecha(Posicion posicion) {
+        return new Posicion(posicion.obtenerX(), posicion.obtenerY() + 1  ) ;
+    }
+
     public Posicion obtenerPosicionArribaIzquierda(Posicion posicion) {
         return new Posicion(posicion.obtenerX() - 1, posicion.obtenerY() - 1 ) ;
+    }
+
+    public Posicion obtenerPosicionArribaDerecha(Posicion posicion) {
+        return new Posicion(posicion.obtenerX() - 1 , posicion.obtenerY() + 1  ) ;
+    }
+
+    public Posicion obtenerPosicionAbajoDerecha(Posicion posicion) {
+        return new Posicion(posicion.obtenerX() + 1 , posicion.obtenerY() + 1  ) ;
+    }
+
+    public Posicion obtenerPosicionAbajoIzquierda(Posicion posicion) {
+        return new Posicion(posicion.obtenerX() + 1, posicion.obtenerY() - 1  ) ;
     }
 
     public void moverHaciaArribaDesde(Posicion posicion) {
@@ -32,10 +56,5 @@ public class Movimiento {
         Posicionable posicionable = mapa.obtenerElementoEnPosicion(posicion);
         mapa.agregarElemento(this.obtenerPosicionAbajo(posicion),posicionable);
         mapa.eliminarElemento(posicion);
-    }
-
-    public Posicion obtenerPosicionAbajo(Posicion posicion) {
-        return new Posicion(posicion.obtenerX() + 1, posicion.obtenerY() ) ;
-
     }
 }

@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.modelo.tablero;
 
 
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
+import fiuba.algo3.minecraft.modelo.mapa.FueraDeRangoMapaException;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
@@ -12,7 +13,7 @@ public class MovimientoTest {
 
     @Test
     public void testObtenerPosicionArriba(){
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
 
         Posicion arriba = movimiento.obtenerPosicionArriba(new Posicion(2,2));
@@ -22,7 +23,7 @@ public class MovimientoTest {
 
     @Test
     public void testObtenerPosicionAbajo(){
-        Mapa mapa = new Mapa(2,2);
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
 
         Posicion abajo = movimiento.obtenerPosicionAbajo(new Posicion(0,0));
@@ -30,17 +31,66 @@ public class MovimientoTest {
         Assert.assertEquals(new Posicion(1,0),abajo);
     }
 
+
     @Test
-    public void testObtenerPosicionArribaIzquierda(){
-        Mapa mapa = new Mapa(2,2);
+    public void testObtenerPosicionIzquierda(){
+        Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
 
-        Posicion arribaIzquierda = movimiento.obtenerPosicionArribaIzquierda(new Posicion(2,2));
+        Posicion izquierda = movimiento.obtenerPosicionIzquierda(new Posicion(1,1));
 
-        Assert.assertEquals(new Posicion(1,1),arribaIzquierda );
+        Assert.assertEquals(new Posicion(1,0),izquierda );
+    }
+    
+    @Test
+    public void testObtenerPosicionDerecha(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
 
+        Posicion derecha = movimiento.obtenerPosicionDerecha(new Posicion(0,0));
+
+        Assert.assertEquals(new Posicion(0,1),derecha);
+    }
+    
+     @Test
+    public void testObtenerPosicionArribaIzquierda() {
+         Mapa mapa = new Mapa(2, 2);
+         Movimiento movimiento = new Movimiento(mapa);
+
+         Posicion arribaIzquierda = movimiento.obtenerPosicionArribaIzquierda(new Posicion(2, 2));
+
+         Assert.assertEquals(new Posicion(1, 1), arribaIzquierda);
+     }
+
+    @Test
+    public void testObtenerPosicionArribaDerecha(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+
+        Posicion arribaDerecha = movimiento.obtenerPosicionArribaDerecha(new Posicion(1,1));
+
+        Assert.assertEquals(new Posicion(0,2),arribaDerecha);
     }
 
+    @Test
+    public void testObtenerPosicionAbajoDerecha(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+
+        Posicion abajoDerecha = movimiento.obtenerPosicionAbajoDerecha(new Posicion(1,1));
+
+        Assert.assertEquals(new Posicion(2,2),abajoDerecha );
+    }
+
+    @Test
+    public void testObtenerPosicionAbajoIzquierda(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+
+        Posicion abajoIzquierda = movimiento.obtenerPosicionAbajoIzquierda(new Posicion(1,1));
+
+        Assert.assertEquals(new Posicion(2,0),abajoIzquierda);
+    }
 
     @Test
     public void testMoverHaciaArribaDesdePosicionActualCambiaPosicionPosicionable(){
@@ -72,7 +122,7 @@ public class MovimientoTest {
 
     }
 
-    @Test
+    @Test(expected = FueraDeRangoMapaException.class)
     public void testNoSePuedeMoverAPosicionInvalida(){
         Mapa mapa = new Mapa(2,2);
         Movimiento movimiento = new Movimiento(mapa);
@@ -83,7 +133,8 @@ public class MovimientoTest {
         movimiento.moverHaciaAbajoDesde(posicionInicialJugador);
 
         Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-        Assert.assertEquals(new Posicion(0,1),posicionActualJugador);
+        Assert.assertEquals(new Posicion(1,1),posicionActualJugador);
 
     }
+
 }
