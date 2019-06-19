@@ -4,9 +4,7 @@ import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 
-public class PlanoHachaDeMadera{
-
-    private Mapa plano;
+public class PlanoHachaDeMadera extends Plano{
 
     public PlanoHachaDeMadera(){
         plano = new Mapa(3, 3);
@@ -15,10 +13,6 @@ public class PlanoHachaDeMadera{
         plano.agregarElemento(new Posicion(0,1), new Madera());
         plano.agregarElemento(new Posicion(1,1), new Madera());
         plano.agregarElemento(new Posicion(1,2), new Madera());
-    }
-
-    public Mapa obtenerPlano(){
-        return plano;
     }
 
 }

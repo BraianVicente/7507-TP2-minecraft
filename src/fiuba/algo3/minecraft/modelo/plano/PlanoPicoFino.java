@@ -6,9 +6,7 @@ import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 
-public class PlanoPicoFino{
-
-    private Mapa plano;
+public class PlanoPicoFino extends Plano{
 
     public PlanoPicoFino(){
         plano = new Mapa(3, 3);
@@ -18,10 +16,6 @@ public class PlanoPicoFino{
         plano.agregarElemento(new Posicion(1,1), new Madera());
         plano.agregarElemento(new Posicion(1,2), new Madera());
         plano.agregarElemento(new Posicion(0,1), new Piedra());
-    }
-
-    public Mapa obtenerPlano(){
-        return plano;
     }
 
 }
