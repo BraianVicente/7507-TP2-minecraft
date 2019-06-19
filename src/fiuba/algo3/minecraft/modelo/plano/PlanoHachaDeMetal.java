@@ -7,8 +7,6 @@ import fiuba.algo3.minecraft.modelo.material.Metal;
 
 public class PlanoHachaDeMetal{
 
-    private Mapa plano;
-
     public PlanoHachaDeMetal(){
         plano = new Mapa(3, 3);
         plano.agregarElemento(new Posicion(0,0), new Metal());
