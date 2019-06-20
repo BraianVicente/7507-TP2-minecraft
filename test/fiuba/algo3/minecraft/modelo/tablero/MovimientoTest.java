@@ -11,51 +11,18 @@ import org.junit.Test;
 
 public class MovimientoTest {
 
-    @Test
-    public void testMoverHaciaArribaDesdePosicionActualCambiaPosicionPosicionable(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador("Steve") ;
-        Posicion destinoJugador = new Posicion(0,0);
-
-        mapa.agregarElemento(new Posicion(1,1),jugador);
-        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.mover(posicionInicialJugador,destinoJugador);
-        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-
-        Assert.assertEquals(destinoJugador,posicionActualJugador);
-
-    }
-
-    @Test
-    public void testMoverHaciaArribaDesdePosicionActualEsPosicionEsperada(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador("Steve") ;
-        Posicion destinoJugador = new Posicion(2,2);
-
-        mapa.agregarElemento(new Posicion(1,1),jugador);
-        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.mover(posicionInicialJugador,destinoJugador);
-        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
-
-        Assert.assertEquals(destinoJugador,posicionActualJugador);
-    }
 
     @Test(expected = FueraDeRangoMapaException.class)
     public void testNoSePuedeMoverAPosicionInvalida(){
         Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
         Posicionable jugador  = new Jugador("Steve") ;
-        Posicion destinoJugador = new Posicion(2,3);
 
         mapa.agregarElemento(new Posicion(2,2),jugador);
         Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.mover(posicionInicialJugador,destinoJugador);
-        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
+        movimiento.moverHaciaAbajo(jugador);
 
-        Assert.assertEquals(posicionInicialJugador,posicionActualJugador);
-
+        Assert.assertEquals(posicionInicialJugador,jugador.obtenerPosicionActual());
     }
 
     @Test

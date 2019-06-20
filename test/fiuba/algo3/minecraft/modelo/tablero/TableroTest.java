@@ -48,19 +48,43 @@ public class TableroTest {
     }
 
     @Test
-    public void muevoJugadorAUnaPosicionContigua(){
+    public void moverJugadorHaciaArriba(){
         Tablero tablero = new Tablero(new Jugador("Pepe"));
 
-        Assert.assertTrue(tablero.mover(new Posicion(9,10)));
+        tablero.moverJugadorHaciaArriba();
+        Jugador jugador = (Jugador) tablero.obtenerElementoEnPosicion(new Posicion(8,9));
+
+        Assert.assertTrue(jugador instanceof Jugador);
+    }
+
+
+    @Test
+    public void moverJugadorHaciaAbajo(){
+        Tablero tablero = new Tablero(new Jugador("Pepe"));
+
+        tablero.moverJugadorHaciaAbajo();
+        Jugador jugador = (Jugador) tablero.obtenerElementoEnPosicion(new Posicion(10,9));
+
+        Assert.assertTrue(jugador instanceof Jugador);
     }
 
     @Test
-    public void muevoJugadorAUnaPosicionNoContigua(){
+    public void moverJugadorHaciaIzquierda(){
         Tablero tablero = new Tablero(new Jugador("Pepe"));
 
-        Assert.assertFalse(tablero.mover(new Posicion(9,11)));
+        tablero.moverJugadorHaciaIzquierda();
+        Jugador jugador = (Jugador) tablero.obtenerElementoEnPosicion(new Posicion(9,8));
 
+        Assert.assertTrue(jugador instanceof Jugador);
     }
 
+    @Test
+    public void moverJugadorHaciaDerecha(){
+        Tablero tablero = new Tablero(new Jugador("Pepe"));
 
+        tablero.moverJugadorHaciaDerecha();
+        Jugador jugador = (Jugador) tablero.obtenerElementoEnPosicion(new Posicion(9,10));
+
+        Assert.assertTrue(jugador instanceof Jugador);
+    }
 }
