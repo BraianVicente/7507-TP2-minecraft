@@ -13,3 +13,5 @@ build.xml.old
 out/
 src/sample/*
 minecraft.iml
+.DS_Store
+TP2.iml

@@ -1,7 +1,5 @@
 package fiuba.algo3.minecraft.modelo.mapa.posicion;
 
-import static java.lang.StrictMath.abs;
-
 public class Posicion {
     private final int x;
     private final int y;
@@ -54,17 +52,13 @@ public class Posicion {
         return true;
     }
 
-    public boolean esContigua(Posicion otraPosicion) {
-        if (this.equals(otraPosicion)) return false ;
+    public boolean esContigua(Posicion posicion) {
+        if (this.equals(posicion)) return false ;
 
-        if ( (abs(x - otraPosicion.obtenerX() ) <= 1)   &&
-            (abs(y - otraPosicion.obtenerY() ) <= 1  ) ){
-                return true ;
-        }
-        return false ;
+        return posicion.distancia(this) <= 1 ;
     }
 
-    public int distancia(Posicion posicionNuevaDelJugador) {
-        return (int) Math.sqrt(Math.pow(this.x - posicionNuevaDelJugador.obtenerX(),2) + Math.pow(this.y - posicionNuevaDelJugador.obtenerY(),2));
+    public int distancia(Posicion posicion) {
+        return (int) Math.sqrt(Math.pow(this.x - posicion.obtenerX(),2) + Math.pow(this.y - posicion.obtenerY(),2));
     }
 }

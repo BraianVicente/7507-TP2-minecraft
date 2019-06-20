@@ -11,6 +11,7 @@ public class Jugador implements Posicionable {
 
     private String nombre;
     private Inventario inventario;
+    private Posicion posicion;
     private MesaDeTrabajo mesaDeTrabajo;
 
     public Jugador(String nombre){
@@ -70,4 +71,13 @@ public class Jugador implements Posicionable {
         return true;
     }
 
+    @Override
+    public void establecerPosicion(Posicion posicion) {
+        this.posicion = posicion ;
+    }
+
+    @Override
+    public Posicion obtenerPosicionActual() {
+        return posicion;
+    }
 }

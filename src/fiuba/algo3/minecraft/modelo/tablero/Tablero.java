@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.modelo.tablero;
 
-import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
@@ -8,6 +7,7 @@ import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.Material ;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 import java.util.Random;
@@ -18,11 +18,13 @@ public class Tablero {
     private Jugador jugador ;
     private int largoTablero;
     private int  altoTablero;
+    private Movimiento movimiento;
 
     public Tablero(Jugador jugador){
         largoTablero = 20 ;
         altoTablero = 20 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
+        movimiento = new Movimiento(mapa) ;
         this.jugador = jugador;
 
         int posicionXInicialJugador = (largoTablero / 2 )- 1 ;
@@ -51,76 +53,68 @@ public class Tablero {
         return elemento;
     }
 
-    private void inicializarMetal(int cantidadMateriales) {
+    private void inicializarCon(Material material,int cantidadMateriales)  {
 
         int randomLargo ;
         int randomAlto ;
         for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
-            do {
+            while(true){
+
                 Random aleatorio = new Random(System.currentTimeMillis());
 
                 randomLargo = aleatorio.nextInt(largoTablero - 1);
                 randomAlto = aleatorio.nextInt(altoTablero - 1);
 
-            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Metal())) ;
+                Posicion posicionMaterial = new Posicion(randomLargo,randomAlto);
+
+                try {
+                    if ( posicionMaterial.distancia(jugador.obtenerPosicionActual()) > 1 &&
+                            mapa.agregarElemento(posicionMaterial,material.getClass().newInstance())) {
+                        break ;
+                    }
+                } catch (InstantiationException e) {
+                } catch (IllegalAccessException e) {
+                }
+            }
 
         }
+    }
+
+    private void inicializarMetal(int cantidadMateriales) {
+        inicializarCon(new Metal(),cantidadMateriales);
+
     }
 
     private void inicializarPiedra(int cantidadMateriales) {
-
-        int randomLargo ;
-        int randomAlto ;
-        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
-            do {
-                Random aleatorio = new Random(System.currentTimeMillis());
-
-                randomLargo = aleatorio.nextInt(largoTablero - 1);
-                randomAlto = aleatorio.nextInt(altoTablero - 1);
-
-            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Piedra())) ;
-
-        }
+        inicializarCon(new Piedra(),cantidadMateriales);
     }
-
     private void inicializarDiamante(int cantidadMateriales) {
+        inicializarCon(new Diamante(),cantidadMateriales);
 
-        int randomLargo ;
-        int randomAlto ;
-        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
-            do {
-                Random aleatorio = new Random(System.currentTimeMillis());
-
-                randomLargo = aleatorio.nextInt(largoTablero - 1);
-                randomAlto = aleatorio.nextInt(altoTablero - 1);
-
-            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Diamante())) ;
-
-        }
     }
 
     private void inicializarMadera(int cantidadMateriales) {
-        int randomLargo ;
-        int randomAlto ;
-        for ( int i = 0 ; i <= cantidadMateriales ; i++ ){
-            do {
-                Random aleatorio = new Random(System.currentTimeMillis());
-
-                randomLargo = aleatorio.nextInt(largoTablero - 1);
-                randomAlto = aleatorio.nextInt(altoTablero - 1);
-
-            } while (! mapa.agregarElemento(new Posicion(randomLargo,randomAlto),new Madera())) ;
-
-        }
-    }
-
-    public boolean mover(Posicion posicionNuevaDelJugador) {
-        return mapa.moverElemento(posicionNuevaDelJugador, jugador);
+        inicializarCon(new Madera(),cantidadMateriales);
     }
 
     public String obtenerNombreDelJugador(){
         return this.jugador.obtenerNombre();
     }
 
+    public void moverJugadorHaciaArriba() {
+        movimiento.moverHaciaArriba(jugador);
+    }
+
+    public void moverJugadorHaciaAbajo() {
+        movimiento.moverHaciaAbajo(jugador);
+    }
+
+    public void moverJugadorHaciaIzquierda() {
+        movimiento.moverHaciaIzquierda(jugador);
+    }
+
+    public void moverJugadorHaciaDerecha() {
+        movimiento.moverHaciaDerecha(jugador);
+    }
 }
 

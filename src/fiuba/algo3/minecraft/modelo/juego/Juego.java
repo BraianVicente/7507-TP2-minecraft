@@ -14,10 +14,6 @@ public class Juego {
         this.tablero = new Tablero(new Jugador(nombreJugador));
     }
 
-    public boolean moverJugadorA(int x, int y){
-        return this.tablero.mover(new Posicion(x,y));
-    }
-
     public String verQueHayEnPosicionDelTablero(int x, int y){
         Posicionable elemento = this.tablero.obtenerElementoEnPosicion(new Posicion(x,y));
 
