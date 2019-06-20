@@ -55,10 +55,7 @@ public class Posicion {
     public boolean esContigua(Posicion posicion) {
         if (this.equals(posicion)) return false ;
 
-        if ( posicion.distancia(this) <= 1) {
-                return true ;
-        }
-        return false ;
+        return posicion.distancia(this) <= 1 ;
     }
 
     public int distancia(Posicion posicion) {
