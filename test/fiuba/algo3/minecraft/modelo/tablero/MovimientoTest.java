@@ -58,4 +58,61 @@ public class MovimientoTest {
 
     }
 
+    @Test
+    public void testMoverHaciaArriba(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+        Posicionable jugador  = new Jugador("Steve") ;
+        mapa.agregarElemento(new Posicion(1,1),jugador);
+
+        movimiento.moverHaciaArriba(jugador) ;
+        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
+
+        Assert.assertEquals(new Posicion(0,1),posicionActualJugador);
+
+    }
+
+    @Test
+    public void testMoverHaciaAbajo(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+        Posicionable jugador  = new Jugador("Steve") ;
+        mapa.agregarElemento(new Posicion(1,1),jugador);
+
+        movimiento.moverHaciaAbajo(jugador) ;
+        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
+
+        Assert.assertEquals(new Posicion(2,1),posicionActualJugador);
+
+    }
+
+    @Test
+    public void testMoverHaciaIzquierda(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+        Posicionable jugador  = new Jugador("Steve") ;
+        mapa.agregarElemento(new Posicion(1,1),jugador);
+
+        movimiento.moverHaciaIzquierda(jugador) ;
+        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
+
+        Assert.assertEquals(new Posicion(1,0),posicionActualJugador);
+
+    }
+
+    @Test
+    public void testMoverHaciaDerecha(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+        Posicionable jugador  = new Jugador("Steve") ;
+        mapa.agregarElemento(new Posicion(1,1),jugador);
+
+        movimiento.moverHaciaDerecha(jugador) ;
+        Posicion posicionActualJugador = jugador.obtenerPosicionActual();
+
+        Assert.assertEquals(new Posicion(1,2),posicionActualJugador);
+
+    }
+
+
 }
