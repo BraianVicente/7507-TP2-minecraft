@@ -9,7 +9,7 @@ import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Jugador implements Posicionable {
 
-    public String nombre;
+    private String nombre;
     private Inventario inventario;
     private Posicion posicion;
     private MesaDeTrabajo mesaDeTrabajo;
