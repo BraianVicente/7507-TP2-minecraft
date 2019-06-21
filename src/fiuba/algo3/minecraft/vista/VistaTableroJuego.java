@@ -1,6 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.juego.Juego;
+import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
@@ -9,18 +9,18 @@ import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
+import java.util.Observable;
 import java.util.Observer;
 
-public class MapaVista implements Observer {
+public class VistaTableroJuego implements Observer {
 
-    private final Juego juego;
+    private final TableroDelJuego tableroDelJuego;
     private GridPane contenedorPrincipal;
 
     private Image diamond,grass,iron,steve,stone,wood ;
@@ -34,8 +34,8 @@ public class MapaVista implements Observer {
         wood = new Image("fiuba/algo3/minecraft/vista/images/resource/wood.jpg",30,30,false,false);
     }
 
-    public MapaVista(Juego juego){
-        this.juego = juego ;
+    public VistaTableroJuego(TableroDelJuego tableroDelJuego){
+        this.tableroDelJuego = tableroDelJuego;
         this.loadImageResourse();
         this.inicializarMapa();
         this.pintarMapa();
@@ -54,7 +54,9 @@ public class MapaVista implements Observer {
         contenedorPrincipal.setMinSize(500,500);
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
-                contenedorPrincipal.add(new ImageView(grass),i,j);
+                Node imageContainer = new ImageView(grass) ;
+                imageContainer.setOnKeyPressed(new MovimientoEventHandler(tableroDelJuego));
+                contenedorPrincipal.add(imageContainer,i,j);
 
             }
         }
@@ -66,7 +68,7 @@ public class MapaVista implements Observer {
 
     public Node establecerImage(Posicion posicion){
 
-        Posicionable elemento =  juego.verQueHayEnPosicionDelTablero(posicion);
+        Posicionable elemento =  tableroDelJuego.obtenerElementoEnPosicion(posicion);
         if ( elemento instanceof Jugador){
             return new ImageView(steve) ;
         }
@@ -91,7 +93,7 @@ public class MapaVista implements Observer {
 
 
     @Override
-    public void update(java.util.Observable o, Object arg) {
+    public void update(Observable o, Object arg) {
         this.pintarMapa();
 
     }

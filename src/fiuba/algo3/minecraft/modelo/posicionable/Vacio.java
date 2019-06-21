@@ -14,11 +14,6 @@ public class Vacio implements Posicionable {
     }
 
     @Override
-    public String obtenerSigla(){
-        return this.sigla;
-    }
-
-    @Override
     public boolean equals(Object obj){
         if (obj == null)
             return false;

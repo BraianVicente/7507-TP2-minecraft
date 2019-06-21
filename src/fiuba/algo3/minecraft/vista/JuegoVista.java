@@ -1,28 +1,21 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.juego.Juego;
-import javafx.beans.InvalidationListener;
+import fiuba.algo3.minecraft.modelo.jugador.Jugador;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import javax.swing.*;
-import java.awt.Label;
 
 public class JuegoVista {
 
     private final Stage escenario;
     private AlgoCraft aplicacion;
     private Controles controles;
-    private MapaVista matrizDeBotones;
-    private Juego juego;
+    private VistaTableroJuego matrizDeBotones;
+    private TableroDelJuego tableroDelJuego;
     private BarraDeMenu menuBar;
 
 
@@ -35,15 +28,17 @@ public class JuegoVista {
     }
 
     public void iniciar(String nombreJugador){
+        Jugador jugador = new Jugador(nombreJugador) ;
 
-        this.juego = new Juego(nombreJugador);
+        this.tableroDelJuego = new TableroDelJuego(jugador);
 
-        this.matrizDeBotones = new MapaVista(juego);
+        this.matrizDeBotones = new VistaTableroJuego(tableroDelJuego);
 
         BorderPane borderPane = new BorderPane();
 
         GridPane mapa = matrizDeBotones.obtenerMapa();
-        VBox contenedorDeControles = controles.obtenerControles(juego);
+
+        VBox contenedorDeControles = controles.obtenerControles(tableroDelJuego);
 
         HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
 
@@ -54,5 +49,7 @@ public class JuegoVista {
         Scene escenaJuego = new Scene(borderPane);
 
         this.escenario.setScene(escenaJuego);
+
+        this.escenario.show();
     }
 }

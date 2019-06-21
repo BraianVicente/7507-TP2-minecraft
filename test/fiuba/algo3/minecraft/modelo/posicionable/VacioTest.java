@@ -7,14 +7,6 @@ import org.junit.Test;
 public class VacioTest {
 
     @Test
-    public void obtenerSiglaCorrecta() {
-        Vacio vacio = new Vacio();
-        String sigla = vacio.obtenerSigla();
-
-        Assert.assertEquals("  ",sigla);
-    }
-
-    @Test
     public void seObtienePosicionPreviamenteEstablecida() {
         Vacio vacio = new Vacio();
         vacio.establecerPosicion(new Posicion(0,0));

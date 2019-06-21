@@ -26,11 +26,6 @@ public class Madera extends Material {
     }
 
     @Override
-    public String obtenerSigla(){
-        return this.sigla;
-    }
-
-    @Override
     public boolean equals(Object obj){
         if (obj == null)
             return false;

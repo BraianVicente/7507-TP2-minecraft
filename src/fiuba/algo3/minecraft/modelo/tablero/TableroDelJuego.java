@@ -9,21 +9,17 @@ import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.material.Material ;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
-import javafx.beans.InvalidationListener;
-
-import java.util.ArrayList;
-import java.util.Observable;
 import java.util.Random;
 
 
-public class Tablero extends Observable {
+public class TableroDelJuego {
     private Mapa mapa ;
     private Jugador jugador ;
     private int largoTablero;
     private int  altoTablero;
     private Movimiento movimiento;
 
-    public Tablero(Jugador jugador){
+    public TableroDelJuego(Jugador jugador){
         largoTablero = 20 ;
         altoTablero = 20 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
@@ -38,7 +34,6 @@ public class Tablero extends Observable {
         this.inicializarDiamante(largoTablero/4);
         this.inicializarPiedra(altoTablero/2);
         this.inicializarMetal(largoTablero/2);
-
 
     }
 

@@ -1,20 +1,19 @@
 package fiuba.algo3.minecraft.controller;
 
-import fiuba.algo3.minecraft.modelo.tablero.Tablero;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.GridPane;
 
 public class MovimientoEventHandler implements EventHandler<KeyEvent> {
 
 
-    private final Button buttonUp;
-    private final Button buttonDown;
-    private final Button buttonLeft;
-    private final Button buttonRight;
-    private final Tablero tablero;
+    private Button buttonUp;
+    private Button buttonDown;
+    private Button buttonLeft;
+    private Button buttonRight;
+    private TableroDelJuego tableroDelJuego;
 
     /**
      * Invoked when a specific event of the type for which this handler is
@@ -22,33 +21,36 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
      *
      * @param buttonLeft the event which occurred
      */
+    public MovimientoEventHandler(TableroDelJuego tableroDelJuego){
+        this.tableroDelJuego = tableroDelJuego;
+    }
 
     public MovimientoEventHandler(Button buttonUp,
                                   Button buttonDown ,
                                   Button buttonLeft ,
                                   Button buttonRight,
-                                  Tablero tablero){
+                                  TableroDelJuego tableroDelJuego){
         this.buttonUp = buttonUp ;
         this.buttonDown = buttonDown ;
         this.buttonLeft = buttonLeft ;
         this.buttonRight = buttonRight ;
-        this.tablero= tablero ;
+        this.tableroDelJuego = tableroDelJuego;
     }
 
     @Override
     public void handle(KeyEvent event) {
 
         if (event.getCode() == KeyCode.UP) {
-            tablero.moverJugadorHaciaArriba();
+            tableroDelJuego.moverJugadorHaciaArriba();
         }
         if (event.getCode() == KeyCode.DOWN) {
-            tablero.moverJugadorHaciaAbajo();
+            tableroDelJuego.moverJugadorHaciaAbajo();
         }
         if (event.getCode() == KeyCode.LEFT) {
-            tablero.moverJugadorHaciaIzquierda();
+            tableroDelJuego.moverJugadorHaciaIzquierda();
         }
         if (event.getCode() == KeyCode.RIGHT) {
-            tablero.moverJugadorHaciaDerecha();
+            tableroDelJuego.moverJugadorHaciaDerecha();
         }
 
 

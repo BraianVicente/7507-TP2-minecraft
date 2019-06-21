@@ -1,6 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.juego.Juego;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -10,7 +10,7 @@ public class MesaDeTrabajoVista {
 
     private VBox contenedorPrincipal;
 
-    public MesaDeTrabajoVista(Juego juego){
+    public MesaDeTrabajoVista(TableroDelJuego tableroDelJuego){
 
         this.contenedorPrincipal = new VBox();
 

@@ -5,11 +5,8 @@ import fiuba.algo3.minecraft.modelo.herramienta.*;
 public class Diamante extends Material {
 
     private int durabilidad;
-    private String sigla;
-
     public Diamante(){
         this.durabilidad = 100;
-        this.sigla = "Di";
     }
 
     public int obtenerDurabilidad() {
@@ -28,11 +25,6 @@ public class Diamante extends Material {
         else {
             durabilidad = durabilidad;
         }
-    }
-
-    @Override
-    public String obtenerSigla(){
-        return this.sigla;
     }
 
     @Override
