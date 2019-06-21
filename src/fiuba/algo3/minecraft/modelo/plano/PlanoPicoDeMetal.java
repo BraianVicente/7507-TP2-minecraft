@@ -1,6 +1,8 @@
 package fiuba.algo3.minecraft.modelo.plano;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteNoConvencional;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
@@ -20,6 +22,8 @@ public class PlanoPicoDeMetal extends Plano{
 
     @Override
     public Herramienta construir() {
-        return fabrica.construirPicoDeMetal();
+
+        return new Pico(new DesgasteNoConvencional(400, 12));
+
     }
 }

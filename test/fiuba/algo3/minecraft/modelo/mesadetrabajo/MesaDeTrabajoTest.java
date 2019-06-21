@@ -70,7 +70,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 1, new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 2, new Madera());
 
-        Assert.assertEquals(100, mesaDeTrabajo.construir(new PlanoHachaDeMadera()).obtenerDurabilidad());
+        Assert.assertEquals(100, mesaDeTrabajo.construir(new PlanoPicoDeMadera()).obtenerDurabilidad());
 
     }
 
@@ -84,7 +84,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 1, new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(1, 2, new Madera());
 
-        Assert.assertEquals(200, mesaDeTrabajo.construir(new PlanoHachaDePiedra()).obtenerDurabilidad());
+        Assert.assertEquals(200, mesaDeTrabajo.construir(new PlanoPicoDePiedra()).obtenerDurabilidad());
 
     }
 

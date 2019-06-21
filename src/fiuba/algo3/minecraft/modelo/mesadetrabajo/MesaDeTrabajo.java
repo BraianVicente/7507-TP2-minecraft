@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.mesadetrabajo;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;

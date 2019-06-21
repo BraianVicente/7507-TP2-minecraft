@@ -1,5 +1,7 @@
 package fiuba.algo3.minecraft.modelo.plano;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
@@ -19,7 +21,7 @@ public class PlanoHachaDePiedra extends Plano{
 
     @Override
     public Herramienta construir() {
-        return fabrica.construirHachaDePiedra();
+        return new Hacha(new DesgasteEstandar(200, 5, 1));
     }
 
 }
