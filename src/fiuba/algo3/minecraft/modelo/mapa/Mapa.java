@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.modelo.mapa;
 
-import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
@@ -12,7 +11,6 @@ public class Mapa {
     private final int limiteX ;
     private final int limiteY ;
     private final HashMap<Posicion,Posicionable> mapa ;
-    private static int distanciaPermitida = 1 ;
 
     public Mapa(Integer x,Integer y) {
         HashMap<Posicion,Posicionable> mapa = new HashMap<Posicion,Posicionable>()   ;
@@ -49,6 +47,7 @@ public class Mapa {
 
         if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio()) ){
             mapa.put(posicion,posicionable) ;
+            posicionable.establecerPosicion(posicion);
             return true ;
         }
 
@@ -75,15 +74,4 @@ public class Mapa {
         return null ;
     }
 
-    public boolean moverElemento(Posicion posicionNueva,Posicionable posicionable) {
-        if (contieneElementoPosicionable(posicionable)) {
-            Posicion posicionActualDelPosicionable = obtenerPosicion(posicionable);
-            if (!((posicionActualDelPosicionable.distancia(posicionNueva)) > 1)) {
-                eliminarElemento(posicionActualDelPosicionable);
-                agregarElemento(posicionNueva, posicionable);
-                return true;
-            }
-        }
-        return false ;
-    }
 }
