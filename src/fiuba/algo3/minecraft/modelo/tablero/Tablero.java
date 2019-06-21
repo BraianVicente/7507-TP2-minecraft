@@ -9,11 +9,14 @@ import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.material.Material ;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import javafx.beans.InvalidationListener;
 
+import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 
 
-public class Tablero {
+public class Tablero extends Observable {
     private Mapa mapa ;
     private Jugador jugador ;
     private int largoTablero;
@@ -116,5 +119,6 @@ public class Tablero {
     public void moverJugadorHaciaDerecha() {
         movimiento.moverHaciaDerecha(jugador);
     }
+
 }
 

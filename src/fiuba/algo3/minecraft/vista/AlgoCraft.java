@@ -1,6 +1,5 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.controller.BottonComenzarEventHandler;
 import fiuba.algo3.minecraft.controller.TextoEventHandler;
 import javafx.application.Application;
@@ -15,7 +14,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class AlgoCraft extends Application {
+public class  AlgoCraft extends Application {
 
     private Stage escenario;
     private static final String tituloDeVentana = "AlgoCraft";

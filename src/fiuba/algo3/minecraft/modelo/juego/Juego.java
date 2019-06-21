@@ -14,13 +14,17 @@ public class Juego {
         this.tablero = new Tablero(new Jugador(nombreJugador));
     }
 
-    public String verQueHayEnPosicionDelTablero(int x, int y){
-        Posicionable elemento = this.tablero.obtenerElementoEnPosicion(new Posicion(x,y));
+    public Posicionable verQueHayEnPosicionDelTablero(Posicion posicion){
+        Posicionable elemento = this.tablero.obtenerElementoEnPosicion(posicion);
 
-        return elemento.obtenerSigla();
+        return elemento;
     }
 
     public String obtenerNombre(){
         return this.tablero.obtenerNombreDelJugador();
+    }
+
+    public Tablero obtenerTablero() {
+        return tablero ;
     }
 }

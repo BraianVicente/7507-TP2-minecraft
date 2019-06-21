@@ -1,11 +1,13 @@
 package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.juego.Juego;
+import javafx.beans.InvalidationListener;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -40,8 +42,7 @@ public class JuegoVista {
 
         BorderPane borderPane = new BorderPane();
 
-        VBox mapa = matrizDeBotones.obtenerMapa();
-
+        GridPane mapa = matrizDeBotones.obtenerMapa();
         VBox contenedorDeControles = controles.obtenerControles(juego);
 
         HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
