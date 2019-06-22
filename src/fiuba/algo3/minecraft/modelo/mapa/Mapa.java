@@ -3,21 +3,14 @@ package fiuba.algo3.minecraft.modelo.mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
-
 import java.util.HashMap;
-import java.util.Observable;
 
-public class Mapa extends Observable {
+public class Mapa {
 
-    private final int limiteX ;
-    private final int limiteY ;
     private final HashMap<Posicion,Posicionable> mapa ;
 
     public Mapa(Integer x,Integer y) {
         HashMap<Posicion,Posicionable> mapa = new HashMap<Posicion,Posicionable>()   ;
-        limiteX = x;
-        limiteY = y;
-
         for ( int i = 0 ; i < x ; i++ ){
             for(int j = 0 ; j < y ; j++ ){
                 mapa.put(new Posicion(i,j),new Vacio()) ;
@@ -49,9 +42,6 @@ public class Mapa extends Observable {
         if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio()) ){
             mapa.put(posicion,posicionable) ;
             posicionable.establecerPosicion(posicion);
-            super.setChanged();
-            super.notifyObservers();
-            super.clearChanged();
             return true ;
 
         }
@@ -64,10 +54,6 @@ public class Mapa extends Observable {
             throw new FueraDeRangoMapaException() ;
         }
         mapa.put(posicion,new Vacio()) ;
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
-
     }
 
     public Posicion obtenerPosicion(Posicionable elemento){

@@ -16,13 +16,8 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-
-        System.out.println(event.getText());
-        System.out.println(event.getCode().getName());
-        System.out.println("Es flecha " + event.getCode().isArrowKey());
-        System.out.println(event.getCharacter());
-        System.out.println(event.getCode());
-        System.out.println(event.getText());
+        System.out.println("Inicia en: " + tableroDelJuego.obtenerJugador().obtenerPosicionActual());
+        System.out.println("Key: "+event.getCharacter());
 
         if (event.getCharacter().equals("w") || event.getCode().equals(KeyCode.UP) ) {
             tableroDelJuego.moverJugadorHaciaArriba();
@@ -37,9 +32,7 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
             tableroDelJuego.moverJugadorHaciaDerecha();
         }
 
-        System.out.println(tableroDelJuego.jugador.obtenerPosicionActual().obtenerX());
-        System.out.println(tableroDelJuego.jugador.obtenerPosicionActual().obtenerY());
-
+        System.out.println("Finaliza en: " + tableroDelJuego.obtenerJugador().obtenerPosicionActual());
 
     }
 }

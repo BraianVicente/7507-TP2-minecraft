@@ -12,16 +12,14 @@ import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 import java.util.Observable;
 import java.util.Random;
-import javafx.beans.property.* ;
 
 
-public class TableroDelJuego {
+public class TableroDelJuego extends Observable {
     private Mapa mapa ;
-    public Jugador jugador ;
+    private Jugador jugador ;
     private int largoTablero;
     private int  altoTablero;
     private Movimiento movimiento;
-    private ReadOnlyObjectProperty property ;
 
     public TableroDelJuego(Jugador jugador){
         largoTablero = 20 ;
@@ -39,10 +37,6 @@ public class TableroDelJuego {
         this.inicializarPiedra(altoTablero/2);
         this.inicializarMetal(largoTablero/2);
 
-    }
-
-    public ReadOnlyObjectProperty getProperty(){
-        return property ;
     }
 
     public boolean tableroContieneJugador(){
@@ -110,22 +104,32 @@ public class TableroDelJuego {
 
     public void moverJugadorHaciaArriba() {
         movimiento.moverHaciaArriba(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaAbajo() {
         movimiento.moverHaciaAbajo(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaIzquierda() {
         movimiento.moverHaciaIzquierda(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaDerecha() {
         movimiento.moverHaciaDerecha(jugador);
+        seActualizo();
     }
 
-    public Mapa obtenerMapa() {
-        return this.mapa ;
+    public void seActualizo(){
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
+    }
+
+    public Jugador obtenerJugador() {
+        return jugador ;
     }
 }
 
