@@ -35,16 +35,16 @@ public class Jugador implements Posicionable {
         this.inventario.agregarAlInventario(material);
     }
 
-    public void insertarMaterialEnMesaDeTrabajo(int x, int y, Posicionable material){
-        this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(x,y, material);
+    public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Posicionable material){
+        this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
     }
 
-    public void eliminarMaterialEnMesaDeTrabajo(int x, int y){
-        this.mesaDeTrabajo.eliminarMaterialEnMesaEnPosicion(x, y);
+    public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){
+        this.mesaDeTrabajo.eliminarMaterialEnMesaEnPosicion(posicion);
     }
 
-    public Posicionable obtenerMaterialEnPosicionDeLaMesaDeTrabajo(int x, int y){
-        return this.mesaDeTrabajo.obtenerMaterialEnPosicion(x, y);
+    public Posicionable obtenerMaterialEnPosicionDeLaMesaDeTrabajo(Posicion posicion){
+        return this.mesaDeTrabajo.obtenerMaterialEnPosicion(posicion);
     }
 
     public void construirHerramienta(Plano plano){
