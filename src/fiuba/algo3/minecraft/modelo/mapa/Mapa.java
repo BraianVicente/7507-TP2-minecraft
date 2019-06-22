@@ -5,8 +5,9 @@ import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
 import java.util.HashMap;
+import java.util.Observable;
 
-public class Mapa {
+public class Mapa extends Observable {
 
     private final int limiteX ;
     private final int limiteY ;
@@ -48,9 +49,12 @@ public class Mapa {
         if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio()) ){
             mapa.put(posicion,posicionable) ;
             posicionable.establecerPosicion(posicion);
+            super.setChanged();
+            super.notifyObservers();
+            super.clearChanged();
             return true ;
-        }
 
+        }
         return false ;
     }
 
@@ -59,8 +63,10 @@ public class Mapa {
         if ( ! this.posicionDentroDeRangoMapa(posicion)){
             throw new FueraDeRangoMapaException() ;
         }
-
         mapa.put(posicion,new Vacio()) ;
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
 
     }
 

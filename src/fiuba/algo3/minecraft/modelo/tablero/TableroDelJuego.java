@@ -15,7 +15,7 @@ import java.util.Random;
 import javafx.beans.property.* ;
 
 
-public class TableroDelJuego extends Observable {
+public class TableroDelJuego {
     private Mapa mapa ;
     public Jugador jugador ;
     private int largoTablero;
@@ -110,32 +110,22 @@ public class TableroDelJuego extends Observable {
 
     public void moverJugadorHaciaArriba() {
         movimiento.moverHaciaArriba(jugador);
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
-
     }
 
     public void moverJugadorHaciaAbajo() {
         movimiento.moverHaciaAbajo(jugador);
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
     }
 
     public void moverJugadorHaciaIzquierda() {
         movimiento.moverHaciaIzquierda(jugador);
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
     }
 
     public void moverJugadorHaciaDerecha() {
         movimiento.moverHaciaDerecha(jugador);
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
     }
 
+    public Mapa obtenerMapa() {
+        return this.mapa ;
+    }
 }
 

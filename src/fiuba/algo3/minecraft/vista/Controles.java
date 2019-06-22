@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class Controles {
 
-    MovimientoEventHandler buttonController ;
+    private MovimientoEventHandler buttonController ;
 
     public VBox obtenerControles(TableroDelJuego tableroDelJuego){
 

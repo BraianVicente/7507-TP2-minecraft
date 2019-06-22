@@ -2,7 +2,7 @@ package fiuba.algo3.minecraft.controller;
 
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class MovimientoEventHandler implements EventHandler<KeyEvent> {
@@ -16,9 +16,15 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println(event.getCode());
 
-        if (event.getCharacter().equals("w") ) {
+        System.out.println(event.getText());
+        System.out.println(event.getCode().getName());
+        System.out.println("Es flecha " + event.getCode().isArrowKey());
+        System.out.println(event.getCharacter());
+        System.out.println(event.getCode());
+        System.out.println(event.getText());
+
+        if (event.getCharacter().equals("w") || event.getCode().equals(KeyCode.UP) ) {
             tableroDelJuego.moverJugadorHaciaArriba();
         }
         if (event.getCharacter().equals("s") ) {

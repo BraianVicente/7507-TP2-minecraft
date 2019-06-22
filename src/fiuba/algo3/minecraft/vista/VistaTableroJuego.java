@@ -37,7 +37,7 @@ public class VistaTableroJuego extends GridPane implements Observer {
         this.loadImageResourse();
         this.inicializarMapa();
         this.pintarMapa();
-        tableroDelJuego.addObserver(this);
+        tableroDelJuego.obtenerMapa().addObserver(this);
     }
 
     public void pintarMapa() {
@@ -97,6 +97,5 @@ public class VistaTableroJuego extends GridPane implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         this.pintarMapa();
-
     }
 }

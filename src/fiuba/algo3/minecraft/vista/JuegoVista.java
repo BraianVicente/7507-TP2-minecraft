@@ -16,8 +16,6 @@ public class JuegoVista  {
     private final Stage escenario;
     private AlgoCraft aplicacion;
     private Controles controles;
-    private VistaTableroJuego matrizDeBotones;
-    private TableroDelJuego tableroDelJuego;
     private BarraDeMenu menuBar;
 
 
@@ -32,9 +30,9 @@ public class JuegoVista  {
     public void iniciar(String nombreJugador){
         Jugador jugador = new Jugador(nombreJugador) ;
 
-        this.tableroDelJuego = new TableroDelJuego(jugador);
+        TableroDelJuego tableroDelJuego = new TableroDelJuego(jugador);
 
-        this.matrizDeBotones = new VistaTableroJuego(tableroDelJuego);
+        VistaTableroJuego matrizDeBotones = new VistaTableroJuego(tableroDelJuego);
 
         BorderPane borderPane = new BorderPane();
 
