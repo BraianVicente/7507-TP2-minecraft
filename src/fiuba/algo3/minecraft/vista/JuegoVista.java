@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.controller.InsertarMaterialEventHandler;
 import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
@@ -49,6 +50,9 @@ public class JuegoVista  {
         Scene escenaJuego = new Scene(borderPane);
 
         escenaJuego.setOnKeyTyped(new MovimientoEventHandler(tableroDelJuego));
+        escenaJuego.setOnMouseDragged(new InsertarMaterialEventHandler(tableroDelJuego));
+        escenaJuego.setOnMousePressed(new InsertarMaterialEventHandler(tableroDelJuego));
+        escenaJuego.setOnMouseReleased(new InsertarMaterialEventHandler(tableroDelJuego));
 
         this.escenario.setScene(escenaJuego);
 

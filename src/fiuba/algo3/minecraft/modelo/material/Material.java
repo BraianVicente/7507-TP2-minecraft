@@ -13,6 +13,7 @@ public abstract class Material extends Elemento implements Posicionable {
 
     public abstract void desgastar(Hacha hacha);
     public abstract void desgastar(Pico pico);
+    public abstract int obtenerDurabilidad();
 
     @Override
     public void establecerPosicion(Posicion posicion) {

@@ -23,6 +23,10 @@ public class Jugador implements Posicionable {
         this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
     }
 
+    public MesaDeTrabajo obtenerMesaDeTrabajo(){
+        return this.mesaDeTrabajo ;
+    }
+
     public String obtenerNombre(){
         return this.nombre;
     }
@@ -77,4 +81,6 @@ public class Jugador implements Posicionable {
     public Posicion obtenerPosicionActual() {
         return posicion;
     }
+
+
 }
