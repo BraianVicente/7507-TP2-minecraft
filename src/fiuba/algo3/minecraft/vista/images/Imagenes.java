@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista.images;
 
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
 import fiuba.algo3.minecraft.modelo.material.Madera;
@@ -53,5 +54,20 @@ public class Imagenes {
         return new ImageView(grass) ;
     }
 
+    public Node setImageNode(Elemento elemento){
+        if (elemento instanceof Diamante){
+            return new ImageView(diamond) ;
+        }
+        if (elemento instanceof Madera){
+            return new ImageView(wood) ;
+        }
+        if (elemento instanceof Piedra){
+            return new ImageView(stone) ;
+        }
+        if (elemento instanceof Metal){
+            return new ImageView(iron) ;
+        }
+        return new ImageView(empty) ;
+    }
 
 }

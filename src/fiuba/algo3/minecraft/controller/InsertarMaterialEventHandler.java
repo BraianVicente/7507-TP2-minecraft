@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.controller;
 
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
@@ -16,22 +17,22 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
         this.tableroDelJuego = tableroDelJuego ;
     }
 
-    private double mapaLimiteSup = 25.0 ;
-    private double mapaLimiteInf = 625.0 ;
-    private double mapaLimiteIzq = 116.0 ;
-    private double mapaLimiteDer = 716.0 ;
+    private double invLimiteSup = 635.0 ;
+    private double invLimiteInf = 695.0 ;
+    private double invLimiteIzq = 116.0 ;
+    private double invLimiteDer = 716.0 ;
 
-    private double mesaLimiteSup = 25 ;
-    private double mesaLimiteInf = 115 ;
-    private double mesaLimiteIzq = 14 ;
-    private double mesaLimiteDer = 104 ;
+    private double mesaLimiteSup = 40.0 ;
+    private double mesaLimiteInf = 130.0 ;
+    private double mesaLimiteIzq = 14.0 ;
+    private double mesaLimiteDer = 104.0 ;
 
-    private boolean sePosicionoEnMapa(MouseEvent event){
+    private boolean sePosicionoEnInventario(MouseEvent event){
         double x = event.getSceneX();
         double y = event.getSceneY();
 
-        if ((y >= mapaLimiteSup && y <= mapaLimiteInf) &&
-                (x >= mapaLimiteIzq && x <= mapaLimiteDer) )
+        if ((y >= invLimiteSup && y <= invLimiteInf) &&
+                (x >= invLimiteIzq && x <= invLimiteDer) )
             return true;
 
         return false ;
@@ -52,12 +53,14 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
         if (event.getEventType().equals(MouseEvent.MOUSE_PRESSED)){
             System.out.println("INI X"+event.getSceneX());
             System.out.println("INI Y"+event.getSceneY());
-            if (sePosicionoEnMapa(event)){
-                int posX =  (int) (event.getSceneX() - 116) / 30 ;
-                int posY =  (int) (event.getSceneY() - 25) / 30 ;
-                Posicion posicion = new Posicion(posY,posX) ;
-                pressed = posicion ;
-                System.out.println(tableroDelJuego.obtenerElementoEnPosicion(posicion).toString());
+            if (sePosicionoEnInventario(event)){
+                int posX =  (int) (event.getSceneX() - invLimiteIzq) / 30 ;
+                int posY =  (int) (event.getSceneY() - invLimiteSup) / 30 ;
+                if (tableroDelJuego.obtenerJugador().obtenerInventario().cantidadElementos() > (posY * 20) + posX ) {
+                    Posicion posicion = new Posicion(posY,posX) ;
+                    pressed = posicion ;
+                    System.out.println(tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((posY * 20) + posX ));
+                }
             }
         }
 
@@ -67,13 +70,15 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
             if (sePosicionoEnMesaDeTrabajo(event)){
                 System.out.println("Se Posiciono en Mesa DeTrabajo");
 
-                int posX = (int) (event.getSceneX() - 14) / 30 ;
-                int posY = (int) (event.getSceneY() - 25) / 30 ;
+                int posX = (int) (event.getSceneX() - mesaLimiteIzq) / 30 ;
+                int posY = (int) (event.getSceneY() - mesaLimiteSup) / 30 ;
                 Posicion posicion = new Posicion(posY,posX) ;
                 released = posicion ;
-                Posicionable material =  tableroDelJuego.obtenerElementoEnPosicion(pressed);
-                tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,material);
-                tableroDelJuego.obtenerMapa().eliminarElemento(pressed);
+                int eleX = pressed.obtenerX();
+                int eleY = pressed.obtenerY();
+                Elemento material =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
+                tableroDelJuego.obtenerJugador().obtenerInventario().quitarElemento((eleX * 20) + eleY);
+                tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Posicionable) material);
                 tableroDelJuego.seActualizo();
             }
         }
