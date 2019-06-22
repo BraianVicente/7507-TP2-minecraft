@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.modelo.tablero;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Movimiento {
@@ -18,17 +19,11 @@ public class Movimiento {
         if (mapa.agregarElemento(destino, posicionable)){
             mapa.eliminarElemento(origen);
         }
-        else {
-            Posicionable material = mapa.obtenerElementoEnPosicion(destino);
-            Posicionable jugador = mapa.obtenerElementoEnPosicion(origen);
-
-            jugador.golpearMaterial(material);
-        }
     }
 
     public void moverHaciaArriba(Posicionable jugador) {
         Posicion posicionActual = jugador.obtenerPosicionActual();
-        Posicion posicionDestino = this.obtenerPosicionArriba(posicionActual) ;
+        Posicion posicionDestino = this.obtenerPosicionArriba(posicionActual);
 
         this.mover(posicionActual,posicionDestino);
 

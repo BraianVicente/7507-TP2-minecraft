@@ -72,6 +72,16 @@ public class Mapa {
         }
         return null ;
     }
+
+    public boolean posicionSeEncuentraOcupada(Posicion posicion){
+        if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio())){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     public boolean equals(Object obj){
         if (obj == null)
             return false;

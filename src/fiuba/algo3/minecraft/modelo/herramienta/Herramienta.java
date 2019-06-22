@@ -8,6 +8,13 @@ public abstract class Herramienta extends Elemento {
 
     public Desgaste desgaste ;
 
+    public void desgastar(Material material) { this.desgastar(material);}
+
+    public abstract void desgastar(Metal material);
+    public abstract void desgastar(Madera material);
+    public abstract void desgastar(Diamante material);
+    public abstract void desgastar(Piedra material);
+
     protected Herramienta(Desgaste desgaste){
         this.desgaste = desgaste ;
     }
@@ -19,10 +26,5 @@ public abstract class Herramienta extends Elemento {
     public int obtenerFuerza(){
         return desgaste.obtenerFuerza() ;
     }
-
-    public abstract void desgastar(Metal material);
-    public abstract void desgastar(Madera material);
-    public abstract void desgastar(Diamante material);
-    public abstract void desgastar(Piedra material);
 
 }
