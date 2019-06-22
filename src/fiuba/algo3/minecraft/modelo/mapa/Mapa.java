@@ -3,7 +3,6 @@ package fiuba.algo3.minecraft.modelo.mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
-import javafx.fxml.Initializable;
 
 import java.util.HashMap;
 
