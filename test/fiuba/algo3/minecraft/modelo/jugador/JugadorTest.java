@@ -8,6 +8,7 @@ import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.plano.PlanoHachaDeMadera;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import org.junit.Assert;
@@ -74,6 +75,7 @@ public class JugadorTest {
         Material madera3 = new Madera();
         Material madera4 = new Madera();
         Material madera5 = new Madera();
+        PlanoHachaDeMadera planoHachaDeMadera = new PlanoHachaDeMadera();
         DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
         Hacha hachaDeMadera = new Hacha(desgaste);
 
@@ -83,7 +85,7 @@ public class JugadorTest {
         unJugador.insertarMaterialEnMesaDeTrabajo(1,1, madera1);
         unJugador.insertarMaterialEnMesaDeTrabajo(1,2, madera1);
 
-        unJugador.construirHerramienta();
+        unJugador.construirHerramienta(planoHachaDeMadera);
 
         Elemento herramienta = unJugador.obtenerElementoDeInventario(hachaDeMadera);
 

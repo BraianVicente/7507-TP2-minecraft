@@ -1,14 +1,15 @@
 package fiuba.algo3.minecraft.modelo.plano;
 
+import fiuba.algo3.minecraft.modelo.desgaste.DesgasteNoConvencional;
+import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.material.Piedra;
 
-public class PlanoPicoFino{
-
-    private Mapa plano;
+public class PlanoPicoFino extends Plano{
 
     public PlanoPicoFino(){
         plano = new Mapa(3, 3);
@@ -20,8 +21,11 @@ public class PlanoPicoFino{
         plano.agregarElemento(new Posicion(0,1), new Piedra());
     }
 
-    public Mapa obtenerPlano(){
-        return plano;
+    @Override
+    public Herramienta construir() {
+
+        return new Pico(new DesgasteNoConvencional(1000, 20));
+
     }
 
 }

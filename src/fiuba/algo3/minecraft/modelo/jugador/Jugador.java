@@ -5,6 +5,7 @@ import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.plano.Plano;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Jugador implements Posicionable {
@@ -46,8 +47,9 @@ public class Jugador implements Posicionable {
         return this.mesaDeTrabajo.obtenerMaterialEnPosicion(x, y);
     }
 
-    public void construirHerramienta(){
-        Herramienta herramienta = this.mesaDeTrabajo.construir();
+    public void construirHerramienta(Plano plano){
+        Herramienta herramienta;
+        herramienta = this.mesaDeTrabajo.construir(plano);
         agregarMaterialAlInventario(herramienta);
     }
 
