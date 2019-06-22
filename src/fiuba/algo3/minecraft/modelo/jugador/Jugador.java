@@ -56,32 +56,32 @@ public class Jugador implements Posicionable {
         agregarMaterialAlInventario(herramienta);
     }
 
-    public void golpearMaterial(Madera material, Herramienta herramienta){
-        herramienta.desgastar(material);
+    public void golpearMaterial(Madera material){
+        herramientaActiva.desgastar(material);
 
         if (material.obtenerDurabilidad() <= 0){
             inventario.agregarAlInventario(material);
         }
     }
 
-    public void golpearMaterial(Piedra material, Herramienta herramienta){
-        herramienta.desgastar(material);
+    public void golpearMaterial(Piedra material){
+        herramientaActiva.desgastar(material);
 
         if (material.obtenerDurabilidad() <= 0){
             inventario.agregarAlInventario(material);
         }
     }
 
-    public void golpearMaterial(Metal material, Herramienta herramienta){
-        herramienta.desgastar(material);
+    public void golpearMaterial(Metal material){
+        herramientaActiva.desgastar(material);
 
         if (material.obtenerDurabilidad() <= 0){
             inventario.agregarAlInventario(material);
         }
     }
 
-    public void golpearMaterial(Diamante material, Herramienta herramienta){
-        herramienta.desgastar(material);
+    public void golpearMaterial(Diamante material){
+        herramientaActiva.desgastar(material);
 
         if (material.obtenerDurabilidad() <= 0){
             inventario.agregarAlInventario(material);
