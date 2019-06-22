@@ -4,10 +4,12 @@ import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMaderaTest;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.plano.PlanoHachaDeMadera;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
@@ -90,6 +92,46 @@ public class JugadorTest {
         Elemento herramienta = unJugador.obtenerElementoDeInventario(hachaDeMadera);
 
         Assert.assertEquals(herramienta, hachaDeMadera);
+
+    }
+
+    @Test
+    public void test08JugadorGuardaMaderaCuandoSeDesgastaCompletamente(){
+        Jugador unJugador = new Jugador("Player1");
+        Madera madera = new Madera();
+        DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
+        Hacha hachaDeMadera = new Hacha(desgaste);
+
+        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
+
+        unJugador.golpearMaterial(madera, hachaDeMadera);
+        unJugador.golpearMaterial(madera, hachaDeMadera);
+        unJugador.golpearMaterial(madera, hachaDeMadera);
+        unJugador.golpearMaterial(madera, hachaDeMadera);
+        unJugador.golpearMaterial(madera, hachaDeMadera);
+
+        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
+
+
+    }
+
+    @Test
+    public void test09JugadorGuardaMetalCuandoSeDesgastaCompletamente(){
+        Jugador unJugador = new Jugador("Player1");
+        Metal metal = new Metal();
+        DesgasteEstandar desgaste = new DesgasteEstandar(400, 10,0.5F);
+        Pico picoDeMetal = new Pico(desgaste);
+
+        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
+
+        unJugador.golpearMaterial(metal, picoDeMetal);
+        unJugador.golpearMaterial(metal, picoDeMetal);
+        unJugador.golpearMaterial(metal, picoDeMetal);
+        unJugador.golpearMaterial(metal, picoDeMetal);
+        unJugador.golpearMaterial(metal, picoDeMetal);
+
+        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
+
 
     }
 

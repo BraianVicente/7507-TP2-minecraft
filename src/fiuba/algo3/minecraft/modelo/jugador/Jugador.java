@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.modelo.jugador;
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.plano.Plano;
@@ -51,6 +52,42 @@ public class Jugador implements Posicionable {
         Herramienta herramienta;
         herramienta = this.mesaDeTrabajo.construir(plano);
         agregarMaterialAlInventario(herramienta);
+    }
+
+    public void golpearMaterial(Metal material, Herramienta herramienta){
+        herramienta.desgastar(material);
+
+        if (material.obtenerDurabilidad() <= 0){
+            inventario.agregarAlInventario(material);
+        }
+    }
+
+    public void golpearMaterial(Madera material, Herramienta herramienta){
+        herramienta.desgastar(material);
+
+        if (material.obtenerDurabilidad() <= 0){
+            inventario.agregarAlInventario(material);
+        }
+    }
+
+    public void golpearMaterial(Piedra material, Herramienta herramienta){
+        herramienta.desgastar(material);
+
+        if (material.obtenerDurabilidad() <= 0){
+            inventario.agregarAlInventario(material);
+        }
+    }
+
+    public void golpearMaterial(Diamante material, Herramienta herramienta){
+        herramienta.desgastar(material);
+
+        if (material.obtenerDurabilidad() <= 0){
+            inventario.agregarAlInventario(material);
+        }
+    }
+
+    public int cantidadDeElementosEnInventario(){
+        return inventario.cantidadElementos();
     }
 
     @Override
