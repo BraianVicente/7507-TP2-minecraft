@@ -53,7 +53,6 @@ public class VistaTableroJuego extends GridPane implements Observer {
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
                 Node imageContainer = new ImageView(grass) ;
-                imageContainer.setOnKeyPressed(new MovimientoEventHandler(tableroDelJuego));
                 super.add(imageContainer,j,i);
 
             }

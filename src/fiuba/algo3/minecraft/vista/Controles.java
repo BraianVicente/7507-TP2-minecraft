@@ -1,6 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
+import fiuba.algo3.minecraft.controller.*;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -29,25 +29,13 @@ public class Controles {
     }
 
     public HBox obtenerControlesDeMovimento( TableroDelJuego tableroDelJuego){
-        Button flechaArriba = new Button();
-        flechaArriba.setText("Up");
-        flechaArriba.setOnKeyPressed(
-                event -> {
-                    if (event.getCode() == KeyCode.UP) {
-                        tableroDelJuego.moverJugadorHaciaArriba();
-                    }
+        Button flechaArriba = new ButtonUp(tableroDelJuego);
 
-                }
-        ) ;
+        Button flechaAbajo = new ButtonDown(tableroDelJuego);
 
-        Button flechaAbajo = new Button();
-        flechaAbajo.setText("Down");
+        Button flechaIzquierda = new ButtonLeft(tableroDelJuego);
 
-        Button flechaIzquierda = new Button();
-        flechaIzquierda.setText("<-");
-
-        Button flechaDerecha = new Button();
-        flechaDerecha.setText("->");
+        Button flechaDerecha = new ButtonRight(tableroDelJuego);
 
         HBox contenedorHorizontal = new HBox(flechaIzquierda, flechaAbajo, flechaDerecha);
         contenedorHorizontal.setSpacing(5);
