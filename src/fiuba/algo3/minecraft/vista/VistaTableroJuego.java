@@ -25,7 +25,7 @@ public class VistaTableroJuego extends GridPane implements Observer {
 
     private void loadImageResourse(){
         diamond = new Image("fiuba/algo3/minecraft/vista/images/resource/diamond.jpeg",30,30,false,false);
-        grass = new Image("fiuba/algo3/minecraft/vista/images/resource/grass.jpg ",30,30,false,false);
+        grass = new Image("fiuba/algo3/minecraft/vista/images/resource/grass.jpg",30,30,false,false);
         iron = new Image("fiuba/algo3/minecraft/vista/images/resource/iron.jpeg",30,30,false,false);
         steve = new Image("fiuba/algo3/minecraft/vista/images/resource/steve.jpg",30,30,false,false);
         stone = new Image("fiuba/algo3/minecraft/vista/images/resource/stone.jpg",30,30,false,false);

@@ -40,8 +40,8 @@ public class JugadorTest {
     public void test04JugadorInsertaMaderaEnMesaDeTrabajo(){
         Jugador unJugador = new Jugador("Fernando");
         Material madera = new Madera();
-        unJugador.insertarMaterialEnMesaDeTrabajo(0,0, madera);
-        Posicionable material = unJugador.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(0, 0);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
+        Posicionable material = unJugador.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(new Posicion(0,0));
 
         Assert.assertEquals(material, madera);
     }
@@ -50,9 +50,9 @@ public class JugadorTest {
     public void test05JugadorInsertaMaderaEnMesaDeTrabajoYDespuesLaElimina(){
         Jugador unJugador = new Jugador("Player 1");
         Material madera = new Madera();
-        unJugador.insertarMaterialEnMesaDeTrabajo(0,0, madera);
-        unJugador.eliminarMaterialEnMesaDeTrabajo(0, 0);
-        Posicionable material = unJugador.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(0, 0);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
+        unJugador.eliminarMaterialEnMesaDeTrabajo(new Posicion(0,0));
+        Posicionable material = unJugador.obtenerMaterialEnPosicionDeLaMesaDeTrabajo(new Posicion(0,0));
 
         Assert.assertEquals(new Vacio(), material);
     }
@@ -79,11 +79,11 @@ public class JugadorTest {
         DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
         Hacha hachaDeMadera = new Hacha(desgaste);
 
-        unJugador.insertarMaterialEnMesaDeTrabajo(0,0, madera1);
-        unJugador.insertarMaterialEnMesaDeTrabajo(0,1, madera1);
-        unJugador.insertarMaterialEnMesaDeTrabajo(1,0, madera1);
-        unJugador.insertarMaterialEnMesaDeTrabajo(1,1, madera1);
-        unJugador.insertarMaterialEnMesaDeTrabajo(1,2, madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,1), madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(1,0), madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(1,1), madera1);
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(1,2), madera1);
 
         unJugador.construirHerramienta(planoHachaDeMadera);
 
