@@ -32,9 +32,13 @@ public class MesaDeTrabajoVista {
         Button botonConstruir = new Button();
         botonConstruir.setText("Construir");
 
+        Button botonLimpiar = new Button();
+        botonLimpiar.setText("Limpiar");
+
         this.contenedorPrincipal.getChildren().add(botonConstruir);
+        this.contenedorPrincipal.getChildren().add(botonLimpiar);
         this.contenedorPrincipal.setAlignment(Pos.CENTER);
-        this.contenedorPrincipal.setSpacing(20);
+        this.contenedorPrincipal.setSpacing(10);
 
     }
 
