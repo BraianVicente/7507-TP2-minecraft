@@ -99,36 +99,14 @@ public class JugadorTest {
     public void test08JugadorGuardaMaderaCuandoSeDesgastaCompletamente(){
         Jugador unJugador = new Jugador("Player1");
         Madera madera = new Madera();
-        DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
-        Hacha hachaDeMadera = new Hacha(desgaste);
 
         Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
 
-        unJugador.golpearMaterial(madera, hachaDeMadera);
-        unJugador.golpearMaterial(madera, hachaDeMadera);
-        unJugador.golpearMaterial(madera, hachaDeMadera);
-        unJugador.golpearMaterial(madera, hachaDeMadera);
-        unJugador.golpearMaterial(madera, hachaDeMadera);
-
-        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
-
-
-    }
-
-    @Test
-    public void test09JugadorGuardaMetalCuandoSeDesgastaCompletamente(){
-        Jugador unJugador = new Jugador("Player1");
-        Metal metal = new Metal();
-        DesgasteEstandar desgaste = new DesgasteEstandar(400, 10,0.5F);
-        Pico picoDeMetal = new Pico(desgaste);
-
-        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
-
-        unJugador.golpearMaterial(metal, picoDeMetal);
-        unJugador.golpearMaterial(metal, picoDeMetal);
-        unJugador.golpearMaterial(metal, picoDeMetal);
-        unJugador.golpearMaterial(metal, picoDeMetal);
-        unJugador.golpearMaterial(metal, picoDeMetal);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
 
         Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
 

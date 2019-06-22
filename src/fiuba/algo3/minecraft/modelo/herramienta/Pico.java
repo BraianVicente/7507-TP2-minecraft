@@ -1,15 +1,17 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.desgaste.Desgaste;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 
 public class Pico extends Herramienta {
 
     public Pico(Desgaste desgaste) {
         super(desgaste);
+    }
+
+    @Override
+    public void desgastar(Material material) {
+        material.desgastar(this);
     }
 
     @Override

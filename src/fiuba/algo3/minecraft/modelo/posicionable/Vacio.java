@@ -33,4 +33,5 @@ public class Vacio implements Posicionable {
     public Posicion obtenerPosicionActual() {
         return posicion;
     }
+
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.mapa;
 
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
@@ -50,6 +51,7 @@ public class Mapa {
             return true ;
 
         }
+
         return false ;
     }
 
@@ -70,6 +72,16 @@ public class Mapa {
         }
         return null ;
     }
+
+    public boolean posicionSeEncuentraOcupada(Posicion posicion){
+        if (this.obtenerElementoEnPosicion(posicion).equals(new Vacio())){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     public boolean equals(Object obj){
         if (obj == null)
             return false;

@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.material;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Piedra extends Material {
 
@@ -14,6 +15,11 @@ public class Piedra extends Material {
 
     public int obtenerDurabilidad() {
         return durabilidad ;
+    }
+
+    @Override
+    public void desgastar(Herramienta herramienta) {
+        herramienta.desgastar(this);
     }
 
     public void desgastar(Hacha hacha) {

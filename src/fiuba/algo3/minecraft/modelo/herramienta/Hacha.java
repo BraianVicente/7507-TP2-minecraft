@@ -1,15 +1,17 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 
 public class Hacha extends Herramienta {
 
     public Hacha(DesgasteEstandar desgasteEstandar) {
         super(desgasteEstandar);
+    }
+
+    @Override
+    public void desgastar(Material material) {
+        material.desgastar(this);
     }
 
     @Override
