@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.material;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Metal extends Material {
 
@@ -40,4 +41,5 @@ public class Metal extends Material {
             return false;
         return true;
     }
+
 }

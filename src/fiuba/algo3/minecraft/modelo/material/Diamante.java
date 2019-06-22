@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.material;
 
 import fiuba.algo3.minecraft.modelo.herramienta.*;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 public class Diamante extends Material {
 
@@ -37,4 +38,5 @@ public class Diamante extends Material {
             return false;
         return true;
     }
+
 }
