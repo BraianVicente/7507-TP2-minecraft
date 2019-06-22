@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.Scene;
@@ -9,7 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class JuegoVista {
+
+public class JuegoVista  {
 
     private final Stage escenario;
     private AlgoCraft aplicacion;
@@ -36,7 +38,7 @@ public class JuegoVista {
 
         BorderPane borderPane = new BorderPane();
 
-        GridPane mapa = matrizDeBotones.obtenerMapa();
+        GridPane mapa = new VistaTableroJuego(tableroDelJuego);
 
         VBox contenedorDeControles = controles.obtenerControles(tableroDelJuego);
 
@@ -48,8 +50,11 @@ public class JuegoVista {
 
         Scene escenaJuego = new Scene(borderPane);
 
+        escenaJuego.setOnKeyTyped(new MovimientoEventHandler(tableroDelJuego));
+
         this.escenario.setScene(escenaJuego);
 
         this.escenario.show();
     }
+
 }

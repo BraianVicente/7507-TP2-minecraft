@@ -14,14 +14,12 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-
 import java.util.Observable;
 import java.util.Observer;
 
-public class VistaTableroJuego implements Observer {
+public class VistaTableroJuego extends GridPane implements Observer {
 
     private final TableroDelJuego tableroDelJuego;
-    private GridPane contenedorPrincipal;
 
     private Image diamond,grass,iron,steve,stone,wood ;
 
@@ -39,31 +37,27 @@ public class VistaTableroJuego implements Observer {
         this.loadImageResourse();
         this.inicializarMapa();
         this.pintarMapa();
+        tableroDelJuego.addObserver(this);
     }
 
     public void pintarMapa() {
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
-                contenedorPrincipal.add(establecerImage(new Posicion(i,j)),i,j);
+                super.add(establecerImage(new Posicion(i,j)),j,i);
             }
         }
     }
 
     public void inicializarMapa(){
-        contenedorPrincipal = new GridPane();
-        contenedorPrincipal.setMinSize(500,500);
+        super.setMinSize(500,500);
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
                 Node imageContainer = new ImageView(grass) ;
                 imageContainer.setOnKeyPressed(new MovimientoEventHandler(tableroDelJuego));
-                contenedorPrincipal.add(imageContainer,i,j);
+                super.add(imageContainer,j,i);
 
             }
         }
-    }
-
-    public GridPane obtenerMapa(){
-        return this.contenedorPrincipal;
     }
 
     public Node establecerImage(Posicion posicion){
@@ -91,7 +85,15 @@ public class VistaTableroJuego implements Observer {
         return new ImageView(grass) ;
     }
 
-
+    /**
+     * This method is called whenever the observed object is changed. An
+     * application calls an <tt>Observable</tt> object's
+     * <code>notifyObservers</code> method to have all the object's
+     * observers notified of the change.
+     *
+     * @param o   the observable object.
+     * @param arg an argument passed to the <code>notifyObservers</code>
+     */
     @Override
     public void update(Observable o, Object arg) {
         this.pintarMapa();
