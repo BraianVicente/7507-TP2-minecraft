@@ -14,8 +14,9 @@ public class Movimiento {
 
     private void mover(Posicion origen, Posicion destino) {
         Posicionable posicionable = mapa.obtenerElementoEnPosicion(origen);
-        mapa.agregarElemento(destino, posicionable);
-        mapa.eliminarElemento(origen);
+        if (mapa.agregarElemento(destino, posicionable)){
+            mapa.eliminarElemento(origen);
+        }
     }
 
     public void moverHaciaArriba(Posicionable jugador) {

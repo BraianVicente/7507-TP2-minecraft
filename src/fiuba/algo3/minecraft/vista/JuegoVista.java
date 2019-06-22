@@ -1,26 +1,21 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.juego.Juego;
+import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
+import fiuba.algo3.minecraft.modelo.jugador.Jugador;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.Label;
 
-public class JuegoVista {
+public class JuegoVista  {
 
     private final Stage escenario;
     private AlgoCraft aplicacion;
     private Controles controles;
-    private MapaVista matrizDeBotones;
-    private Juego juego;
     private BarraDeMenu menuBar;
 
 
@@ -33,16 +28,17 @@ public class JuegoVista {
     }
 
     public void iniciar(String nombreJugador){
+        Jugador jugador = new Jugador(nombreJugador) ;
 
-        this.juego = new Juego(nombreJugador);
+        TableroDelJuego tableroDelJuego = new TableroDelJuego(jugador);
 
-        this.matrizDeBotones = new MapaVista(juego);
+        VistaTableroJuego matrizDeBotones = new VistaTableroJuego(tableroDelJuego);
 
         BorderPane borderPane = new BorderPane();
 
-        VBox mapa = matrizDeBotones.obtenerMapa();
+        GridPane mapa = new VistaTableroJuego(tableroDelJuego);
 
-        VBox contenedorDeControles = controles.obtenerControles(juego);
+        VBox contenedorDeControles = controles.obtenerControles(tableroDelJuego);
 
         HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
 
@@ -52,6 +48,11 @@ public class JuegoVista {
 
         Scene escenaJuego = new Scene(borderPane);
 
+        escenaJuego.setOnKeyTyped(new MovimientoEventHandler(tableroDelJuego));
+
         this.escenario.setScene(escenaJuego);
+
+        this.escenario.show();
     }
+
 }

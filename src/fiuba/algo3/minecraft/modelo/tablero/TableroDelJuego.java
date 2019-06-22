@@ -10,17 +10,18 @@ import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.material.Material ;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
+import java.util.Observable;
 import java.util.Random;
 
 
-public class Tablero {
+public class TableroDelJuego extends Observable {
     private Mapa mapa ;
     private Jugador jugador ;
     private int largoTablero;
     private int  altoTablero;
     private Movimiento movimiento;
 
-    public Tablero(Jugador jugador){
+    public TableroDelJuego(Jugador jugador){
         largoTablero = 20 ;
         altoTablero = 20 ;
         mapa = new Mapa(largoTablero, altoTablero) ;
@@ -35,7 +36,6 @@ public class Tablero {
         this.inicializarDiamante(largoTablero/4);
         this.inicializarPiedra(altoTablero/2);
         this.inicializarMetal(largoTablero/2);
-
 
     }
 
@@ -88,6 +88,7 @@ public class Tablero {
     private void inicializarPiedra(int cantidadMateriales) {
         inicializarCon(new Piedra(),cantidadMateriales);
     }
+
     private void inicializarDiamante(int cantidadMateriales) {
         inicializarCon(new Diamante(),cantidadMateriales);
 
@@ -103,18 +104,32 @@ public class Tablero {
 
     public void moverJugadorHaciaArriba() {
         movimiento.moverHaciaArriba(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaAbajo() {
         movimiento.moverHaciaAbajo(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaIzquierda() {
         movimiento.moverHaciaIzquierda(jugador);
+        seActualizo();
     }
 
     public void moverJugadorHaciaDerecha() {
         movimiento.moverHaciaDerecha(jugador);
+        seActualizo();
+    }
+
+    public void seActualizo(){
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
+    }
+
+    public Jugador obtenerJugador() {
+        return jugador ;
     }
 }
 

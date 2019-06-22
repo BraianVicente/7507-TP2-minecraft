@@ -1,23 +1,24 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.juego.Juego;
+import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
-
-import java.awt.*;
 
 public class Controles {
 
-    public VBox obtenerControles(Juego juego){
+    private MovimientoEventHandler buttonController ;
 
-        MesaDeTrabajoVista mesaDeTrabajoVista = new MesaDeTrabajoVista(juego);
+    public VBox obtenerControles(TableroDelJuego tableroDelJuego){
+
+        MesaDeTrabajoVista mesaDeTrabajoVista = new MesaDeTrabajoVista(tableroDelJuego);
 
         VBox contenedorDeMesaDeTrabajo = mesaDeTrabajoVista.obtenerMesa();
 
-        HBox contenedorDeControlesDeMovimiento = obtenerControlesDeMovimento();
+        HBox contenedorDeControlesDeMovimiento = obtenerControlesDeMovimento(tableroDelJuego);
 
         VBox contenedor = new VBox(contenedorDeMesaDeTrabajo, contenedorDeControlesDeMovimiento);
         contenedor.setAlignment(Pos.CENTER);
@@ -27,9 +28,17 @@ public class Controles {
         return contenedor;
     }
 
-    public HBox obtenerControlesDeMovimento(){
+    public HBox obtenerControlesDeMovimento( TableroDelJuego tableroDelJuego){
         Button flechaArriba = new Button();
         flechaArriba.setText("Up");
+        flechaArriba.setOnKeyPressed(
+                event -> {
+                    if (event.getCode() == KeyCode.UP) {
+                        tableroDelJuego.moverJugadorHaciaArriba();
+                    }
+
+                }
+        ) ;
 
         Button flechaAbajo = new Button();
         flechaAbajo.setText("Down");

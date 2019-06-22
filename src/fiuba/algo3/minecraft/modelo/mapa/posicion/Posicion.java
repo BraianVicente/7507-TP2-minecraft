@@ -61,4 +61,9 @@ public class Posicion {
     public int distancia(Posicion posicion) {
         return (int) Math.sqrt(Math.pow(this.x - posicion.obtenerX(),2) + Math.pow(this.y - posicion.obtenerY(),2));
     }
+
+    @Override
+    public String toString(){
+        return "Posicion (" + obtenerX() + ", " + obtenerY() + ")";
+    }
 }

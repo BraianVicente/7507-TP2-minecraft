@@ -6,6 +6,7 @@ import fiuba.algo3.minecraft.modelo.mapa.FueraDeRangoMapaException;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import javafx.geometry.Pos;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,6 +22,22 @@ public class MovimientoTest {
         mapa.agregarElemento(new Posicion(2,2),jugador);
         Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
         movimiento.moverHaciaAbajo(jugador);
+
+        Assert.assertEquals(posicionInicialJugador,jugador.obtenerPosicionActual());
+    }
+
+    @Test
+    public void testNoSePuedeMoverAPosicionOcupada(){
+        Mapa mapa = new Mapa(3,3);
+        Movimiento movimiento = new Movimiento(mapa);
+        Posicionable jugador  = new Jugador("Steve") ;
+        Posicionable otroJugador = new Jugador("Braian");
+
+        mapa.agregarElemento(new Posicion(1,1),jugador);
+        mapa.agregarElemento(new Posicion(1,2),otroJugador);
+
+        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
+        movimiento.moverHaciaDerecha(jugador);
 
         Assert.assertEquals(posicionInicialJugador,jugador.obtenerPosicionActual());
     }
