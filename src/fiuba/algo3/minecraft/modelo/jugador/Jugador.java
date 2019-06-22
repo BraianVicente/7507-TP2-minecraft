@@ -40,6 +40,7 @@ public class Jugador implements Posicionable {
 
     public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Posicionable material){
         this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
+        this.inventario.quitarDelInventario(material);
     }
 
     public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){

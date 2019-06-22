@@ -113,5 +113,20 @@ public class JugadorTest {
 
     }
 
+    @Test
+    public void test09MaderaSeAgregaAMesaDeTrabajoYSeQuitaDelInventarioDelJugador(){
+        Jugador unJugador = new Jugador("Fernando");
+        Material madera = new Madera();
+        unJugador.agregarMaterialAlInventario(madera);
+
+        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 2);
+        /* Recordar que jugador arranca con un hacha de madera, por lo tanto la cantidad de elementos en
+        el inventario siempre va a ser mayor o igual a 1 */
+
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
+        int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
+
+        Assert.assertEquals(cantidadDeElementoEnInventario, 1);
+    }
 
 }
