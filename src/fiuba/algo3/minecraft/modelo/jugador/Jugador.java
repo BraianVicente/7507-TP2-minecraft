@@ -15,13 +15,15 @@ public class Jugador implements Posicionable {
     private Inventario inventario;
     private Posicion posicion;
     private MesaDeTrabajo mesaDeTrabajo;
+    private Herramienta herramientaActiva;
 
     public Jugador(String nombre){
         this.nombre = nombre;
         this.inventario = new Inventario();
         this.mesaDeTrabajo = new MesaDeTrabajo();
+        this.herramientaActiva = new Hacha(new DesgasteEstandar(100,2,1));
 
-        this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
+        this.inventario.agregarAlInventario(this.herramientaActiva);
     }
 
     public String obtenerNombre(){
@@ -88,6 +90,10 @@ public class Jugador implements Posicionable {
 
     public int cantidadDeElementosEnInventario(){
         return inventario.cantidadElementos();
+    }
+
+    public void cambiarHerramientaActiva(Herramienta herramienta){
+        this.herramientaActiva = herramienta;
     }
 
     @Override

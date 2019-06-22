@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.mapa;
 
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
@@ -50,6 +51,7 @@ public class Mapa {
             return true ;
 
         }
+
         return false ;
     }
 
