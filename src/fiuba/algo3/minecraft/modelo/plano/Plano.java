@@ -21,5 +21,16 @@ public abstract class Plano {
         return elemento;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (this == obj)
+            return true;
+        if (! (obj instanceof Plano) )
+            return false;
+        return this.plano.equals(((Plano) obj).obtenerPlano());
+    }
+
     public abstract Herramienta construir();
 }

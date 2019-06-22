@@ -33,19 +33,6 @@ public class MesaDeTrabajo {
         this.fabrica = new FabricaDeHerramientas();
     }
 
-    private boolean comparar(Mapa mesa, Plano plano){
-
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                if (! mesa.obtenerElementoEnPosicion(new Posicion(i,j)).equals(plano.obtenerElementoEnPosicion(new Posicion(i,j)))){
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
     public void insertarMaterialEnMesaEnPosicion(int x, int y, Posicionable material){
         this.mesa.agregarElemento(new Posicion(x,y), material);
     }
@@ -59,11 +46,8 @@ public class MesaDeTrabajo {
     }
 
     public Herramienta construir(Plano plano){
-        for(int i = 0; i <= listaDePlanos.size(); i++){
-            if(comparar(mesa, plano)){
-                return plano.construir();
-            };
-        }
+        if (listaDePlanos.contains(plano))
+            return listaDePlanos.get(listaDePlanos.indexOf(plano)).construir();
         throw new NoSePuedeConstruirException();
     }
 
