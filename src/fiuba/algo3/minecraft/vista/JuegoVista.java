@@ -38,11 +38,14 @@ public class JuegoVista  {
         BorderPane borderPane = new BorderPane();
 
         GridPane mapa = new VistaTableroJuego(tableroDelJuego);
-
+        GridPane inventario = new VistaInventario(tableroDelJuego.obtenerJugador().obtenerInventario()) ;
         VBox contenedorDeControles = controles.obtenerControles(tableroDelJuego);
 
-        HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
+        VBox contenedorMapaInventario = new VBox(mapa,inventario) ;
+        contenedorMapaInventario.setSpacing(10);
 
+        HBox contenedorHorizontal = new HBox(contenedorDeControles, contenedorMapaInventario);
+        contenedorHorizontal.setSpacing(10);
         borderPane.setTop(menuBar.obtenerBarraDeMenu());
 
         borderPane.setCenter(contenedorHorizontal);

@@ -24,8 +24,11 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
 
     public MesaDeTrabajoVista(MesaDeTrabajo mesaJugador){
         super();
+
         this.mesaJugador = mesaJugador ;
         mesaTrabajo = new GridPane();
+        mesaTrabajo.setStyle("-fx-grid-lines-visible: true");
+
         imagenes = new Imagenes() ;
 
         for (int i = 0; i < 3; i++){

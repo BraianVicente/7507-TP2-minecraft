@@ -83,4 +83,7 @@ public class Jugador implements Posicionable {
     }
 
 
+    public Inventario obtenerInventario() {
+        return this.inventario ;
+    }
 }
