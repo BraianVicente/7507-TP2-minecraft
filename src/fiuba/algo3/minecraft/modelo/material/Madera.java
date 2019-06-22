@@ -17,6 +17,11 @@ public class Madera extends Material {
         return durabilidad ;
     }
 
+    @Override
+    public void desgastar(Herramienta herramienta) {
+
+    }
+
     public void desgastar(Hacha hacha) {
         int fuerzaHerramienta = hacha.obtenerFuerza();
         durabilidad = durabilidad - fuerzaHerramienta;

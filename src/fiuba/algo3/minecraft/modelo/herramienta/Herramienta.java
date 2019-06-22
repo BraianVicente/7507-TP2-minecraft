@@ -8,7 +8,7 @@ public abstract class Herramienta extends Elemento {
 
     public Desgaste desgaste ;
 
-    public void desgastar(Material material) { this.desgastar(material);}
+    public abstract void desgastar(Material material) ;
 
     public abstract void desgastar(Metal material);
     public abstract void desgastar(Madera material);

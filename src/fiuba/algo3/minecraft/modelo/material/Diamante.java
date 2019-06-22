@@ -14,6 +14,11 @@ public class Diamante extends Material {
         return durabilidad ;
     }
 
+    @Override
+    public void desgastar(Herramienta herramienta) {
+        herramienta.desgastar(this);
+    }
+
     public void desgastar(Hacha hacha) {
         durabilidad = durabilidad;
     }

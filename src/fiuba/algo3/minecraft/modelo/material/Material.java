@@ -9,7 +9,7 @@ public abstract class Material extends Elemento implements Posicionable {
 
     private Posicion posicion;
 
-    public void desgastar(Herramienta herramienta) { this.desgastar(herramienta); }
+    public abstract void desgastar(Herramienta herramienta) ;
 
     public abstract void desgastar(Hacha hacha);
     public abstract void desgastar(Pico pico);
