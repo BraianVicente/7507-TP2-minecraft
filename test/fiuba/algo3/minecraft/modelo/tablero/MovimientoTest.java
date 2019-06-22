@@ -27,22 +27,6 @@ public class MovimientoTest {
     }
 
     @Test
-    public void testNoSePuedeMoverAPosicionOcupada(){
-        Mapa mapa = new Mapa(3,3);
-        Movimiento movimiento = new Movimiento(mapa);
-        Posicionable jugador  = new Jugador("Steve") ;
-        Posicionable otroJugador = new Jugador("Braian");
-
-        mapa.agregarElemento(new Posicion(1,1),jugador);
-        mapa.agregarElemento(new Posicion(1,2),otroJugador);
-
-        Posicion posicionInicialJugador = jugador.obtenerPosicionActual();
-        movimiento.moverHaciaDerecha(jugador);
-
-        Assert.assertEquals(posicionInicialJugador,jugador.obtenerPosicionActual());
-    }
-
-    @Test
     public void testMoverHaciaArriba(){
         Mapa mapa = new Mapa(3,3);
         Movimiento movimiento = new Movimiento(mapa);
