@@ -39,15 +39,11 @@ public class VistaInventario extends GridPane implements Observer {
 
     private void pintarInventario(){
         int cantidadElementos = inventario.cantidadElementos();
-        super.setStyle("-fx-grid-lines-visible: true");
-            super.setMinSize(600,60);
         Node imageContainer ;
         Elemento elemento = null;
         for (int i = 0; i < 2; i++){
             for (int j = 0; j < 20; j++){
                 if (cantidadElementos > ((i*20) + j)){
-                    System.out.println((i*20) + j);
-                    System.out.println(cantidadElementos);
                     elemento = inventario.obtenerElementoEnPosicion((i*20) + j );
                 }
                 imageContainer = imagenes.setImageNode(elemento) ;
@@ -68,6 +64,9 @@ public class VistaInventario extends GridPane implements Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
+
         this.pintarInventario();
+        super.setMinSize(600,60);
+        super.setStyle("-fx-grid-lines-visible: true");
     }
 }

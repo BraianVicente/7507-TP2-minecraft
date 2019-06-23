@@ -4,6 +4,7 @@ import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.jugador.Inventario;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.mapa.posicion.PosicionInvalidaException;
 import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.plano.*;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
@@ -39,7 +40,10 @@ public class MesaDeTrabajo extends Observable {
     }
 
     public void insertarMaterialEnMesaEnPosicion(Posicion posicion, Material material){
-        this.mesa.agregarElemento(posicion, material);
+        if ( ! mesa.agregarElemento(posicion, material)){
+            throw new PosicionInvalidaException() ;
+
+        }
         super.setChanged();
         super.notifyObservers();
         super.clearChanged();
@@ -71,7 +75,6 @@ public class MesaDeTrabajo extends Observable {
         if (mesa.posicionSeEncuentraOcupada(posicion)){
             Material material = (Material) mesa.obtenerElementoEnPosicion(posicion);
             inventario.agregarAlInventario(material);
-            System.out.println("Limpiar posicion:" + posicion );
             mesa.eliminarElemento(posicion);
             super.setChanged();
             super.notifyObservers();
