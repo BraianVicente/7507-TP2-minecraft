@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.modelo.jugador;
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.material.Madera;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,11 @@ public class Inventario extends Observable {
             this.setChanged();
             this.notifyObservers();
             this.clearChanged();
+    }
+
+    public void quitarDelInventario(Posicionable unElemento)
+    {
+        elementos.remove(unElemento);
     }
 
     public int cantidadElementos ()

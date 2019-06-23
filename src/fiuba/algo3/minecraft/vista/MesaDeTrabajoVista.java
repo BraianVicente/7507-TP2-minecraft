@@ -43,6 +43,14 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
         Button botonConstruir = new Button();
         botonConstruir.setText("Construir");
 
+        Button botonLimpiar = new Button();
+        botonLimpiar.setText("Limpiar");
+
+        this.contenedorPrincipal.getChildren().add(botonConstruir);
+        this.contenedorPrincipal.getChildren().add(botonLimpiar);
+        this.contenedorPrincipal.setAlignment(Pos.CENTER);
+        this.contenedorPrincipal.setSpacing(10);
+
         super.getChildren().add(botonConstruir);
         super.setAlignment(Pos.CENTER);
         super.setSpacing(20);

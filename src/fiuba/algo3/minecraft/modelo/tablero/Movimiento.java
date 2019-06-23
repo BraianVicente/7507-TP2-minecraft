@@ -1,8 +1,11 @@
 package fiuba.algo3.minecraft.modelo.tablero;
 
+import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
 public class Movimiento {
 
@@ -21,9 +24,19 @@ public class Movimiento {
 
     public void moverHaciaArriba(Posicionable jugador) {
         Posicion posicionActual = jugador.obtenerPosicionActual();
-        Posicion posicionDestino = this.obtenerPosicionArriba(posicionActual) ;
+        Posicion posicionDestino = this.obtenerPosicionArriba(posicionActual);
 
-        this.mover(posicionActual,posicionDestino) ;
+        if (mapa.posicionSeEncuentraOcupada(posicionDestino)){
+            ((Jugador) jugador).golpearMaterial((Material) mapa.obtenerElementoEnPosicion(posicionDestino));
+
+            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).obtenerDurabilidad() <= 0){
+                mapa.eliminarElemento(posicionDestino);
+                mapa.agregarElemento(posicionDestino, new Vacio());
+            }
+        }
+        else {
+            this.mover(posicionActual,posicionDestino);
+        }
 
     }
 
@@ -35,7 +48,17 @@ public class Movimiento {
         Posicion posicionActual = jugador.obtenerPosicionActual();
         Posicion posicionDestino = this.obtenerPosicionAbajo(posicionActual) ;
 
-        this.mover(posicionActual,posicionDestino) ;
+        if (mapa.posicionSeEncuentraOcupada(posicionDestino)){
+            ((Jugador) jugador).golpearMaterial((Material) mapa.obtenerElementoEnPosicion(posicionDestino));
+
+            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).obtenerDurabilidad() <= 0){
+                mapa.eliminarElemento(posicionDestino);
+                mapa.agregarElemento(posicionDestino, new Vacio());
+            }
+        }
+        else {
+            this.mover(posicionActual,posicionDestino);
+        }
     }
 
     private Posicion obtenerPosicionAbajo(Posicion posicion) {
@@ -46,7 +69,17 @@ public class Movimiento {
         Posicion posicionActual = jugador.obtenerPosicionActual();
         Posicion posicionDestino = this.obtenerPosicionIzquierda(posicionActual) ;
 
-        this.mover(posicionActual,posicionDestino) ;
+        if (mapa.posicionSeEncuentraOcupada(posicionDestino)){
+            ((Jugador) jugador).golpearMaterial((Material) mapa.obtenerElementoEnPosicion(posicionDestino));
+
+            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).obtenerDurabilidad() <= 0){
+                mapa.eliminarElemento(posicionDestino);
+                mapa.agregarElemento(posicionDestino, new Vacio());
+            }
+        }
+        else {
+            this.mover(posicionActual,posicionDestino);
+        }
     }
 
     private Posicion obtenerPosicionIzquierda(Posicion posicion) {
@@ -57,7 +90,17 @@ public class Movimiento {
         Posicion posicionActual = jugador.obtenerPosicionActual();
         Posicion posicionDestino = this.obtenerPosicionDerecha(posicionActual) ;
 
-        this.mover(posicionActual,posicionDestino) ;
+        if (mapa.posicionSeEncuentraOcupada(posicionDestino)){
+            ((Jugador) jugador).golpearMaterial((Material) mapa.obtenerElementoEnPosicion(posicionDestino));
+
+            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).obtenerDurabilidad() <= 0){
+                mapa.eliminarElemento(posicionDestino);
+                mapa.agregarElemento(posicionDestino, new Vacio());
+            }
+        }
+        else {
+            this.mover(posicionActual,posicionDestino);
+        }
     }
 
     private Posicion obtenerPosicionDerecha(Posicion posicion) {

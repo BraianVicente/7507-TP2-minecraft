@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.modelo.jugador;
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.plano.Plano;
@@ -14,13 +15,15 @@ public class Jugador implements Posicionable {
     private Inventario inventario;
     private Posicion posicion;
     private MesaDeTrabajo mesaDeTrabajo;
+    private Herramienta herramientaActiva;
 
     public Jugador(String nombre){
         this.nombre = nombre;
         this.inventario = new Inventario();
         this.mesaDeTrabajo = new MesaDeTrabajo();
+        this.herramientaActiva = new Hacha(new DesgasteEstandar(100,2,1));
 
-        this.inventario.agregarAlInventario(new Hacha(new DesgasteEstandar(100,2,1)));
+        this.inventario.agregarAlInventario(this.herramientaActiva);
     }
 
     public MesaDeTrabajo obtenerMesaDeTrabajo(){
@@ -41,6 +44,7 @@ public class Jugador implements Posicionable {
 
     public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Posicionable material){
         this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
+        this.inventario.quitarDelInventario(material);
     }
 
     public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){
@@ -55,6 +59,22 @@ public class Jugador implements Posicionable {
         Herramienta herramienta;
         herramienta = this.mesaDeTrabajo.construir(plano);
         agregarMaterialAlInventario(herramienta);
+    }
+
+    public void golpearMaterial(Material material){
+        herramientaActiva.desgastar(material);
+
+        if (material.obtenerDurabilidad() <= 0){
+            inventario.agregarAlInventario(material);
+        }
+    }
+
+    public int cantidadDeElementosEnInventario(){
+        return inventario.cantidadElementos();
+    }
+
+    public void cambiarHerramientaActiva(Herramienta herramienta){
+        this.herramientaActiva = herramienta;
     }
 
     @Override

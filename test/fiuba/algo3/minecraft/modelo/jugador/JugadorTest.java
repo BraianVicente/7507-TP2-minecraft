@@ -4,10 +4,12 @@ import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMaderaTest;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
+import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.material.Metal;
 import fiuba.algo3.minecraft.modelo.plano.PlanoHachaDeMadera;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
@@ -93,5 +95,38 @@ public class JugadorTest {
 
     }
 
+    @Test
+    public void test08JugadorGuardaMaderaCuandoSeDesgastaCompletamente(){
+        Jugador unJugador = new Jugador("Player1");
+        Madera madera = new Madera();
+
+        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
+
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+        unJugador.golpearMaterial(madera);
+
+        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
+
+
+    }
+
+    @Test
+    public void test09MaderaSeAgregaAMesaDeTrabajoYSeQuitaDelInventarioDelJugador(){
+        Jugador unJugador = new Jugador("Fernando");
+        Material madera = new Madera();
+        unJugador.agregarMaterialAlInventario(madera);
+
+        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 2);
+        /* Recordar que jugador arranca con un hacha de madera, por lo tanto la cantidad de elementos en
+        el inventario siempre va a ser mayor o igual a 1 */
+
+        unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
+        int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
+
+        Assert.assertEquals(cantidadDeElementoEnInventario, 1);
+    }
 
 }

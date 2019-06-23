@@ -73,4 +73,14 @@ public class MapaTest {
 
     }
 
+    @Test
+    public void testPosicionNoSeEncuentraOcupadaEnLaInicializacion(){
+        Mapa mapa = new Mapa(10,10);
+
+        Assert.assertFalse(mapa.posicionSeEncuentraOcupada(new Posicion(1,1)));
+
+    }
+
+
+
 }

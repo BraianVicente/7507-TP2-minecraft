@@ -5,6 +5,7 @@ import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.plano.*;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -58,6 +59,14 @@ public class MesaDeTrabajo extends Observable {
         }
 
         throw new NoSePuedeConstruirException();
+    }
+
+    public void limpliarMesaDeTrabajo(){
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                mesa.eliminarElemento(new Posicion(i, j));
+            }
+        }
     }
 
 }
