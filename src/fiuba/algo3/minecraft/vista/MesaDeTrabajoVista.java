@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.controller.ButtonLimpiar;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
@@ -37,14 +38,13 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
                 mesaTrabajo.add(imageContainer,j,i);
             }
         }
-
         mesaTrabajo.setAlignment(Pos.CENTER);
         super.getChildren().add(mesaTrabajo);
 
         Button botonConstruir = new Button();
         botonConstruir.setText("Construir");
 
-        Button botonLimpiar = new Button();
+        Button botonLimpiar = new ButtonLimpiar(mesaJugador);
         botonLimpiar.setText("Limpiar");
 
         this.getChildren().add(botonConstruir);
