@@ -149,7 +149,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        mesaDeTrabajo.limpliarMesaDeTrabajo();
+        mesaDeTrabajo.limpiarMesaDeTrabajo();
 
         Posicionable vacio1 = mesaDeTrabajo.obtenerMaterialEnPosicion(new Posicion(0,0));
         Posicionable vacio2 = mesaDeTrabajo.obtenerMaterialEnPosicion(new Posicion(1,0));

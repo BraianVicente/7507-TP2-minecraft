@@ -11,6 +11,7 @@ import fiuba.algo3.minecraft.modelo.material.Piedra;
 public class PlanoHachaDePiedra extends Plano{
 
     public PlanoHachaDePiedra(){
+        super() ;
         plano = new Mapa(3, 3);
         plano.agregarElemento(new Posicion(0,0), new Piedra());
         plano.agregarElemento(new Posicion(1,0), new Piedra());
@@ -21,7 +22,7 @@ public class PlanoHachaDePiedra extends Plano{
 
     @Override
     public Herramienta construir() {
-        return new Hacha(new DesgasteEstandar(200, 5, 1));
+        return fabrica.construirHachaDePiedra();
     }
 
 }

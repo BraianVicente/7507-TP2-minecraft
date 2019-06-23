@@ -25,7 +25,7 @@ public class InventarioTest {
     public void test02InventarioSeCreaCon25Elementos() {
 
         Inventario inventario = new Inventario();
-        Assert.assertEquals(25,inventario.cantidadElementos());
+        Assert.assertEquals(0,inventario.cantidadElementos());
 
     }
 
@@ -35,7 +35,7 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
         inventario.agregarAlInventario(hachaDeMadera);
-        Assert.assertEquals(26,inventario.cantidadElementos());
+        Assert.assertEquals(1,inventario.cantidadElementos());
 
     }
 
@@ -57,7 +57,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDePiedra);
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(32,inventario.cantidadElementos());
+        Assert.assertEquals(7,inventario.cantidadElementos());
     }
 
     @Test
@@ -72,7 +72,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(hm2);
         inventario.agregarAlInventario(hm3);
         inventario.agregarAlInventario(hm4);
-        Assert.assertEquals(29,inventario.cantidadElementos());
+        Assert.assertEquals(4,inventario.cantidadElementos());
 
     }
 
@@ -82,7 +82,7 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Madera madera = new Madera();
         inventario.agregarAlInventario(madera);
-        Assert.assertEquals(26,inventario.cantidadElementos());
+        Assert.assertEquals(1,inventario.cantidadElementos());
 
     }
 
@@ -98,7 +98,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(piedra);
         inventario.agregarAlInventario(metal);
         inventario.agregarAlInventario(diamante);
-        Assert.assertEquals(29,inventario.cantidadElementos());
+        Assert.assertEquals(4,inventario.cantidadElementos());
 
     }
 
@@ -122,7 +122,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(picoDeMetal);
         inventario.agregarAlInventario(diamante);
         inventario.agregarAlInventario(picoFino);
-        Assert.assertEquals(33,inventario.cantidadElementos());
+        Assert.assertEquals(8,inventario.cantidadElementos());
 
     }
 

@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.controller;
 
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
@@ -76,10 +77,11 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 released = posicion ;
                 int eleX = pressed.obtenerX();
                 int eleY = pressed.obtenerY();
-                Elemento material =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
-                tableroDelJuego.obtenerJugador().obtenerInventario().quitarElemento((eleX * 20) + eleY);
-                tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Posicionable) material);
-                tableroDelJuego.seActualizo();
+                Elemento elemento =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
+                if (elemento instanceof Material){
+                    tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Material) elemento);
+                    tableroDelJuego.seActualizo();
+                }
             }
         }
     }

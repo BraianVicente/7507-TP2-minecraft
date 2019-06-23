@@ -11,6 +11,10 @@ public abstract class Plano {
     protected Mapa plano;
     protected FabricaDeHerramientas fabrica;
 
+    protected Plano(){
+        fabrica = new FabricaDeHerramientas() ;
+    }
+
     public Mapa obtenerPlano(){
         return plano;
     }

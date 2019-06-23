@@ -1,7 +1,6 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
-import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
-import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
@@ -16,12 +15,14 @@ public class Jugador implements Posicionable {
     private Posicion posicion;
     private MesaDeTrabajo mesaDeTrabajo;
     private Herramienta herramientaActiva;
+    private FabricaDeHerramientas fabrica ;
 
     public Jugador(String nombre){
         this.nombre = nombre;
         this.inventario = new Inventario();
         this.mesaDeTrabajo = new MesaDeTrabajo();
-        this.herramientaActiva = new Hacha(new DesgasteEstandar(100,2,1));
+        this.fabrica = new FabricaDeHerramientas();
+        this.herramientaActiva = fabrica.construirHachaDeMadera();
 
         this.inventario.agregarAlInventario(this.herramientaActiva);
     }
@@ -38,13 +39,13 @@ public class Jugador implements Posicionable {
         return this.inventario.obtenerElemento(elemento);
     }
 
-    public void agregarMaterialAlInventario(Elemento material){
-        this.inventario.agregarAlInventario(material);
+    public void agregarMaterialAlInventario(Elemento elemento){
+        this.inventario.agregarAlInventario(elemento);
     }
 
-    public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Posicionable material){
+    public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Material material){
         this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
-        this.inventario.quitarDelInventario(material);
+        this.inventario.quitarDelInventario((Material) material);
     }
 
     public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){

@@ -47,11 +47,12 @@ public class VistaInventario extends GridPane implements Observer {
             for (int j = 0; j < 20; j++){
                 if (cantidadElementos > ((i*20) + j)){
                     System.out.println((i*20) + j);
+                    System.out.println(cantidadElementos);
                     elemento = inventario.obtenerElementoEnPosicion((i*20) + j );
                 }
                 imageContainer = imagenes.setImageNode(elemento) ;
                 super.add(imageContainer,j,i);
-
+                elemento = null ;
             }
         }
     }

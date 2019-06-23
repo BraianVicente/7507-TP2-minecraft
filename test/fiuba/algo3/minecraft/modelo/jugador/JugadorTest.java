@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMaderaTest;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
@@ -72,6 +73,7 @@ public class JugadorTest {
     @Test
     public void test07JugadorContruyeHachaDeMaderaYSeAgregaAlInventarioDelJugador(){
         Jugador unJugador = new Jugador("Player 1");
+        FabricaDeHerramientas fabrica = new FabricaDeHerramientas();
         Material madera1 = new Madera();
         Material madera2 = new Madera();
         Material madera3 = new Madera();
@@ -79,7 +81,7 @@ public class JugadorTest {
         Material madera5 = new Madera();
         PlanoHachaDeMadera planoHachaDeMadera = new PlanoHachaDeMadera();
         DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
-        Hacha hachaDeMadera = new Hacha(desgaste);
+        Hacha hachaDeMadera = fabrica.construirHachaDeMadera() ;
 
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera1);
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,1), madera1);
@@ -100,7 +102,7 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Player1");
         Madera madera = new Madera();
 
-        Assert.assertEquals(26, unJugador.cantidadDeElementosEnInventario());
+        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
 
         unJugador.golpearMaterial(madera);
         unJugador.golpearMaterial(madera);
@@ -108,7 +110,7 @@ public class JugadorTest {
         unJugador.golpearMaterial(madera);
         unJugador.golpearMaterial(madera);
 
-        Assert.assertEquals(27, unJugador.cantidadDeElementosEnInventario());
+        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
 
 
     }
@@ -119,14 +121,14 @@ public class JugadorTest {
         Material madera = new Madera();
         unJugador.agregarMaterialAlInventario(madera);
 
-        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 27);
+        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 2);
         /* Recordar que jugador arranca con un hacha de madera, e inventario arranca con 25 maderas
          por lo tanto la cantidad de elementos inicial en el inventario es 26 */
 
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
         int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
 
-        Assert.assertEquals(cantidadDeElementoEnInventario, 26);
+        Assert.assertEquals(cantidadDeElementoEnInventario, 1);
     }
 
 }
