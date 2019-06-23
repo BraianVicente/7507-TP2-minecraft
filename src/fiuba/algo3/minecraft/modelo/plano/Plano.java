@@ -6,21 +6,21 @@ import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
-public abstract class Plano {
+public abstract class Plano extends Mapa{
 
-    protected Mapa plano;
     protected FabricaDeHerramientas fabrica;
 
     protected Plano(){
+        super(3,3);
         fabrica = new FabricaDeHerramientas() ;
     }
 
     public Mapa obtenerPlano(){
-        return plano;
+        return this;
     }
 
     public Posicionable obtenerElementoEnPosicion(Posicion posicion){
-        Posicionable elemento = plano.obtenerElementoEnPosicion(posicion);
+        Posicionable elemento = super.obtenerElementoEnPosicion(posicion);
 
         return elemento;
     }
@@ -33,7 +33,7 @@ public abstract class Plano {
             return true;
         if (! (obj instanceof Plano) )
             return false;
-        return this.plano.equals(((Plano) obj).obtenerPlano());
+        return this.equals(((Plano) obj).obtenerPlano());
     }
 
     public abstract Herramienta construir();

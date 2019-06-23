@@ -12,12 +12,11 @@ public class PlanoHachaDePiedra extends Plano{
 
     public PlanoHachaDePiedra(){
         super() ;
-        plano = new Mapa(3, 3);
-        plano.agregarElemento(new Posicion(0,0), new Piedra());
-        plano.agregarElemento(new Posicion(1,0), new Piedra());
-        plano.agregarElemento(new Posicion(0,1), new Piedra());
-        plano.agregarElemento(new Posicion(1,1), new Madera());
-        plano.agregarElemento(new Posicion(1,2), new Madera());
+        super.agregarElemento(new Posicion(0,0), new Piedra());
+        super.agregarElemento(new Posicion(1,0), new Piedra());
+        super.agregarElemento(new Posicion(0,1), new Piedra());
+        super.agregarElemento(new Posicion(1,1), new Madera());
+        super.agregarElemento(new Posicion(1,2), new Madera());
     }
 
     @Override

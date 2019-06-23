@@ -3,14 +3,15 @@ package fiuba.algo3.minecraft.controller;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import javafx.scene.control.Button;
 
-public class ButtonLimpiar extends Button {
+public class ButtonConstruir extends Button {
 
     private MesaDeTrabajo mesaDeTrabajo;
 
-    public ButtonLimpiar (MesaDeTrabajo mesaDeTrabajo){
-        super.setText("Limpiar");
+    public ButtonConstruir (MesaDeTrabajo mesaDeTrabajo){
+        super.setText("Construir");
         this.mesaDeTrabajo = mesaDeTrabajo ;
-        setOnAction( event -> {mesaDeTrabajo.limpiarMesaDeTrabajo();});
-    }
 
+        setOnAction( event -> mesaDeTrabajo.construir()) ;
+
+    }
 }

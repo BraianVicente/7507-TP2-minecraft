@@ -43,9 +43,9 @@ public class MesaDeTrabajo extends Observable {
         return this.mesa.obtenerElementoEnPosicion(posicion);
     }
 
-    public Herramienta construir(Plano plano){
-        if (listaDePlanos.contains(plano)){
-            Herramienta herramienta = listaDePlanos.get(listaDePlanos.indexOf(plano)).construir();
+    public Herramienta construir(){
+        if (listaDePlanos.contains(mesa)){
+            Herramienta herramienta = listaDePlanos.get(listaDePlanos.indexOf(mesa)).construir();
             this.limpiarMesaDeTrabajo();
             return herramienta ;
         }

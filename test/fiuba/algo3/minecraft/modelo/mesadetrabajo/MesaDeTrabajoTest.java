@@ -31,7 +31,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(100, mesaDeTrabajo.construir(new PlanoHachaDeMadera()).obtenerDurabilidad());
+        Assert.assertEquals(100, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -45,7 +45,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(200, mesaDeTrabajo.construir(new PlanoHachaDePiedra()).obtenerDurabilidad());
+        Assert.assertEquals(200, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -59,7 +59,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(400, mesaDeTrabajo.construir(new PlanoHachaDeMetal()).obtenerDurabilidad());
+        Assert.assertEquals(400, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -73,7 +73,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(100, mesaDeTrabajo.construir(new PlanoPicoDeMadera()).obtenerDurabilidad());
+        Assert.assertEquals(100, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -87,7 +87,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(200, mesaDeTrabajo.construir(new PlanoPicoDePiedra()).obtenerDurabilidad());
+        Assert.assertEquals(200, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -101,7 +101,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(400, mesaDeTrabajo.construir(new PlanoPicoDeMetal()).obtenerDurabilidad());
+        Assert.assertEquals(400, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -116,7 +116,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,1), new Madera());
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(1,2), new Madera());
 
-        Assert.assertEquals(1000, mesaDeTrabajo.construir(new PlanoPicoFino()).obtenerDurabilidad());
+        Assert.assertEquals(1000, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
@@ -134,7 +134,7 @@ public class MesaDeTrabajoTest {
         mesaDeTrabajo.eliminarMaterialEnMesaEnPosicion(new Posicion(0,0));
         mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(new Posicion(0,0), new Metal());
 
-        Assert.assertEquals(1000, mesaDeTrabajo.construir(new PlanoPicoFino()).obtenerDurabilidad());
+        Assert.assertEquals(1000, mesaDeTrabajo.construir().obtenerDurabilidad());
 
     }
 
