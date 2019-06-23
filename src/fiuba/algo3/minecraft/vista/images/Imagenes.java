@@ -1,5 +1,7 @@
 package fiuba.algo3.minecraft.vista.images;
 
+import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.material.Diamante;
@@ -63,6 +65,34 @@ public class Imagenes {
     }
 
     public Node setImageNode(Elemento elemento){
+        if (elemento instanceof Hacha){
+            Hacha hacha = (Hacha) elemento ;
+            if (hacha.obtenerMaterialConstruccion() instanceof Madera ){
+                return new ImageView(axe_wood);
+            }
+            if ( hacha.obtenerMaterialConstruccion() instanceof Piedra ){
+                return new ImageView(axe_stone);
+            }
+            if ( hacha.obtenerMaterialConstruccion() instanceof Metal ){
+                return new ImageView(axe_iron);
+            }
+        }
+        if (elemento instanceof Pico){
+            Pico pico = (Pico) elemento ;
+            if (pico.obtenerMaterialConstruccion() instanceof Madera ){
+                return new ImageView(pickaxe_wood);
+            }
+            if (pico.obtenerMaterialConstruccion() instanceof Piedra ){
+                return new ImageView(pickaxe_stone);
+            }
+            if (pico.obtenerMaterialConstruccion() instanceof Metal ){
+                return new ImageView(pickaxe_iron);
+            }
+            if (pico.obtenerMaterialConstruccion() instanceof Diamante ){
+                return new ImageView(pickaxe_diamond);
+            }
+        }
+
         if (elemento instanceof Diamante){
             return new ImageView(diamond) ;
         }

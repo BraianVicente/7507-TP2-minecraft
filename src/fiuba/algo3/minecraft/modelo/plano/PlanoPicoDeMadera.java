@@ -10,6 +10,7 @@ import fiuba.algo3.minecraft.modelo.material.Madera;
 public class PlanoPicoDeMadera extends Plano{
 
     public PlanoPicoDeMadera(){
+        super() ;
         plano = new Mapa(3, 3);
         plano.agregarElemento(new Posicion(0,0), new Madera());
         plano.agregarElemento(new Posicion(1,0), new Madera());
@@ -21,7 +22,7 @@ public class PlanoPicoDeMadera extends Plano{
     @Override
     public Herramienta construir() {
 
-        return new Pico(new DesgasteEstandar(100, 2, 1));
+        return fabrica.construirPicoDeMadera() ;
 
     }
 

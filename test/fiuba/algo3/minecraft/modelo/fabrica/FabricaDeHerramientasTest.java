@@ -4,6 +4,10 @@ import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteNoConvencional;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Pico;
+import fiuba.algo3.minecraft.modelo.material.Diamante;
+import fiuba.algo3.minecraft.modelo.material.Madera;
+import fiuba.algo3.minecraft.modelo.material.Metal;
+import fiuba.algo3.minecraft.modelo.material.Piedra;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,7 +27,7 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteEstandar desgasteEstandar = new DesgasteEstandar(durabilidadInicia, fuerzaInicial, 1);
-        Hacha hachaDeMadera = new Hacha(desgasteEstandar);
+        Hacha hachaDeMadera = new Hacha(desgasteEstandar,new Madera());
         Hacha hacha = fabricaDeHerramientas.construirHachaDeMadera();
 
         Assert.assertEquals(hacha, hachaDeMadera);
@@ -36,8 +40,8 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteEstandar desgasteEstandar = new DesgasteEstandar(durabilidadInicia, fuerzaInicial, 1);
-        Hacha hachaDePiedra = new Hacha(desgasteEstandar);
-        Hacha hacha = fabricaDeHerramientas.construirHachaDeMadera();
+        Hacha hachaDePiedra = new Hacha(desgasteEstandar,new Piedra());
+        Hacha hacha = fabricaDeHerramientas.construirHachaDePiedra();
 
         Assert.assertEquals(hacha, hachaDePiedra);
     }
@@ -49,8 +53,8 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteEstandar desgasteEstandar = new DesgasteEstandar(durabilidadInicia, fuerzaInicial, 0.5F);
-        Hacha hachaDeMetal = new Hacha(desgasteEstandar);
-        Hacha hacha = fabricaDeHerramientas.construirHachaDeMadera();
+        Hacha hachaDeMetal = new Hacha(desgasteEstandar,new Metal());
+        Hacha hacha = fabricaDeHerramientas.construirHachaDeMetal();
 
         Assert.assertEquals(hacha, hachaDeMetal);
     }
@@ -62,7 +66,7 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteEstandar desgasteEstandar = new DesgasteEstandar(durabilidadInicia, fuerzaInicial, 1);
-        Pico picoDeMadera = new Pico(desgasteEstandar);
+        Pico picoDeMadera = new Pico(desgasteEstandar, new Madera());
         Pico pico = fabricaDeHerramientas.construirPicoDeMadera();
 
         Assert.assertEquals(pico, picoDeMadera);
@@ -75,7 +79,7 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteEstandar desgasteEstandar = new DesgasteEstandar(durabilidadInicia, fuerzaInicial, 1.5F);
-        Pico picoDePiedra = new Pico(desgasteEstandar);
+        Pico picoDePiedra = new Pico(desgasteEstandar,new Piedra());
         Pico pico = fabricaDeHerramientas.construirPicoDePiedra();
 
         Assert.assertEquals(pico, picoDePiedra);
@@ -88,7 +92,7 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteNoConvencional desgasteLogaritmico = new DesgasteNoConvencional(durabilidadInicia, fuerzaInicial);
-        Pico picoDeMetal = new Pico(desgasteLogaritmico);
+        Pico picoDeMetal = new Pico(desgasteLogaritmico,new Metal());
         Pico pico = fabricaDeHerramientas.construirPicoDeMetal();
 
         Assert.assertEquals(pico, picoDeMetal);
@@ -101,7 +105,7 @@ public class FabricaDeHerramientasTest {
 
         FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
         DesgasteNoConvencional desgasteLogaritmico = new DesgasteNoConvencional(durabilidadInicia, fuerzaInicial);
-        Pico picoFino = new Pico(desgasteLogaritmico);
+        Pico picoFino = new Pico(desgasteLogaritmico, new Diamante());
         Pico pico = fabricaDeHerramientas.construirPicoFino();
 
         Assert.assertEquals(pico, picoFino);

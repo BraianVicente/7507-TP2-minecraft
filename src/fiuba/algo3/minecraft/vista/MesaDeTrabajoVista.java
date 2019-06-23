@@ -37,6 +37,7 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
                 mesaTrabajo.add(imageContainer,j,i);
             }
         }
+
         mesaTrabajo.setAlignment(Pos.CENTER);
         super.getChildren().add(mesaTrabajo);
 
@@ -46,14 +47,10 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
         Button botonLimpiar = new Button();
         botonLimpiar.setText("Limpiar");
 
-        this.contenedorPrincipal.getChildren().add(botonConstruir);
-        this.contenedorPrincipal.getChildren().add(botonLimpiar);
-        this.contenedorPrincipal.setAlignment(Pos.CENTER);
-        this.contenedorPrincipal.setSpacing(10);
-
-        super.getChildren().add(botonConstruir);
-        super.setAlignment(Pos.CENTER);
-        super.setSpacing(20);
+        this.getChildren().add(botonConstruir);
+        this.getChildren().add(botonLimpiar);
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(10);
 
         this.mesaJugador.addObserver(this);
 

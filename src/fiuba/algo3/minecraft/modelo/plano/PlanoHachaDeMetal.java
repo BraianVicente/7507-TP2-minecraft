@@ -11,6 +11,7 @@ import fiuba.algo3.minecraft.modelo.material.Metal;
 public class PlanoHachaDeMetal extends Plano{
 
     public PlanoHachaDeMetal(){
+        super() ;
         plano = new Mapa(3, 3);
         plano.agregarElemento(new Posicion(0,0), new Metal());
         plano.agregarElemento(new Posicion(1,0), new Metal());
@@ -21,7 +22,7 @@ public class PlanoHachaDeMetal extends Plano{
 
     @Override
     public Herramienta construir() {
-        return new Hacha(new DesgasteEstandar(400, 10, 0.5F));
+        return fabrica.construirHachaDeMetal() ;
     }
 
 }

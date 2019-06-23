@@ -11,6 +11,7 @@ import fiuba.algo3.minecraft.modelo.material.Piedra;
 public class PlanoPicoDePiedra extends Plano{
 
     public PlanoPicoDePiedra(){
+        super() ;
         plano = new Mapa(3, 3);
         plano.agregarElemento(new Posicion(0,0), new Piedra());
         plano.agregarElemento(new Posicion(1,0), new Piedra());
@@ -21,9 +22,7 @@ public class PlanoPicoDePiedra extends Plano{
 
     @Override
     public Herramienta construir() {
-
-        return new Pico(new DesgasteEstandar(200, 4, 0.66F));
-
+        return fabrica.construirPicoDePiedra() ;
     }
 
 }
