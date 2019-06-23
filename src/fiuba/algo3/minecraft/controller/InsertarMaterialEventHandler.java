@@ -79,7 +79,6 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 int eleY = pressed.obtenerY();
                 Elemento elemento =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
                 if (elemento instanceof Material){
-                    tableroDelJuego.obtenerJugador().obtenerInventario().quitarDelInventario(elemento);
                     tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Material) elemento);
                     tableroDelJuego.seActualizo();
                 }
