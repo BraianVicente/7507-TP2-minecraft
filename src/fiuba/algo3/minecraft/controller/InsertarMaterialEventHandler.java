@@ -59,7 +59,7 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 if (tableroDelJuego.obtenerJugador().obtenerInventario().cantidadElementos() > (posY * 20) + posX ) {
                     Posicion posicion = new Posicion(posY,posX) ;
                     pressed = posicion ;
-                    System.out.println(posicion);
+                    System.out.println("Posicion dentro del inventario " + posicion);
                 }
             }
         }
@@ -68,18 +68,17 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
             System.out.println("FIN X"+event.getSceneX());
             System.out.println("FIN Y"+event.getSceneY());
             if (sePosicionoEnMesaDeTrabajo(event)){
-                System.out.println("Se Posiciono en Mesa DeTrabajo");
 
                 int posX = (int) (event.getSceneX() - mesaLimiteIzq) / 30 ;
                 int posY = (int) (event.getSceneY() - mesaLimiteSup) / 30 ;
                 Posicion posicion = new Posicion(posY,posX) ;
+                System.out.println("Posicion dentro de mesa de trabajo " + posicion);
                 released = posicion ;
                 int eleX = pressed.obtenerX();
                 int eleY = pressed.obtenerY();
                 Elemento elemento =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
                 if (elemento instanceof Material){
                     tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Material) elemento);
-                    tableroDelJuego.seActualizo();
                 }
             }
         }

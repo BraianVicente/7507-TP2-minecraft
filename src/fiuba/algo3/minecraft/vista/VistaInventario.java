@@ -2,7 +2,6 @@ package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Inventario;
-import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;

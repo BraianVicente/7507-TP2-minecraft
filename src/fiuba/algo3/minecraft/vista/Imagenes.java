@@ -1,4 +1,4 @@
-package fiuba.algo3.minecraft.vista.images;
+package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
