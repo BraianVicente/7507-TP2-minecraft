@@ -9,8 +9,6 @@ import javafx.scene.layout.VBox;
 
 public class Controles {
 
-    private MovimientoEventHandler buttonController ;
-
     public VBox obtenerControles(TableroDelJuego tableroDelJuego){
 
         VBox mesaDeTrabajoVista = new MesaDeTrabajoVista(tableroDelJuego.obtenerJugador().obtenerMesaDeTrabajo());
