@@ -67,6 +67,9 @@ public class MesaDeTrabajo extends Observable {
                 mesa.eliminarElemento(new Posicion(i, j));
             }
         }
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
     }
 
 }
