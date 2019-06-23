@@ -39,6 +39,11 @@ public class TableroDelJuego extends Observable {
 
     }
 
+    public void agregarElementoAMesaTrabajoJugador(){
+
+    }
+
+
     public boolean tableroContieneJugador(){
         return tableroContieneElementoPosicionable(jugador) ;
     }
@@ -130,6 +135,10 @@ public class TableroDelJuego extends Observable {
 
     public Jugador obtenerJugador() {
         return jugador ;
+    }
+
+    public Mapa obtenerMapa() {
+        return this.mapa ;
     }
 }
 
