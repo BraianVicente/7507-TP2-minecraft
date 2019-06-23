@@ -18,7 +18,8 @@ public class Imagenes {
     
     private final String folderURL = "fiuba/algo3/minecraft/vista/images/resource/" ;
 
-    public final Image diamond,grass,iron,steve,stone,wood,empty;
+    public final Image diamond,grass,iron,steve,stone,wood,empty,
+					   axe_wood,axe_stone,axe_iron,pickaxe_wood,pickaxe_stone,pickaxe_iron,pickaxe_diamond;
 
     public Imagenes() {
         diamond = new Image(folderURL + "diamond.jpeg",xLenght,yLenght,false,false);
@@ -28,6 +29,13 @@ public class Imagenes {
         stone = new Image(folderURL + "stone.jpg",xLenght,yLenght,false,false);
         wood = new Image(folderURL + "wood.jpg",xLenght,yLenght,false,false);
         empty = new Image(folderURL + "empty_field_work_table.jpg",xLenght,yLenght,false,false);
+        axe_wood = new Image(folderURL + "tools/axe_wood.png",xLenght,yLenght,false,false);
+        axe_stone = new Image(folderURL + "tools/axe_stone.png",xLenght,yLenght,false,false);
+        axe_iron = new Image(folderURL + "tools/axe_iron.png",xLenght,yLenght,false,false);
+        pickaxe_wood = new Image(folderURL + "tools/pickaxe_wood.png",xLenght,yLenght,false,false);
+        pickaxe_stone = new Image(folderURL + "tools/pickaxe_stone.png",xLenght,yLenght,false,false);
+        pickaxe_iron = new Image(folderURL + "tools/pickaxe_iron.png",xLenght,yLenght,false,false);
+        pickaxe_diamond = new Image(folderURL + "tools/pickaxe_diamond.png",xLenght,yLenght,false,false);
     }
 
 
@@ -58,15 +66,21 @@ public class Imagenes {
         if (elemento instanceof Diamante){
             return new ImageView(diamond) ;
         }
+
         if (elemento instanceof Madera){
             return new ImageView(wood) ;
         }
+
         if (elemento instanceof Piedra){
             return new ImageView(stone) ;
         }
+
         if (elemento instanceof Metal){
             return new ImageView(iron) ;
         }
+
+
+
         return new ImageView(empty) ;
     }
 

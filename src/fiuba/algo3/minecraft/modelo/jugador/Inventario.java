@@ -15,37 +15,6 @@ public class Inventario extends Observable {
 
     public Inventario(){
         elementos = new ArrayList<Elemento>();
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
     }
 
     public void agregarAlInventario(Elemento unElemento) {
