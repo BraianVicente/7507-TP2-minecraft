@@ -1,18 +1,9 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
-import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
-import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
-import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import java.util.Observable;

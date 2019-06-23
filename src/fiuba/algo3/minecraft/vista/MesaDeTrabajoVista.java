@@ -6,7 +6,6 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
-import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
