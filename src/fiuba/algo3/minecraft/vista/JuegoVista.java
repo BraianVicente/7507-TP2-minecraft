@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.controller.InsertarMaterialEventHandler;
 import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
@@ -37,11 +38,14 @@ public class JuegoVista  {
         BorderPane borderPane = new BorderPane();
 
         GridPane mapa = new VistaTableroJuego(tableroDelJuego);
-
+        GridPane inventario = new VistaInventario(tableroDelJuego.obtenerJugador().obtenerInventario()) ;
         VBox contenedorDeControles = controles.obtenerControles(tableroDelJuego);
 
-        HBox contenedorHorizontal = new HBox(contenedorDeControles, mapa);
+        VBox contenedorMapaInventario = new VBox(mapa,inventario) ;
+        contenedorMapaInventario.setSpacing(10);
 
+        HBox contenedorHorizontal = new HBox(contenedorDeControles, contenedorMapaInventario);
+        contenedorHorizontal.setSpacing(10);
         borderPane.setTop(menuBar.obtenerBarraDeMenu());
 
         borderPane.setCenter(contenedorHorizontal);
@@ -49,6 +53,9 @@ public class JuegoVista  {
         Scene escenaJuego = new Scene(borderPane);
 
         escenaJuego.setOnKeyTyped(new MovimientoEventHandler(tableroDelJuego));
+        escenaJuego.setOnMouseDragged(new InsertarMaterialEventHandler(tableroDelJuego));
+        escenaJuego.setOnMousePressed(new InsertarMaterialEventHandler(tableroDelJuego));
+        escenaJuego.setOnMouseReleased(new InsertarMaterialEventHandler(tableroDelJuego));
 
         this.escenario.setScene(escenaJuego);
 

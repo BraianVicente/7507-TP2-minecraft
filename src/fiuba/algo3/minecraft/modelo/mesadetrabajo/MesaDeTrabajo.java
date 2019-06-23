@@ -5,10 +5,12 @@ import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.plano.*;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class MesaDeTrabajo {
+public class MesaDeTrabajo extends Observable {
 
     private ArrayList<Plano> listaDePlanos = new ArrayList<Plano>();
     private Mapa mesa;
@@ -25,8 +27,15 @@ public class MesaDeTrabajo {
         this.mesa = new Mapa(3,3);
     }
 
+    private void limpiarMesaDeTrabajo(){
+        this.mesa = new Mapa(3,3);
+    }
+
     public void insertarMaterialEnMesaEnPosicion(Posicion posicion, Posicionable material){
         this.mesa.agregarElemento(posicion, material);
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
     }
 
     public void eliminarMaterialEnMesaEnPosicion(Posicion posicion){
@@ -38,9 +47,29 @@ public class MesaDeTrabajo {
     }
 
     public Herramienta construir(Plano plano){
-        if (listaDePlanos.contains(plano))
-            return listaDePlanos.get(listaDePlanos.indexOf(plano)).construir();
+        if (listaDePlanos.contains(plano)){
+            Herramienta herramienta = listaDePlanos.get(listaDePlanos.indexOf(plano)).construir();
+            this.limpiarMesaDeTrabajo();
+
+            super.setChanged();
+            super.notifyObservers();
+            super.clearChanged();
+
+            return herramienta ;
+        }
+
         throw new NoSePuedeConstruirException();
+    }
+
+    public void limpliarMesaDeTrabajo(){
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                mesa.eliminarElemento(new Posicion(i, j));
+            }
+        }
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
     }
 
 }

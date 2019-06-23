@@ -16,9 +16,6 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
 
-        System.out.println("Inicia en: " + tableroDelJuego.obtenerJugador().obtenerPosicionActual());
-        System.out.println("Key: "+event.getCharacter());
-
         if (event.getCharacter().equals("w") || event.getCode().equals(KeyCode.UP) ) {
             tableroDelJuego.moverJugadorHaciaArriba();
         }
@@ -31,8 +28,6 @@ public class MovimientoEventHandler implements EventHandler<KeyEvent> {
         if (event.getCharacter().equals("d") ) {
             tableroDelJuego.moverJugadorHaciaDerecha();
         }
-
-        System.out.println("Finaliza en: " + tableroDelJuego.obtenerJugador().obtenerPosicionActual());
 
     }
 }

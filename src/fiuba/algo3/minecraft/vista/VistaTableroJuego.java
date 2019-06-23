@@ -10,6 +10,7 @@ import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
+import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,23 +19,12 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class VistaTableroJuego extends GridPane implements Observer {
-
+    private Imagenes imagenes;
     private final TableroDelJuego tableroDelJuego;
-
-    private Image diamond,grass,iron,steve,stone,wood ;
-
-    private void loadImageResourse(){
-        diamond = new Image("fiuba/algo3/minecraft/vista/images/resource/diamond.jpeg",30,30,false,false);
-        grass = new Image("fiuba/algo3/minecraft/vista/images/resource/grass.jpg",30,30,false,false);
-        iron = new Image("fiuba/algo3/minecraft/vista/images/resource/iron.jpeg",30,30,false,false);
-        steve = new Image("fiuba/algo3/minecraft/vista/images/resource/steve.jpg",30,30,false,false);
-        stone = new Image("fiuba/algo3/minecraft/vista/images/resource/stone.jpg",30,30,false,false);
-        wood = new Image("fiuba/algo3/minecraft/vista/images/resource/wood.jpg",30,30,false,false);
-    }
 
     public VistaTableroJuego(TableroDelJuego tableroDelJuego){
         this.tableroDelJuego = tableroDelJuego;
-        this.loadImageResourse();
+        this.imagenes = new Imagenes();
         this.inicializarMapa();
         this.pintarMapa();
         tableroDelJuego.addObserver(this);
@@ -49,39 +39,20 @@ public class VistaTableroJuego extends GridPane implements Observer {
     }
 
     public void inicializarMapa(){
-        super.setMinSize(500,500);
+        super.setMinSize(600,600);
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
-                Node imageContainer = new ImageView(grass) ;
+                Node imageContainer = new ImageView(imagenes.grass) ;
                 super.add(imageContainer,j,i);
 
             }
         }
     }
 
-    public Node establecerImage(Posicion posicion){
+    public Node establecerImage(Posicion posicion) {
 
-        Posicionable elemento =  tableroDelJuego.obtenerElementoEnPosicion(posicion);
-        if ( elemento instanceof Jugador){
-            return new ImageView(steve) ;
-        }
-        if (elemento instanceof Vacio){
-            return new ImageView(grass) ;
-        }
-        if (elemento instanceof Diamante){
-            return new ImageView(diamond) ;
-        }
-        if (elemento instanceof Madera){
-            return new ImageView(wood) ;
-        }
-        if (elemento instanceof Piedra){
-            return new ImageView(stone) ;
-        }
-        if (elemento instanceof Metal){
-            return new ImageView(iron) ;
-        }
-
-        return new ImageView(grass) ;
+        Posicionable elemento = tableroDelJuego.obtenerElementoEnPosicion(posicion);
+        return imagenes.setImageNode(elemento);
     }
 
     /**

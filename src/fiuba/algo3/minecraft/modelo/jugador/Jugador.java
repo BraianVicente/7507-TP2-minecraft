@@ -26,6 +26,10 @@ public class Jugador implements Posicionable {
         this.inventario.agregarAlInventario(this.herramientaActiva);
     }
 
+    public MesaDeTrabajo obtenerMesaDeTrabajo(){
+        return this.mesaDeTrabajo ;
+    }
+
     public String obtenerNombre(){
         return this.nombre;
     }
@@ -40,6 +44,7 @@ public class Jugador implements Posicionable {
 
     public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Posicionable material){
         this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
+        this.inventario.quitarDelInventario(material);
     }
 
     public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){
@@ -95,5 +100,10 @@ public class Jugador implements Posicionable {
     @Override
     public Posicion obtenerPosicionActual() {
         return posicion;
+    }
+
+
+    public Inventario obtenerInventario() {
+        return this.inventario ;
     }
 }

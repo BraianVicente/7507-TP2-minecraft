@@ -1,45 +1,82 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
+import fiuba.algo3.minecraft.controller.ButtonLimpiar;
+import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
+import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
+import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.geometry.Pos;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
-public class MesaDeTrabajoVista {
+import java.util.Observable;
+import java.util.Observer;
 
-    private VBox contenedorPrincipal;
+public class MesaDeTrabajoVista extends VBox implements Observer {
 
-    public MesaDeTrabajoVista(TableroDelJuego tableroDelJuego){
 
-        this.contenedorPrincipal = new VBox();
+    private final MesaDeTrabajo mesaJugador;
+    private Imagenes imagenes ;
+    private GridPane mesaTrabajo ;
 
-        VBox contenedorDeMesa = new VBox();
+    public MesaDeTrabajoVista(MesaDeTrabajo mesaJugador){
+        super();
+
+        this.mesaJugador = mesaJugador ;
+        mesaTrabajo = new GridPane();
+        mesaTrabajo.setStyle("-fx-grid-lines-visible: true");
+
+        imagenes = new Imagenes() ;
 
         for (int i = 0; i < 3; i++){
-            HBox fila = new HBox();
             for (int j = 0; j < 3; j++){
-                Button boton = new Button();
-                boton.setText(" ");
-                fila.getChildren().add(boton);
+                Node imageContainer = new ImageView(imagenes.empty) ;
+                mesaTrabajo.add(imageContainer,j,i);
             }
-            fila.setAlignment(Pos.CENTER);
-            contenedorDeMesa.getChildren().add(fila);
         }
-
-        this.contenedorPrincipal.getChildren().add(contenedorDeMesa);
+        mesaTrabajo.setAlignment(Pos.CENTER);
+        super.getChildren().add(mesaTrabajo);
 
         Button botonConstruir = new Button();
         botonConstruir.setText("Construir");
 
-        this.contenedorPrincipal.getChildren().add(botonConstruir);
-        this.contenedorPrincipal.setAlignment(Pos.CENTER);
-        this.contenedorPrincipal.setSpacing(20);
+        Button botonLimpiar = new ButtonLimpiar(mesaJugador);
+        botonLimpiar.setText("Limpiar");
+
+        super.getChildren().add(botonConstruir);
+        super.getChildren().add(botonLimpiar);
+        super.setAlignment(Pos.CENTER);
+        super.setSpacing(20);
+
+        this.mesaJugador.addObserver(this);
 
     }
 
-    public VBox obtenerMesa(){
-        return this.contenedorPrincipal;
-    }
 
+    /**
+     * This method is called whenever the observed object is changed. An
+     * application calls an <tt>Observable</tt> object's
+     * <code>notifyObservers</code> method to have all the object's
+     * observers notified of the change.
+     *
+     * @param o   the observable object.
+     * @param arg an argument passed to the <code>notifyObservers</code>
+     */
+    @Override
+    public void update(Observable o, Object arg) {
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                Posicionable material = mesaJugador.obtenerMaterialEnPosicion(new Posicion(i,j)) ;
+                if (! (material instanceof Vacio)){
+                    Node imageContainer = imagenes.setImageNode(material);
+                    mesaTrabajo.add(imageContainer,j,i);
+
+                }
+            }
+        }
+    }
 }
