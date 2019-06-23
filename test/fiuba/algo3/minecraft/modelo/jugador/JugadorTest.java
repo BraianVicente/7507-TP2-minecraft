@@ -1,6 +1,7 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
+import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.HachaDeMaderaTest;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
@@ -17,6 +18,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class JugadorTest {
+
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
+
 
     @Test
     public void test01CreamosInstanciaDeJugador(){
@@ -127,6 +131,32 @@ public class JugadorTest {
         int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
 
         Assert.assertEquals(cantidadDeElementoEnInventario, 26);
+    }
+
+    @Test
+    public void test10cambiarHerramientaActivaCambiaLaHerramientaCuandoHayOtraEnElInventario(){
+        Jugador unJugador = new Jugador("Player1");
+        Hacha hachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+
+        unJugador.agregarMaterialAlInventario(hachaDeMetal);
+
+        unJugador.cambiarHerramientaActiva();
+
+        Assert.assertEquals(unJugador.obtenerHerramientaActiva(), hachaDeMetal);
+
+
+    }
+
+    @Test
+    public void test11cambiarHerramientaActivaNoCambiaSiNoHayOtra(){
+        Jugador unJugador = new Jugador("Player1");
+        Herramienta herramientaActiva = unJugador.obtenerHerramientaActiva();
+
+        unJugador.cambiarHerramientaActiva();
+
+        Assert.assertEquals(unJugador.obtenerHerramientaActiva(), herramientaActiva);
+
+
     }
 
 }
