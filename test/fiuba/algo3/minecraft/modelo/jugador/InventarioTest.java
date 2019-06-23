@@ -166,4 +166,40 @@ public class InventarioTest {
 
     }
 
+    @Test
+    public void test11AgregoVariasHerramientasYMaterialesYPidoUnaHerramienta(){
+        Inventario inventario = new Inventario();
+
+        Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
+        Hacha hachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+
+        Madera madera = new Madera();
+        Metal  metal = new Metal();
+
+        inventario.agregarAlInventario(hachaDeMadera);
+        inventario.agregarAlInventario(madera);
+        inventario.agregarAlInventario(metal);
+        inventario.agregarAlInventario(hachaDePiedra);
+
+        Assert.assertEquals(inventario.obtenerProximaHerramienta(hachaDeMadera), hachaDePiedra);
+
+    }
+
+    @Test
+    public void test12obtenerProximaHerramientaDevuelveLaMismaSiNoHayOtra(){
+        Inventario inventario = new Inventario();
+
+        Hacha hachaDeMadera = fabricaDeHerramientas.construirHachaDeMadera();
+
+        Madera madera = new Madera();
+        Metal  metal = new Metal();
+
+        inventario.agregarAlInventario(hachaDeMadera);
+        inventario.agregarAlInventario(madera);
+        inventario.agregarAlInventario(metal);
+
+        Assert.assertEquals(inventario.obtenerProximaHerramienta(hachaDeMadera), hachaDeMadera);
+
+    }
+
 }

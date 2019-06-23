@@ -19,6 +19,9 @@ import org.junit.Test;
 
 public class JugadorTest {
 
+    FabricaDeHerramientas fabricaDeHerramientas = new FabricaDeHerramientas();
+
+
     @Test
     public void test01CreamosInstanciaDeJugador(){
 
@@ -129,6 +132,32 @@ public class JugadorTest {
         int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
 
         Assert.assertEquals(cantidadDeElementoEnInventario, 1);
+    }
+
+    @Test
+    public void test10cambiarHerramientaActivaCambiaLaHerramientaCuandoHayOtraEnElInventario(){
+        Jugador unJugador = new Jugador("Player1");
+        Hacha hachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+
+        unJugador.agregarMaterialAlInventario(hachaDeMetal);
+
+        unJugador.cambiarHerramientaActiva();
+
+        Assert.assertEquals(unJugador.obtenerHerramientaActiva(), hachaDeMetal);
+
+
+    }
+
+    @Test
+    public void test11cambiarHerramientaActivaNoCambiaSiNoHayOtra(){
+        Jugador unJugador = new Jugador("Player1");
+        Herramienta herramientaActiva = unJugador.obtenerHerramientaActiva();
+
+        unJugador.cambiarHerramientaActiva();
+
+        Assert.assertEquals(unJugador.obtenerHerramientaActiva(), herramientaActiva);
+
+
     }
 
 }
