@@ -2,6 +2,7 @@ package fiuba.algo3.minecraft.modelo.jugador;
 
 import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
@@ -15,37 +16,6 @@ public class Inventario extends Observable {
 
     public Inventario(){
         elementos = new ArrayList<Elemento>();
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-        elementos.add(new Madera());
-
     }
 
     public void agregarAlInventario(Elemento unElemento) {
@@ -79,6 +49,20 @@ public class Inventario extends Observable {
     public Elemento obtenerElemento (Elemento unElemento){
         int indexHerramienta = elementos.indexOf(unElemento);
         return elementos.get(indexHerramienta);
+    }
+
+    public Elemento obtenerProximaHerramienta(Elemento herramientaActiva){
+        int indexHerramientaActiva = elementos.indexOf(herramientaActiva);
+        int indexPosibleProximaHerramienta = indexHerramientaActiva;
+
+        for(int i = 1; i < cantidadElementos(); i++ ){
+            Elemento posibleHerramienta = obtenerElementoEnPosicion(indexPosibleProximaHerramienta + i);
+            if (posibleHerramienta instanceof Herramienta){
+                return posibleHerramienta;
+            }
+
+        }
+        return herramientaActiva;
     }
 
 }

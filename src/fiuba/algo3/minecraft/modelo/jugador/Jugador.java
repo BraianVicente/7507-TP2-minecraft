@@ -73,10 +73,6 @@ public class Jugador implements Posicionable {
         return inventario.cantidadElementos();
     }
 
-    public void cambiarHerramientaActiva(Herramienta herramienta){
-        this.herramientaActiva = herramienta;
-    }
-
     @Override
     public boolean equals(Object obj){
         if (obj == null)
