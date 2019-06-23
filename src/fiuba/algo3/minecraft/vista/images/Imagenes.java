@@ -61,7 +61,7 @@ public class Imagenes {
             return new ImageView(iron) ;
         }
 
-        return new ImageView(grass) ;
+        return new ImageView(empty) ;
     }
 
     public Node setImageNode(Elemento elemento){

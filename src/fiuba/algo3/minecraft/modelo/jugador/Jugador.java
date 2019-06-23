@@ -20,7 +20,7 @@ public class Jugador implements Posicionable {
     public Jugador(String nombre){
         this.nombre = nombre;
         this.inventario = new Inventario();
-        this.mesaDeTrabajo = new MesaDeTrabajo();
+        this.mesaDeTrabajo = new MesaDeTrabajo(inventario);
         this.fabrica = new FabricaDeHerramientas();
         this.herramientaActiva = fabrica.construirHachaDeMadera();
 

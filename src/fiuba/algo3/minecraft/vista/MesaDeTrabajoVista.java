@@ -1,10 +1,11 @@
 package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.controller.ButtonLimpiar;
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
-import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -19,40 +20,39 @@ import java.util.Observer;
 public class MesaDeTrabajoVista extends VBox implements Observer {
 
 
-    private final MesaDeTrabajo mesaJugador;
+    private MesaDeTrabajo mesaTrabajoJugador;
     private Imagenes imagenes ;
-    private GridPane mesaTrabajo ;
+    private GridPane mesaTrabajoPane;
 
     public MesaDeTrabajoVista(MesaDeTrabajo mesaJugador){
         super();
 
-        this.mesaJugador = mesaJugador ;
-        mesaTrabajo = new GridPane();
-        mesaTrabajo.setStyle("-fx-grid-lines-visible: true");
+        this.mesaTrabajoJugador = mesaJugador ;
+        mesaTrabajoPane = new GridPane();
+        mesaTrabajoPane.setStyle("-fx-grid-lines-visible: true");
 
         imagenes = new Imagenes() ;
 
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 Node imageContainer = new ImageView(imagenes.empty) ;
-                mesaTrabajo.add(imageContainer,j,i);
+                mesaTrabajoPane.add(imageContainer,j,i);
             }
         }
-        mesaTrabajo.setAlignment(Pos.CENTER);
-        super.getChildren().add(mesaTrabajo);
+        mesaTrabajoPane.setAlignment(Pos.CENTER);
+        super.getChildren().add(mesaTrabajoPane);
 
         Button botonConstruir = new Button();
         botonConstruir.setText("Construir");
 
         Button botonLimpiar = new ButtonLimpiar(mesaJugador);
-        botonLimpiar.setText("Limpiar");
 
         this.getChildren().add(botonConstruir);
         this.getChildren().add(botonLimpiar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(10);
 
-        this.mesaJugador.addObserver(this);
+        this.mesaTrabajoJugador.addObserver(this);
 
     }
 
@@ -70,11 +70,13 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
     public void update(Observable o, Object arg) {
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
-                Posicionable material = mesaJugador.obtenerMaterialEnPosicion(new Posicion(i,j)) ;
-                if (! (material instanceof Vacio)){
-                    Node imageContainer = imagenes.setImageNode(material);
-                    mesaTrabajo.add(imageContainer,j,i);
-
+                Posicionable material = mesaTrabajoJugador.obtenerMaterialEnPosicion(new Posicion(i,j));
+                if (material instanceof Material){
+                    Node imageContainer = imagenes.setImageNode((Elemento) material);
+                    mesaTrabajoPane.add(imageContainer,j,i);
+                } else {
+                    Node imageContainer = new ImageView(imagenes.empty) ;
+                    mesaTrabajoPane.add(imageContainer,j,i);
                 }
             }
         }
