@@ -68,6 +68,7 @@ public class Inventario extends Observable {
     public Elemento obtenerElementoEnPosicion(int i ){
         return elementos.get(i) ;
     }
+
     public void quitarElemento(int i){
         this.elementos.remove(i);
         this.setChanged();
