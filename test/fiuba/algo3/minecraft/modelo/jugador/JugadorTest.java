@@ -102,7 +102,7 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Player1");
         Madera madera = new Madera();
 
-        Assert.assertEquals(26, unJugador.cantidadDeElementosEnInventario());
+        Assert.assertEquals(1, unJugador.cantidadDeElementosEnInventario());
 
         unJugador.golpearMaterial(madera);
         unJugador.golpearMaterial(madera);
@@ -110,7 +110,7 @@ public class JugadorTest {
         unJugador.golpearMaterial(madera);
         unJugador.golpearMaterial(madera);
 
-        Assert.assertEquals(27, unJugador.cantidadDeElementosEnInventario());
+        Assert.assertEquals(2, unJugador.cantidadDeElementosEnInventario());
 
 
     }
@@ -121,14 +121,14 @@ public class JugadorTest {
         Material madera = new Madera();
         unJugador.agregarMaterialAlInventario(madera);
 
-        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 27);
+        Assert.assertEquals(unJugador.cantidadDeElementosEnInventario(), 2);
         /* Recordar que jugador arranca con un hacha de madera, e inventario arranca con 25 maderas
          por lo tanto la cantidad de elementos inicial en el inventario es 26 */
 
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera);
         int cantidadDeElementoEnInventario = unJugador.cantidadDeElementosEnInventario();
 
-        Assert.assertEquals(cantidadDeElementoEnInventario, 26);
+        Assert.assertEquals(cantidadDeElementoEnInventario, 1);
     }
 
 }
