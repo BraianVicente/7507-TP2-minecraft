@@ -17,6 +17,8 @@ import java.util.HashMap;
 public class Imagenes {
     private final Integer xLenght = 30;
     private final Integer yLenght = 30 ;
+    private final Boolean preserveRatio = false ;
+    private final Boolean smooth = false ;
     
     private final String folderURL = "fiuba/algo3/minecraft/vista/images/resource/" ;
 
@@ -24,20 +26,20 @@ public class Imagenes {
 					   axe_wood,axe_stone,axe_iron,pickaxe_wood,pickaxe_stone,pickaxe_iron,pickaxe_diamond;
 
     public Imagenes() {
-        diamond = new Image(folderURL + "diamond.jpeg",xLenght,yLenght,false,false);
-        grass = new Image(folderURL + "grass.jpg",xLenght,yLenght,false,false);
-        iron = new Image(folderURL + "iron.jpeg",xLenght,yLenght,false,false);
-        steve = new Image(folderURL + "steve.jpg",xLenght,yLenght,false,false);
-        stone = new Image(folderURL + "stone.jpg",xLenght,yLenght,false,false);
-        wood = new Image(folderURL + "wood.jpg",xLenght,yLenght,false,false);
-        empty = new Image(folderURL + "empty_field_work_table.jpg",xLenght,yLenght,false,false);
-        axe_wood = new Image(folderURL + "tools/axe_wood.png",xLenght,yLenght,false,false);
-        axe_stone = new Image(folderURL + "tools/axe_stone.png",xLenght,yLenght,false,false);
-        axe_iron = new Image(folderURL + "tools/axe_iron.png",xLenght,yLenght,false,false);
-        pickaxe_wood = new Image(folderURL + "tools/pickaxe_wood.png",xLenght,yLenght,false,false);
-        pickaxe_stone = new Image(folderURL + "tools/pickaxe_stone.png",xLenght,yLenght,false,false);
-        pickaxe_iron = new Image(folderURL + "tools/pickaxe_iron.png",xLenght,yLenght,false,false);
-        pickaxe_diamond = new Image(folderURL + "tools/pickaxe_diamond.png",xLenght,yLenght,false,false);
+        diamond = new Image(folderURL + "diamond.jpeg",xLenght,yLenght,preserveRatio,smooth);
+        grass = new Image(folderURL + "grass.jpg",xLenght,yLenght,preserveRatio,smooth);
+        iron = new Image(folderURL + "iron.jpeg",xLenght,yLenght,preserveRatio,smooth);
+        steve = new Image(folderURL + "steve.jpg",xLenght,yLenght,preserveRatio,smooth);
+        stone = new Image(folderURL + "stone.jpg",xLenght,yLenght,preserveRatio,smooth);
+        wood = new Image(folderURL + "wood.jpg",xLenght,yLenght,preserveRatio,smooth);
+        empty = new Image(folderURL + "empty_field_work_table.jpg",xLenght,yLenght,preserveRatio,smooth);
+        axe_wood = new Image(folderURL + "tools/axe_wood.png",xLenght,yLenght,preserveRatio,smooth);
+        axe_stone = new Image(folderURL + "tools/axe_stone.png",xLenght,yLenght,preserveRatio,smooth);
+        axe_iron = new Image(folderURL + "tools/axe_iron.png",xLenght,yLenght,preserveRatio,smooth);
+        pickaxe_wood = new Image(folderURL + "tools/pickaxe_wood.png",xLenght,yLenght,preserveRatio,smooth);
+        pickaxe_stone = new Image(folderURL + "tools/pickaxe_stone.png",xLenght,yLenght,preserveRatio,smooth);
+        pickaxe_iron = new Image(folderURL + "tools/pickaxe_iron.png",xLenght,yLenght,preserveRatio,smooth);
+        pickaxe_diamond = new Image(folderURL + "tools/pickaxe_diamond.png",xLenght,yLenght,preserveRatio,smooth);
     }
 
 
