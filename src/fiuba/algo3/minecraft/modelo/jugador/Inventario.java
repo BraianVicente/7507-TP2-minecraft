@@ -1,10 +1,6 @@
 package fiuba.algo3.minecraft.modelo.jugador;
 
-import fiuba.algo3.minecraft.modelo.desgaste.DesgasteEstandar;
-import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 import java.util.ArrayList;
 import java.util.List;

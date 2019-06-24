@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.controller;
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -17,15 +18,15 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
         this.tableroDelJuego = tableroDelJuego ;
     }
 
-    private double invLimiteSup = 635.0 ;
-    private double invLimiteInf = 695.0 ;
-    private double invLimiteIzq = 116.0 ;
-    private double invLimiteDer = 716.0 ;
+    private double invLimiteSup = 634.0 ;
+    private double invLimiteInf = 694.0 ;
+    private double invLimiteIzq = 127.0 ;
+    private double invLimiteDer = 727.0 ;
 
-    private double mesaLimiteSup = 40.0 ;
-    private double mesaLimiteInf = 130.0 ;
-    private double mesaLimiteIzq = 14.0 ;
-    private double mesaLimiteDer = 104.0 ;
+    private double mesaLimiteSup = 27.0 ;
+    private double mesaLimiteInf = 117.0 ;
+    private double mesaLimiteIzq = 13.0 ;
+    private double mesaLimiteDer = 103.0 ;
 
     private boolean sePosicionoEnInventario(MouseEvent event){
         double x = event.getSceneX();
@@ -59,7 +60,7 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 if (tableroDelJuego.obtenerJugador().obtenerInventario().cantidadElementos() > (posY * 20) + posX ) {
                     Posicion posicion = new Posicion(posY,posX) ;
                     pressed = posicion ;
-                    System.out.println(tableroDelJuego.obtenerElementoInventarioJugador((posY * 20) + posX ));
+                    System.out.println("Posicion dentro del inventario " + posicion);
                 }
             }
         }
@@ -73,13 +74,13 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 int posX = (int) (event.getSceneX() - mesaLimiteIzq) / 30 ;
                 int posY = (int) (event.getSceneY() - mesaLimiteSup) / 30 ;
                 Posicion posicion = new Posicion(posX,posY) ;
+                System.out.println("Posicion dentro de mesa de trabajo " + posicion);
                 released = posicion ;
                 int eleX = pressed.obtenerX();
                 int eleY = pressed.obtenerY();
-                Elemento elemento =  tableroDelJuego.obtenerElementoInventarioJugador((eleX * 20) + eleY);
+                Elemento elemento =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
                 if (elemento instanceof Material){
-                    tableroDelJuego.agregarElementoAMesaTrabajoJugador(released,(Material) elemento);
-                    tableroDelJuego.seActualizo();
+                    tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Material) elemento);
                 }
             }
         }

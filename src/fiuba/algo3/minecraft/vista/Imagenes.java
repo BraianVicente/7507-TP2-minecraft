@@ -1,18 +1,18 @@
-package fiuba.algo3.minecraft.vista.images;
+package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.herramienta.Pico;
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.util.HashMap;
 
 public class Imagenes {
     private final Integer xLenght = 30;
@@ -42,74 +42,76 @@ public class Imagenes {
 
 
     public Node setImageNode(Posicionable elemento){
+        if (elemento instanceof Material){
+            return setImageNode((Material) elemento) ;
+        }
         if ( elemento instanceof Jugador){
             return new ImageView(steve) ;
         }
         if (elemento instanceof Vacio){
             return new ImageView(grass) ;
         }
-        if (elemento instanceof Diamante){
+
+        return new ImageView(empty) ;
+    }
+
+    public Node setImageNode(Material material ){
+        if (material instanceof Diamante){
             return new ImageView(diamond) ;
         }
-        if (elemento instanceof Madera){
+        if (material instanceof Madera){
             return new ImageView(wood) ;
         }
-        if (elemento instanceof Piedra){
+        if (material instanceof Piedra){
             return new ImageView(stone) ;
         }
-        if (elemento instanceof Metal){
+        if (material instanceof Metal){
             return new ImageView(iron) ;
         }
 
-        return new ImageView(grass) ;
+        return new ImageView(empty) ;
+
+    }
+
+    public Node setImageNode(Herramienta herramienta){
+        if (herramienta.obtenerMaterialConstruccion() instanceof Madera ){
+            if (herramienta instanceof Hacha){
+                return new ImageView(axe_wood);
+            }
+            if (herramienta instanceof Pico){
+                return new ImageView(pickaxe_wood);
+            }
+        }
+        if ( herramienta.obtenerMaterialConstruccion() instanceof Piedra ){
+            if (herramienta instanceof Hacha){
+                return new ImageView(axe_stone);
+            }
+            if (herramienta instanceof Pico){
+                return new ImageView(pickaxe_stone);
+            }
+        }
+        if ( herramienta.obtenerMaterialConstruccion() instanceof Metal ){
+            if (herramienta instanceof Hacha){
+                return new ImageView(axe_iron);
+            }
+            if (herramienta instanceof Pico){
+                return new ImageView(pickaxe_iron);
+            }
+        }
+        if (herramienta.obtenerMaterialConstruccion() instanceof Diamante ){
+            return new ImageView(pickaxe_diamond);
+        }
+        return new ImageView(empty) ;
     }
 
     public Node setImageNode(Elemento elemento){
-        if (elemento instanceof Hacha){
-            Hacha hacha = (Hacha) elemento ;
-            if (hacha.obtenerMaterialConstruccion() instanceof Madera ){
-                return new ImageView(axe_wood);
-            }
-            if ( hacha.obtenerMaterialConstruccion() instanceof Piedra ){
-                return new ImageView(axe_stone);
-            }
-            if ( hacha.obtenerMaterialConstruccion() instanceof Metal ){
-                return new ImageView(axe_iron);
-            }
+        if (elemento instanceof Herramienta){
+            Herramienta herramienta = (Herramienta) elemento ;
+            return setImageNode(herramienta) ;
         }
-        if (elemento instanceof Pico){
-            Pico pico = (Pico) elemento ;
-            if (pico.obtenerMaterialConstruccion() instanceof Madera ){
-                return new ImageView(pickaxe_wood);
-            }
-            if (pico.obtenerMaterialConstruccion() instanceof Piedra ){
-                return new ImageView(pickaxe_stone);
-            }
-            if (pico.obtenerMaterialConstruccion() instanceof Metal ){
-                return new ImageView(pickaxe_iron);
-            }
-            if (pico.obtenerMaterialConstruccion() instanceof Diamante ){
-                return new ImageView(pickaxe_diamond);
-            }
+        if (elemento instanceof Material){
+            return setImageNode((Material) elemento) ;
         }
-
-        if (elemento instanceof Diamante){
-            return new ImageView(diamond) ;
-        }
-
-        if (elemento instanceof Madera){
-            return new ImageView(wood) ;
-        }
-
-        if (elemento instanceof Piedra){
-            return new ImageView(stone) ;
-        }
-
-        if (elemento instanceof Metal){
-            return new ImageView(iron) ;
-        }
-
-
 
         return new ImageView(empty) ;
     }

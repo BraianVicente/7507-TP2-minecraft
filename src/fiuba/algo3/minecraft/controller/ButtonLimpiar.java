@@ -10,7 +10,7 @@ public class ButtonLimpiar extends Button {
     public ButtonLimpiar (MesaDeTrabajo mesaDeTrabajo){
         super.setText("Limpiar");
         this.mesaDeTrabajo = mesaDeTrabajo ;
-        setOnAction( event -> {mesaDeTrabajo.limpiarMesaDeTrabajo();});
+        setOnAction( event -> mesaDeTrabajo.limpiarMesaDeTrabajo());
     }
 
 }
