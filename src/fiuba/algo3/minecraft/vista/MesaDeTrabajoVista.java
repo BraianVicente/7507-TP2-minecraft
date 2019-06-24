@@ -2,8 +2,9 @@ package fiuba.algo3.minecraft.vista;
 
 import fiuba.algo3.minecraft.controller.ButtonConstruir;
 import fiuba.algo3.minecraft.controller.ButtonLimpiar;
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
-import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
+import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
@@ -53,6 +54,7 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
         this.setSpacing(10);
 
         this.tablero.addObserver(this);
+        this.tablero.obtenerJugador().obtenerMesaDeTrabajo().addObserver(this);
 
     }
 
@@ -71,8 +73,11 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 Posicionable material = tablero.obtenerJugador().obtenerMesaDeTrabajo().obtenerMaterialEnPosicion(new Posicion(i,j)) ;
-                if (! (material instanceof Vacio)){
-                    Node imageContainer = imagenes.setImageNode(material);
+                if (material instanceof Material){
+                    Node imageContainer = imagenes.setImageNode((Elemento) material);
+                    mesaTrabajo.add(imageContainer,i,j);
+                } else {
+                    Node imageContainer = new ImageView(imagenes.empty) ;
                     mesaTrabajo.add(imageContainer,i,j);
 
                 }

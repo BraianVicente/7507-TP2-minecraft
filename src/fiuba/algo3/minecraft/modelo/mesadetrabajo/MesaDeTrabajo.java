@@ -56,12 +56,9 @@ public class MesaDeTrabajo extends Observable {
     public void limpiarMesaDeTrabajo(){
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
-                mesa.eliminarElemento(new Posicion(i, j));
+                eliminarMaterialEnMesaEnPosicion(new Posicion(i, j));
             }
         }
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
     }
 
 }
