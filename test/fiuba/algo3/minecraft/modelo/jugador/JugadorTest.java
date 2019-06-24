@@ -11,6 +11,7 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.material.Metal;
+import fiuba.algo3.minecraft.modelo.material.Piedra;
 import fiuba.algo3.minecraft.modelo.plano.PlanoHachaDeMadera;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
@@ -151,6 +152,17 @@ public class JugadorTest {
 
         Assert.assertEquals(unJugador.obtenerHerramientaActiva(), herramientaActiva);
 
+
+    }
+
+    @Test
+    public void test12JugadorGolpeaMaterialYCuandoLaHerramientaSeRompeLaQuitaDeSuInventario(){
+        Jugador unJugador = new Jugador("Player1");
+        Madera madera = new Madera();
+
+        unJugador.golpearMaterial(madera);
+
+        Assert.assertEquals(100, unJugador.obtenerHerramientaActiva().obtenerDurabilidad());
 
     }
 
