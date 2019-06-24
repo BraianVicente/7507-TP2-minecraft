@@ -78,12 +78,6 @@ public class JugadorTest {
         Jugador unJugador = new Jugador("Player 1");
         FabricaDeHerramientas fabrica = new FabricaDeHerramientas();
         Material madera1 = new Madera();
-        Material madera2 = new Madera();
-        Material madera3 = new Madera();
-        Material madera4 = new Madera();
-        Material madera5 = new Madera();
-        PlanoHachaDeMadera planoHachaDeMadera = new PlanoHachaDeMadera();
-        DesgasteEstandar desgaste = new DesgasteEstandar(100, 2, 1);
         Hacha hachaDeMadera = fabrica.construirHachaDeMadera() ;
 
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(0,0), madera1);
@@ -92,7 +86,7 @@ public class JugadorTest {
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(1,1), madera1);
         unJugador.insertarMaterialEnMesaDeTrabajo(new Posicion(1,2), madera1);
 
-        unJugador.construirHerramienta(planoHachaDeMadera);
+        unJugador.construirHerramienta();
 
         Elemento herramienta = unJugador.obtenerElementoDeInventario(hachaDeMadera);
 

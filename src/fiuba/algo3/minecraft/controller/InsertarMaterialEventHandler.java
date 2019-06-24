@@ -3,6 +3,7 @@ package fiuba.algo3.minecraft.controller;
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -68,10 +69,11 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
             System.out.println("FIN X"+event.getSceneX());
             System.out.println("FIN Y"+event.getSceneY());
             if (sePosicionoEnMesaDeTrabajo(event)){
+                System.out.println("Se Posiciono en Mesa DeTrabajo");
 
                 int posX = (int) (event.getSceneX() - mesaLimiteIzq) / 30 ;
                 int posY = (int) (event.getSceneY() - mesaLimiteSup) / 30 ;
-                Posicion posicion = new Posicion(posY,posX) ;
+                Posicion posicion = new Posicion(posX,posY) ;
                 System.out.println("Posicion dentro de mesa de trabajo " + posicion);
                 released = posicion ;
                 int eleX = pressed.obtenerX();

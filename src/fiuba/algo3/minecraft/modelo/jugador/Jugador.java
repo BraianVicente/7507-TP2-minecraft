@@ -56,9 +56,9 @@ public class Jugador implements Posicionable {
         return this.mesaDeTrabajo.obtenerMaterialEnPosicion(posicion);
     }
 
-    public void construirHerramienta(Plano plano){
-        Herramienta herramienta;
-        herramienta = this.mesaDeTrabajo.construir(plano);
+    public void construirHerramienta(){
+        Herramienta herramienta = this.mesaDeTrabajo.construir();
+
         agregarMaterialAlInventario(herramienta);
     }
 
