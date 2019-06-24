@@ -15,10 +15,15 @@ public class Controles {
 
         HBox contenedorDeControlesDeMovimiento = obtenerControlesDeMovimento(tableroDelJuego);
 
-        VBox contenedor = new VBox(mesaDeTrabajoVista, contenedorDeControlesDeMovimiento);
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(450);
+        VBox herramientaActiva = new HerramientaActivaJugadorVBox(tableroDelJuego) ;
 
+        VBox contenedor = new VBox();
+        contenedor.getChildren().add(mesaDeTrabajoVista) ;
+        contenedor.getChildren().add(herramientaActiva) ;
+        contenedor.getChildren().add(contenedorDeControlesDeMovimiento) ;
+
+        contenedor.setAlignment(Pos.TOP_CENTER);
+        contenedor.setSpacing(100);
 
         return contenedor;
     }
