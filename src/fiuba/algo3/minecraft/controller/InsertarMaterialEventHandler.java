@@ -3,7 +3,6 @@ package fiuba.algo3.minecraft.controller;
 import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Material;
-import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -60,7 +59,7 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
                 if (tableroDelJuego.obtenerJugador().obtenerInventario().cantidadElementos() > (posY * 20) + posX ) {
                     Posicion posicion = new Posicion(posY,posX) ;
                     pressed = posicion ;
-                    System.out.println(tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((posY * 20) + posX ));
+                    System.out.println(tableroDelJuego.obtenerElementoInventarioJugador((posY * 20) + posX ));
                 }
             }
         }
@@ -73,13 +72,13 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
 
                 int posX = (int) (event.getSceneX() - mesaLimiteIzq) / 30 ;
                 int posY = (int) (event.getSceneY() - mesaLimiteSup) / 30 ;
-                Posicion posicion = new Posicion(posY,posX) ;
+                Posicion posicion = new Posicion(posX,posY) ;
                 released = posicion ;
                 int eleX = pressed.obtenerX();
                 int eleY = pressed.obtenerY();
-                Elemento elemento =  tableroDelJuego.obtenerJugador().obtenerInventario().obtenerElementoEnPosicion((eleX * 20) + eleY );
+                Elemento elemento =  tableroDelJuego.obtenerElementoInventarioJugador((eleX * 20) + eleY);
                 if (elemento instanceof Material){
-                    tableroDelJuego.obtenerJugador().insertarMaterialEnMesaDeTrabajo(released,(Material) elemento);
+                    tableroDelJuego.agregarElementoAMesaTrabajoJugador(released,(Material) elemento);
                     tableroDelJuego.seActualizo();
                 }
             }

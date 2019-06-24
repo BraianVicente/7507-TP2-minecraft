@@ -1,5 +1,6 @@
 package fiuba.algo3.minecraft.modelo.tablero;
 
+import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.mapa.Mapa;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
@@ -39,7 +40,8 @@ public class TableroDelJuego extends Observable {
 
     }
 
-    public void agregarElementoAMesaTrabajoJugador(){
+    public void agregarElementoAMesaTrabajoJugador(Posicion posicion,Material material){
+        jugador.insertarMaterialEnMesaDeTrabajo(posicion,material);
 
     }
 
@@ -139,6 +141,10 @@ public class TableroDelJuego extends Observable {
 
     public Mapa obtenerMapa() {
         return this.mapa ;
+    }
+
+    public Elemento obtenerElementoInventarioJugador(int i) {
+        return this.jugador.obtenerInventario().obtenerElementoEnPosicion(i);
     }
 }
 

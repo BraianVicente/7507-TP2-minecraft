@@ -13,7 +13,7 @@ public class Controles {
 
     public VBox obtenerControles(TableroDelJuego tableroDelJuego){
 
-        VBox mesaDeTrabajoVista = new MesaDeTrabajoVista(tableroDelJuego.obtenerJugador().obtenerMesaDeTrabajo());
+        VBox mesaDeTrabajoVista = new MesaDeTrabajoVista(tableroDelJuego);
 
         HBox contenedorDeControlesDeMovimiento = obtenerControlesDeMovimento(tableroDelJuego);
 

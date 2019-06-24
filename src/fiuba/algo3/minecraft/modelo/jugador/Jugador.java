@@ -57,8 +57,8 @@ public class Jugador implements Posicionable {
     }
 
     public void construirHerramienta(){
-        Herramienta herramienta;
-        herramienta = this.mesaDeTrabajo.construir();
+        Herramienta herramienta = this.mesaDeTrabajo.construir();
+
         agregarMaterialAlInventario(herramienta);
     }
 

@@ -6,6 +6,7 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
+import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import fiuba.algo3.minecraft.vista.images.Imagenes;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -20,14 +21,14 @@ import java.util.Observer;
 public class MesaDeTrabajoVista extends VBox implements Observer {
 
 
-    private final MesaDeTrabajo mesaJugador;
+    private final TableroDelJuego tablero;
     private Imagenes imagenes ;
     private GridPane mesaTrabajo ;
 
-    public MesaDeTrabajoVista(MesaDeTrabajo mesaJugador){
+    public MesaDeTrabajoVista(TableroDelJuego tableroDelJuego){
         super();
 
-        this.mesaJugador = mesaJugador ;
+        this.tablero = tableroDelJuego ;
         mesaTrabajo = new GridPane();
         mesaTrabajo.setStyle("-fx-grid-lines-visible: true");
 
@@ -42,16 +43,16 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
         mesaTrabajo.setAlignment(Pos.CENTER);
         super.getChildren().add(mesaTrabajo);
 
-        Button botonConstruir = new ButtonConstruir(this.mesaJugador);
+        Button botonConstruir = new ButtonConstruir(this.tablero);
 
-        Button botonLimpiar = new ButtonLimpiar(this.mesaJugador);
+        Button botonLimpiar = new ButtonLimpiar(this.tablero.obtenerJugador().obtenerMesaDeTrabajo());
 
         this.getChildren().add(botonConstruir);
         this.getChildren().add(botonLimpiar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(10);
 
-        this.mesaJugador.addObserver(this);
+        this.tablero.addObserver(this);
 
     }
 
@@ -69,10 +70,10 @@ public class MesaDeTrabajoVista extends VBox implements Observer {
     public void update(Observable o, Object arg) {
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
-                Posicionable material = mesaJugador.obtenerMaterialEnPosicion(new Posicion(i,j)) ;
+                Posicionable material = tablero.obtenerJugador().obtenerMesaDeTrabajo().obtenerMaterialEnPosicion(new Posicion(i,j)) ;
                 if (! (material instanceof Vacio)){
                     Node imageContainer = imagenes.setImageNode(material);
-                    mesaTrabajo.add(imageContainer,j,i);
+                    mesaTrabajo.add(imageContainer,i,j);
 
                 }
             }
