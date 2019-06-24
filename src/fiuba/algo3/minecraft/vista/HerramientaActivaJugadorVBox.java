@@ -23,7 +23,7 @@ public class HerramientaActivaJugadorVBox extends VBox {
 
         herramienta.add(imageContainer,0,0);
 
-        imageContainer = new ImageView(imagenes.axe_wood) ;
+        imageContainer = new ImageView(imagenes.empty) ;
         imageContainer.setFitWidth(100);
         imageContainer.setFitHeight(100);
 

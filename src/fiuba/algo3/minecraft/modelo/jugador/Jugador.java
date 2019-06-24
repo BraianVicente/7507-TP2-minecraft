@@ -68,6 +68,10 @@ public class Jugador implements Posicionable {
         if (material.obtenerDurabilidad() <= 0){
             inventario.agregarAlInventario(material);
         }
+
+        if (herramientaActiva.obtenerDurabilidad() <= 0){
+            inventario.quitarDelInventario(herramientaActiva);
+        }
     }
 
     public int cantidadDeElementosEnInventario(){
