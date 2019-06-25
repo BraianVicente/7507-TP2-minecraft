@@ -1,10 +1,7 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class PicoDeMetalTest {
     @Test
     public void test01CreamonsInstanciaDePicoDeMetal () {
 
-        Pico unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Herramienta unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
         Assert.assertNotNull(unPicoDeMetal);
 
     }
@@ -24,7 +21,7 @@ public class PicoDeMetalTest {
     @Test
     public void test02CreamosPicoDeMetalConDurabilidadPredeterminada () {
 
-        Pico unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Herramienta unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
         Assert.assertEquals(400,unPicoDeMetal.obtenerDurabilidad());
 
     }
@@ -32,7 +29,7 @@ public class PicoDeMetalTest {
     @Test
     public void test03CreamosPicoDeMetalConFuerzaPredeterminada () {
 
-        Pico unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Herramienta unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
         Assert.assertEquals(12,unPicoDeMetal.obtenerFuerza());
 
     }
@@ -40,8 +37,8 @@ public class PicoDeMetalTest {
     @Test
     public void test04usarPicoDeMetalcontraPiedraYSeReduceSuDurabilidad(){
 
-        Pico unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
-        Piedra material = new Piedra();
+        Herramienta unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+        Material material = new Piedra();
 
         int durabilidadInicialPico = unPicoDeMetal.obtenerDurabilidad();
         int desgasteEsperado = (int) (durabilidadInicialPico * 0.1);

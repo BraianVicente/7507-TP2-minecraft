@@ -1,10 +1,7 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class HachaDePiedraTest {
     @Test
     public void test01CremosInstanciaDeHachaDePiedra () {
 
-        Hacha unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
         Assert.assertNotNull(unHachaDePiedra);
 
     }
@@ -24,7 +21,7 @@ public class HachaDePiedraTest {
     @Test
     public void test02CreamosHachaDePiedraConDurabilidadPredeterminada () {
 
-        Hacha unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
         Assert.assertEquals(200,unHachaDePiedra.obtenerDurabilidad());
 
     }
@@ -32,7 +29,7 @@ public class HachaDePiedraTest {
     @Test
     public void test03CreamosHachaDePiedraConFuerzaPredeterminada () {
 
-        Hacha unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
         Assert.assertEquals(5,unHachaDePiedra.obtenerFuerza());
 
     }
@@ -40,8 +37,8 @@ public class HachaDePiedraTest {
     @Test
     public void test04usarHachaDePiedracontraMaderaYSeReduceSuDurabilidad(){
 
-        Hacha unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
-        Madera material = new Madera();
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Material material = new Madera();
 
         int desgasteEsperado = 5;
         int durabilidadInicialHacha = unHachaDePiedra.obtenerDurabilidad();

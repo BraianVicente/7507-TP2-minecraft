@@ -158,11 +158,11 @@ public class JugadorTest {
     @Test
     public void test12JugadorGolpeaMaterialYCuandoLaHerramientaSeRompeLaQuitaDeSuInventario(){
         Jugador unJugador = new Jugador("Player1");
-        Madera madera = new Madera();
+        Material madera = new Madera();
 
         unJugador.golpearMaterial(madera);
 
-        Assert.assertEquals(100, unJugador.obtenerHerramientaActiva().obtenerDurabilidad());
+        Assert.assertEquals(98, unJugador.obtenerHerramientaActiva().obtenerDurabilidad());
 
     }
 
