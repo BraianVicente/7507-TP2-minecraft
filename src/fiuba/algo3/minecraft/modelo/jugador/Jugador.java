@@ -24,9 +24,7 @@ public class Jugador extends Observable implements Posicionable{
         this.inventario = new Inventario();
         this.mesaDeTrabajo = new MesaDeTrabajo(inventario);
         this.fabrica = new FabricaDeHerramientas();
-        this.herramientaActiva = fabrica.construirHachaDeMadera();
-
-        this.inventario.agregarAlInventario(this.herramientaActiva);
+        this.inventario.agregarAlInventario(this.fabrica.construirHachaDeMadera());
     }
 
     public MesaDeTrabajo obtenerMesaDeTrabajo(){
@@ -47,7 +45,7 @@ public class Jugador extends Observable implements Posicionable{
 
     public void insertarMaterialEnMesaDeTrabajo(Posicion posicion, Material material){
         this.mesaDeTrabajo.insertarMaterialEnMesaEnPosicion(posicion, material);
-        this.inventario.quitarDelInventario((Material) material);
+        this.inventario.quitarDelInventario(material);
     }
 
     public void eliminarMaterialEnMesaDeTrabajo(Posicion posicion){
@@ -73,6 +71,8 @@ public class Jugador extends Observable implements Posicionable{
 
         if (herramientaActiva.obtenerDurabilidad() <= 0){
             inventario.quitarDelInventario(herramientaActiva);
+            herramientaActiva = null ;
+            seActualizo();
         }
     }
 
@@ -81,10 +81,17 @@ public class Jugador extends Observable implements Posicionable{
     }
 
     public void cambiarHerramientaActiva(){
-        inventario.agregarAlInventario(this.herramientaActiva);
-        this.herramientaActiva = (Herramienta) inventario.obtenerProximaHerramienta(this.herramientaActiva);
+        if (tieneHerramientaActiva()){
+            inventario.agregarAlInventario(this.herramientaActiva);
+        }
+        this.herramientaActiva = (Herramienta) inventario.obtenerProximaHerramienta();
         inventario.quitarDelInventario(herramientaActiva);
+
         seActualizo();
+    }
+
+    public boolean tieneHerramientaActiva() {
+        return this.herramientaActiva instanceof Herramienta ;
     }
 
     public Herramienta obtenerHerramientaActiva(){
