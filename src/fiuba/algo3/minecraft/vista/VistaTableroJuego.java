@@ -41,7 +41,6 @@ public class VistaTableroJuego extends GridPane implements Observer {
     }
 
     public Node establecerImage(Posicion posicion) {
-
         Posicionable elemento = tableroDelJuego.obtenerElementoEnPosicion(posicion);
         return imagenes.setImageNode(elemento);
     }

@@ -39,8 +39,8 @@ public class HerramientaActivaJugadorVBox extends VBox implements Observer {
         herramienta = new GridPane();
         herramienta.setStyle("-fx-grid-lines-visible: true");
 
-        Imagenes imagenes = new Imagenes();
-        ImageView imageContainer = setImage(herramientaActiva);
+        this.imagenes = new Imagenes();
+        ImageView imageContainer = (ImageView) imagenes.setImageNode(herramientaActiva);
         imageContainer.setFitWidth(100);
         imageContainer.setFitHeight(100);
 
@@ -59,40 +59,6 @@ public class HerramientaActivaJugadorVBox extends VBox implements Observer {
         
     }
 
-    public ImageView setImage(Herramienta herramienta) {
-
-        Imagenes imagenes = new Imagenes();
-
-        if (herramienta.obtenerMaterialConstruccion() instanceof Madera) {
-            if (herramienta instanceof Hacha) {
-                return new ImageView(imagenes.axe_wood);
-            }
-            if (herramienta instanceof Pico) {
-                return new ImageView(imagenes.pickaxe_wood);
-            }
-        }
-        if (herramienta.obtenerMaterialConstruccion() instanceof Piedra) {
-            if (herramienta instanceof Hacha) {
-                return new ImageView(imagenes.axe_stone);
-            }
-            if (herramienta instanceof Pico) {
-                return new ImageView(imagenes.pickaxe_stone);
-            }
-        }
-        if (herramienta.obtenerMaterialConstruccion() instanceof Metal) {
-            if (herramienta instanceof Hacha) {
-                return new ImageView(imagenes.axe_iron);
-            }
-            if (herramienta instanceof Pico) {
-                return new ImageView(imagenes.pickaxe_iron);
-            }
-        }
-        if (herramienta.obtenerMaterialConstruccion() instanceof Diamante) {
-            return new ImageView(imagenes.pickaxe_diamond);
-        }
-        return new ImageView(imagenes.empty);
-    }
-
     /**
      * This method is called whenever the observed object is changed. An
      * application calls an <tt>Observable</tt> object's
@@ -105,11 +71,17 @@ public class HerramientaActivaJugadorVBox extends VBox implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        Herramienta herramientaActiva = tableroDelJuego.obtenerJugador().obtenerHerramientaActiva() ;
-        ImageView imageContainer = setImage(herramientaActiva);
+        ImageView imageContainer = new ImageView(imagenes.empty);
         herramienta.add(imageContainer, 0, 0);
         imageContainer.setFitWidth(100);
         imageContainer.setFitHeight(100);
+        if (tableroDelJuego.obtenerJugador().tieneHerramientaActiva()){
+            Herramienta herramientaActiva = tableroDelJuego.obtenerJugador().obtenerHerramientaActiva() ;
+            imageContainer = (ImageView) imagenes.setImageNode(herramientaActiva);
+            herramienta.add(imageContainer, 0, 0);
+            imageContainer.setFitWidth(100);
+            imageContainer.setFitHeight(100);
+        }
     }
 
 }

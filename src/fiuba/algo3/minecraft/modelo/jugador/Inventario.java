@@ -41,18 +41,15 @@ public class Inventario extends Observable {
         return elementos.get(indexHerramienta);
     }
 
-    public Elemento obtenerProximaHerramienta(Elemento herramientaActiva){
-        int indexHerramientaActiva = elementos.indexOf(herramientaActiva);
-        int indexPosibleProximaHerramienta = indexHerramientaActiva;
-
-        for(int i = 1; i < cantidadElementos(); i++ ){
-            Elemento posibleHerramienta = obtenerElementoEnPosicion(indexPosibleProximaHerramienta + i);
+    public Elemento obtenerProximaHerramienta(){
+        for(int i = 0; i < cantidadElementos() ; i++ ){
+            Elemento posibleHerramienta = obtenerElementoEnPosicion(i);
             if (posibleHerramienta instanceof Herramienta){
                 return posibleHerramienta;
             }
 
         }
-        return herramientaActiva;
+        return null;
     }
 
 }

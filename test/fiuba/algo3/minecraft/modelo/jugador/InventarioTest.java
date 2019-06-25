@@ -181,7 +181,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(metal);
         inventario.agregarAlInventario(hachaDePiedra);
 
-        Assert.assertEquals(inventario.obtenerProximaHerramienta(hachaDeMadera), hachaDePiedra);
+        Assert.assertEquals(hachaDeMadera,inventario.obtenerProximaHerramienta());
 
     }
 
@@ -198,7 +198,7 @@ public class InventarioTest {
         inventario.agregarAlInventario(madera);
         inventario.agregarAlInventario(metal);
 
-        Assert.assertEquals(inventario.obtenerProximaHerramienta(hachaDeMadera), hachaDeMadera);
+        Assert.assertEquals(hachaDeMadera,inventario.obtenerProximaHerramienta());
 
     }
 
