@@ -6,11 +6,9 @@ import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 public class Metal extends Material {
 
     private int durabilidad;
-    private String sigla;
 
     public Metal(){
         this.durabilidad = 50;
-        this.sigla = "Me";
     }
 
     public int obtenerDurabilidad() {
@@ -22,18 +20,14 @@ public class Metal extends Material {
         herramienta.desgastar(this);
     }
 
-    public void desgastar(Hacha hacha) {
-        durabilidad = durabilidad;
-    }
+    public void desgastar(Hacha hacha) { }
 
     public void desgastar(Pico pico) {
         int fuerzaHerramienta = pico.obtenerFuerza();
         if (fuerzaHerramienta >= 4){
             durabilidad = durabilidad - fuerzaHerramienta;
         }
-        else {
-            durabilidad = durabilidad;
-        }
+        pico.desgastar(this);
     }
 
     @Override

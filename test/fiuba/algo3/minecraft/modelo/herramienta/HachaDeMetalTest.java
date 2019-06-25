@@ -1,10 +1,7 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class HachaDeMetalTest {
     @Test
     public void test01CreamosInstanciaDeHachaDeMetal () {
 
-        Hacha unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Herramienta unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
         Assert.assertNotNull(unHachaDeMetal);
 
     }
@@ -24,7 +21,7 @@ public class HachaDeMetalTest {
     @Test
     public void test02CreamosHachaDeMetalConDurabilidadPredeterminada () {
 
-        Hacha unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Herramienta unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
         Assert.assertEquals(400,unHachaDeMetal.obtenerDurabilidad());
 
     }
@@ -32,7 +29,7 @@ public class HachaDeMetalTest {
     @Test
     public void test03CreamosHachaDeMetalConFuerzaPredeterminada () {
 
-        Hacha unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Herramienta unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
         Assert.assertEquals(10,unHachaDeMetal.obtenerFuerza());
 
     }
@@ -40,8 +37,8 @@ public class HachaDeMetalTest {
     @Test
     public void test04usarHachaDeMetalcontraMaderaYSeReduceSuDurabilidad(){
 
-        Hacha unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
-        Madera material = new Madera();
+        Herramienta unHachaDeMetal = fabricaDeHerramientas.construirHachaDeMetal();
+        Material material = new Madera();
 
         int desgasteEsperado = 5;
         int durabilidadInicialHacha = unHachaDeMetal.obtenerDurabilidad();

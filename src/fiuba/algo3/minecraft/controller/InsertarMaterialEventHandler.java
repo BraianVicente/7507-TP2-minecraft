@@ -23,8 +23,8 @@ public class InsertarMaterialEventHandler implements EventHandler<MouseEvent> {
     private double invLimiteIzq = 127.0 ;
     private double invLimiteDer = 727.0 ;
 
-    private double mesaLimiteSup = 27.0 ;
-    private double mesaLimiteInf = 117.0 ;
+    private double mesaLimiteSup = 25.0 ;
+    private double mesaLimiteInf = 115.0 ;
     private double mesaLimiteIzq = 13.0 ;
     private double mesaLimiteDer = 103.0 ;
 
