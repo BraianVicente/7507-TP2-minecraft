@@ -30,17 +30,18 @@ public class HerramientaActivaJugadorVBox extends VBox implements Observer {
 
     public HerramientaActivaJugadorVBox(TableroDelJuego tableroDelJuego) {
         super();
-
+        this.imagenes = new Imagenes();
         this.tableroDelJuego = tableroDelJuego;
+        herramienta = new GridPane();
 
         Jugador jugador = tableroDelJuego.obtenerJugador();
         Herramienta herramientaActiva = jugador.obtenerHerramientaActiva();
 
-        herramienta = new GridPane();
         herramienta.setStyle("-fx-grid-lines-visible: true");
-
-        this.imagenes = new Imagenes();
-        ImageView imageContainer = (ImageView) imagenes.setImageNode(herramientaActiva);
+        ImageView imageContainer = new ImageView(imagenes.empty) ;
+        if (jugador.tieneHerramientaActiva()){
+            imageContainer = (ImageView) imagenes.setImageNode(herramientaActiva);
+        }
         imageContainer.setFitWidth(100);
         imageContainer.setFitHeight(100);
 
