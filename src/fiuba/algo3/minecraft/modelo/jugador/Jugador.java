@@ -8,7 +8,9 @@ import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.plano.Plano;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
-public class Jugador implements Posicionable {
+import java.util.Observable;
+
+public class Jugador extends Observable implements Posicionable{
 
     private String nombre;
     private Inventario inventario;
@@ -79,11 +81,20 @@ public class Jugador implements Posicionable {
     }
 
     public void cambiarHerramientaActiva(){
+        inventario.agregarAlInventario(this.herramientaActiva);
         this.herramientaActiva = (Herramienta) inventario.obtenerProximaHerramienta(this.herramientaActiva);
+        inventario.quitarDelInventario(herramientaActiva);
+        seActualizo();
     }
 
     public Herramienta obtenerHerramientaActiva(){
         return this.herramientaActiva;
+    }
+
+    public void seActualizo(){
+        super.setChanged();
+        super.notifyObservers();
+        super.clearChanged();
     }
 
     @Override
