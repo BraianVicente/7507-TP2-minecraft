@@ -1,10 +1,7 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class PicoFinoTest {
     @Test
     public void test01CreamonsInstanciaDePicoFino () {
 
-        Pico unPicoFino = fabricaDeHerramientas.construirPicoFino();
+        Herramienta unPicoFino = fabricaDeHerramientas.construirPicoFino();
         Assert.assertNotNull(unPicoFino);
 
     }
@@ -24,7 +21,7 @@ public class PicoFinoTest {
     @Test
     public void test02CreamosPicoFinoConDurabilidadPredeterminada () {
 
-        Pico unPicoFino = fabricaDeHerramientas.construirPicoFino();
+        Herramienta unPicoFino = fabricaDeHerramientas.construirPicoFino();
         Assert.assertEquals(1000,unPicoFino.obtenerDurabilidad());
 
     }
@@ -32,7 +29,7 @@ public class PicoFinoTest {
     @Test
     public void test03CreamosPicoFinoConFuerzaPredeterminada () {
 
-        Pico unPicoFino = fabricaDeHerramientas.construirPicoFino();
+        Herramienta unPicoFino = fabricaDeHerramientas.construirPicoFino();
         Assert.assertEquals(20,unPicoFino.obtenerFuerza());
 
     }
@@ -40,8 +37,8 @@ public class PicoFinoTest {
     @Test
     public void usarPicoConMaterialesDiamanteYReduceDurabilidad(){
 
-        Pico unPicoFino = fabricaDeHerramientas.construirPicoFino();
-        Diamante material = new Diamante();
+        Herramienta unPicoFino = fabricaDeHerramientas.construirPicoFino();
+        Material material = new Diamante();
 
         int desgasteEsperado = 100 ;
         int durabilidadInicialPico = unPicoFino.obtenerDurabilidad();

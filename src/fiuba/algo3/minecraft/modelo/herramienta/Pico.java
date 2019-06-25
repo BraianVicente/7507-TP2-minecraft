@@ -17,26 +17,22 @@ public class Pico extends Herramienta {
 
     @Override
     public void desgastar(Metal material) {
-        this.desgaste.desgastar();
-        material.desgastar(this);
+        super.desgaste.desgastar();
     }
 
     @Override
     public void desgastar(Piedra material) {
-        this.desgaste.desgastar();
-        material.desgastar(this);
+        super.desgaste.desgastar();
     }
 
     @Override
     public void desgastar(Diamante material) {
-        this.desgaste.desgastar();
-        material.desgastar(this);
+        super.desgaste.desgastar();
     }
 
     @Override
     public void desgastar(Madera material) {
-        this.desgaste.desgastar();
-        material.desgastar(this);
+        super.desgaste.desgastar();
     }
 
     @Override

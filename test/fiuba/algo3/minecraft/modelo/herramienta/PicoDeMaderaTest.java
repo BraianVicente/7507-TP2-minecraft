@@ -1,10 +1,7 @@
 package fiuba.algo3.minecraft.modelo.herramienta;
 
 import fiuba.algo3.minecraft.modelo.fabrica.FabricaDeHerramientas;
-import fiuba.algo3.minecraft.modelo.material.Diamante;
-import fiuba.algo3.minecraft.modelo.material.Madera;
-import fiuba.algo3.minecraft.modelo.material.Metal;
-import fiuba.algo3.minecraft.modelo.material.Piedra;
+import fiuba.algo3.minecraft.modelo.material.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +13,7 @@ public class PicoDeMaderaTest {
     @Test
     public void test01CreamonsInstanciaDePicoDeMadera () {
 
-        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertNotNull(unPicoDeMadera);
 
     }
@@ -24,7 +21,7 @@ public class PicoDeMaderaTest {
     @Test
     public void test02CreamosPicoDeMaderaConDurabilidadPredeterminada () {
 
-        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertEquals(100,unPicoDeMadera.obtenerDurabilidad());
 
     }
@@ -32,7 +29,7 @@ public class PicoDeMaderaTest {
     @Test
     public void test03CreamosPicoDeMaderaConFuerzaPredeterminada () {
 
-        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
         Assert.assertEquals(2,unPicoDeMadera.obtenerFuerza());
 
     }
@@ -40,8 +37,8 @@ public class PicoDeMaderaTest {
     @Test
     public void test04usarPicoDeMaderaContraPiedraYReduceDurabilidad(){
 
-        Pico unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
-        Piedra material = new Piedra();
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Material material = new Piedra();
 
         int desgasteEsperado = 2 ;
         int durabilidadInicialPico = unPicoDeMadera.obtenerDurabilidad();
