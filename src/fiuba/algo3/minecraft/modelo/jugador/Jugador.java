@@ -79,7 +79,9 @@ public class Jugador implements Posicionable {
     }
 
     public void cambiarHerramientaActiva(){
+        inventario.agregarAlInventario(this.herramientaActiva);
         this.herramientaActiva = (Herramienta) inventario.obtenerProximaHerramienta(this.herramientaActiva);
+        inventario.quitarDelInventario(herramientaActiva);
     }
 
     public Herramienta obtenerHerramientaActiva(){
