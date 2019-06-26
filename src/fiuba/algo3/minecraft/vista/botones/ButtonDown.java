@@ -1,17 +1,14 @@
-package fiuba.algo3.minecraft.controller;
+package fiuba.algo3.minecraft.vista.botones;
 
+import fiuba.algo3.minecraft.controller.MoverJugadorHaciaAbajo;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.control.Button;
 
 public class ButtonDown extends Button {
 
-    private final TableroDelJuego tableroDelJuego;
-
     public ButtonDown(TableroDelJuego tableroDelJuego){
         super("Down");
-        this.tableroDelJuego = tableroDelJuego ;
-        setOnAction( event -> this.tableroDelJuego.moverJugadorHaciaAbajo());
+        setOnAction( new MoverJugadorHaciaAbajo(tableroDelJuego));
     }
-
 
 }
