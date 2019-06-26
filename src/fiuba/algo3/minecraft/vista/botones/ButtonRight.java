@@ -1,17 +1,14 @@
-package fiuba.algo3.minecraft.controller;
+package fiuba.algo3.minecraft.vista.botones;
 
+import fiuba.algo3.minecraft.controller.MoverJugadorHaciaDerecha;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.control.Button;
 
 public class ButtonRight extends Button {
 
-    private final TableroDelJuego tableroDelJuego;
-
     public ButtonRight(TableroDelJuego tableroDelJuego){
         super("->");
-        this.tableroDelJuego = tableroDelJuego ;
-        setOnAction( event -> this.tableroDelJuego.moverJugadorHaciaDerecha());
+        setOnAction( new MoverJugadorHaciaDerecha(tableroDelJuego));
     }
-
 
 }

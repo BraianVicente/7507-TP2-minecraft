@@ -1,7 +1,10 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.controller.*;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
+import fiuba.algo3.minecraft.vista.botones.ButtonDown;
+import fiuba.algo3.minecraft.vista.botones.ButtonLeft;
+import fiuba.algo3.minecraft.vista.botones.ButtonRight;
+import fiuba.algo3.minecraft.vista.botones.ButtonUp;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;

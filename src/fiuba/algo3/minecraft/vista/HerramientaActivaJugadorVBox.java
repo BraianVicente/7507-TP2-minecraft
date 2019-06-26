@@ -1,20 +1,10 @@
 package fiuba.algo3.minecraft.vista;
 
-import fiuba.algo3.minecraft.controller.ButtonCambiarHerramientaActiva;
-import fiuba.algo3.minecraft.modelo.herramienta.Hacha;
+import fiuba.algo3.minecraft.vista.botones.ButtonCambiarHerramientaActiva;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
-import fiuba.algo3.minecraft.modelo.herramienta.Pico;
-import fiuba.algo3.minecraft.modelo.jugador.Elemento;
 import fiuba.algo3.minecraft.modelo.jugador.Jugador;
-import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
-import fiuba.algo3.minecraft.modelo.material.*;
-import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -49,7 +39,7 @@ public class HerramientaActivaJugadorVBox extends VBox implements Observer {
 
         herramienta.setAlignment(Pos.CENTER);
 
-        ButtonCambiarHerramientaActiva quitar = new ButtonCambiarHerramientaActiva(tableroDelJuego);
+        ButtonCambiarHerramientaActiva quitar = new ButtonCambiarHerramientaActiva(jugador);
 
         super.getChildren().add(herramienta);
         super.getChildren().add(quitar);
