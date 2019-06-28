@@ -8,6 +8,7 @@ import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
+import javafx.geometry.Pos;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -163,5 +164,28 @@ public class JugadorTest {
         Assert.assertEquals(98, unJugador.obtenerHerramientaActiva().obtenerDurabilidad());
 
     }
+
+
+    @Test
+    public void test13SeEstableceUnaPosicionParaJugadorYSeVerifica(){
+        Jugador unJugador = new Jugador("Player1");
+        Posicion posicion = new Posicion(0,0);
+
+        unJugador.establecerPosicion(posicion);
+
+        Assert.assertEquals(posicion, unJugador.obtenerPosicionActual());
+    }
+
+    @Test
+    public void test14JugadorComienzaConUnaHerramienta(){
+        Jugador unJugador = new Jugador("Player1");
+        Inventario inventario = unJugador.obtenerInventario();
+
+        Assert.assertEquals(inventario.cantidadElementos(), 1);
+    }
+
+    
+
+
 
 }

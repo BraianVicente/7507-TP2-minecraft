@@ -5,7 +5,6 @@ import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.*;
 import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
-import fiuba.algo3.minecraft.modelo.plano.Plano;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 
 import java.util.Observable;
