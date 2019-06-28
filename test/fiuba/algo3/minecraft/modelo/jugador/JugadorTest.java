@@ -6,6 +6,7 @@ import fiuba.algo3.minecraft.modelo.herramienta.Herramienta;
 import fiuba.algo3.minecraft.modelo.mapa.posicion.Posicion;
 import fiuba.algo3.minecraft.modelo.material.Madera;
 import fiuba.algo3.minecraft.modelo.material.Material;
+import fiuba.algo3.minecraft.modelo.mesadetrabajo.MesaDeTrabajo;
 import fiuba.algo3.minecraft.modelo.posicionable.Posicionable;
 import fiuba.algo3.minecraft.modelo.posicionable.Vacio;
 import javafx.geometry.Pos;
@@ -184,7 +185,13 @@ public class JugadorTest {
         Assert.assertEquals(inventario.cantidadElementos(), 1);
     }
 
-    
+    @Test
+    public void test15ObtengoMesaDeTrabajo(){
+        Jugador unJugador = new Jugador("Player1");
+        MesaDeTrabajo mesaDeTrabajo = unJugador.obtenerMesaDeTrabajo();
+
+        Assert.assertNotNull(mesaDeTrabajo);
+    }
 
 
 
