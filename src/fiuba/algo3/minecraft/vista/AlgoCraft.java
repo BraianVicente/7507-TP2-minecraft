@@ -32,13 +32,6 @@ public class  AlgoCraft extends Application {
 
     public void start(Stage stage) throws Exception {
 
-        //Media sound = new Media(new File("src/fiuba/algo3/minecraft/vista/music/background.mp3").toURI().toString());
-        //MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        //mediaPlayer.setAutoPlay(true);
-
-        // Para que el audio funcione se debe copiar el URL completo del archivo background.mp3
-        // No logramos que el progrma reconozca el archivo utilizando un path acortado
-
         ancho = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
         alto = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
         this.escenario = stage;
