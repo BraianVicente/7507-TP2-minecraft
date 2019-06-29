@@ -12,6 +12,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 public class MenuInicioJuego {
 
@@ -22,6 +27,13 @@ public class MenuInicioJuego {
     public static double alto;
 
     public MenuInicioJuego(Stage stage){
+        
+        //Media sound = new Media(new File("src/fiuba/algo3/minecraft/vista/music/background.mp3").toURI().toString());
+        //MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        //mediaPlayer.setAutoPlay(true);
+
+        // Para que el audio funcione se debe copiar el URL completo del archivo background.mp3
+        // No logramos que el progrma reconozca el archivo utilizando un path acortado
 
         ancho = Screen.getPrimary().getVisualBounds().getWidth() *0.8;
         alto = Screen.getPrimary().getVisualBounds().getHeight() *0.8;
