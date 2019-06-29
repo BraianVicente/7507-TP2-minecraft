@@ -64,7 +64,7 @@ public class Jugador extends Observable implements Posicionable{
     public void golpearMaterial(Material material){
         herramientaActiva.desgastar(material);
 
-        if (material.obtenerDurabilidad() <= 0){
+        if (material.estaRoto()){
             inventario.agregarAlInventario(material);
         }
 
