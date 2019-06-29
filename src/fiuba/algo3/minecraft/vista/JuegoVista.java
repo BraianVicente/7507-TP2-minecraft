@@ -1,8 +1,8 @@
 package fiuba.algo3.minecraft.vista;
 
+import fiuba.algo3.minecraft.AlgoCraft;
 import fiuba.algo3.minecraft.controller.InsertarMaterialEventHandler;
 import fiuba.algo3.minecraft.controller.MovimientoEventHandler;
-import fiuba.algo3.minecraft.modelo.jugador.Jugador;
 import fiuba.algo3.minecraft.modelo.tablero.TableroDelJuego;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -20,20 +20,16 @@ public class JuegoVista  {
     private BarraDeMenu menuBar;
 
 
-    public JuegoVista(AlgoCraft aplicacion, Stage escenario){
+    public JuegoVista(Stage escenario, TableroDelJuego tableroDelJuego){
 
         this.escenario = escenario;
-        this.aplicacion = aplicacion;
         this.controles = new Controles();
         this.menuBar = new BarraDeMenu();
+        this.iniciar(tableroDelJuego);
+
     }
 
-    public void iniciar(String nombreJugador){
-        Jugador jugador = new Jugador(nombreJugador) ;
-
-        TableroDelJuego tableroDelJuego = new TableroDelJuego(jugador);
-
-        VistaTableroJuego matrizDeBotones = new VistaTableroJuego(tableroDelJuego);
+    public void iniciar(TableroDelJuego tableroDelJuego){
 
         BorderPane borderPane = new BorderPane();
 
