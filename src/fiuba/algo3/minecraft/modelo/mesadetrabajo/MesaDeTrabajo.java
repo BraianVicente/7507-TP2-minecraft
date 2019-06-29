@@ -44,16 +44,12 @@ public class MesaDeTrabajo extends Observable {
             throw new PosicionInvalidaException() ;
 
         }
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
+        update();
     }
 
     public void eliminarMaterialEnMesaEnPosicion(Posicion posicion){
         this.mesa.eliminarElemento(posicion);
-        super.setChanged();
-        super.notifyObservers();
-        super.clearChanged();
+        update();
     }
 
     public Posicionable obtenerMaterialEnPosicion(Posicion posicion){
@@ -64,9 +60,7 @@ public class MesaDeTrabajo extends Observable {
         if (listaDePlanos.contains(mesa)){
             Herramienta herramienta = listaDePlanos.get(listaDePlanos.indexOf(mesa)).construir();
             this.inicializarMesa();
-            super.setChanged();
-            super.notifyObservers();
-            super.clearChanged();
+            update();
             return herramienta ;
 
         }
@@ -81,9 +75,7 @@ public class MesaDeTrabajo extends Observable {
             Material material = (Material) mesa.obtenerElementoEnPosicion(posicion);
             inventario.agregarAlInventario(material);
             mesa.eliminarElemento(posicion);
-            super.setChanged();
-            super.notifyObservers();
-            super.clearChanged();
+            update();
         }
 
 
@@ -96,6 +88,10 @@ public class MesaDeTrabajo extends Observable {
                 quitarElemento(new Posicion(i,j));
             }
         }
+        update();
+    }
+
+    public void update(){
         super.setChanged();
         super.notifyObservers();
         super.clearChanged();
