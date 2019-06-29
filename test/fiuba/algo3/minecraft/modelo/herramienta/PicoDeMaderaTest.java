@@ -50,4 +50,25 @@ public class PicoDeMaderaTest {
 
     }
 
+    @Test
+    public void test05PicoDeMaderaNoEstaRotaInicialmente(){
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+
+        Assert.assertFalse(unPicoDeMadera.estaRota());
+
+    }
+
+    @Test
+    public void test06PicoDeMaderaSeRompeLuegoDeGolpearVariasVeces(){
+        Herramienta unPicoDeMadera = fabricaDeHerramientas.construirPicoDeMadera();
+        Diamante diamante = new Diamante();
+
+        for (int i = 0; i <= 49; i++){
+            unPicoDeMadera.desgastar(diamante);
+        }
+
+        Assert.assertTrue(unPicoDeMadera.estaRota());
+
+    }
+
 }

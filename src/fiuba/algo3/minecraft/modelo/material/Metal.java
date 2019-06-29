@@ -41,4 +41,13 @@ public class Metal extends Material {
         return true;
     }
 
+    public boolean estaRoto(){
+        if (durabilidad <= 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

@@ -50,4 +50,12 @@ public class PicoDeMetalTest {
 
     }
 
+    @Test
+    public void test05PicoDeMetalNoEstaRotaInicialmente(){
+        Herramienta unPicoDeMetal = fabricaDeHerramientas.construirPicoDeMetal();
+
+        Assert.assertFalse(unPicoDeMetal.estaRota());
+
+    }
+
 }

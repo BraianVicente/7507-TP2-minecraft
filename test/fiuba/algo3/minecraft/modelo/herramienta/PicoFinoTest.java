@@ -50,4 +50,12 @@ public class PicoFinoTest {
 
     }
 
+    @Test
+    public void test05PicoFinoNoEstaRotaInicialmente(){
+        Herramienta unPicoFino = fabricaDeHerramientas.construirPicoFino();
+
+        Assert.assertFalse(unPicoFino.estaRota());
+
+    }
+
 }
