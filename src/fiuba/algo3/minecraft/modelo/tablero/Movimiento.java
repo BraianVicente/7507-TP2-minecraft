@@ -71,7 +71,7 @@ public class Movimiento {
         if (mapa.posicionSeEncuentraOcupada(posicionDestino)){
             ((Jugador) jugador).golpearMaterial((Material) mapa.obtenerElementoEnPosicion(posicionDestino));
 
-            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).obtenerDurabilidad() <= 0){
+            if ( ((Material) mapa.obtenerElementoEnPosicion(posicionDestino)).estaRoto()){
                 mapa.eliminarElemento(posicionDestino);
                 mapa.agregarElemento(posicionDestino, new Vacio());
             }

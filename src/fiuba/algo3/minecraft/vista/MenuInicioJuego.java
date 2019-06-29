@@ -27,7 +27,7 @@ public class MenuInicioJuego {
     public static double alto;
 
     public MenuInicioJuego(Stage stage){
-        
+
         //Media sound = new Media(new File("src/fiuba/algo3/minecraft/vista/music/background.mp3").toURI().toString());
         //MediaPlayer mediaPlayer = new MediaPlayer(sound);
         //mediaPlayer.setAutoPlay(true);
