@@ -13,7 +13,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class MenuInicialJuego {
+public class MenuInicioJuego {
 
 
     private Stage escenario;
@@ -21,10 +21,10 @@ public class MenuInicialJuego {
     public static double ancho;
     public static double alto;
 
-    public MenuInicialJuego(Stage stage){
+    public MenuInicioJuego(Stage stage){
 
-        ancho =Screen.getPrimary().getVisualBounds().getWidth() *0.8;
-        alto =Screen.getPrimary().getVisualBounds().getHeight() *0.8;
+        ancho = Screen.getPrimary().getVisualBounds().getWidth() *0.8;
+        alto = Screen.getPrimary().getVisualBounds().getHeight() *0.8;
         this.escenario =stage;
         escenario.setTitle(tituloDeVentana);
 
