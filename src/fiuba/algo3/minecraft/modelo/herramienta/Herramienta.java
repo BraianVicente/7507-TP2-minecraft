@@ -32,4 +32,13 @@ public abstract class Herramienta extends Elemento {
         return this.materialConstruccion ;
     }
 
+    public boolean estaRota(){
+        if (obtenerDurabilidad() <= 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

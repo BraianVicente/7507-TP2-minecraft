@@ -51,4 +51,25 @@ public class HachaDePiedraTest {
 
     }
 
+    @Test
+    public void test05HachaDePiedraNoEstaRotaInicialmente(){
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+
+        Assert.assertFalse(unHachaDePiedra.estaRota());
+
+    }
+
+    @Test
+    public void test06HachaDePiedraSeRompeLuegoDeGolpearVariasVeces(){
+        Herramienta unHachaDePiedra = fabricaDeHerramientas.construirHachaDePiedra();
+        Diamante diamante = new Diamante();
+
+        for (int i = 0; i <= 39; i++){
+            unHachaDePiedra.desgastar(diamante);
+        }
+
+        Assert.assertTrue(unHachaDePiedra.estaRota());
+
+    }
+
 }
