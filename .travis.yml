@@ -21,4 +21,4 @@ notifications:
       - joaquin_andresen@icloud.com
       - fernando.fabbiano@gmail.com
     on_success: never
-    on_failure: always
+    on_failure: never
