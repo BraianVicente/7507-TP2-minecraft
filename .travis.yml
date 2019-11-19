@@ -12,13 +12,3 @@ branches:
   only:
   - master
   - /^deploy-.*$/
-
-notifications:
-  email:
-    recipients:
-      - bvicente@fi.uba.ar
-      - morgan_pirata2003@yahoo.com.ar
-      - joaquin_andresen@icloud.com
-      - fernando.fabbiano@gmail.com
-    on_success: never
-    on_failure: never
